@@ -1,0 +1,99 @@
+﻿@model UniversityDbCommon.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Credits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Student Name</th>
+                    <th>Quiz 1</th>
+                    <th>Quiz 2</th>
+                    <th>Quiz 3</th>
+                    <th>Midterm</th>
+                    <th>Project</th>
+                    <th>Final</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StudentID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Student.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Midterm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Final)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+        <dt></dt>
+
+        <dd>
+            @using (Html.BeginForm("AddStudent", "Course", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div>
+                        @Html.Hidden("id", Model.CourseID)
+                        @Html.TextBox("studentId")
+                        <input type="submit" value="Add Student" class="btn btn-default" />
+                        <p class="error">@ViewBag.ErrorMessage</p>
+                    </div>
+                </div>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

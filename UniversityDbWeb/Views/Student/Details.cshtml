@@ -1,0 +1,103 @@
+﻿@model UniversityDbCommon.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileImageUrl)
+        </dt>
+
+        <dd>
+            <img src="@Html.Raw(Model.ProfileImageUrl)" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstMidName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstMidName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enrollments)
+        </dt>
+
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Course Title</th>
+                    <th>Quiz 1</th>
+                    <th>Quiz 2</th>
+                    <th>Quiz 3</th>
+                    <th>Midterm</th>
+                    <th>Project</th>
+                    <th>Final</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Course.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quiz3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Midterm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Project)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Final)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

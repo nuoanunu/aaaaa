@@ -1,0 +1,10 @@
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\UniversityDbCommon.dll.config
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\UniversityDbCommon.dll
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\UniversityDbCommon.pdb
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\EntityFramework.dll
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\EntityFramework.SqlServer.dll
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\EntityFramework.xml
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\bin\Debug\EntityFramework.SqlServer.xml
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\obj\Debug\UniversityDbCommon.csprojResolveAssemblyReference.cache
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\obj\Debug\UniversityDbCommon.dll
+c:\visual studio 2015\Projects\UniversityDbCloudService\UniversityDbCommon\obj\Debug\UniversityDbCommon.pdb
