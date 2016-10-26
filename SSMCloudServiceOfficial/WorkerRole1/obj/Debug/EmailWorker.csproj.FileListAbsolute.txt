@@ -1,0 +1,408 @@
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll.config
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.pdb
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\MonAgentListener.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\de\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\es\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\fr\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\it\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ja\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ko\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\ru\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\obj\Debug\EmailWorker.csprojResolveAssemblyReference.cache
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll.config
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\DocX.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\MonAgentListener.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\obj\Debug\EmailWorker.csprojResolveAssemblyReference.cache
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll.config
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\DocX.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\itextsharp.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\MonAgentListener.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\itextsharp.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.pdb
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\csc.exe
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\System.Collections.Immutable.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\System.Reflection.Metadata.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\vbc.exe
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\VBCSCompiler.exe
+D:\SSMCloudService\WorkerRole1\bin\Debug\roslyn\VBCSCompiler.exe.config
+D:\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll.config
+D:\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\WorkerRole1.pdb
+D:\SSMCloudService\WorkerRole1\bin\Debug\DocX.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\EntityFramework.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\EntityFramework.SqlServer.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\itextsharp.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\SiteBanHang.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Optimization.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Mvc.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Owin.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\MonAgentListener.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\WebGrease.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Razor.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.Razor.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\Antlr3.Runtime.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\SiteBanHang.pdb
+D:\SSMCloudService\WorkerRole1\bin\Debug\EntityFramework.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\EntityFramework.SqlServer.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\itextsharp.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Edm.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.OData.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Newtonsoft.Json.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Spatial.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Optimization.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Mvc.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.Razor.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.Razor.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\Antlr3.Runtime.pdb
+D:\SSMCloudService\WorkerRole1\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\de\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\es\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\fr\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\it\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ja\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ko\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\ru\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\SSMCloudService\WorkerRole1\obj\Debug\EmailWorker.csprojResolveAssemblyReference.cache
+D:\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.dll
+D:\SSMCloudService\WorkerRole1\obj\Debug\WorkerRole1.pdb
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\csc.exe
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\System.Collections.Immutable.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\System.Reflection.Metadata.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\vbc.exe
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\VBCSCompiler.exe
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\roslyn\VBCSCompiler.exe.config
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\WorkerRole1.dll.config
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\WorkerRole1.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\WorkerRole1.pdb
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\DocX.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\EntityFramework.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\EntityFramework.SqlServer.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\itextsharp.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.Edm.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.OData.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Diagnostics.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Newtonsoft.Json.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\OpenPop.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\SiteBanHang.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Spatial.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Optimization.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Mvc.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Owin.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\MonAgentListener.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\WebGrease.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Razor.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.Razor.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Antlr3.Runtime.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\SiteBanHang.pdb
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\EntityFramework.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\EntityFramework.SqlServer.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\itextsharp.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.Edm.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.OData.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Data.Services.Client.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Newtonsoft.Json.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\OpenPop.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Spatial.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Optimization.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Mvc.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.Razor.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.Razor.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\Antlr3.Runtime.pdb
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\de\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\es\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\it\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\de\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\es\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\fr\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\it\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ja\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ko\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\ru\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hans\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\obj\Debug\EmailWorker.csprojResolveAssemblyReference.cache
+D:\SSMCloudServiceOfficial\WorkerRole1\obj\Debug\WorkerRole1.dll
+D:\SSMCloudServiceOfficial\WorkerRole1\obj\Debug\WorkerRole1.pdb

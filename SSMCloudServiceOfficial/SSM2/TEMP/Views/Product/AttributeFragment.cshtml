@@ -1,0 +1,73 @@
+﻿
+<div class="modal fade" id="AttributeDetail" role="dialog">
+    <div class="modal-dialog" id="attrpartial">
+        <div class="modal fade" id="@("AttributeDetail"+att.id)" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="width:900px">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="attrTitle"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <h2> <font style="font-family:Roboto-Light" id="attrName"> @att.name</font> </h2>
+                        <input type="hidden" value="@product.id" id="NewAttrProductId" />
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>
+                                    Options Name
+                                </th>
+                                <th>
+                                    Options
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+                            @foreach (attributeOption opt in att.attributeOptions)
+                            {
+                                <tr>
+                                    <td>
+                                        @opt.name
+                                    </td>
+                                    <td>
+                                        @opt.description
+                                    </td>
+                                    <td>
+                                        @opt.price
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Edit </button>
+
+                                        <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td> <input type="text" /></td>
+                                <td> <input type="text" /></td>
+                                <td> <input type="text" /></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>
+                                    <button onclick="AddNewOption()"> Add</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

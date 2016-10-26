@@ -1,0 +1,361 @@
+﻿@using SSM.Models;
+
+<link href="~/Content/fonts/css/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/animate.min.css" rel="stylesheet" />
+<link href="~/Content/custom.css" rel="stylesheet" />
+<link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="~/Content/maps/jquery-jvectormap-2.0.3.css" />
+<style>
+    body {
+        background-color: #F7F7F7;
+    }
+</style>
+<script src="~/Scripts/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
+<script src="~/Scripts/moment/moment.min.js"></script>
+<script src="~/Scripts/chartjs/chart.min.js"></script>
+<script src="~/Scripts/moris/raphael-min.js"></script>
+<script src="~/Scripts/moris/morris.min.js"></script>
+<script src="~/Scripts/pace/pace.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#dealtable").DataTable();
+    })
+</script>
+<div class="page-title">
+    <div class="title_left">
+        <h3>Requests <small> Listing</small></h3>
+    </div>
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>New request</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p>Un-asigned customer request</p>
+                <!-- start project list -->
+                <table id="dealtable" class="table table-striped projects">
+                    <thead>
+                        <tr>
+
+                            <th style="width: 20%">Customer Name</th>
+                            <th>Created Date</th>
+                            <th>Product</th>
+                            <th>Note</th>
+                            <th>Status</th>
+                            <th style="width: 20%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (Customer_Request request in (List<Customer_Request>)ViewData["NewRequest"])
+                        {
+                            <tr>
+
+                                <td>
+                                    <a>@request.contact.FirstName @request.contact.LastName</a>
+                                    <br />
+                                    <small>@request.contact.Street</small>
+                                </td>
+                                <td>@(((DateTime)request.CreatedDate).ToShortDateString())</td>
+                                <td>@request.productMarketPlan.softwareProduct.name</td>
+                                <td>@request.contact.Comment</td>
+                                <td>
+                                    @if (request.DealID == null)
+                                    {
+                                        <button type="button" class="btn btn-warning btn-xs">Waiting to be asigned</button>
+                                    }
+                                    else if (request.Deal.Deal_SaleRep_Respon.Count() == 0)
+                                    {
+                                        <button type="button" class="btn btn-primary btn-xs">Waiting  to be re-asigned</button>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Assign </a>
+
+                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+                <!-- end project list -->
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="x_panel fixed_height_320">
+            <div class="x_title">
+                <h2>Daily active users <small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="tile" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <th style="width:37%;">
+                                <span>Top 5</span>
+                            </th>
+                            <th>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                    <span class="hidden-small">Disbursement</span>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <span class="hidden-small">Progress</span>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                                <canvas id="canvas1" height="200" width="200" style="margin: 15px 10px 10px 0"></canvas>
+                            </td>
+                            <td>
+                                <table class="tile_info">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square green" style="color:#BDC3C7"></i>Win Request </p>
+                                            </td>
+                                            <td>@ViewData["WinRequest"]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square red" style="color:#9B59B6"></i>Lost Request </p>
+                                            </td>
+                                            <td>@ViewData["LostRequest"]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square purple" style="color:#455C73"></i>Unhandled </p>
+                                            </td>
+                                            <td>@ViewData["Unhandled"]%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p><i class="fa fa-square blue" style="color:#3498DB"></i>Processing </p>
+                                            </td>
+                                            <td>@ViewData["Processing"]%</td>
+                                        </tr>
+                           
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Visitors location <small>geo-presentation</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="dashboard-widget-content">
+                    <div class="col-md-4 hidden-small">
+                        <h2 class="line_30">125.7k Views from 60 countries</h2>
+                        <table class="countries_list">
+                            <tbody>
+                                <tr>
+                                    <td>United States</td>
+                                    <td class="fs15 fw700 text-right">33%</td>
+                                </tr>
+                                <tr>
+                                    <td>France</td>
+                                    <td class="fs15 fw700 text-right">27%</td>
+                                </tr>
+                                <tr>
+                                    <td>Germany</td>
+                                    <td class="fs15 fw700 text-right">16%</td>
+                                </tr>
+                                <tr>
+                                    <td>Spain</td>
+                                    <td class="fs15 fw700 text-right">11%</td>
+                                </tr>
+                                <tr>
+                                    <td>Britain</td>
+                                    <td class="fs15 fw700 text-right">10%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12" style="height:230px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/maps/jquery-jvectormap-2.0.3.min.js"></script>
+<script type="text/javascript" src="~/Scripts/maps/gdp-data.js"></script>
+<script type="text/javascript" src="~/Scripts/maps/jquery-jvectormap-world-mill-en.js"></script>
+<script type="text/javascript" src="~/Scripts/maps/jquery-jvectormap-us-aea-en.js"></script>
+<script src="~/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<!-- icheck -->
+<script src="~/Scripts/icheck/icheck.min.js"></script>
+<script src="~/Scripts/custom.js"></script>
+<!-- pace -->
+
+<script src="~/Scripts/sparkline/jquery.sparkline.min.js"></script>
+<script>
+    $('document').ready(function () {
+        $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+            type: 'bar',
+            height: '40',
+            barWidth: 9,
+            colorMap: {
+                '7': '#a1a1a1'
+            },
+            barSpacing: 2,
+            barColor: '#26B99A'
+        });
+
+        $(".sparkline_two").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+            type: 'line',
+            width: '200',
+            height: '40',
+            lineColor: '#26B99A',
+            fillColor: 'rgba(223, 223, 223, 0.57)',
+            lineWidth: 2,
+            spotColor: '#26B99A',
+            minSpotColor: '#26B99A'
+        });
+
+        Chart.defaults.global.legend = {
+            enabled: false
+        };
+
+        var data = {
+            labels: [
+              "WinRequest",
+              "LostRequest",
+              "Unhandled",
+              "Processing"
+            ],
+            datasets: [{
+                data: [@ViewData["WinRequest"], @ViewData["LostRequest"], @ViewData["Unhandled"], @ViewData["Processing"]],
+                backgroundColor: [
+                  "#BDC3C7",
+                  "#9B59B6",
+                  "#455C73",
+                  "#3498DB"
+                ],
+                hoverBackgroundColor: [
+                  "#CFD4D8",
+                  "#B370CF",
+                  "#34495E",
+                  "#36CAAB",
+                ]
+
+            }]
+        };
+
+        var canvasDoughnut = new Chart(document.getElementById("canvas1"), {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: data
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+      $('#world-map-gdp').vectorMap({
+        map: 'world_mill_en',
+        backgroundColor: 'transparent',
+        zoomOnScroll: false,
+        series: {
+          regions: [{
+            values: gdpData,
+            scale: ['#E6F2F0', '#149B7E'],
+            normalizeFunction: 'polynomial'
+          }]
+        },
+        onRegionTipShow: function(e, el, code) {
+          el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+        }
+      });
+    });
+</script>

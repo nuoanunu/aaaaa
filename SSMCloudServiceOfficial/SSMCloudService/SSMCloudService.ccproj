@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>2.9</ProductVersion>
+    <ProjectGuid>85d7d1fb-9769-4e0d-8dca-04e2e3de9473</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SSMCloudService</RootNamespace>
+    <AssemblyName>SSMCloudService</AssemblyName>
+    <StartDevelopmentStorage>True</StartDevelopmentStorage>
+    <Name>SSMCloudService</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.Local.cscfg" />
+    <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiteBanHang\SiteBanHang.csproj">
+      <Name>SiteBanHang</Name>
+      <Project>{08fe82ab-e610-454d-a4be-c4eb297463ec}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>SiteBanHang</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\SSM\TEMP\SSM.csproj">
+      <Name>SSM</Name>
+      <Project>{92bf591b-f32f-4308-876d-8475d42491cb}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>SSM</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\WebRole1\CustomerPortal.csproj">
+      <Name>CustomerPortal</Name>
+      <Project>{78f08a13-984c-4cb7-a966-1fc107fd4a84}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>CustomerPortal</RoleName>
+    </ProjectReference>
+    <ProjectReference Include="..\WorkerRole1\EmailWorker.csproj">
+      <Name>EmailWorker</Name>
+      <Project>{c29b221c-4649-4e21-89ee-d79074ca5d14}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>EmailWorker</RoleName>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomerPortalContent" />
+    <Folder Include="EmailWorkerContent" />
+    <Folder Include="ManagementPortalContent\" />
+    <Folder Include="SiteBanHangContent\" />
+    <Folder Include="SSMContent\" />
+  </ItemGroup>
+  <ItemGroup>
+    <DiagnosticsConfiguration Include="CustomerPortalContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="EmailWorkerContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="ManagementPortalContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="SiteBanHangContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="SSMContent\diagnostics.wadcfgx" />
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\2.9\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+</Project>

@@ -1,0 +1,824 @@
+﻿@using SSM.Models;
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/Content/fonts/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: white;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                display: none;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #4ef84e;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #4ef84e;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                display: none;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #4ef84e;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #4ef84e;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+    </style>
+
+
+    <script src="~/Scripts/chartjs/chart.min.js"></script>
+    <script src="~/Scripts/moris/raphael-min.js"></script>
+    <script src="~/Scripts/moris/morris.min.js"></script>
+    <script src="~/Scripts/pace/pace.min.js"></script>
+    <script>
+        function format2(n, currency) {
+            return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+        }
+        function updatePrice() {
+            // alert("haiz");
+            try {
+                var money = 0;
+                $(".optionChosen").each(function (i) {
+
+                    var selectid = $(this).attr("id");
+                    var priceid = $(this).val() + "optionprice";
+                    var pricelabelid = selectid + "priceshow";
+
+                    $("#" + pricelabelid).text(format2(parseFloat($("#" + priceid).val()),'$'));
+                    if (parseFloat($("#" + priceid).val()) >0) {
+                        money = money + parseFloat($("#" + priceid).val());
+                    }
+
+                });
+                $("#totalprice").text(money.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")+"");
+            }
+            catch(err) {
+
+            }
+
+        }
+
+        setInterval(updatePrice, 200);
+        function createNewPlan() {
+            var productID = $("#NewMarketPlanProductId").val();
+            var planName = $("#newMarketPlanName").val();
+            var price = $("#totalprice").text();
+            var floorPrice = $("#floorPrice").val();
+            var ceilPrice = $("#ceilPrice").val();
+            var optionIds = "";
+            var newMarketPlanDes = $("#newMarketPlanDes").val();
+            $(".optionChosen").each(function (i) {
+
+                var selectid = $(this).val();
+                optionIds = optionIds + selectid + ";";
+
+            });
+            alert(optionIds);
+            $.getJSON("/Product/CreateNewMarketPlan?productID=" + productID + "&planName=" + planName + "&price=" + price + "&floorPrice=" + floorPrice + "&ceilPrice=" + ceilPrice + "&optionIds=" + optionIds + "&newMarketPlanDes=" + newMarketPlanDes, function (data) {
+                $.each(data, function (key, value) {
+                    if (key == "result") {
+                        if (value == "true") {
+                            window.location = "/Product/Detail?id=" + productID;
+
+
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                })
+            });
+
+        }
+
+        function editplan(id) {
+            window.location = "/Product/EditPlan?planID=" + id;
+        }
+    </script>
+</head>
+
+@if (ViewData["productDetail"] != null)
+{ 
+    softwareProduct product = (softwareProduct)ViewData["productDetail"];
+    <input type="hidden" id="productBasePrice" value="@product.unitPrice" />
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Product Detail</h3>
+            </div>
+            @*<div class="title_right">
+                    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <!-- end of image cropping -->
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    <div class="avatar-view" title="Change the avatar">
+                                        <img src="@product.screenShots" alt="Avatar">
+                                    </div>
+                                    <!-- Cropping modal -->
+                                    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+                                                    <div class="modal-header">
+                                                        <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                                        <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="avatar-body">
+                                                            <!-- Upload image and data -->
+                                                            <div class="avatar-upload">
+                                                                <input class="avatar-src" name="avatar_src" type="hidden">
+                                                                <input class="avatar-data" name="avatar_data" type="hidden">
+                                                                <label for="avatarInput">Local upload</label>
+                                                                <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                                                            </div>
+                                                            <!-- Crop and preview -->
+                                                            <div class="row">
+                                                                <div class="col-md-9">
+                                                                    <div class="avatar-wrapper"></div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="avatar-preview preview-lg"></div>
+                                                                    <div class="avatar-preview preview-md"></div>
+                                                                    <div class="avatar-preview preview-sm"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row avatar-btns">
+                                                                <div class="col-md-9">
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees">Rotate Left</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="-15" type="button">-15deg</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="-30" type="button">-30deg</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="-45" type="button">-45deg</button>
+                                                                    </div>
+                                                                    <div class="btn-group">
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees">Rotate Right</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="15" type="button">15deg</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="30" type="button">30deg</button>
+                                                                        <button class="btn btn-primary" data-method="rotate" data-option="45" type="button">45deg</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <button class="btn btn-primary btn-block avatar-save" type="submit">Done</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="modal-footer">
+                                                                      <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+                                                                    </div> -->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal -->
+                                    <!-- Loading state -->
+                                    <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+                                </div>
+                                <!-- end of image cropping -->
+                            </div>
+                            <h3>@product.name</h3>
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    SKU: @product.SKU
+                                </li>
+                                <li>
+                                    Title: @product.shortDescription
+                                </li>
+                                <li>
+                                    Price:  @(product.unitPrice.ToString("C"))
+                                </li>
+
+
+                            </ul>
+                            <a class="btn btn-success">Edit Product</a>
+                            <br />
+                            <!-- start skills -->
+                            <h4>Description</h4>
+                            <ul class="list-unstyled user_data">
+                                <textare>
+                                    @product.fullDescription
+                                </textare>
+                            </ul>
+                            <!-- end of skills -->
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="profile_title">
+                                <div class="col-md-6">
+                                    <h2>Sales Report</h2>
+                                </div>
+
+                            </div>
+                            <!-- start of user-activity-graph -->
+                            <div id="graph_bar" style="width:100%; height:280px;"></div>
+                            <!-- end of user-activity-graph -->
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Attributes</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Market Plan</a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Follow-up Progress</a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Atttribute Name</th>
+                                                    <th>Description</th>
+                                                    <th>No. Of Options</th>
+                                                    <th>Minimum Price</th>
+                                                    <th>Maximum Price</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (productAttribute att in product.productAttributes)
+                                                {
+                                                    <tr>
+                                                        <td>@att.name</td>
+                                                        <td>@att.description</td>
+                                                        <td>@att.attributeOptions.Count()</td>
+                                                        @if (att.attributeOptions.Count() > 0)
+                                                        {
+                                                            <td>@att.attributeOptions.FirstOrDefault().price.ToString("C")</td>
+                                                            <td>@att.attributeOptions.LastOrDefault().price.ToString("C")</td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td>0</td>
+                                                            <td>0</td>
+                                                        }
+                                                        <td>
+                                                            <button data-toggle="modal" data-target="#@("AttributeDetail"+att.id)" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Edit </button>
+
+                                                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                                        </td>
+                                                    </tr>
+
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Plan Name</th>
+                                                    <th>Created Date</th>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                    <th>Floor Price</th>
+                                                    <th>Ceil Price</th>
+                                                    <th>Total successfull deal</th>
+                                                    <th>Is Active</th>
+                                                    <th>Detail</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (productMarketPlan plan in product.productMarketPlans)
+                                                {
+                                                    String backgroundcolor = "#ffffff";
+                                                    String isactie = "No";
+                                                    if (plan.operating) { isactie = "Yes"; }
+
+                                                    <tr style="background-color:@(backgroundcolor)">
+                                                        <td>@plan.Name</td>
+                                                        <td>@plan.CreatedDay.ToShortDateString()</td>
+                                                        <td>@plan.Description</td>
+                                                        <td>@plan.Price.ToString("C")</td>
+                                                        <td>@plan.ceilPrice.ToString("C")</td>
+                                                        <td>@plan.floorprice.ToString("C")</td>
+                                                        <td>@plan.Deal_Item.Count()</td>
+                                                        <td>
+                                                            @if (plan.operating)
+                                                            {
+                                                                <label class="switch">
+                                                                    <input id="@("oper" + plan.id)" type="checkbox" class="PlanActiveSwitch" checked>
+                                                                    <div onclick="updateMarketPlan(@plan.id)" class="slider round"></div>
+                                                                </label>
+                                                            }
+                                                            else
+                                                            {
+                                                                <label class="switch">
+                                                                    <input id="@("oper" + plan.id)" type="checkbox">
+                                                                    <div onclick="updateMarketPlan(@plan.id)" class="slider round"></div>
+                                                                </label>
+                                                            }
+                                                        </td>
+
+                                                        <td> <a href="/Product/MarketPlanDetail?id=@(plan.id)">Detail</a></td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+
+                                        </table>
+                                        <!-- end user projects -->
+                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newMarketPlanModal">New Market Plan</button>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                        <table class="data table table-striped no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Plan Name</th>
+                                                    <th>Created Date</th>
+                                                    <th>Description</th>
+                                                    <th>Number of steps</th>
+
+                                                    <th>Is Active</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (PrePurchase_FollowUp_Plan plan in product.PrePurchase_FollowUp_Plan)
+                                                {
+                                                    String backgroundcolor = "#ffffff";
+                                                    String isactie = "No";
+                                                    if (plan.isOperation) { isactie = "Yes"; }
+
+                                                    <tr style="background-color:@(backgroundcolor)">
+                                                        <td>@plan.name</td>
+                                                        <td>@plan.createDate.ToShortDateString()</td>
+                                                        <td>@plan.Description</td>
+                                                        <td>@plan.Plan_Step.Count()</td>
+
+                                                        <td>
+                                                            @if (plan.isOperation)
+                                                            {
+                                                                <label class="switch">
+                                                                    <input id="@("oper" + plan.id)" type="checkbox" class="FPlanActiveSwitch" checked>
+                                                                    <div onclick="updatePrePlan(@plan.id)" class="slider round"></div>
+                                                                </label>
+                                                            }
+                                                            else
+                                                            {
+                                                                <label class="switch">
+                                                                    <input id="@("oper" + plan.id)" class="FPlanActiveSwitch" type="checkbox">
+                                                                    <div onclick="updatePrePlan(@plan.id)" class="slider round"></div>
+                                                                </label>
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                        <button type="button" onclick="redirectToNewPlan()" class="btn btn-info btn-lg">New Follow-up Progress</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    foreach (productAttribute att in product.productAttributes)
+    {
+                <div class="modal fade" id="@("AttributeDetail"+att.id)" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content" style="width:900px">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="attrTitle"></h4>
+                            </div>
+                            <div class="modal-body">
+                                <h2> <font style="font-family:Roboto-Light" id="attrName"> @att.name</font> </h2>
+                                <input type="hidden" value="@product.id" id="NewAttrProductId" />
+                                <table class="table table-striped table-bordered">
+                                    <tr>
+                                        <th>
+                                            Options Name
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+                                    @foreach (attributeOption opt in att.attributeOptions)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @opt.name
+                                            </td>
+                                            <td>
+                                                @opt.description
+                                            </td>
+                                            <td>
+                                                @opt.price.ToString("C")
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td> <input type="text" /></td>
+                                        <td> <input type="text" /></td>
+                                        <td> <input type="text" /></td>
+                                        <td><button class="btn btn-success" onclick="AddNewOption()"> Add</button>  </td>
+                                    </tr>
+
+                                 
+                                </table>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+          
+    }
+    <script>
+        function LoadAttri (MyAttrID) {
+            $.ajax({
+                type: 'POST',
+                url: "/Product/AttributeDetail?id="+MyAttrID,
+               
+                success: function (data) {
+                    $('#attrpartial').innerHTML = data;
+                }
+            });
+            $("#AttributeDetail").show();
+        }
+    </script>
+    if (ViewData["productperformance"] != null)
+    {
+        List<double> lst = (List<double>)ViewData["productperformance"];
+        <script>
+            $(function() {
+                var day_data = [{
+                    "period": "Jan",
+                    "Total Values": @lst[0]
+                    }, {
+                        "period": "Feb",
+                        "Total Values": @lst[1]
+                        }, {
+                            "period": "Mar",
+                            "Total Values": @lst[2]
+                            }, {
+                                "period": "Apr",
+                                "Total Values": @lst[3]
+                                }, {
+                                    "period": "May",
+                                    "Total Values": @lst[4]
+                                    }, {
+                                        "period": "Jun",
+                                        "Total Values": @lst[5]
+                                        }, {
+                                            "period": "Jul",
+                                            "Total Values": @lst[6]
+                                            }, {
+                                                "period": "Aug",
+                                                "Total Values": @lst[7]
+                                                }, {
+                                                    "period": "Sep",
+                                                    "Total Values": @lst[8]
+                                                    }, {
+                                                        "period": "Oct",
+                                                        "Total Values": @lst[9]
+                                                        }, {
+                                                            "period": "Nov",
+                                                            "Total Values": @lst[10]
+                                                            }, {
+                                                                "period": "Dec",
+                                                                "Total Values": @lst[11]
+                                                                }];
+                Morris.Bar({
+                    element: 'graph_bar',
+                    data: day_data,
+                    xkey: 'period',
+                    hideHover: 'auto',
+                    barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+                    ykeys: ['Total Values', 'sorned'],
+                    labels: ['Total Values', ''],
+                    xLabelAngle: 60
+                });
+            });
+        </script>
+    }
+
+    <div class="modal fade" id="newMarketPlanModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width:900px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Market Plan</h4>
+                </div>
+                <div class="modal-body">
+                    <h2> <font style="font-family:Roboto-Light"> @product.name </font> </h2>
+                    <input type="hidden" value="@product.id" id="NewMarketPlanProductId" />
+                    <label> Plan Name </label> <input type="text" id="newMarketPlanName" value="" />
+                    <label> Description</label> <input type="text" id="newMarketPlanDes" value="" />
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>
+                                Atttribute Name
+                            </th>
+                            <th>
+                                Options
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                        </tr>
+                        @foreach (productAttribute att in product.productAttributes.ToList())
+                        {
+                            <tr>
+                                <td>
+                                    @att.name
+
+                                </td>
+                                <td>
+                                    <select name="Foo" id="@(att.id + "option")" class="optionChosen">
+                                        @foreach (attributeOption opt in att.attributeOptions.ToList())
+                                        {
+                                            <option value="@opt.id">@opt.name</option>
+
+                                        }
+
+                                    </select>
+                                    @foreach (attributeOption opt in att.attributeOptions.ToList())
+                                    {
+
+                                        <input value="@opt.price" type="hidden" id="@(opt.id+"optionprice")" />
+                                    }
+                                </td>
+                                <td>
+                                    <label id="@(att.id+"optionpriceshow")" class="optprice"></label>
+                                </td>
+                            </tr>
+                        }
+
+                        <tr>
+                            <td colspan="2">
+                                Total Price
+                            </td>
+                            <td> <label id="totalprice"></label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Floor Price
+                            </td>
+                            <td> <input type="text" id="floorPrice" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Ceil Price
+                            </td>
+                            <td> <input type="text" id="ceilPrice" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>
+                                <button onclick="createNewPlan()"> Add</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function redirectToNewPlan() {
+            window.location = "/Product/NewPlan?productID="+ @product.id;
+        }
+
+    </script>
+    <script>
+
+        function AddNewOpt(id) {
+            var newOptCode = $("#" + id + "NewOptCode").val();
+            var newOptName = $("#" + id + "NewOptName").val();
+            var newOptDescription = $("#" + id + "NewOptDes").val();
+            var newOptPrice = $("#" + id + "NewOptPrice").val();
+            var trString = '<tr><td>' + newOptName + '<input type="hidden" id="' + id + 'EditOptName" /></td><td>' + newOptCode + '<input type="hidden" id="' + id + 'EditOptCode" /></td><td>' + newOptDescription + '<input type="hidden" id="' + id + 'EditOptDes" /></td><td>' + newOptPrice + '<input type="hidden" id="' + id + 'EditOptPrice" /></td><td><button onclick="Edit(' + id + ')">Edit</button><button hidden="hidden" onclick="ConfirmEdit(' + id + ')">Confirm</button></td></tr>'
+            $.getJSON("/Product/CreateNewOption?attID=" + id + "&optCode=" + newOptCode + "&optname=" + newOptName + "&optdes=" + newOptDescription + "&optprice=" + newOptPrice, function (data) {
+                $.each(data, function (key, value) {
+                    if (key == "result") {
+                        if (value == "true") {
+
+                            $('#' + id + 'OptTable').append(trString);
+
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                })
+            });
+
+        }
+        function AddAttr(id) {
+            var newAttCode = $("#NewAttrCode").val();
+            var newAttName = $("#NewAttrName").val();
+            var newAttDescription = $("#Description").val();
+            $.getJSON("/Product/CreateNewAtt?productID=" + id + "&attname=" + newAttName + "&attcode=" + newAttCode + "&attdes=" + newAttDescription, function (data) {
+                $.each(data, function (key, value) {
+                    if (key == "result") {
+                        if (value == "true") {
+
+                            window.location = "/Product/Detail?id=" + id;
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                })
+            });
+        }
+        function updateMarketPlan(id){
+            $.getJSON("/Product/MarketPlanSwitchStatus?id="+id, function (result) {
+                $.each(result, function (name, value) {
+                    if (name == "result") {
+                        if(value == "succeed") {
+
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                });
+            });
+        }
+        function updatePrePlan(id){
+            $.getJSON("/Product/PrePlanSwitchStatus?id="+id, function (result) {
+                $.each(result, function (name, value) {
+                    if (name == "result") {
+                        if(value == "succeed") {
+                            $(".FPlanActiveSwitch").each(function(){
+                                if( $(this).attr('id') != "oper"+id) {
+                                    $(this).prop( "checked", false );
+                                }
+                            })
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                });
+            });
+        }
+        $(document).ready(function (){
+
+            $(".PlanActiveSwitch").each(function(){
+                $(this).change (function (){
+                    var id = $(this).val().replace("oper","")
+
+                });
+            });
+        });
+    </script>
+
+}
+
+

@@ -1,0 +1,558 @@
+﻿@using SSM.Models;
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/animateDroper.css" rel="stylesheet" />
+    <link href="~/Content/fonts/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
+  
+    <script>
+        function testAnim() {
+            $('#animationSandbox').removeClass().addClass('bounceOut animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                $(this).removeClass();
+            });
+        };
+        function allowDrop(ev) {
+            ev.preventDefault();
+
+        }
+        function drag(ev) {
+
+            ev.dataTransfer.setData("DroperID", ev.target.id);
+
+        }
+        function removeStyle(ev) {
+
+        }
+        function drop(ev) {
+            testAnim();
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("DroperID");
+
+            var content = $("#" + data).find("h2").text();
+
+            var divid = ev.target.id;
+
+            var targetid = $("#" + divid).find("input").val();
+
+            tinyMCE.get(targetid).setContent(content);
+
+            $("#" + targetid).val(document.getElementById("steps_0__StepEmailContent_ifr").contentWindow.document.body.innerHTML);
+
+        }
+        function updatecontain() {
+            for (var i = 0 ; i < 9 ; i++) {
+                var content = document.getElementById("steps_0__StepEmailContent_ifr").contentWindow.document.body.innerHTML;
+                if (content.Lenght > 40) {
+                    $("#steps_" + i + "__StepEmailContent").val(content);
+                }
+                else {
+                    $("#steps_" + i + "__StepEmailContent").val("");
+                }
+            }
+        }
+        setInterval(updatecontain(), 500);
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Smart Wizard
+            $('#wizard').smartWizard();
+
+            function onFinishCallback() {
+                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+                //alert('Finish Clicked');
+            }
+        });
+
+        $(document).ready(function () {
+            // Smart Wizard
+            $('#wizard_verticle').smartWizard({
+                transitionEffect: 'slide'
+            });
+
+        });
+    </script>
+
+    <style>
+        body {
+            background: white;
+        }
+    </style>
+    <script>
+        function Plan(id) {
+            var newname = $("#planname");
+            var plandescription = $("#planname");
+            for (var i = 1; i < 12 ; i++) {
+
+            }
+        }
+    </script>
+</head>
+@using (Html.BeginForm("CreateNewProgress", "Product", FormMethod.Post))
+{@model SSM.Models.TempModel.FollowupProgressModel
+    @Html.HiddenFor(Model => Model.productID, new { @value = ViewData["Product"] })
+    
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Edit follow-up progress</h3>
+            </div>
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Details<small> Descriptions</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+
+                            <li class="dropdown">
+                                <button style="width:80px" type="submit" class="btn btn-success">Create</button>
+
+                            </li>
+                            <li>
+                                <button style="width:80px" type="button" class="btn btn-danger">Cancel</button>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        Process Name
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(model => model.Name, new { @style = "width:80%;max-width:5000px" } )
+                                    </td>
+                                    <td rowspan="3" align="center">
+                                        Process Description
+                                    </td>
+                                    <td width="50%" rowspan="3" align="left">
+                                        @Html.TextAreaFor(model => model.Desription, new { @style = "width:100%;max-width:5000px" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Created Day
+                                    </td>
+                                    <td>
+                                        @DateTime.Today.ToShortDateString()
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Creator
+                                    </td>
+                                    <td>
+                                        @User.Identity.Name
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Mail templates<small>Drag mail template to text box to create content</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="#">Settings 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="row">
+                            @foreach (EMAIL_Category templatelist in (List<EMAIL_Category>)ViewData["MailCate"])
+                            {
+                                <div class="col-sm-3 pre-scrollable" style="max-height:200px;height:200px">
+                                    <div class="x_title">
+                                        <h2>@templatelist.Name</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
+
+                                    <ul class="list-unstyled top_profiles scroll-view" tabindex="5001" style="overflow: hidden; outline: none; cursor: -webkit-grab;">
+                                        @foreach (Email_Template template in templatelist.Email_Template)
+                                        {
+                                            <li class="media event" draggable="true" ondragstart="drag(event)" id="@("li" + template.id)">
+                                                <h2 style="display:none">@template.MailContent</h2>
+                                                <a class="pull-left border-aero profile_thumb">
+                                                    <i class="fa fa-file-text aero"></i>
+                                                </a>
+                                                <div class="media-body">
+                                                    <a class="title">@template.Name</a>
+
+                                                    @if (template.createdDate != null)
+                                                    {    <p>
+                                                        <strong>
+                                                            @( ((DateTime)template.createdDate).ToShortDateString() )
+                                                        </strong> @template.creatorID
+                                                    </p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>
+                                                            <strong>
+                                                                Created Date: unknown
+                                                            </strong> @template.creatorID
+                                                        </p>
+                                                    }
+
+                                                    @if (template.lastUpdate != null)
+                                                    {    <p>
+                                                        <small>Last update: @( ((DateTime)template.lastUpdate).ToShortDateString() )</small>
+                                                    </p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>
+                                                            <small>Last update: Not yet</small>
+                                                        </p>
+                                                    }
+
+                                                </div>
+                                            </li>
+                                        }
+
+
+
+
+                                    </ul>
+                                </div>
+                            }
+                            <div class="col-sm-3 pre-scrollable" style="max-height:200px;height:200px">
+                                <div class="x_title">
+                                    <h2>Top Profiles</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">Settings 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <ul class="list-unstyled top_profiles scroll-view" tabindex="5001" style="overflow: hidden; outline: none; cursor: -webkit-grab;">
+                                    <li class="media event">
+                                        <a class="pull-left border-aero profile_thumb">
+                                            <i class="fa fa-user aero"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Draggable</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-green profile_thumb">
+                                            <i class="fa fa-user green"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-blue profile_thumb">
+                                            <i class="fa fa-user blue"></i>
+                                        </a>
+                                        <div class="media-body" draggable="true" ondragstart="drag(event)">
+                                            <a class="title" href="#">Grag dc ne2   </a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-aero profile_thumb">
+                                            <i class="fa fa-user aero"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-green profile_thumb">
+                                            <i class="fa fa-user green"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 pre-scrollable" style="max-height:200px;height:200px">
+                                <div class="x_title">
+                                    <h2>Top Profiles</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">Settings 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <ul class="list-unstyled top_profiles scroll-view" tabindex="5001" style="overflow: hidden; outline: none; cursor: -webkit-grab;">
+                                    <li class="media event">
+                                        <a class="pull-left border-aero profile_thumb">
+                                            <i class="fa fa-user aero"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Draggable</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-green profile_thumb">
+                                            <i class="fa fa-user green"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-blue profile_thumb">
+                                            <i class="fa fa-user blue"></i>
+                                        </a>
+                                        <div class="media-body" draggable="true" ondragstart="drag(event)">
+                                            <a class="title" href="#">Grag dc ne2   </a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-aero profile_thumb">
+                                            <i class="fa fa-user aero"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media event">
+                                        <a class="pull-left border-green profile_thumb">
+                                            <i class="fa fa-user green"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <a class="title" href="#">Ms. Mary Jane</a>
+                                            <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                            <p>
+                                                <small>12 Sales Today</small>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+
+
+                        <h2>Progress</h2>
+                        <!-- Tabs -->
+                        <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                            <div class="row"></div>
+
+                            <ul class="list-unstyled wizard_steps" style="height:100vh;max-height:100vh">
+                                @for (int i = 0; i < Model.steps.Count(); i++)
+                                {
+                                    <li id="steptitle-@(i)">
+                                        <a href="#stepcontent-@(i + 1)">
+                                            <span class="step_no">@(i + 1)</span>
+                                        </a>
+                                    </li>
+                                }
+
+
+
+
+                            </ul>
+                            @for (int i = 0; i < Model.steps.Count(); i++)
+                            {
+                                <div id="@("stepcontent-" + Model.steps[i].stepNo )" style="width:100%">
+                                    <h2 class="StepTitle">Step @Model.steps[i].stepNo  Content</h2>
+                                    <div class="form-horizontal form-label-left">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3" for="first-name">
+                                                Time from last Step
+                                            </label>
+                                            <div class="col-md-3 col-sm-3">
+                                                @Html.TextBoxFor(m => Model.steps[i].TimeFromLastStep, new { @class = "form-control col-md-7 col-xs-12" })
+                                            </div>
+                                            <div id="@("div"+i)" class="col-md-3 col-sm-3" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="removeStyle(event)">
+                                                <span id="animationSandbox" style="display: block;" class="">
+                                                    <h1 id="@("div"+i)" class="site__title mega" style="font-size:30px">Drop template here</h1>
+                                                </span>
+                                                <input type="hidden" value='steps_@(i)__StepEmailContent' />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3" for="first-name">
+                                                Required More Information
+                                            </label>
+                                            <div class="col-md-6 col-sm-6">
+                                                @Html.CheckBoxFor(Model => Model.steps[i].RequireMoreDetail)
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3" for="first-name">
+                                                Content
+                                            </label>
+                                            <div class="col-md-8 col-sm-8 " ondrop="drop(event)" ondragover="allowDrop(event)">
+                                                @Html.TextAreaFor(m => Model.steps[i].StepEmailContent, new { @class = "form-control col-md-7 col-xs-12", ondrop = "drop(event)", ondragover = "allowDrop(event)", ondragleave = "removeStyle(event)" })
+                                            </div>
+
+                                            <script>
+                                                $(document).ready(function () {
+                                                    tinymce.init({
+                                                        selector: 'textarea#' + "steps_@(i)__StepEmailContent",
+
+                                                        height: 200,
+                                                        plugins: [
+                                                          'advlist autolink lists link image charmap print preview anchor',
+                                                          'searchreplace visualblocks code fullscreen',
+                                                          'insertdatetime media table contextmenu paste code'
+                                                        ],
+                                                        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                                        content_css: '//www.tinymce.com/css/codepen.min.css'
+
+
+                                                    });
+
+                                                })
+
+
+                                            </script>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3" for="first-name">
+                                                <button class="btn btn-danger" type="button" onclick="clearcontent(@i)"> Clear</button>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+
+
+                        </div>
+
+                        <!-- End SmartWizard Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function clearcontent(id) {
+
+
+            tinyMCE.get("steps_" + id + "__StepEmailContent").setContent("");
+        }
+        function hidesteps() {
+            for (var i = 5 ; i < 8 ; i++) {
+                var textare = $("#steps_" + i + "__StepEmailContent");
+                if (textare.val().trim() == "") {
+
+                    $("#steptitle-" + i).hide();
+
+                }
+                else {
+
+
+                    $("#steptitle-" + i).show();
+
+                }
+            }
+        }
+        setInterval(hidesteps, 200);
+    </script>
+}

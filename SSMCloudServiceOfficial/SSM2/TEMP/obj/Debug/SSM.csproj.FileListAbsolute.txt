@@ -1,0 +1,427 @@
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\ApplicationInsights.config
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\csc.exe
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\vbc.exe
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\VBCSCompiler.exe
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\SSM.dll.config
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\SSM.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\SSM.pdb
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Antlr3.Runtime.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\EntityFramework.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\EntityFramework.SqlServer.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.Web.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.ApplicationInsights.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Newtonsoft.Json.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Owin.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Helpers.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Mvc.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Optimization.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Razor.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.Razor.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\WebGrease.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.Web.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.ApplicationInsights.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Helpers.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Mvc.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Optimization.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Razor.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.WebPages.Razor.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Antlr3.Runtime.pdb
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\EntityFramework.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\EntityFramework.SqlServer.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\obj\Debug\SSM.csprojResolveAssemblyReference.cache
+C:\Users\NhatVHN\Desktop\SSM\TEMP\obj\Debug\SSM.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\obj\Debug\SSM.pdb
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\ApplicationInsights.config
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\csc.exe
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\vbc.exe
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\SSM.dll.config
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\SSM.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\SSM.pdb
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Antlr3.Runtime.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\EntityFramework.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.Web.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Newtonsoft.Json.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Owin.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Helpers.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Mvc.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Optimization.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Razor.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\WebGrease.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.Web.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Helpers.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Mvc.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Optimization.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.Razor.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Antlr3.Runtime.pdb
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Newtonsoft.Json.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\EntityFramework.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\obj\Debug\SSM.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\obj\Debug\SSM.dll
+C:\Users\Nguyen Nhat\Documents\SSM\TEMP\obj\Debug\SSM.pdb
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ApplicationInsights.config
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\csc.exe
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\vbc.exe
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\SSM.dll.config
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\SSM.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\SSM.pdb
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Antlr3.Runtime.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\EntityFramework.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.Web.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Newtonsoft.Json.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Owin.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Helpers.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Mvc.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Optimization.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Razor.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\WebGrease.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.Web.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Helpers.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Mvc.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Optimization.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Razor.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Antlr3.Runtime.pdb
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Newtonsoft.Json.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\EntityFramework.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\obj\Debug\SSM.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\obj\Debug\SSM.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\obj\Debug\SSM.pdb
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\DocX.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\DocX.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Hangfire.Core.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Hangfire.SqlServer.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Hangfire.Core.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Hangfire.SqlServer.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\es\Hangfire.Core.resources.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\zh\Hangfire.Core.resources.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Http.Common.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Web.Http.Common.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Hangfire.Core.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Hangfire.SqlServer.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Http.Common.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Hangfire.Core.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Hangfire.SqlServer.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Web.Http.Common.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\es\Hangfire.Core.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh\Hangfire.Core.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.Edm.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.OData.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.Services.Client.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Spatial.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\MonAgentListener.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.Edm.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.OData.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.Data.Services.Client.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\System.Spatial.xml
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\de\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\es\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\fr\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\it\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ja\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ko\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\ru\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Documents\GitHub\SSM\TEMP\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.Edm.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.OData.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.Services.Client.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Spatial.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\MonAgentListener.dll
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.Edm.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.OData.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.Data.Services.Client.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\NhatVHN\Desktop\SSM\TEMP\bin\System.Spatial.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\obj\Debug\SSM.csprojResolveAssemblyReference.cache
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\ApplicationInsights.config
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\csc.exe
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\System.Collections.Immutable.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\System.Reflection.Metadata.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\vbc.exe
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\VBCSCompiler.exe
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\roslyn\VBCSCompiler.exe.config
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\SSM.dll.config
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\SSM.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\SSM.pdb
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Antlr3.Runtime.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\DocX.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\EntityFramework.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\EntityFramework.SqlServer.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Hangfire.Core.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Hangfire.SqlServer.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.Agent.Intercept.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.Web.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.WindowsServer.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.ApplicationInsights.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.Edm.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.OData.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.Services.Client.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Google.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Web.Infrastructure.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.WindowsAzure.Diagnostics.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Newtonsoft.Json.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Owin.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Spatial.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Helpers.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Http.Common.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Mvc.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Optimization.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Razor.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.Deployment.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.Razor.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\WebGrease.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\MonAgentListener.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Hangfire.Core.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Hangfire.SqlServer.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.DependencyCollector.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.Web.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AI.WindowsServer.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.ApplicationInsights.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.Edm.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.OData.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Data.Services.Client.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Spatial.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Http.Common.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Helpers.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Mvc.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Optimization.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.Razor.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.Deployment.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\System.Web.WebPages.Razor.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Antlr3.Runtime.pdb
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\EntityFramework.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\EntityFramework.SqlServer.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Google.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\es\Hangfire.Core.resources.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\bin\zh\Hangfire.Core.resources.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\obj\Debug\SSM.dll
+D:\SSMCloudServiceOfficial\SSM\TEMP\obj\Debug\SSM.pdb

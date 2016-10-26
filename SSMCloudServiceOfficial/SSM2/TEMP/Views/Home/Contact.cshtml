@@ -1,0 +1,534 @@
+﻿<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Zoho Subscriptions</title>
+    <link href="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/styles/vendor.css" rel="stylesheet" type="text/css">
+    <link href="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/styles/zsm.css" rel="stylesheet" type="text/css">
+    <link href="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/images/favicon.ico" rel="shortcut icon">
+    <!-- Google web font -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" src="https://js.zohostatic.com/ichat/v73_https/js/wmsliteapi.js"></script>
+    <script type="text/javascript" src="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/i18n/MessageResources_en.js"></script>
+    <script type="text/javascript" src="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/vendor.js"></script>
+    <script type="text/javascript" src="https://css.zohostatic.com/zfsubscriptions/Sep_06_2016_1_26624/zsm/jsapps/assets/zsm.js"></script>
+    <link type="text/css" rel="stylesheet" href="media/layout.css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/daypilot-all.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="~/Content/calendar_g.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/calendar_green.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/calendar_traditional.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/calendar_transparent.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/calendar_white.css" />  
+
+  <style id="custom-theme">
+        .tab-column {
+            background-color:;
+        }
+
+        .settings-tab {
+            background-color:;
+        }
+
+            .tab-column .nav-pills > li > a,
+            .settings-tab .nav-pills > li > a {
+                color:;
+            }
+
+                .tab-column .nav-pills > li > a svg.lpanel {
+                    fill:;
+                }
+
+                .tab-column .nav-pills > li > a:focus,
+                .tab-column .nav-pills > li > a:hover,
+                .settings-tab .nav-pills > li > a:focus,
+                .settings-tab .nav-pills > li > a:hover {
+                    background-color:;
+                    color:;
+                }
+
+                    .tab-column .nav-pills > li > a:focus svg.lpanel,
+                    .tab-column .nav-pills > li > a:hover svg.lpanel {
+                        fill:;
+                    }
+
+            .tab-column .nav-pills > li.active > a,
+            .settings-tab .nav-pills > li.active > a,
+            .tab-column .nav-pills > li.active > a > .add-new.active {
+                background-color:;
+                color:;
+            }
+
+                .tab-column .nav-pills > li.active > a svg.lpanel {
+                    fill:;
+                }
+
+            .settings-tab .nav-pills .lhs-accordion > a.rep-header.collapsed:hover {
+                background-color:;
+            }
+
+            .settings-tab .nav-pills > li > a.rep-header:not(.collapsed) {
+                background-color:;
+            }
+
+        .settings-column .nav-title {
+            color:;
+        }
+
+        .tab-column .nav-pills > li.active > a,
+        .tab-column .nav-pills > li.active > a:hover,
+        .tab-column .nav-pills > li.active > a:focus {
+            color: !important;
+            background-color:;
+        }
+
+
+        .btn-primary .caret {
+            border-top-color:;
+        }
+
+        .btn-primary,
+        .btn-primary.disabled,
+        .btn-primary.disabled.active,
+        .btn-primary.disabled:active,
+        .btn-primary.disabled:focus,
+        .btn-primary.disabled:hover,
+        .btn-primary[disabled],
+        .btn-primary[disabled].active,
+        .btn-primary[disabled]:active,
+        .btn-primary[disabled]:focus,
+        .btn-primary[disabled]:hover,
+        fieldset[disabled] .btn-primary,
+        fieldset[disabled] .btn-primary.active,
+        fieldset[disabled] .btn-primary:active,
+        fieldset[disabled] .btn-primary:focus,
+        fieldset[disabled] .btn-primary:hover .btn-primary[disabled], .btn-primary.disabled,
+        .btn-primary:hover,
+        .btn-primary:focus,
+        .btn-primary:active,
+        .btn-primary.active,
+        .open .dropdown-toggle.btn-primary {
+            color:;
+            background-color:;
+            border-color:;
+        }
+
+        .customer-tabs .nav-tabs > li.active > a,
+        .contact-tabs .nav-tabs > li.active > a:focus,
+        .contact-tabs .nav-tabs > li.active > a:hover,
+        .cancellation-tab .nav-tabs > li.active > a,
+        .cancellation-tab .nav-tabs > li.active > a:focus,
+        .cancellation-tab .nav-tabs > li.active > a:hover {
+            border-top-color: !important;
+        }
+
+        .settings-tab .nav-pills .lhs-accordion > a.rep-header.collapsed .caret {
+            border-left-color:;
+        }
+
+        .settings-tab .nav-pills .lhs-accordion > a.rep-header:not(.collapsed) .caret {
+            border-top-color:;
+        }
+
+        .progress-striped .progress-bar {
+            background-color:;
+        }
+    </style>
+</head>
+<div class="criteria-dashboard hidden-print"><h3 class="pt15" style="margin-top:-5px;">Dashboard</h3></div>
+<hr width="100%">
+<div class="pre-scrollable">
+    <div class="main">
+
+        <div style="float:left; width: 160px;">
+            <div id="nav"></div>
+        </div>
+        <div style="margin-left: 160px;">
+
+            <div class="space">
+                Theme: <select id="theme">
+                    <option value="calendar_default">Default</option>
+                    <option value="calendar_white">White</option>
+                    <option value="calendar_g">Google-Like</option>
+                    <option value="calendar_green">Green</option>
+                    <option value="calendar_traditional">Traditional</option>
+                    <option value="calendar_transparent">Transparent</option>
+                </select>
+            </div>
+
+            <div id="dp"></div>
+        </div>
+
+        <script type="text/javascript">
+
+                var nav = new DayPilot.Navigator("nav");
+                nav.showMonths = 1;
+                nav.skipMonths = 1;
+                nav.selectMode = "week";
+                nav.onTimeRangeSelected = function (args) {
+                    dp.startDate = args.day;
+                    dp.update();
+                    loadEvents();
+                };
+                nav.init();
+
+                var dp = new DayPilot.Calendar("dp");
+                dp.viewType = "Week";
+
+                dp.onEventMoved = function (args) {
+                    $.post("backend/move",
+                            {
+                                id: args.e.id(),
+                                newStart: args.newStart.toString(),
+                                newEnd: args.newEnd.toString()
+                            },
+                            function () {
+                                console.log("Moved.");
+                            });
+                };
+
+                dp.onEventResized = function (args) {
+                    $.post("backend/resize",
+                            {
+                                id: args.e.id(),
+                                newStart: args.newStart.toString(),
+                                newEnd: args.newEnd.toString()
+                            },
+                            function () {
+                                console.log("Resized.");
+                            });
+                };
+
+                // event creating
+                dp.onTimeRangeSelected = function (args) {
+                    var name = prompt("New event name:", "Event");
+                    dp.clearSelection();
+                    if (!name) return;
+
+                    $.post("backend/create",
+                    {
+                        start: args.start.toString(),
+                        end: args.end.toString(),
+                        name: name
+                    },
+                    function (data) {
+                        var e = new DayPilot.Event({
+                            start: args.start,
+                            end: args.end,
+                            id: data.id,
+                            resource: args.resource,
+                            text: name
+                        });
+                        dp.events.add(e);
+
+                    });
+
+                };
+
+                dp.onEventClick = function (args) {
+                    alert("clicked: " + args.e.id());
+                };
+
+                dp.init();
+
+                loadEvents();
+
+                function loadEvents() {
+                    var start = dp.visibleStart();
+                    var end = dp.visibleEnd();
+
+                    $.post("backend/events",
+                    {
+                        start: start.toString(),
+                        end: end.toString()
+                    },
+                    function (data) {
+                        //console.log(data);
+                        dp.events.list = data;
+                        dp.update();
+                    });
+                }
+
+        </script>
+
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#theme").change(function (e) {
+                        dp.theme = this.value;
+                        dp.update();
+                    });
+                });
+        </script>
+
+    </div>
+</div>
+<hr width="100%">
+<div class="pre-scrollable">
+
+
+    <div id="ember1549">
+        <!----> 
+        <div id="dashboard" class="dashboard-container">
+
+            <div class="main-chart">
+                <div class="col-md-8 pt20 dashboard-maincontainer">
+                    <div class="row dashboard-criteriacontainer">
+                        <div class="col-md-12">
+                            <!---->
+                            <div id="ember1559" class="ember-view dashboard-criteria-btn pull-left pl0">
+                                <span id="dp-element" start_date="2016-08-09" end_date="2016-09-08" date_ranges="[object Object]" default_label="zsm.common.lastthirtydays" class="col-md-12 ember-view">Last 30 Days</span>
+                                <i class="icon-down-open-big"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-12 pl0">
+                            <h4 class="pb10">Activations Vs Net Cancellations</h4>
+                        </div>
+                        <div class="dashboard-chart col-md-12">
+                            <div id="ember1601" class="ember-view"><svg width="100%" height="330" viewBox="0 0 800 330" preserveAspectRatio="xMidYMid meet" class="main_chart"><line class="ygrid" x1="40" x2="760" y1="250" y2="250"></line><line class="ygrid" x1="40" x2="760" y1="197.5" y2="197.5"></line><line class="ygrid" x1="40" x2="760" y1="145" y2="145"></line><line class="ygrid" x1="40" x2="760" y1="92.5" y2="92.5"></line><line class="ygrid" x1="40" x2="760" y1="40" y2="40"></line><path class="area" d="M40,250C44,250,56,250,64,250S80,250,88,250S104,250,112,250S128,250,136,250S152,250,160,250S176,250,184,250S200,250,208,250S224,250,232,250S248,250,256,250S272,250,280,250S296,250,304,250S320,250,328,250S344,250,352,250S368,250,376,250S392,250,400,250S416,250,424,250S440,250,448,250S464,250,472,250S488,250,496,250S512,250,520,250S536,250,544,250S560,250,568,250S584,250,592,250S608,250,616,250S632,250,640,250S656,250,664,250S680,250,688,250S704,250,712,250S728,250,736,250S756,250,760,250L760,250C756,250,744,250,736,250S720,250,712,250S696,250,688,250S672,250,664,250S648,250,640,250S624,250,616,250S600,250,592,250S576,250,568,250S552,250,544,250S528,250,520,250S504,250,496,250S480,250,472,250S456,250,448,250S432,250,424,250S408,250,400,250S384,250,376,250S360,250,352,250S336,250,328,250S312,250,304,250S288,250,280,250S264,250,256,250S240,250,232,250S216,250,208,250S192,250,184,250S168,250,160,250S144,250,136,250S120,250,112,250S96,250,88,250S72,250,64,250S44,250,40,250Z" style="fill: rgb(244, 253, 255); opacity: 0.6;"></path><path class="line" d="M40,250C44,250,56,250,64,250S80,250,88,250S104,250,112,250S128,250,136,250S152,250,160,250S176,250,184,250S200,250,208,250S224,250,232,250S248,250,256,250S272,250,280,250S296,250,304,250S320,250,328,250S344,250,352,250S368,250,376,250S392,250,400,250S416,250,424,250S440,250,448,250S464,250,472,250S488,250,496,250S512,250,520,250S536,250,544,250S560,250,568,250S584,250,592,250S608,250,616,250S632,250,640,250S656,250,664,250S680,250,688,250S704,250,712,250S728,250,736,250S756,250,760,250" style="stroke: rgb(69, 180, 199);"></path><circle r="2.75" class="griddots" cx="40" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="64" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="88" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="112" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="136" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="160" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="184" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="208" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="232" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="256" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="280" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="304" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="328" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="352" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="376" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="400" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="424" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="448" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="472" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="496" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="520" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="544" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="568" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="592" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="616" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="640" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="664" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="688" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="712" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="736" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="760" cy="250" style="stroke: rgb(69, 180, 199); stroke-width: 1px; fill: white;"></circle><path class="area" d="M40,250C44,250,56,250,64,250S80,250,88,250S104,250,112,250S128,250,136,250S152,250,160,250S176,250,184,250S200,250,208,250S224,250,232,250S248,250,256,250S272,250,280,250S296,250,304,250S320,250,328,250S344,250,352,250S368,250,376,250S392,250,400,250S416,250,424,250S440,250,448,250S464,250,472,250S488,250,496,250S512,250,520,250S536,250,544,250S560,250,568,250S584,250,592,250S608,250,616,250S632,250,640,250S656,250,664,250S680,250,688,250S704,250,712,250S728,250,736,250S756,250,760,250L760,250C756,250,744,250,736,250S720,250,712,250S696,250,688,250S672,250,664,250S648,250,640,250S624,250,616,250S600,250,592,250S576,250,568,250S552,250,544,250S528,250,520,250S504,250,496,250S480,250,472,250S456,250,448,250S432,250,424,250S408,250,400,250S384,250,376,250S360,250,352,250S336,250,328,250S312,250,304,250S288,250,280,250S264,250,256,250S240,250,232,250S216,250,208,250S192,250,184,250S168,250,160,250S144,250,136,250S120,250,112,250S96,250,88,250S72,250,64,250S44,250,40,250Z" style="fill: rgb(250, 244, 229); opacity: 0.6;"></path><path class="line" d="M40,250C44,250,56,250,64,250S80,250,88,250S104,250,112,250S128,250,136,250S152,250,160,250S176,250,184,250S200,250,208,250S224,250,232,250S248,250,256,250S272,250,280,250S296,250,304,250S320,250,328,250S344,250,352,250S368,250,376,250S392,250,400,250S416,250,424,250S440,250,448,250S464,250,472,250S488,250,496,250S512,250,520,250S536,250,544,250S560,250,568,250S584,250,592,250S608,250,616,250S632,250,640,250S656,250,664,250S680,250,688,250S704,250,712,250S728,250,736,250S756,250,760,250" style="stroke: rgb(254, 178, 128);"></path><circle r="2.75" class="griddots" cx="40" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="64" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="88" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="112" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="136" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="160" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="184" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="208" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="232" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="256" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="280" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="304" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="328" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="352" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="376" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="400" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="424" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="448" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="472" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="496" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="520" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="544" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="568" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="592" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="616" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="640" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="664" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="688" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="712" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="736" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><circle r="2.75" class="griddots" cx="760" cy="250" style="stroke: rgb(254, 178, 128); stroke-width: 1px; fill: white;"></circle><g class="x_axis" transform="translate(0,250)"><g class="tick" transform="translate(40,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">09</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(88,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">11</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(136,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">13</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(184,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">15</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(232,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">17</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(280,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">19</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(328,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">21</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(376,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">23</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(424,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">25</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(472,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">27</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(520,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">29</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(568,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">31</tspan><tspan x="0" dy="11" style="font-size: 9px;">Aug</tspan></text></g><g class="tick" transform="translate(592,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">01</tspan><tspan x="0" dy="11" style="font-size: 9px;">Sep</tspan></text></g><g class="tick" transform="translate(640,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">03</tspan><tspan x="0" dy="11" style="font-size: 9px;">Sep</tspan></text></g><g class="tick" transform="translate(688,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">05</tspan><tspan x="0" dy="11" style="font-size: 9px;">Sep</tspan></text></g><g class="tick" transform="translate(736,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text y="9" x="0" dy=".71em" style="text-anchor: middle;"><tspan style="font-size: 11px;">07</tspan><tspan x="0" dy="11" style="font-size: 9px;">Sep</tspan></text></g><path class="domain" d="M40,6V0H760V6"></path></g><g class="y_axis" transform="translate(40,0)"><g class="tick" transform="translate(0,250)" style="opacity: 1;"><line x2="0" y2="0"></line><text x="-10" y="0" dy=".32em" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,197.5)" style="opacity: 1;"><line x2="0" y2="0"></line><text x="-10" y="0" dy=".32em" style="text-anchor: end;">1</text></g><g class="tick" transform="translate(0,145)" style="opacity: 1;"><line x2="0" y2="0"></line><text x="-10" y="0" dy=".32em" style="text-anchor: end;">2</text></g><g class="tick" transform="translate(0,92.5)" style="opacity: 1;"><line x2="0" y2="0"></line><text x="-10" y="0" dy=".32em" style="text-anchor: end;">3</text></g><g class="tick" transform="translate(0,40)" style="opacity: 1;"><line x2="0" y2="0"></line><text x="-10" y="0" dy=".32em" style="text-anchor: end;">4</text></g><path class="domain" d="M0,40H0V250H0"></path></g><line class="axisgrid" x1="40" x2="760" y1="250" y2="250"></line><line class="axisgrid" x1="40" x2="40" y1="250" y2="40"></line><g class="focus" style="display: none;"><line class="axisgridx0" x1="280" x2="280" y1="250" y2="250" style="stroke-dasharray: 3, 3;"></line><circle class="y10" r="3" style="fill: rgb(69, 180, 199); stroke: rgb(69, 180, 199); stroke-width: 2px;" transform="translate(280,250)"></circle><line class="axisgridx1" x1="280" x2="280" y1="250" y2="250" style="stroke-dasharray: 3, 3;"></line><circle class="y11" r="3" style="fill: rgb(254, 178, 128); stroke: rgb(254, 178, 128); stroke-width: 2px;" transform="translate(280,250)"></circle><rect transform="translate(280,250)" class="tooltip_rect" width="180" height="80" x="-190" y="-85" rx="4" style="fill: rgb(255, 255, 255); stroke: rgb(237, 237, 237);"></rect><text transform="translate(280,250)" x="-170" y="-65" class="tooltip_rect" style="font-size: 13px;"><tspan>19 Aug 2016</tspan><circle cx="10" cy="10" r="3" style="fill: rgb(69, 180, 199);"></circle><tspan x="-163" y="-45" style="font-size: 13px;">Activations: 0</tspan><circle cx="10" cy="10" r="3" style="fill: rgb(254, 178, 128);"></circle><tspan x="-163" y="-25" style="font-size: 13px;">Net Cancellations: 0</tspan></text><circle class="tooltip_rect" r="4" transform="translate(280,250)" cx="-170" cy="-49" style="fill: rgb(69, 180, 199); stroke-width: 2px;"></circle><circle class="tooltip_rect" r="4" transform="translate(280,250)" cx="-170" cy="-29" style="fill: rgb(254, 178, 128); stroke-width: 2px;"></circle></g><rect class="overlay" width="730" height="240" x="40" y="40"></rect><circle class="legend_dot" r="5" cy="312" cx="53" style="fill: rgb(69, 180, 199);"></circle><circle class="legend_dot" r="5" cy="312" cx="163" style="fill: rgb(254, 178, 128);"></circle><text class="legend_txt" y="317" x="65">Activations</text><text class="legend_txt" y="317" x="175">Net Cancellations</text></svg></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 content">
+                            <div class="row col-md-12 pr0">
+                                <div class="first-row col-md-4">
+                                    <div>Sign-ups</div>
+                                    <div class="preview-chart empty-chart-value">0</div>
+                                    <hr class="previewchart_line">
+                                </div>
+
+
+                                <div class="first-row col-md-4">
+                                    <div>Activations</div>
+                                    <div class="preview-chart empty-chart-value">0</div>
+                                    <hr class="previewchart_line">
+                                </div>
+
+
+
+                                <div class="first-row col-md-4 pr0">
+                                    <div>Active Customers</div>
+                                    <div class="preview-chart empty-chart-value">0</div>
+                                    <hr class="previewchart_line">
+                                </div>
+
+                            </div>
+
+                            <div class="row col-md-12 pr0">
+
+                                <div class="second-row col-md-4">
+                                    <div>Net Cancellations</div>
+                                    <div class="preview-chart empty-chart-value negative-chart">0</div>
+                                    <hr class="previewchart_line">
+                                </div>
+
+
+
+                                <div class="second-row col-md-4">
+                                    <div>Churn Rate</div>
+                                    <div id="ember1602" class="ember-view pull-left cursorptr">
+                                        <div class="preview-chart-value negative-chart">0.00%</div>
+                                        <div id="ember1603" class="ember-view pull-left col-md-12 pl0"><svg width="100%" height="25" viewBox="0 0 220 25" preserveAspectRatio="xMidYMid meet"><path class="area" d="M0,22C1.222222222222222,22,4.888888888888889,22,7.333333333333333,22S12.222222222222221,22,14.666666666666666,22S19.555555555555557,22,22,22S26.88888888888889,22,29.333333333333332,22S34.22222222222222,22,36.666666666666664,22S41.55555555555556,22,44,22S48.88888888888889,22,51.333333333333336,22S56.22222222222222,22,58.666666666666664,22S63.55555555555556,22,66,22S70.88888888888889,22,73.33333333333333,22S78.22222222222223,22,80.66666666666667,22S85.55555555555556,22,88,22S92.8888888888889,22,95.33333333333334,22S100.22222222222223,22,102.66666666666667,22S107.55555555555556,22,110,22S114.88888888888889,22,117.33333333333333,22S122.22222222222221,22,124.66666666666666,22S129.55555555555554,22,132,22S136.88888888888886,22,139.33333333333331,22S144.2222222222222,22,146.66666666666666,22S151.55555555555557,22,154.00000000000003,22S158.8888888888889,22,161.33333333333334,22S166.22222222222223,22,168.66666666666669,22S173.55555555555554,22,176,22S180.88888888888889,22,183.33333333333334,22S188.22222222222223,22,190.66666666666669,22S195.55555555555554,22,198,22S202.8888888888889,22,205.33333333333334,22S210.22222222222223,22,212.66666666666666,22S218.77777777777777,22,220,22L220,22C218.77777777777777,22,215.1111111111111,22,212.66666666666666,22S207.77777777777777,22,205.33333333333334,22S200.44444444444446,22,198,22S193.11111111111114,22,190.66666666666669,22S185.7777777777778,22,183.33333333333334,22S178.44444444444446,22,176,22S171.11111111111114,22,168.66666666666669,22S163.77777777777777,22,161.33333333333334,22S156.44444444444449,22,154.00000000000003,22S149.11111111111111,22,146.66666666666666,22S141.77777777777777,22,139.33333333333331,22S134.44444444444446,22,132,22S127.1111111111111,22,124.66666666666666,22S119.77777777777777,22,117.33333333333333,22S112.44444444444444,22,110,22S105.11111111111111,22,102.66666666666667,22S97.77777777777779,22,95.33333333333334,22S90.44444444444444,22,88,22S83.11111111111111,22,80.66666666666667,22S75.77777777777777,22,73.33333333333333,22S68.44444444444444,22,66,22S61.11111111111111,22,58.666666666666664,22S53.77777777777778,22,51.333333333333336,22S46.44444444444444,22,44,22S39.11111111111111,22,36.666666666666664,22S31.777777777777775,22,29.333333333333332,22S24.444444444444443,22,22,22S17.11111111111111,22,14.666666666666666,22S9.777777777777777,22,7.333333333333333,22S1.222222222222222,22,0,22Z" style="fill: rgb(254, 178, 128); opacity: 0.6;"></path><path class="line" d="M0,22C1.222222222222222,22,4.888888888888889,22,7.333333333333333,22S12.222222222222221,22,14.666666666666666,22S19.555555555555557,22,22,22S26.88888888888889,22,29.333333333333332,22S34.22222222222222,22,36.666666666666664,22S41.55555555555556,22,44,22S48.88888888888889,22,51.333333333333336,22S56.22222222222222,22,58.666666666666664,22S63.55555555555556,22,66,22S70.88888888888889,22,73.33333333333333,22S78.22222222222223,22,80.66666666666667,22S85.55555555555556,22,88,22S92.8888888888889,22,95.33333333333334,22S100.22222222222223,22,102.66666666666667,22S107.55555555555556,22,110,22S114.88888888888889,22,117.33333333333333,22S122.22222222222221,22,124.66666666666666,22S129.55555555555554,22,132,22S136.88888888888886,22,139.33333333333331,22S144.2222222222222,22,146.66666666666666,22S151.55555555555557,22,154.00000000000003,22S158.8888888888889,22,161.33333333333334,22S166.22222222222223,22,168.66666666666669,22S173.55555555555554,22,176,22S180.88888888888889,22,183.33333333333334,22S188.22222222222223,22,190.66666666666669,22S195.55555555555554,22,198,22S202.8888888888889,22,205.33333333333334,22S210.22222222222223,22,212.66666666666666,22S218.77777777777777,22,220,22" style="stroke: rgb(254, 178, 128);"></path></svg></div>
+                                    </div>
+                                </div>
+
+
+                                <div class="second-row col-md-4 pr0">
+                                    <div>Payment Failures</div>
+                                    <div class="preview-chart empty-chart-value negative-chart">0</div>
+                                    <hr class="previewchart_line">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 summary">
+                        <h4>Subscription Summary</h4>
+                        <table class="table dashboard-customers-table">
+                            <thead style="border-top:1px solid #EDEDED">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Sign-ups</th>
+                                    <th>Activations</th>
+                                    <th>Cancellations</th>
+                                    <th>Reactivations</th>
+                                    <th>Active Customers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>07 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>06 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>05 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>04 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>03 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>02 Sep 2016</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td style="color:#EB7D35;">0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <a id="ember1611" href="#/reports/subscriptions_summary" class="ember-view cursorptr">
+                            <div class="summary-footer">
+                                Show more details
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 right-content pt20">
+                    <div class="col-md-12">
+                        <h4>Activations</h4>
+                        <div class="col-md-12 timely-stats clearfix">
+                            <div class="col-md-3 stat">
+                                <div class="dashboard-text">Today</div>
+                                <div class="dashboard-value">0</div>
+                            </div>
+                            <div class="col-md-4 stat">
+                                <div class="dashboard-text">Yesterday</div>
+                                <div class="dashboard-value">0</div>
+                            </div>
+                            <div class="col-md-5 stat">
+                                <div class="dashboard-text">This Month</div>
+                                <div class="dashboard-value">0</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 revenue">
+                        <h4>Net Revenue</h4>
+                        <div id="ember1573" class="ember-view cursorptr">
+                            <div class="dashboard-value-link">
+                                VND0.00
+                            </div>
+                        </div>  				<div class="last-year">Last 12 Months</div>
+                        <div style="padding-bottom:24px;">
+                            <div class="previewbarchart">
+                                <div id="ember1612" class="ember-view pull-left cursorptr">
+                                    <div id="ember1613" class="ember-view pull-left"><svg width="251" height="50"><rect class="bar" x="8.999999951078982" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="27.114754049439636" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="45.83333328441231" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="63.94808738277297" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="82.66666661774563" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="101.38524585271831" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="118.89617481446696" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="137.61475404943963" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="155.7295081478003" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="174.44808738277297" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="192.5628414811336" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="211.28142071610628" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="229.99999995107896" width="14" y="3" height="44" fill="#F9F9F9"></rect><line class="axisgrid" x1="-2" x2="251" y1="47" y2="47"></line></svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="col-md-12 revenue-stats">
+                            <div class="row badgebox">
+                                <div class="col-md-6 dashboard-text">This Month</div>
+                                <div class="col-md-6 text-right pr0">VND0.00</div>
+                            </div>
+                            <div class="row badgebox" style="background-color:#FEFEFE">
+                                <div class="col-md-6 dashboard-text">Previous Month</div>
+                                <div class="col-md-6 text-right pr0">VND0.00</div>
+                            </div>
+                            <div class="row badgebox">
+                                <div class="col-md-6 dashboard-text">This Year</div>
+                                <div class="col-md-6 text-right pr0">VND0.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="mrr">
+                            <h4>MRR</h4>
+                            <div class="text">Monthly Recurring Revenue</div>
+                            <div class="cursorptr" data-ember-action="1588">
+                                <div class="dashboard-value-link">VND0.00</div>
+                            </div>
+                            <div class="sub-text">Last 12 Months</div>
+                            <div class="pb20">
+                                <div class="previewbarchart">
+                                    <div class="cursorptr" data-ember-action="1614">
+                                        <div id="ember1615" class="ember-view pull-left"><svg width="251" height="50"><rect class="bar" x="8.999999951078982" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="27.114754049439636" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="45.83333328441231" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="63.94808738277297" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="82.66666661774563" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="101.38524585271831" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="118.89617481446696" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="137.61475404943963" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="155.7295081478003" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="174.44808738277297" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="192.5628414811336" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="211.28142071610628" width="14" y="3" height="44" fill="#F9F9F9"></rect><rect class="bar" x="229.99999995107896" width="14" y="3" height="44" fill="#F9F9F9"></rect><line class="axisgrid" x1="-2" x2="251" y1="47" y2="47"></line></svg></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 arpu">
+                        <div class="cursorptr greybox" data-ember-action="1591">
+                            <div class="row">
+                                <div class="col-md-6 pl10"><a>ARPU</a></div>
+                                <div class="col-md-6 text-right pr10">
+                                    <div>VND0.00</div>
+                                </div>
+                            </div>
+                            <div class="row pt5">
+                                <div class="col-md-7 pl10 text-muted dashboard-text" style="margin-top:-7px">Average Revenue Per User</div>
+                                <div class="col-md-5 pr10 badgeright-text">
+                                    This Month
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cursorptr greybox" data-ember-action="1592">
+                            <div class="row">
+                                <div class="col-md-6 pl10"><a>LTV</a></div>
+                                <div class="col-md-6 text-right pr10">
+                                    <div>VND0.00</div>
+                                </div>
+                            </div>
+                            <div class="row pt5">
+                                <div class="col-md-7 pl10 text-muted dashboard-text" style="margin-top:-7px">Lifetime Value</div>
+                                <div class="col-md-5 pr10 badgeright-text">
+                                    This Month
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---ashboard footer -->
+        <!---->
+    </div>
+</div>

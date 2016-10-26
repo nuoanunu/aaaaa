@@ -1,0 +1,67 @@
+﻿@{
+    Layout = null;
+}
+@using SSM.Models;
+<table class="table table-striped table-bordered" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Option</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewData["ProductDetail"] != null)
+        {
+            softwareProduct so = (softwareProduct)ViewData["ProductDetail"];
+            <input type="hidden" value="@(so.id+ "-")" id="productIDToAdd"/>
+            foreach (productAttribute att in so.productAttributes.ToList())
+            {
+                
+                var tempPrice = "";
+                var tempDes = "";
+
+                <tr>
+                    <input type="hidden" value="" class="AllOptionSelected"/>
+                    <td>@att.name</td>
+                    <td>
+
+                        <select class="selectOp" id="@(att.id+"option")">
+                            @foreach (attributeOption op in att.attributeOptions.ToList())
+                            {
+                                tempPrice = op.price + ""; tempDes = op.description;
+
+                                <option value="@(op.id)">@op.name</option>
+                                
+                            }
+                        </select>
+                        <script>
+                            $('#@(att.id+"option")').change(function () {
+                                $.getJSON("/Order/getOptionsValue?optionID=" + $('#@(att.id+"option")').val(), function (result) {
+                                    // Loop through each product
+                                    $.each(result, function (name, value) {
+                                        if (name == "des") {
+                                            $("#@(att.id+"dtdes")").text(value);
+                                        }
+                                        if (name == "price") {
+                                            $("#@(att.id+ "dtpri")").text(value);
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+
+                    </td>
+                    <td id="@(att.id+"dtdes")">
+                        @tempDes
+                    </td>
+                    <td id="@(att.id+"dtpri")">
+                        @tempPrice
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

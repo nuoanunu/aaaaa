@@ -1,0 +1,103 @@
+﻿@using SSM.Models;
+
+
+<style>
+
+    th {text-align: center;        
+    }
+
+    .table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+    @@font-face {
+        font-family: 'Roboto-Light';
+        src: url("../../fonts/Roboto-Light.ttf") format('truetype');
+    }
+
+    @@font-face {
+        font-family: 'Roboto-Black';
+        src: url("../../fonts/Roboto-Black.ttf") format('truetype');
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.12.3.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+@*<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>*@
+<script>
+        $(document).ready(function () {
+            $("#myData").DataTable(
+               
+
+                );
+
+        });
+        //function editpage(id) {
+        //    window.location = "/Product/Detail?id="+id;
+    //};
+
+</script>
+
+@*<textarea>Easy! You should check out MoxieManager!</textarea>*@
+<h1> <font style="font-family:Roboto-Light"> Email Template List</font> </h1>
+
+<p>
+    @Html.ActionLink("New Template", "Add", "MailTemplate", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+
+    <table id="myData" class="table table-striped table-bordered" style="white-space: nowrap;">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    Created Date
+                </th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["templateList"] != null)
+            {
+                foreach (Email_Template sp in (List<Email_Template>)ViewData["templateList"])
+                {
+                    <tr>
+                        <td align="center">
+                            @sp.Name
+                        </td>
+                        <td align="center">
+                            @sp.EMAIL_Category.Name
+                        </td>
+                        <td align="center">
+                            @sp.creatorID
+                        </td>
+                        <td align="center">
+                            @sp.createdDate
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditTemplate", "MailTemplate", new { id = @sp.id }, null)
+                        </td>
+
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>
+

@@ -1,0 +1,469 @@
+﻿@using SSM.Models;
+@*<script src="~/Scripts/eve.min.js"></script>
+    <script src="~/Scripts/Raphael.js"></script>
+    <script src="~/Scripts/JustGage.js"></script>*@
+
+
+
+@*<script src="~/Scripts/animateprofile.js"></script>*@
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/calendar/date.js"></script>
+<script src="~/Scripts/calendar/fullcalendar.min.js"></script>
+<link href="~/Content/calendar/fullcalendar.css" rel="stylesheet " />
+
+<style>
+    body {
+        background-color: white;
+    }
+</style>
+
+@if (ViewData["SalerepDetail"] != null)
+{
+    SaleRepProfile profile = (SaleRepProfile)ViewData["SalerepDetail"];
+   
+    <div class="row">
+        <div class="page-title">
+            <div class="title_left" style="font-size:30px">
+                <h3>Profile<small> Your KPI and Contact Information</small></h3>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <div class="panel widget light-widget panel-bd-top" style="max-width:1000px  !important">
+                    <div class="panel-heading no-title"> </div>
+                    <div class="panel-body">
+                        <div class="text-center vd_info-parent"> <img alt="example image" src="@profile.Avatar"> </div>
+
+                        <h2 class="font-semibold mgbt-xs-5">@profile.FullName</h2>
+                        <h4>Sale Representative</h4>
+                        <div class="mgtp-20">
+                            <table class="table table-striped table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td style="width:60%;"><font color="black"> Status</font></td>
+                                        <td><span class="label label-success">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><font color="black"> Rating</font></td>
+                                        <td><font color="black"> 1</font></td>
+                                    </tr>
+                                    <tr>
+                                        <td><font color="black"> Member Scine</font></td>
+                                        <td><font color="black"> @(((DateTime)profile.EmployedScine).ToShortDateString())</font> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-8" style="margin-left:5px">
+                <div class="tabs widget" style="margin:0  !important;max-width:5000px !important">
+
+                    <div class="tab-content" style="width:100%">
+                        <div id="profile-tab" class="tab-pane active">
+                            <div class="pd-20">
+                                <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">First Name:</label>
+                                            <div class="col-xs-7 controls">@profile.FirstName.Trim()</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Last Name:</label>
+                                            <div class="col-xs-7 controls">@profile.LastName.Trim()</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Full Name:</label>
+                                            <div class="col-xs-7 controls">@profile.FullName.Trim()</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Email:</label>
+                                            <div class="col-xs-7 controls">@profile.Email.Trim()</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">City:</label>
+                                            <div class="col-xs-7 controls">@profile.City</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Country:</label>
+                                            <div class="col-xs-7 controls">@profile.Country</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Birthday:</label>
+                                            <div class="col-xs-7 controls">@profile.dateOfBirth</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="row mgbt-xs-0">
+                                            <label class="col-xs-5 control-label">Phone:</label>
+                                            <div class="col-xs-7 controls">@profile.Phone.Trim()</div>
+                                            <!-- col-sm-10 -->
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <hr class="pd-10">
+                                <div class="row" style="margin-left:5px">
+                                    <div class="col-sm-6">
+                                        <h3 class="mgbt-xs-15 font-semibold" style="font-size:20px"><i class="fa fa-flask mgr-10 profile-icon"></i>KPI Metrics</h3>
+                                        <div class="skill-list">
+                                            <div class="x_panel">
+                                                <div class="x_title">
+                                                    <h2>Avarage KPI: @profile.AvarageKPI/4 </h2>
+
+
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <div class="x_content">
+                                                    <canvas id="canvasRadar" ></canvas>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                    <!-- col-sm-7 -->
+                                    <div class="col-sm-6">
+                                        <h3 style="font-size:20px" class="mgbt-xs-15 font-semibold"><i class="fa fa-money  mgr-10 profile-icon"></i> Revenue</h3>
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Deal Won <small>Number of deals turned into contract</small></h2>
+                                                
+                                               
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <canvas id="mybarChart"></canvas>
+                                            </div>
+                                        </div>
+                                        @*@foreach (Product_responsible product in profile.AspNetUser.Product_responsible)
+                                            {
+                                                <div class="skill-list">
+                                                    <div class="skill-name"> @product.softwareProduct.name </div>
+                                                    <div class="progress  progress-sm">
+                                                        <div style="width: @(profile.Opening*100/10)%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success "> <span>$90,000</span> </div>
+                                                    </div>
+                                                </div>
+                                            }*@
+
+
+
+
+                                    </div>
+                                    <!-- col-sm-7 -->
+                                </div>
+                                <!-- row -->
+                            </div>
+                            <!-- pd-20 -->
+                        </div>
+
+
+                    </div>
+                    <!-- tab-content -->
+                </div>
+                <!-- tabs-widget -->
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="page-title">
+                <div class="title_left" style="font-size:30px">
+                    <h3>Master schedule<small> Your weekly available time for meeting</small></h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div id='calendar'></div>
+        </div>
+        <button onclick="savechanges()" class="btn btn-primary">Save changes to schedule</button>
+        <form action="/Profile/savechangesSchedule" method="post" id="myScheduleForm">
+            <input type="hidden" name="date" value="" id="myNewEvents" />
+        </form>
+
+        <br />
+        <script>
+            function savechanges(){
+                $("#myNewEvents").val("");
+                $('#calendar').fullCalendar('clientEvents', function(event){
+                    if(event.end != null ) {
+                     
+                        var oldVal = $("#myNewEvents").val();
+                        oldVal=oldVal + "start"+event.start +"end"+event.end;
+                        $("#myNewEvents").val(oldVal);
+                    }
+            
+                });
+                alert($("#myNewEvents").val());
+                $("#myScheduleForm").submit();
+
+            }
+        </script>
+        <script>
+            var globalEvent = [];
+
+            var numberOfEven = 0;
+        </script>
+    
+        <script>
+     
+
+            var startedChoosed;
+            var endedChoosed;
+            $(window).load(function () {
+
+                var date = new Date();
+                var d = date.getDate();
+                var m = date.getMonth();
+                var y = date.getFullYear();
+                var started;
+                var categoryClass;
+               
+                var calendar = $('#calendar').fullCalendar({
+                    defaultView: 'agendaWeek',
+                    minTime: "07:00:00",
+                    maxTime: "18:00:00",
+                    slotDuration: '00:15:00',
+                    allDaySlot: false,
+                    height: 500,
+                    header: false,
+                    columnFormat: { month: 'ddd', week: 'ddd', day: 'dddd d/M' },
+                    selectable: true,
+                    selectHelper: true,
+                    
+                    select: function (start, end, allDay) {
+                        $('#fc_create').click();
+
+                        started = start;
+                        ended = end;
+                        startedChoosed = new Date(start);
+                        endedChoosed = new Date(end);
+
+
+                    },
+                    eventClick: function (calEvent, jsEvent, view) {
+
+                        var eid = calEvent.id;
+                        alert( calEvent.start);
+
+                        $('#fc_delete').click();
+
+                        categoryClass = $("#event_type").val();
+
+                        $(".Delete").on("click", function () {
+                            calendar.fullCalendar( 'removeEvents',eid);
+
+                            $('.antoclose2').click();
+                        });
+                        calendar.fullCalendar('unselect');
+                    },
+                    editable: true,
+                    events: globalEvent
+                });
+                
+
+                $(".antosubmit").on("click", function () {
+                    numberOfEven=numberOfEven+1;
+                    startedChoosed = startedChoosed.add({ hours: -7 });
+                    endedChoosed = endedChoosed.add({ hours: -7 });
+
+                    anothereven = new Object();
+                    anothereven.id = numberOfEven;
+                    anothereven.start = startedChoosed;
+                    anothereven.end = endedChoosed;
+
+                    anothereven.allDay = false;
+                    anothereven.title = "Busy";
+                    globalEvent.push(anothereven);
+
+
+                    categoryClass = $("#event_type").val();
+
+                    if ("Busy") {
+                        $("#calendar").fullCalendar('renderEvent', anothereven,
+                          true // make the event "stick"
+                        );
+                    }
+                    $("#calendar").fullCalendar('unselect');
+                    $('.antoclose').click();
+
+                    return false;
+                });
+            });
+            numberOfEven = globalEvent.length;
+        </script>
+    foreach (Calendar cal in profile.AspNetUser.Calendars)
+    {
+        <script>
+            $(document).ready(function (){
+
+                var myEvent@(cal.id) = new Object();
+                myEvent@(cal.id).title = "Unavailable";
+                myEvent@(cal.id).start = new Date('@cal.startTime');
+                myEvent@(cal.id).end = new Date('@cal.endTime');
+           
+                myEvent@(cal.id).backgroundColor = '#545454';
+                myEvent@(cal.id).editable = false;
+                alert("s "+ myEvent@(cal.id).start );
+                alert("e "+ myEvent@(cal.id).end );
+                globalEvent.push(myEvent@(cal.id));
+                $("#calendar").fullCalendar('renderEvent', myEvent@(cal.id),true);
+                if(@cal.id > numberOfEven){
+                    numberOfEven =@cal.id;
+                }
+            } )
+
+
+        </script>
+    }
+
+
+
+        <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+        <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Leave your note</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="testmodal" style="padding: 5px 20px;">
+                            <form id="antoform" class="form-horizontal calender" role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Title</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" readonly id="title" name="title" value="My available date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fc_delete" data-toggle="modal" data-target="#deleteEven"></div>
+        <div id="deleteEven" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Leave your note</h4>
+                    </div>
+                    <div class="modal-body">
+                        <button type="button" style="width:100%" class="btn btn-danger Delete">Delete</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+
+                var ctx = document.getElementById("mybarChart");
+                var mybarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ["January", "February", "March", "April", "May", "June", "July"],
+                        datasets: [{
+                            label: 'Microsoft Office',
+                            backgroundColor: "#26B99A",
+                            data: [51, 30, 40, 28, 92, 50, 45]
+                        }, {
+                            label: 'Android',
+                            backgroundColor: "#03586A",
+                            data: [41, 56, 25, 48, 72, 120, 12]
+                        }]
+                    },
+
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+                Chart.defaults.global.legend = {
+                    enabled: false
+                };
+                var ctx = document.getElementById("canvasRadar");
+                var data = {
+                    labels: ["Contacts", "Sale Cycle", "Activities per Deal", "Win Rate"],
+                    datasets: [{
+                        label: "My Second dataset",
+                        backgroundColor: "rgba(38, 185, 154, 0.2)",
+                        borderColor: "rgba(38, 185, 154, 0.85)",
+                        pointColor: "rgba(38, 185, 154, 0.85)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [@((profile.newContactmade*100).ToString("n2")), @((profile.SaleCycle*100).ToString("n2")), @((profile.avarageActivitiesPerdeal*100).ToString("n2")), @((profile.winrate*100).ToString("n2"))]
+                }]
+            };
+
+            var canvasRadar = new Chart(ctx, {
+                type: 'radar',
+                data: data,
+            });
+            })
+
+        </script>
+  
+}

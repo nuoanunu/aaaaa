@@ -1,0 +1,749 @@
+﻿@using SSM.Models;
+
+<style>
+    @@font-face {
+        font-family: 'Roboto-Light';
+        src: url("../../fonts/Roboto-Light.ttf") format('truetype');
+    }
+
+    @@font-face {
+        font-family: 'Roboto-Black';
+        src: url("../../fonts/Roboto-Black.ttf") format('truetype');
+    }
+
+    input:hover, textarea:hover {
+        background: #eee;
+    }
+
+    input, textarea {
+        padding: 8px;
+        margin: 4px 0 20px 0;
+        background: #fff;
+        width: 220px;
+        font-size: 14px;
+        color: #555;
+        border: 1px #ddd solid;
+        /* -- CSS3 Shadow - create a shadow around each input element -- */
+        -webkit-box-shadow: 0px 0px 4px #aaa;
+        -moz-box-shadow: 0px 0px 4px #aaa;
+        box-shadow: 0px 0px 4px #aaa;
+        /* -- CSS3 Transition - define what the transition will be applied to (i.e. the background) -- */
+        -webkit-transition: background 0.3s linear;
+    }
+
+        input.submit:hover {
+            -webkit-box-shadow: 0px 0px 20px #555;
+            -moz-box-shadow: 0px 0px 20px #aaa;
+            box-shadow: 0px 0px 20px #555;
+            cursor: pointer;
+        }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            display: none;
+        }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #4ef84e;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #4ef84e;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+</style>
+<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css' />
+
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script>
+    function format2(n, currency) {
+        return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    }
+            function updatePrice() {
+               // alert("haiz");
+                try {
+                    var money = 0;
+                    $(".optionChosen").each(function (i) {
+
+                        var selectid = $(this).attr("id");
+                        var priceid = $(this).val() + "optionprice";
+                        var pricelabelid = selectid + "priceshow";
+
+                        $("#" + pricelabelid).text(format2($("#" + priceid).val(),'$'));
+                        if (parseFloat($("#" + priceid).val()) >0) {
+                            money = money + parseFloat($("#" + priceid).val());
+
+                        
+                        }
+
+                    });
+                    $("#totalprice").text(money+"");
+                }
+                catch(err) {
+                   
+                }
+
+            }
+
+            setInterval(updatePrice, 200);
+            function createNewPlan() {
+                var productID = $("#NewMarketPlanProductId").val();
+                var planName = $("#newMarketPlanName").val();
+                var price = $("#totalprice").text();
+                var floorPrice = $("#floorPrice").val();
+                var ceilPrice = $("#ceilPrice").val();
+                var optionIds = "";
+                var newMarketPlanDes = $("#newMarketPlanDes").val();
+                $(".optionChosen").each(function (i) {
+
+                    var selectid = $(this).val();
+                    optionIds = optionIds + selectid + ";";
+
+                });
+                alert(optionIds);
+                $.getJSON("/Product/CreateNewMarketPlan?productID=" + productID + "&planName=" + planName + "&price=" + price + "&floorPrice=" + floorPrice + "&ceilPrice=" + ceilPrice + "&optionIds=" + optionIds + "&newMarketPlanDes=" + newMarketPlanDes, function (data) {
+                    $.each(data, function (key, value) {
+                        if (key == "result") {
+                            if (value == "true") {
+                                window.location = "/Product/Detail?id=" + productID;
+
+
+                            }
+                            else {
+                                alert("Oops, something wrong happened");
+                            }
+                        }
+                    })
+                });
+
+            }
+
+            function editplan(id) {
+                window.location = "/Product/EditPlan?planID=" + id;
+            }
+</script>
+<h1> <font style="font-family:Roboto-Light"> Product Detail</font> </h1>
+@if (ViewData["productDetail"] != null)
+{
+    softwareProduct product = (softwareProduct)ViewData["productDetail"];
+    string[] screenshots = product.screenShots.ToString().Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+    <div class="row">
+        @*<div style="padding:0" class="col-md-3">
+                <img style="padding:0;vertical-align: top;" height="300dp" src="@product.screenShots" />
+            </div>*@
+        <div style="padding:5px" class="col-md-4">
+
+            <table width="100%" style="border: 2px solid  #eeeeee;" height="700dp">
+                <tr>
+                    <th colspan="2" align="center" style="background-color:aqua;text-align: center;">
+                        <h3 style="vertical-align: top;"><font style="font-family:Roboto-Light">Product information</font></h3>
+                    </th>
+                </tr>
+                <tr style="border: 2px solid  #eeeeee;">
+                    <td align="left">
+                        <label style="padding-left:10px">Product Name</label>
+                    </td>
+                    <td align="right">
+                        <input style="padding-right:10px" type="text" value="@product.name" />
+
+                    </td>
+                </tr>
+                <tr style="border: 2px solid  #eeeeee;">
+                    <td align="left">
+                        <label style="padding-left:10px">SKU</label>
+
+                    </td>
+                    <td align="right">
+                        <input type="text" style="padding-right:10px" value="@product.SKU" />
+                    </td>
+                </tr>
+                <tr style="border: 2px solid  #eeeeee;">
+                    <td align="left">
+                        <label style="padding-left:10px">Short Description</label>
+
+                    </td>
+                    <td align="right">
+                        <input type="text" style="padding-right:10px"  value="@product.shortDescription" />
+
+                    </td>
+                </tr>
+                <tr style="border: 2px solid  #eeeeee;">
+                    <td align="left">
+                        <label style="padding-left:10px">Full Description</label>
+
+                    </td>
+                    <td align="right">
+                        <textarea style="padding-right:10px" name="message" rows="0" cols="0">@product.fullDescription</textarea>
+
+                    </td>
+                </tr>
+                <tr style="border: 2px solid  #eeeeee;">
+                    <td align="left">
+                        <label style="padding-left:10px">Screen Shots</label>
+
+                    </td>
+                    <td align="right">
+                        @foreach (string img in screenshots)
+                        {
+                            <img style="padding:0;vertical-align: top;" width="100dp" src="@img" />
+                        }
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="padding:5px;max-height:700px;height:700px;" class="col-md-8 pre-scrollable">
+            <div class="container" style="width:100dp">
+                <table id="myData" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <tr style="background-color:coral;text-align: center;">
+                        <th width="25%" align="center" height="116.67dp" style="text-align:center;">
+                            <h3 style="vertical-align: top;"><font style="font-family:Roboto-Light">Attribute name</font></h3>
+                        </th>
+                        <th width="25%" align="center" style="text-align:center;">
+                            <h3 style="vertical-align: top;"><font style="font-family:Roboto-Light"> Code</font></h3>
+                        </th>
+                        <th width="25%" align="center" style="text-align:center;">
+                            <h3 style="vertical-align: top;"><font style="font-family:Roboto-Light"> Available Options</font></h3>
+                        </th>
+
+                        <th width="25%" align="center" style="text-align:center;">
+                            <h3 style="vertical-align: top;"><font style="font-family:Roboto-Light">   Action</font></h3>
+                        </th>
+                    </tr>
+                    @foreach (productAttribute pattr in product.productAttributes)
+                    {
+                        String mymodelid = "optionmodal" + pattr.id;
+                        <tr>
+                            <td height="75dp" width="25%">
+                                @pattr.name
+                            </td>
+                            <td width="25%">
+                                @pattr.code
+
+                            </td>
+                            <td width="25%">
+                                @pattr.attributeOptions.ToList().Count()
+                            </td>
+                            <td width="25%">
+
+                                <button type="button" class="push_button blue" data-toggle="modal" data-target="#@mymodelid">Edit</button>
+                                <div class="modal fade" id="@mymodelid" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content" style="width:900px">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"> @pattr.name Detail</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>@pattr.name</p>
+                                                <p>@pattr.description</p>
+                                                <h4>Options</h4>
+                                                <table class="table table-striped table-bordered" width="100%" id="@(pattr.id+  "OptTable")">
+                                                    <tr>
+                                                        <th>
+                                                            Option Name
+                                                        </th>
+                                                        <th>
+                                                            Option Code
+                                                        </th>
+                                                        <th>
+                                                            Option Description
+                                                        </th>
+                                                        <th>
+                                                            Price
+                                                        </th>
+                                                        <th>
+                                                            Action
+                                                        </th>
+                                                    </tr>
+                                                    <tbody>
+                                                        @foreach (attributeOption attopt in pattr.attributeOptions.ToList())
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    @attopt.name
+                                                                    <input type="hidden" id="@(pattr.id+  "EditOptName")" />
+                                                                </td>
+                                                                <td>
+                                                                    @attopt.code
+                                                                    <input type="hidden" id="@(pattr.id+  "EditOptCode")" />
+                                                                </td>
+                                                                <td>
+                                                                    @attopt.description
+                                                                    <input type="hidden" id="@(pattr.id+  "EditOptDes")" />
+                                                                </td>
+                                                                <td>
+                                                                    @attopt.price
+                                                                    <input type="hidden" id="@(pattr.id+  "EditOptPrice")" />
+                                                                </td>
+                                                                <td>
+                                                                    <button onclick="Edit(@pattr.id)">Edit</button>
+                                                                    <button hidden="hidden" onclick="ConfirmEdit(@pattr.id)">Confirm</button>
+                                                                </td>
+
+                                                            </tr>
+                                                        }
+                                                        <tr>
+                                                            <input type="hidden" id="@(pattr.id+  "NewOptAttID")" value="@pattr.id" />
+                                                            <td>
+                                                                <input type="text" id="@(pattr.id+  "NewOptName")" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="@(pattr.id+  "NewOptCode")" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="@(pattr.id+  "NewOptDes")" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="@(pattr.id+  "NewOptPrice")" />
+                                                            </td>
+                                                            <td>
+                                                                <button onclick="AddNewOpt(@pattr.id)">Add</button>
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </td>
+                        </tr>
+
+                    }
+                    <tr style="background-color:darkgrey">
+                        <td>
+                            New Attribute Name
+                        </td>
+                        <td>
+                            New Attribute Code
+                        </td>
+                        <td>
+                            New Attribute Description
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="NewAttrName" />
+                        </td>
+                        <td>
+                            <input type="text" id="NewAttrCode" />
+                        </td>
+                        <td>
+                            <input type="text" id="Description" />
+                        </td>
+                        <td>
+                            <button onclick="AddAttr(@product.id)">Add</button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+
+    <div>
+
+    </div>
+    <br />
+    <h2> <font style="font-family:Roboto-Light"> Market Plan </font> </h2>
+    <div>
+        <table id="myData" class="table table-striped table-bordered" cellspacing="0">
+            <tr>
+
+                <th>
+                    Active
+                </th>
+                <th>
+                    Plan name
+                </th>
+                <th>
+                    Created Date
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Base Price
+                </th>
+                <th>
+                    Last update
+                </th>
+                <th>
+                    Total successfull deal
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            @foreach (productMarketPlan plan in product.productMarketPlans)
+            {if (plan.isActive) {
+                    String corlor = "#ffffff";
+                    if (plan.operating)
+                    {
+                        corlor = "#98FB98";
+                    }
+
+                <tr >
+
+                    <td>
+                        @if (plan.operating)
+                        {
+                            <label class="switch">
+                                <input id="@("oper"+plan.id)" type="checkbox" checked>
+                                <div  onclick="updateMarketPlan(@plan.id)" class="slider round"></div>
+                            </label>
+                        }
+                        else
+                        {
+                            <label class="switch">
+                                <input id="@("oper"+plan.id)" type="checkbox" >
+                                <div  onclick="updateMarketPlan(@plan.id)" class="slider round"></div>
+                            </label>
+                        }
+
+                    </td>
+                    <td>
+                        @plan.Name
+                    </td>
+                    <td>
+                        @plan.CreatedDay
+                    </td>
+                    <td>
+                        @plan.Description
+                    </td>
+                    <td>
+                        @plan.Price
+                    </td>
+                    <td>
+                        @plan.lastUpdate
+                    </td>
+                    <td>
+                        @plan.Deal_Item.ToList().Count
+                    </td>
+                    <td>
+                        <button class="push_button blue">Edit</button>
+                        <form action="/Product/SetInactiveMarketPlan" method="post">
+                            <input type="hidden" name="planid" value="@plan.id" />
+                            <input type="hidden" name="productID" value="@product.id" />
+                            <button class="push_button red">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }}
+        </table>
+
+    </div>
+    <div class="container">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#newMarketPlanModal">New Market Plan</button>
+
+        <div class="modal fade" id="newMarketPlanModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content" style="width:900px">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">New Market Plan</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h2> <font style="font-family:Roboto-Light"> @product.name </font> </h2>
+                        <input type="hidden" value="@product.id" id="NewMarketPlanProductId" />
+                        <label> Plan Name </label> <input type="text" id="newMarketPlanName" value="" />
+                        <label> Description</label> <input type="text" id="newMarketPlanDes" value="" />
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <th>
+                                    Atttribute Name
+                                </th>
+                                <th>
+                                    Options
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                            </tr>
+                            @foreach (productAttribute att in product.productAttributes.ToList())
+                            {
+                                <tr>
+                                    <td>
+                                        @att.name
+                                   
+                                    </td>
+                                    <td>
+                                        <select name="Foo" id="@(att.id + "option")" class="optionChosen">
+                                            @foreach (attributeOption opt in att.attributeOptions.ToList())
+                                            {
+                                                <option value="@opt.id">@opt.name</option>
+
+                                            }
+
+                                        </select>
+                                        @foreach (attributeOption opt in att.attributeOptions.ToList())
+                                        {
+
+                                            <input value="@opt.price" type="hidden" id="@(opt.id+"optionprice")" />
+                                        }
+                                    </td>
+                                    <td>
+                                        <label id="@(att.id+"optionpriceshow")" class="optprice"></label>
+                                    </td>
+                                </tr>
+                            }
+
+                            <tr>
+                                <td colspan="2">
+                                    Total Price
+                                </td>
+                                <td> <label id="totalprice"></label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    Floor Price
+                                </td>
+                                <td> <input type="text" id="floorPrice" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    Ceil Price
+                                </td>
+                                <td> <input type="text" id="ceilPrice" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>
+                                    <button onclick="createNewPlan()"> Add</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <h2> <font style="font-family:Roboto-Light"> Follow-up Plan </font> </h2>
+    <div>
+        <table id="myData" class="table table-striped table-bordered" cellspacing="0">
+            <tr>
+                <th>
+                    Is Active
+                </th>
+                <th>
+                    Plan name
+                </th>
+                <th>
+                    Created Date
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Number of steps
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            @foreach (PrePurchase_FollowUp_Plan plan in product.PrePurchase_FollowUp_Plan)
+            {
+            if (plan.isActive)
+            {
+                String corlor = "#ffffff";
+                    <tr>
+                        <td>
+                            @if (plan.isOperation)
+                            {
+                                <label class="switch">
+                                    <input id="@("oper" + plan.id)" type="checkbox" class="PlanActiveSwitch" checked>
+                                    <div  onclick="updatePrePlan(@plan.id)" class="slider round"></div>
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="switch">
+                                    <input id="@("oper" + plan.id)" type="checkbox">
+                                    <div  onclick="updatePrePlan(@plan.id)" class="slider round"></div>
+                                </label>
+                            }
+
+                        </td>
+
+                        <td>
+                            @plan.name
+                        </td>
+                        <td>
+                            @plan.createDate
+                        </td>
+                        <td>
+                            @plan.Description
+                        </td>
+                        <td>
+                            @plan.Plan_Step.ToList().Count()
+                        </td>
+                        <td>
+                            <button  class="push_button blue" onclick="editplan(@plan.id)">Edit</button>
+                            <form action="/Product/SetInactive" method="post">
+                                <input type="hidden" name="planid" value="@plan.id"/>
+                                <input type="hidden" name="productID" value="@product.id" />
+                                <button class="push_button red">Delete</button>
+                            </form>
+                          
+                        </td>
+                    </tr>
+            }
+            }
+        </table>
+        <button type="button" onclick="redirectToNewPlan()" class="btn btn-info btn-lg">+New Plan</button>
+    </div>
+    <script>
+        function redirectToNewPlan() {
+            window.location = "/Product/NewPlan?productID="+ @product.id;
+        }
+
+    </script>
+    <script>
+    
+        function AddNewOpt(id) {
+            var newOptCode = $("#" + id + "NewOptCode").val();
+            var newOptName = $("#" + id + "NewOptName").val();
+            var newOptDescription = $("#" + id + "NewOptDes").val();
+            var newOptPrice = $("#" + id + "NewOptPrice").val();
+            var trString = '<tr><td>' + newOptName + '<input type="hidden" id="' + id + 'EditOptName" /></td><td>' + newOptCode + '<input type="hidden" id="' + id + 'EditOptCode" /></td><td>' + newOptDescription + '<input type="hidden" id="' + id + 'EditOptDes" /></td><td>' + newOptPrice + '<input type="hidden" id="' + id + 'EditOptPrice" /></td><td><button onclick="Edit(' + id + ')">Edit</button><button hidden="hidden" onclick="ConfirmEdit(' + id + ')">Confirm</button></td></tr>'
+            $.getJSON("/Product/CreateNewOption?attID=" + id + "&optCode=" + newOptCode + "&optname=" + newOptName + "&optdes=" + newOptDescription + "&optprice=" + newOptPrice, function (data) {
+                $.each(data, function (key, value) {
+                    if (key == "result") {
+                        if (value == "true") {
+
+                            $('#' + id + 'OptTable').append(trString);
+
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                })
+            });
+
+        }
+        function AddAttr(id) {
+            var newAttCode = $("#NewAttrCode").val();
+            var newAttName = $("#NewAttrName").val();
+            var newAttDescription = $("#Description").val();
+            $.getJSON("/Product/CreateNewAtt?productID=" + id + "&attname=" + newAttName + "&attcode=" + newAttCode + "&attdes=" + newAttDescription, function (data) {
+                $.each(data, function (key, value) {
+                    if (key == "result") {
+                        if (value == "true") {
+
+                            window.location = "/Product/Detail?id=" + id;
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                })
+            });
+        }
+        function updateMarketPlan(id){
+            $.getJSON("/Product/MarketPlanSwitchStatus?id="+id, function (result) {       
+                $.each(result, function (name, value) {
+                    if (name == "result") {
+                        if(value == "succeed") {
+                            alert("Success");
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                });
+            });
+        }
+        function updatePrePlan(id){
+            $.getJSON("/Product/PrePlanSwitchStatus?id="+id, function (result) {       
+                $.each(result, function (name, value) {
+                    if (name == "result") {
+                        if(value == "succeed") {
+                            alert("Success");
+                        }
+                        else {
+                            alert("Oops, something wrong happened");
+                        }
+                    }
+                });
+            });
+        }
+        $(document).ready(function (){
+
+            $(".PlanActiveSwitch").each(function(){
+                $(this).change (function (){
+                    var id = $(this).val().replace("oper","")
+             
+                });
+            });
+        });
+    </script>
+
+}

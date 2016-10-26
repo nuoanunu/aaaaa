@@ -1,0 +1,148 @@
+﻿
+@model SSM.ViewModels.CreateEmailTemplateViewModel
+
+@{
+    ViewBag.Title = "Add Email Template";
+}
+
+
+<script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+<script src="~/Scripts/tinymce/tinymce.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+
+<style>
+    #btnShow {
+        margin-bottom: 0.3cm;
+    }
+</style>
+
+
+<h2>Edit Email Template</h2>
+
+<button id="btnShow" class="btn btn-primary">Add Category</button>
+
+@using (Html.BeginForm("Save", "MailTemplate", FormMethod.Post, new { id = "submitform" }))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors")
+    <div class="form-group">      
+        @Html.HiddenFor(m => m.EmailCategory.Name)
+        @Html.LabelFor(m => m.EmailTemplateEntity.EmailCategoryId, new { @class = "required" })
+        @Html.DropDownListFor(m => m.EmailTemplateEntity.EmailCategoryId, new SelectList(Model.EmailCategories, "id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmailTemplateEntity.EmailCategoryId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.EmailTemplateEntity.Name, new { @class = "required" })
+        @Html.TextBoxFor(m => m.EmailTemplateEntity.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmailTemplateEntity.Name)
+    </div>
+    
+
+    //Mail Content
+    <textarea id="contentEmail"></textarea>
+
+    <div class="form-group">
+        @Html.HiddenFor(m => m.EmailTemplateEntity.id)
+        @Html.HiddenFor(m => m.EmailTemplateEntity.MailContent, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.EmailTemplateEntity.MailContent)
+    </div>
+
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary" id="buttonSend">Save</button>
+}
+
+<div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="myModalLabel">Add new Category</h3>
+            </div>
+            <div class="modal-body">
+                @using (Ajax.BeginForm("InsertNewCategoryUsingAjax", "MailTemplate", new AjaxOptions { OnSuccess = "onSuccessAddCategory" }))
+                {
+                    @Html.ValidationSummary(true, "Please fix the following errors")
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailCategory.Name, new { @class = "required" })
+                        @Html.TextBoxFor(m => m.EmailCategory.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EmailCategory.Name)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailCategory.description, new { @class = "required" })
+                        @Html.TextBoxFor(m => m.EmailCategory.description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.EmailCategory.description)
+                    </div>
+
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-primary" id="AjaxSave">Save</button>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $(".EmailTemplateEntity.EmailCategoryId option:contains(" + $('.EmailCategory.Name').val() + ")").attr('selected', 'selected');
+
+        $('#contentEmail').val($('#EmailTemplateEntity_MailContent').val());
+
+        tinymce.init({
+            //selector: 'textarea#editext' + stepno,
+            selector: 'textarea',
+            height: 250,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: '//www.tinymce.com/css/codepen.min.css'           
+        });              
+       
+        $("#btnShow").click(function () {
+            
+            $('#demoModal').modal('show');
+        });
+
+        //Check mail content not null and assign value of text area tag to hidden field mail content
+        $('#buttonSend').click(function (e) {
+            var content = tinyMCE.activeEditor.getContent();
+
+            //check null not working, validate in server
+            if (content == undefined || content == null) {
+                alert("Please enter mail content!");
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
+            else {
+            $('#EmailTemplateEntity_MailContent').val(tinyMCE.activeEditor.getContent());
+                this.submit();
+            }
+        });
+    });
+</script>
+
+<script>   
+
+    //Function onSuccess of Ajax call
+    function onSuccessAddCategory(newCategory) {
+        $('#demoModal').modal('hide');
+        $("#EmailTemplateEntity_EmailCategoryId").append('<option value="'
+        + newCategory.id + '">' +
+        newCategory.Name + '</option>');
+        $("#EmailTemplateEntity_EmailCategoryId option:contains(" + newCategory.Name + ")").attr('selected', 'selected');
+    }
+
+</script>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

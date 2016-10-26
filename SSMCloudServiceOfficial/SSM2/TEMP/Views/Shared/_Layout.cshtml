@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="google-site-verification" content="8oFmQK9G993Lf72QtJDPXbV2fTtUcS6xwLTnlkE37Tg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/navbar-fixed-side.css" rel="stylesheet" />
+    <link href="~/Content/buttonStyle.css" rel="stylesheet" />
+    <link href="~/Content/ProcessDeal.css" rel="stylesheet" />
+    <link href="~/Content/timelinestyle.css" rel="stylesheet" />
+    <link href="~/Content/timelinereset.css" rel="stylesheet" />
+    <link href="~/Content/fonts/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/fonts/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
+
+    <script src="~/Scripts/chartjs/chart.min.js"></script>
+    <script src="~/Scripts/timelinermodernizr.js"></script>
+    <script src="~/Scripts/timelinemain.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script src="~/Scripts/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/Scripts/icheck/icheck.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/wizard/jquery.smartWizard.js"></script>
+    <script src="~/Scripts/pace/pace.min.js"></script>
+
+    <style>
+        #notification_count {
+            padding: 0px 7px 30px 7px;
+            background: #cc0000;
+            color: #ffffff;
+            height: 12px;
+            font-weight: bold;
+            margin-left: 14px;
+            border-radius: 9px;
+            -moz-border-radius: 9px;
+            -webkit-border-radius: 9px;
+            position: absolute;
+            margin-top: -11px;
+            font-size: 11px;
+        }
+
+        #notificationContainer {
+            background-color: #fff;
+            border: 1px solid rgba(100, 100, 100, .4);
+            -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+            overflow: visible;
+            position: absolute;
+            top: 30px;
+            margin-left: -170px;
+            width: 400px;
+            z-index: 1;
+            display: none;
+        }
+
+            #notificationContainer:before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                color: transparent;
+                border: 10px solid black;
+                border-color: transparent transparent white;
+                margin-top: -20px;
+                margin-left: 188px;
+            }
+
+        #notificationTitle {
+            font-weight: bold;
+            padding: 8px;
+            font-size: 13px;
+            background-color: #ffffff;
+            position: fixed;
+            z-index: 1000;
+            width: 384px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        #notificationsBody {
+            padding: 33px 0px 0px 0px !important;
+            min-height: 300px;
+        }
+
+        #notificationFooter {
+            background-color: #e9eaed;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+            font-size: 12px;
+            border-top: 1px solid #dddddd;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#notificationLink").click(function () {
+                $("#notificationContainer").fadeToggle(300);
+                $("#notification_count").fadeOut("slow");
+                return false;
+            });
+
+            //Document Click hiding the popup
+            $(document).click(function () {
+                $("#notificationContainer").hide();
+            });
+
+            //Popup on click
+            $("#notificationContainer").click(function () {
+                return false;
+            });
+
+        });
+    </script>
+
+    <link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <script>
+
+    </script>
+</head>
+<body class="nav-md" style="padding:0;padding-left:0;padding-right:0;background:#2A3F54">
+    <div class="container body" style="margin:0;width:100%;padding:0;padding-left:0;padding-right:0;max-width:2500px;width:100%;background:#2A3F54">
+        <div class="main_container" style="margin:0;width:100%;height:100%; padding:0;padding-left:0;padding-right:0;">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Manager portal</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+
+                            <img id="avatar" src="~/Content/updoc.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span id="welcomeName">Welcome</span>
+
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+                    <br />
+                    <br />
+                    <!-- sidebar menu -->
+                    @if (User.IsInRole("SalesRep"))
+                    {
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <br />
+                                <br />
+                                <ul class="nav side-menu" style="background:#2A3F54">
+                                    <li>
+                                        <a href="/Home"><i class="fa fa-home"></i> Dashboard </a>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-desktop"></i> Deals <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="general_elements.html">New Assigned</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Deal/">All Deal</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Deal/Create">Create Deal</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-users"></i> Potential Customer <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="/Home/Contact">View all </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/Contact/Create">Create new</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/Profile/"><i class="fa fa-suitcase"></i>Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Profile/Commision"><i class="fa fa-bar-chart-o"></i>Commision</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Profile/Commision"><i class="fa fa-envelope-o"></i>Inbox</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    }
+                    else if (User.IsInRole("manager"))
+                    {
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <br />
+                                <br />
+                                <ul class="nav side-menu" style="background:#2A3F54">
+                                    <li>
+                                        <a href="/Home"><i class="fa fa-home"></i> Dashboard </a>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-desktop"></i> Deals <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="/Request/">New Request</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Deal/">All Deal</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-users"></i> Potential Customer <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="/Home/Contact">View all </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/Contact/Create">Create new</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a><i class="fa fa-suitcase"></i> Sale Representatives <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="/Profile/ProfileList">View all </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Profile/Create">Create new</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/Product/"><i class="fa fa-bar-chart-o"></i>Product</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Profile/ViewAllCommision"><i class="fa fa-envelope-o"></i>Commision</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    }
+
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" onclick="logoff()" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                        <script>
+                            function logoff() {
+                                $("#logoutform").submit();
+                            }
+                        </script>
+                        <form id="logoutform" style="display:none" action="/Account/LogOff" method="post">
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li role="presentation" class="dropdown">
+
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-bell-o" style="color:#515356"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" style=" min-height:2000px" role="main">
+                @RenderBody()
+            </div>
+            <!-- /page content -->
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @if (!User.IsInRole("manager") && !User.IsInRole("SalesRep")) {
+        <script>
+            window.location= "/Account/Login"
+        </script>
+    }
+</body>
+
+</html>

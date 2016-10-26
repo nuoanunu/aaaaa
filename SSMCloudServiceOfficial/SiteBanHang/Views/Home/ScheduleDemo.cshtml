@@ -1,0 +1,802 @@
+﻿@using SiteBanHang.Models
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Patient Care -  We care </title>
+
+    <meta name="keywords" content="">
+
+
+    @*<link href="~/Content/custom.css" rel="stylesheet" />*@
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap and Font Awesome css -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Css animations  -->
+    <link href="~/Content/css/animate.css" rel="stylesheet">
+
+    <!-- Theme stylesheet, if possible do not edit this stylesheet -->
+    <link href="~/Content/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- Custom stylesheet - for your changes -->
+    <link href="~/Content/css/custom.css" rel="stylesheet">
+
+    <!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicon and apple touch icons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Content/img/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Content/img/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Content/img/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Content/img/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Content/img/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Content/img/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Content/img/apple-touch-icon-152x152.png" />
+    <!-- owl carousel css -->
+    <script src="~/Content/js/date.js"></script>
+    <script src="~/Scripts/js/jquery-1.11.0.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/Scheduler.js"></script>
+    <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/Content/css/owl.theme.css" rel="stylesheet">
+    <script src="~/Content/js/icheck.min.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/moment.min.js"></script>
+    <script src="~/Content/js/fullcalendar.min.js"></script>
+    <script src="~/Content/js/pace.min.js"></script>
+    <style type="text/css" media="screen">
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+        }
+
+        #myscheduler td {
+            background-color: white;
+            color: black;
+            height: 25%;
+        }
+
+        .fc-agendaWeek-view tr {
+            height: 40px;
+        }
+    </style>
+
+    <script>
+        function nextweek() {
+            var thisweekmonday = Date.parseExact($("#fromdate").val(), "MM/dd/yyyy");
+            var thisweeksaturday = Date.parseExact($("#todate").val(), "MM/dd/yyyy");
+            thisweekmonday = thisweekmonday.add({ days: 7 });
+            thisweeksaturday = thisweeksaturday.add({ days: 7 });
+
+            $("#fromdate").val(thisweekmonday.toString("MM/dd/yyyy"));
+            $("#todate").val(thisweeksaturday.toString("MM/dd/yyyy"));
+        }
+
+        function previousweek() {
+            var thisweekmonday = Date.parseExact($("#fromdate").val(), "MM/dd/yyyy");
+            var thisweeksaturday = Date.parseExact($("#todate").val(), "MM/dd/yyyy");
+            thisweekmonday = thisweekmonday.add({ days: -7 });
+            thisweeksaturday = thisweeksaturday.add({ days: -7 });
+
+            $("#fromdate").val(thisweekmonday.toString("MM/dd/yyyy"));
+            $("#todate").val(thisweeksaturday.toString("MM/dd/yyyy"));
+        }
+    </script>
+
+
+</head>
+<body>
+
+
+    <div id="all">
+        <header>
+
+            <!-- *** TOP ***
+            _________________________________________________________ -->
+            <!-- *** TOP END *** -->
+            <!-- *** NAVBAR ***
+            _________________________________________________________ -->
+
+            <div class="navbar" data-spy="affix" data-offset-top="200">
+
+                <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <a class="navbar-brand home" href="index.html">
+                                <img src="img/logo.png" alt="Universal logo" class="hidden-xs hidden-sm">
+                                <img src="img/logo-small.png" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
+                            </a>
+                            <div class="navbar-buttons">
+                                <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <i class="fa fa-align-justify"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--/.navbar-header -->
+
+                        <div class="navbar-collapse collapse" id="navigation">
+
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown active">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="index.html">Option 1: Default Page</a>
+                                        </li>
+                                        <li>
+                                            <a href="index2.html">Option 2: Application</a>
+                                        </li>
+                                        <li>
+                                            <a href="index3.html">Option 3: Startup</a>
+                                        </li>
+                                        <li>
+                                            <a href="index4.html">Option 4: Agency</a>
+                                        </li>
+                                        <li>
+                                            <a href="index5.html">Option 5: Portfolio</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Features<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <img src="img/template-easy-customize.png" class="img-responsive hidden-xs" alt="">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h5>Shortcodes</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="template-accordions.html">Accordions</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-alerts.html">Alerts</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-buttons.html">Buttons</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-content-boxes.html">Content boxes</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-blocks.html">Horizontal blocks</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-pagination.html">Pagination</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-tabs.html">Tabs</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-typography.html">Typography</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h5>Header variations</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="template-header-default.html">Default sticky header</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-header-nosticky.html">No sticky header</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="template-header-light.html">Light header</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <img src="img/template-homepage.png" class="img-responsive hidden-xs" alt="">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h5>Portfolio</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="portfolio-2.html">2 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-2.html">2 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-3.html">3 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-3.html">3 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-4.html">4 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-4.html">4 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-detail.html">Portfolio - detail</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-detail-2.html">Portfolio - detail 2</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ========== FULL WIDTH MEGAMENU ================== -->
+                                <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">All Pages <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <h5>Home</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="index.html">Option 1: Default Page</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index2.html">Option 2: Application</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index3.html">Option 3: Startup</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index4.html">Option 4: Agency</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="index5.html">Option 5: Portfolio</a>
+                                                            </li>
+                                                        </ul>
+                                                        <h5>About</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="about.html">About us</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="team.html">Our team</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="team-member.html">Team member</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="services.html">Services</a>
+                                                            </li>
+                                                        </ul>
+                                                        <h5>Marketing</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="packages.html">Packages</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h5>Portfolio</h5>
+                                                        <ul>
+                                                            <li>
+                                                                <a href="portfolio-2.html">2 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-2.html">2 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-3.html">3 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-3.html">3 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-4.html">4 columns</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-no-space-4.html">4 columns with negative space</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-detail.html">Portfolio - detail</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="portfolio-detail-2.html">Portfolio - detail 2</a>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- /.yamm-content -->
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- ========== FULL WIDTH MEGAMENU END ================== -->
+
+                                <li class="dropdown">
+                                    <a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="contact.html">Contact option 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="contact2.html">Contact option 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="contact3.html">Contact option 3</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!--/.nav-collapse -->
+
+
+
+                        <div class="collapse clearfix" id="search">
+
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+
+                                        <button type="submit" class="btn btn-template-main"><i class="fa fa-search"></i></button>
+
+                                    </span>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!--/.nav-collapse -->
+
+                    </div>
+
+
+                </div>
+                <!-- /#navbar -->
+
+            </div>
+
+            <!-- *** NAVBAR END *** -->
+
+        </header>
+
+        <!-- *** LOGIN MODAL ***
+        _________________________________________________________ -->
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="Login">Customer login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="customer-orders.html" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email_modal" placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="password_modal" placeholder="password">
+                            </div>
+
+                            <p class="text-center">
+                                <button class="btn btn-template-main"><i class="fa fa-sign-in"></i> Log in</button>
+                            </p>
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- *** LOGIN MODAL END *** -->
+
+        <div id="heading-breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h1>Schedule a demo</h1>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="index.html">Plan</a>
+                            </li>
+                            <li>Schedule</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <h2 class="text-uppercase">Your information</h2>
+                            <form action="/Home/makenewRequest" id="myrequestform" method="post">
+                                <input type="hidden" value="@ViewData["planID"]" name="planID" />
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" name="firstname" class="form-control" id="firstname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" name="lastname" class="form-control" id="lastname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" class="form-control" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bussinessname">Bussiness Name</label>
+                                    <input type="text" name="businessname" class="form-control" id="bussinessname">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-login">Bussiness Address</label>
+                                    <input type="text" name="BussinessAddress" class="form-control" id="BussinessAddress">
+                                </div>
+                                <div class="form-group">
+                                    <label for="website">Website</label>
+                                    <input type="text" class="form-control" name="website" id="website">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role">roles</label>
+                                    <select name="role" class="form-control" id="role">
+                                        <option value="1">1</option>
+                                        <option value="1">2</option>
+                                        <option value="1">3</option>
+                                        <option value="1">4</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">What is the biggest challenge when it comes to your practice?</label>
+                                    <input type="text" class="form-control" id="description" name="description">
+                                </div>
+                                <input type="hidden" id="dates" name="dates" value="" />
+
+                            </form>
+                            <div class="text-center">
+                                <button type="button" onclick="submitFormRequest()" class="btn btn-template-main"><i class="fa fa-user-md"></i> Schedule</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class='tab' style="align-content:center">
+                                <h2 class="text-uppercase">Choose your date</h2>
+                                <div id="DIV_1">
+
+                                    <button type="button" onclick="previousweek()" class="btn btn-template-main">
+                                        Previous
+                                    </button>
+                                    <button type="button" class="btn btn-template-main">
+                                        This week
+                                    </button>
+                                    <button type="button" onclick="nextweek()" class="btn btn-template-main">
+                                        Next
+                                    </button>
+
+                                    <br />
+                                    <input disabled type="text" id="fromdate" value="10/02/2016" />
+                                    <input disabled type="text" id="todate" value="10/09/2016" />
+                                </div>
+
+                                </br>
+                                <div class="pre-scrollable" style="align-content:center;max-height:600px">
+                                    <table border='1' cellpadding='0' cellspacing='0' id="myscheduler" width="100%">
+                                        <tr class='days'>
+
+                                            <th>Monday</th>
+                                            <th>Tuesday</th>
+                                            <th>Wednesday</th>
+                                            <th>Thursday</th>
+                                            <th>Friday</th>
+
+                                        </tr>
+                                        @for (int i = 0; i < 36; i++)
+                                        {
+                                            TimeSpan meetingstart = new TimeSpan(0, (int)(8 + Math.Floor((double)i / 4)), (((int)(double)i % 4) * 15), 0);
+                                            TimeSpan meetingend = meetingstart.Add(new TimeSpan(0, 0, 15, 0));
+
+                                            <tr>
+                                                @for (int j = 1; j < 6; j++)
+                                                {
+
+                                                    foreach (Calendar cal in (List<Calendar>)ViewData["unavailabledate"])
+                                                    {
+                                                        bool avail = true;
+                                                        if ((int)cal.startTime.DayOfWeek == j)
+                                                        {
+                                                            if (cal.startTime.TimeOfDay < meetingend && cal.endTime.TimeOfDay > meetingstart)
+                                                            {
+                                                                avail = false;
+                                                            }
+
+                                                        }
+                                                        String hours = (8 + Math.Floor((double)i / 4)) + ""; if (hours.Length == 1) { hours = "0" + hours; }
+                                                        String minutes = (((int)(double)i % 4) * 15) + ""; if (minutes.Length == 1) { minutes = "0" + minutes; }
+                                                        if (avail)
+                                                        {
+                                                            <td>
+                                                                <button id="@(i*6+j)" onclick="savetheday(@hours, @minutes,@(i*6+j) , @j )" class="mybtn btn btn-primary" style="width:100px;margin:3px 3px 3px 3px">@hours:@minutes</button>
+                                                            </td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td style="background-color:slategray" align="center">
+                                                                @hours:@minutes
+                                                            </td>
+                                                        }
+                                                    }
+                                                }
+                                            </tr>
+
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='calendar'></div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+        <!-- *** GET IT ***
+        _________________________________________________________ -->
+        <!-- *** GET IT END *** -->
+        <!-- *** FOOTER ***
+        _________________________________________________________ -->
+        <!-- /#copyright -->
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+    </div>
+    <!-- /#all -->
+    <!-- #### JAVASCRIPT FILES ### -->
+
+    <script>
+        var globalEvent = [];
+        var choosenDate = [];
+    </script>
+    <script>
+        function submitFormRequest() {
+            var myJsonString = JSON.stringify(choosenDate);
+            $("#dates").val(myJsonString);
+            myrequestform.submit();
+        }
+    </script>
+    <script>
+        function savetheday(hour, minute, btnID, dayofweek){
+            $(".mybtn").each(function () {
+                $(this).attr('class', 'mybtn btn btn-primary');
+            })
+            $("#" + btnID).attr('class', 'mybtn btn btn-success');
+            var thisweekmonday = Date.parseExact($("#fromdate").val(), "MM/dd/yyyy");
+            var choosedDate = thisweekmonday.add({ days: (dayofweek - 1) });
+            var anothereven = new Object();
+            var start = new Date(thisweekmonday.getFullYear(), thisweekmonday.getMonth(), thisweekmonday.getDate(), hour, minute, 0, 0);
+            anothereven.start = new Date(thisweekmonday.getFullYear(), thisweekmonday.getMonth(), thisweekmonday.getDate(), hour, minute, 0, 0);
+            anothereven.end = start.add({ minutes: 15 });
+            anothereven.allDay = false;
+            anothereven.title = "clientchoose";
+            anothereven.id = "myEvent";
+            choosenDate = [];
+            choosenDate.push(anothereven);
+            alert(JSON.stringify(choosenDate));
+        }
+    </script>
+    @if (ViewData["unavailabledate"] != null)
+    {
+        foreach (Calendar cal in (List<Calendar>)ViewData["unavailabledate"])
+        {
+            <script>
+
+                var myEvent@(cal.id) = new Object();
+                myEvent@(cal.id).title = "Unavailable";
+                myEvent@(cal.id).start = new Date('@cal.startTime');
+                myEvent@(cal.id).end = new Date('@cal.endTime');
+                myEvent@(cal.id).dow = [@((int)cal.startTime.DayOfWeek)];
+                myEvent@(cal.id).backgroundColor = '#545454',
+                myEvent@(cal.id).editable = false,
+
+                globalEvent.push(myEvent@(cal.id));
+            </script>
+        }
+    }
+
+    <script>
+        var startedChoosed;
+        var endedChoosed;
+        $(window).load(function () {
+
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var started;
+            var categoryClass;
+
+            var calendar = $('#calendar').fullCalendar({
+                minTime: "07:00:00",
+                maxTime: "18:00:00",
+                slotDuration: '00:15:00',
+                allDaySlot: false,
+                contentHeight: 600,
+                defaultView: 'agendaWeek',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function (start, end, allDay) {
+                    $('#fc_create').click();
+
+                    started = start;
+                    ended = end;
+                    startedChoosed = new Date(start);
+
+
+
+                },
+                eventClick: function (calEvent, jsEvent, view) {
+
+                    var eid = calEvent.id;
+
+                    if (calEvent.title != "Unavailable") {
+                        $('#fc_delete').click();
+
+                        categoryClass = $("#event_type").val();
+
+                        $(".Delete").on("click", function () {
+                            calendar.fullCalendar('removeEvents', eid);
+
+                            $('.antoclose2').click();
+                        });
+                        calendar.fullCalendar('unselect');
+                    }
+
+                },
+                editable: true,
+                events: globalEvent
+            });
+
+
+            $(".antosubmit").on("click", function () {
+                calendar.fullCalendar('removeEvents', "myEvent");
+
+                var datestart = startedChoosed.add({ hours: -7 });
+                var dateend = new Date(startedChoosed);
+                dateend = dateend.addMinutes(15);
+
+                anothereven = new Object();
+                alert(datestart);
+                alert(dateend);
+                anothereven.start = datestart;
+                anothereven.end = dateend;
+                anothereven.allDay = false;
+                anothereven.title = "clientchoose";
+                anothereven.id = "myEvent";
+                choosenDate = anothereven;
+
+
+
+                categoryClass = $("#event_type").val();
+
+                if ("clientchoose") {
+                    $("#calendar").fullCalendar('renderEvent', anothereven,
+                      true // make the event "stick"
+                    );
+                }
+                $("#calendar").fullCalendar('unselect');
+                $('.antoclose').click();
+
+                return false;
+            });
+        });
+
+    </script>
+
+
+
+
+    <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Leave your note</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="testmodal" style="padding: 5px 20px;">
+                        <form id="antoform" class="form-horizontal calender" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" readonly id="title" name="title" value="My available date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<div id="fc_delete" data-toggle="modal" data-target="#deleteEven"></div>
+<div id="deleteEven" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Leave your note</h4>
+            </div>
+            <div class="modal-body">
+                <button type="button" style="width:100%" class="btn btn-danger Delete">Delete</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0867a1cbf14f4f9bbef8be48c3760a9b" Name="Diagram1" ZoomLevel="60">
+        <EntityTypeShape EntityType="SSMModel.AspNetRole" Width="1.5" PointX="0.75" PointY="26.5" />
+        <EntityTypeShape EntityType="SSMModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="17" />
+        <EntityTypeShape EntityType="SSMModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="14.5" />
+        <EntityTypeShape EntityType="SSMModel.AspNetUser" Width="1.5" PointX="3" PointY="24.25" />
+        <EntityTypeShape EntityType="SSMModel.attributeOption" Width="1.5" PointX="5.25" PointY="25.875" />
+        <EntityTypeShape EntityType="SSMModel.Calendar" Width="1.5" PointX="5.25" PointY="59.375" />
+        <EntityTypeShape EntityType="SSMModel.company" Width="1.5" PointX="0.75" PointY="18.25" />
+        <EntityTypeShape EntityType="SSMModel.company_responsible" Width="1.5" PointX="8.25" PointY="26.375" />
+        <EntityTypeShape EntityType="SSMModel.contact_resposible" Width="1.5" PointX="5.25" PointY="22.375" />
+        <EntityTypeShape EntityType="SSMModel.contact" Width="1.5" PointX="3" PointY="17.5" />
+        <EntityTypeShape EntityType="SSMModel.Customer_Request" Width="1.5" PointX="13.5" PointY="21.375" />
+        <EntityTypeShape EntityType="SSMModel.customer" Width="1.5" PointX="5.25" PointY="53.375" />
+        <EntityTypeShape EntityType="SSMModel.Deal" Width="1.5" PointX="6" PointY="4.75" />
+        <EntityTypeShape EntityType="SSMModel.Deal_Item" Width="1.5" PointX="10.5" PointY="18" />
+        <EntityTypeShape EntityType="SSMModel.Deal_SaleRep_Respon" Width="1.5" PointX="8.25" PointY="29" />
+        <EntityTypeShape EntityType="SSMModel.DealStatu" Width="1.5" PointX="3.75" PointY="6.5" />
+        <EntityTypeShape EntityType="SSMModel.DealTask" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="SSMModel.EMAIL_Category" Width="1.5" PointX="8.75" PointY="1" />
+        <EntityTypeShape EntityType="SSMModel.Email_Template" Width="1.5" PointX="11" PointY="1" />
+        <EntityTypeShape EntityType="SSMModel.License" Width="1.5" PointX="7.5" PointY="51.375" />
+        <EntityTypeShape EntityType="SSMModel.ManagerNotification" Width="1.5" PointX="15.75" PointY="13.625" />
+        <EntityTypeShape EntityType="SSMModel.OrderItem" Width="1.5" PointX="9.75" PointY="40" />
+        <EntityTypeShape EntityType="SSMModel.order" Width="1.5" PointX="7.5" PointY="54.875" />
+        <EntityTypeShape EntityType="SSMModel.Payment" Width="1.5" PointX="9.75" PointY="54.5" />
+        <EntityTypeShape EntityType="SSMModel.payment_status" Width="1.5" PointX="7.5" PointY="60.125" />
+        <EntityTypeShape EntityType="SSMModel.Plan_Step" Width="1.5" PointX="5.25" PointY="62.625" />
+        <EntityTypeShape EntityType="SSMModel.PlanOption" Width="1.5" PointX="10.5" PointY="29.375" />
+        <EntityTypeShape EntityType="SSMModel.PrePurchase_FollowUp_Plan" Width="1.5" PointX="3" PointY="63" />
+        <EntityTypeShape EntityType="SSMModel.Product_responsible" Width="1.5" PointX="5.25" PointY="29.875" />
+        <EntityTypeShape EntityType="SSMModel.productAttribute" Width="1.5" PointX="3" PointY="33" />
+        <EntityTypeShape EntityType="SSMModel.productMarketPlan" Width="1.5" PointX="8.25" PointY="33.25" />
+        <EntityTypeShape EntityType="SSMModel.SaleRepProfile" Width="1.5" PointX="5.25" PointY="41.125" />
+        <EntityTypeShape EntityType="SSMModel.softwareProduct" Width="1.5" PointX="0.75" PointY="32.125" />
+        <EntityTypeShape EntityType="SSMModel.TaskStatu" Width="1.5" PointX="6" PointY="2.125" />
+        <EntityTypeShape EntityType="SSMModel.TaskType" Width="1.5" PointX="6" PointY="37.75" />
+        <EntityTypeShape EntityType="SSMModel.Ticket" Width="1.5" PointX="8.25" PointY="21.125" />
+        <EntityTypeShape EntityType="SSMModel.TicketCategory" Width="1.5" PointX="6" PointY="34.5" />
+        <EntityTypeShape EntityType="SSMModel.TicketComment" Width="1.5" PointX="10.5" PointY="21.375" />
+        <EntityTypeShape EntityType="SSMModel.TicketFile" Width="1.5" PointX="10.5" PointY="25.875" />
+        <EntityTypeShape EntityType="SSMModel.TicketServerity" Width="1.5" PointX="6" PointY="19.875" />
+        <EntityTypeShape EntityType="SSMModel.TicketStatu" Width="1.5" PointX="6" PointY="11.25" />
+        <EntityTypeShape EntityType="SSMModel.TrialAccount" Width="1.5" PointX="13.5" PointY="26.25" />
+        <AssociationConnector Association="SSMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SSMModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SSMModel.FK_attributeOption_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_company_responsible_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_contact_resposible_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_customers_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_Deal_SaleRep_Respon_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_MasterSchedule_User_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_OrderItems_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_Product_responsible_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_SaleRepProfile_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_Ticket_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_Ticket_AspNetUsers1" />
+        <AssociationConnector Association="SSMModel.FK_TicketComment_AspNetUsers" />
+        <AssociationConnector Association="SSMModel.FK_attributeOption_productAttributes" />
+        <AssociationConnector Association="SSMModel.FK_PlanOptions_attributeOption" />
+        <AssociationConnector Association="SSMModel.FK_company_responsible_companies" />
+        <AssociationConnector Association="SSMModel.FK_contacts_companies" />
+        <AssociationConnector Association="SSMModel.FK_contact_resposible_contacts" />
+        <AssociationConnector Association="SSMModel.FK_Customer_Request_contacts" />
+        <AssociationConnector Association="SSMModel.FK_Deal_contacts" />
+        <AssociationConnector Association="SSMModel.FK_TrialAccount_contacts" />
+        <AssociationConnector Association="SSMModel.FK_Customer_Request_Deal" />
+        <AssociationConnector Association="SSMModel.FK_Customer_Request_productMarketPlan" />
+        <AssociationConnector Association="SSMModel.FK_Customer_Request_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_ManagerNotification_Customer_Request" />
+        <AssociationConnector Association="SSMModel.FK_Licenses_customers" />
+        <AssociationConnector Association="SSMModel.FK_orders_customers" />
+        <AssociationConnector Association="SSMModel.FK_Payment_customers" />
+        <AssociationConnector Association="SSMModel.FK_Deal_DealStatus" />
+        <AssociationConnector Association="SSMModel.FK_Deal_Item_Deal" />
+        <AssociationConnector Association="SSMModel.FK_Deal_SaleRep_Respon_Deal" />
+        <AssociationConnector Association="SSMModel.FK_Deal_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_ManagerNotification_Deal" />
+        <AssociationConnector Association="SSMModel.FK_Tasks_Deal" />
+        <AssociationConnector Association="SSMModel.FK_Deal_Item_productMarketPlan" />
+        <AssociationConnector Association="SSMModel.FK_Tasks_TaskStatus" />
+        <AssociationConnector Association="SSMModel.FK_Tasks_TaskType" />
+        <AssociationConnector Association="SSMModel.FK_Email_Template_EMAIL_Category" />
+        <AssociationConnector Association="SSMModel.FK_OrderItems_Licenses" />
+        <AssociationConnector Association="SSMModel.FK_MarketPlanPurchased_orders" />
+        <AssociationConnector Association="SSMModel.FK_MarketPlanPurchased_productMarketPlan" />
+        <AssociationConnector Association="SSMModel.FK_Payment_orders" />
+        <AssociationConnector Association="SSMModel.FK_Payment_payment_status" />
+        <AssociationConnector Association="SSMModel.FK_Plan_Step_Plan_Step" />
+        <AssociationConnector Association="SSMModel.FK_Plan_Step_Plan_Step1" />
+        <AssociationConnector Association="SSMModel.FK_Plan_Step_PrePurchase_FollowUp_Plan" />
+        <AssociationConnector Association="SSMModel.FK_PlanOptions_productMarketPlan" />
+        <AssociationConnector Association="SSMModel.FK_PrePurchase_FollowUp_Plan_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_Product_responsible_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_productAttributes_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_orderItems_softwareProduct" />
+        <AssociationConnector Association="SSMModel.FK_TrialAccount_productMarketPlan" />
+        <AssociationConnector Association="SSMModel.FK_Ticket_TicketCategory" />
+        <AssociationConnector Association="SSMModel.FK_Ticket_TicketServerity" />
+        <AssociationConnector Association="SSMModel.FK_Ticket_TicketStatus" />
+        <AssociationConnector Association="SSMModel.FK_TicketComment_Ticket" />
+        <AssociationConnector Association="SSMModel.FK_TicketFile_Ticket" />
+        <AssociationConnector Association="SSMModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

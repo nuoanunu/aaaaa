@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C29B221C-4649-4E21-89EE-D79074CA5D14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WorkerRole1</RootNamespace>
+    <AssemblyName>WorkerRole1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RoleType>Worker</RoleType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenPop, Version=2.0.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenPop.2.0.6.2\lib\net20\OpenPop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="attributeOption.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comon.cs" />
+    <Compile Include="company.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="company_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contact.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="contact_resposible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="customer.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Request.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deal.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DealStatu.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DealTask.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deal_Item.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Deal_SaleRep_Respon.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmailHandler.cs" />
+    <Compile Include="EMAIL_Category.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Email_Template.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="License.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerNotification.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="order.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItem.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payment_status.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanOption.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Plan_Step.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrePurchase_FollowUp_Plan.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productAttribute.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="productMarketPlan.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaleRepCommision.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SaleRepProfile.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="softwareProduct.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSMModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSMModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSMModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSMModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SSMModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TaskStatu.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskType.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ticket.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketCategory.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketComment.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketFile.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketServerity.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketStatu.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrialAccount.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="SSMModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SSMModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SSMModel.edmx.diagram">
+      <DependentUpon>SSMModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SiteBanHang\SiteBanHang.csproj">
+      <Project>{08FE82AB-E610-454D-A4BE-C4EB297463EC}</Project>
+      <Name>SiteBanHang</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SSMModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSMModel.edmx</DependentUpon>
+      <LastGenOutput>SSMModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SSMModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SSMModel.edmx</DependentUpon>
+      <LastGenOutput>SSMModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <!-- Setting AutoUnifyAssemblyReferences to false will allow the ResolveAssemblyReferences task to 
+    create warnings when detecting version missmatches among references.
+    -->
+    <AutoUnifyAssemblyReferences>false</AutoUnifyAssemblyReferences>
+  </PropertyGroup>
+</Project>

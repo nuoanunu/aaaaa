@@ -1,0 +1,362 @@
+﻿@using SSM.Models
+<style>
+    body {
+        background-color: white;
+    }
+</style>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/nprogress.js"></script>
+
+<div class="right_col" role="main">
+    <!-- top tiles -->
+    <div class="row tile_count">
+        <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+            <div class="left"></div>
+            <div class="right">
+                <span class="count_top"><i class="fa fa-user"></i> Total Contacts Made</span>
+                <div class="count">@ViewData["TotalContactMade"]</div>
+            </div>
+        </div>
+        <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+            <div class="left"></div>
+            <div class="right">
+                <span class="count_top"><i class="fa fa-clock-o"></i> Average Sale Cycle</span>
+                <div class="count">@ViewData["SaleCycle"]</div>
+            </div>
+        </div>
+        <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+            <div class="left"></div>
+            <div class="right">
+                <span class="count_top"><i class="fa fa-user"></i> Total Revenue</span>
+                <div class="count green">@(((double)ViewData["Revenue"]).ToString("C"))</div>
+            </div>
+        </div>
+        <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+            <div class="left"></div>
+            <div class="right">
+                <span class="count_top"><i class="fa fa-user"></i> Total Collected</span>
+                <div class="count">@(((double)ViewData["Collected"]).ToString("C"))</div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /top tiles -->
+    <div class="row">
+        <div class="col-md-8 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Revenue in quantity <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <canvas style="height:450px;" id="mybarChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-12 col-xs-12">
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Graph Description</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">Settings 1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Settings 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table width="100%" style="height:450px">
+
+                        <tr style="height:20px">
+                            <td width="50%" style="background-color:#26B99A"></td>
+                            <td align="center">
+                                Payment Received
+                            </td>
+                        </tr>
+
+                        <tr style="height:20px">
+                            <td width="50%" style="background-color:#03586A"></td>
+                            <td align="center">
+                                Income from subsciption
+                            </td>
+                        </tr>
+
+                        <tr style="height:20px">
+                            <td width="50%" style="background-color:#03906A"></td>
+                            <td align="center">
+                                Income from new contract
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                Unit: $100,000
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12 bg-white" style="height:320px">
+            <div class="x_panel tile fixed_height_320 overflow_hidden" style="height:320px">
+                <div class="x_title">
+                    <h2>Overall</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-6" style="height:320px">
+
+                    <div>
+                        <p>Total from subscription: @(((double)ViewData["TotalFromSubscription"]).ToString("C")) </p>
+                        <div class="">
+
+                            <div class="progress progress_sm">
+                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="@((double)ViewData["TotalFromSubscription"]*100/(double)ViewData["Revenue"])" aria-valuenow="54" style="width: @((double)ViewData["TotalFromSubscription"]*100/(double)ViewData["Revenue"])%;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <p>Total from new contract:@(((double)ViewData["TotalFromNewContract"]).ToString("C"))  </p>
+                        <div class="">
+                            <div class="progress progress_sm">
+                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="@((double)ViewData["TotalFromNewContract"]*100/(double)ViewData["Revenue"])" aria-valuenow="54" style="width: @((double)ViewData["TotalFromNewContract"]*100/(double)ViewData["Revenue"])%;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div>
+                        <p>Unpaid: @(((double)ViewData["TotalUnpaid"]).ToString("C"))</p>
+                        <div class="">
+                            <div class="progress progress_sm">
+                                <div class="progress-bar bg-red" role="progressbar" data-transitiongoal="@((double)ViewData["TotalUnpaid"]*100/(double)ViewData["Revenue"])" aria-valuenow="54" style="width: @((double)ViewData["TotalUnpaid"]*100/(double)ViewData["Revenue"])%;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12" style="height:350px">
+            <div class="x_panel tile fixed_height_320 overflow_hidden" style="height:320px">
+                <div class="x_title">
+                    <h2>Product Top performance</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <canvas id="canvas1"></canvas>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <table class="tile_info">
+                                <tr>
+
+                                    <td>
+                                        <p><i class="fa fa-square blue"></i>IOS </p>
+                                    </td>
+                                    <td>30%</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><i class="fa fa-square green"></i>Android </p>
+                                    </td>
+                                    <td>10%</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><i class="fa fa-square purple"></i>Blackberry </p>
+                                    </td>
+                                    <td>20%</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><i class="fa fa-square aero"></i>Symbian </p>
+                                    </td>
+                                    <td>15%</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><i class="fa fa-square red"></i>Others </p>
+                                    </td>
+                                    <td>30%</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                    <h2>This month income</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-4 col-xs-12">
+                                <div class="sidebar-widget">
+                                    <h4>Income Rating: $4200</h4>
+                                    <canvas width="150" height="80" id="foo" class="" style="padding-left:35%"></canvas>
+                                    <div class="goal-wrapper" style="margin-left:50px">
+                                        <span class="gauge-value pull-left">$</span>
+                                        <span id="gauge-text" class="gauge-value pull-left">3,200</span>
+                                        <span id="goal-text" class="goal-value pull-right">$5,000</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    Chart.defaults.global.legend = {
+        enabled: false
+    };
+
+    var data = {
+        labels: [
+          "Symbian",
+          "Blackberry",
+          "Other",
+          "Android",
+          "IOS"
+        ],
+        datasets: [{
+            data: [15, 20, 30, 10, 30],
+            backgroundColor: [
+              "#BDC3C7",
+              "#9B59B6",
+              "#455C73",
+              "#26B99A",
+              "#3498DB"
+            ],
+            hoverBackgroundColor: [
+              "#CFD4D8",
+              "#B370CF",
+              "#34495E",
+              "#36CAAB",
+              "#49A9EA"
+            ]
+
+        }]
+    };
+
+    var canvasDoughnut = new Chart(document.getElementById("canvas1"), {
+        type: 'doughnut',
+        tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+        data: data
+    });
+</script>
+<script>
+    $(document).ready(function () {
+
+        var ctx = document.getElementById("mybarChart");
+
+        var mybarChart = new Chart(ctx, {
+
+            type: 'bar',
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: 'Payment received',
+                    backgroundColor: "#26B99A",
+                    data: [51, 30, 40, 28, 92, 50, 15, 15, 17, 18, 16, 15]
+                }, {
+                    label: 'Subscription',
+                    backgroundColor: "#03586A",
+                    data: [41, 56, 25, 48, 72, 34, 15, 15, 17, 18, 16, 15]
+                }, {
+                    label: 'New Contract',
+                    backgroundColor: "#03906A",
+                    data: [41, 56, 25, 48, 72, 34, 12, 15, 17, 18, 16, 15]
+                }
+
+                ]
+            },
+
+            options: {
+                title: {
+                    display: true
+                },
+                tooltips: {
+                    mode: 'label'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                onClick: handleClick
+            }
+        });
+        Chart.defaults.global.legend = {
+            enabled: false
+        };
+
+    })
+    function handleClick() { }
+</script>
+<script>
+    NProgress.done();
+</script>
+<script type="text/javascript" src="~/Scripts/gauge/gauge.min.js"></script>
+<script type="text/javascript" src="~/Scripts/gauge/gauge_demo.js"></script>
+
+<!-- /datepicker -->
+<!-- /footer content -->

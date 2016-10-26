@@ -1,0 +1,141 @@
+﻿@using WebRole1.Models
+@{
+    ViewBag.Title = "TicketDetail";
+}
+@if (ViewData["ticketdetail"] != null)
+        { Ticket ticket = (Ticket)ViewData["ticketdetail"];
+<div class="" style="height:100%">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Ticket detail</h3>
+            </div>
+            <div class="title_right" style="text-align: right;" >
+         
+                    <a href="#" style="margin-left:auto; margin-right:0;" class="btn btn-sm btn-success">Complete this ticket</a>
+           
+            </div>
+        </div>
+    @using (Html.BeginForm("NewCommend", "Ticket", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+
+                    <div class="x_content">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                            <br />
+                            <div id="" style="min-height:100px; border:1px;  ">
+                                <h1 >@ticket.TicketName</h1>
+                                <p style="padding:20px;background-color: lightgrey; padding-bottom:20px">@ticket.Description</p>
+                                @if (ticket.ScreenShots != null)
+                                {
+                                    foreach (String src in ticket.ScreenShots.Split(';'))
+                                    {
+                                        <img src="@src" alt="..." />
+                                    }
+                                }
+
+                            </div>
+                            <div>
+                                <h4>Commends</h4>
+                                <!-- end of user messages -->
+                                <ul class="messages">
+                                    @foreach (TicketComment commend in ticket.TicketComments)
+                                    {
+                                        <li>
+                                            <img src="~/Content/images/user.png" class="avatar" alt="Avatar">
+                                            <div class="message_date">
+                                                @commend.createddate.Date
+                                            </div>
+                                            <div class="message_wrapper">
+                                                @if (commend.AspNetUser != null)
+                                                {
+                                                    if (commend.AspNetUser.SaleRepProfiles.ToList().Count() == 1)
+                                                    {
+                                                        <h4 class="heading">@commend.AspNetUser.SaleRepProfiles.First().FullName</h4>
+
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <h4 class="heading">You</h4>
+                                                }
+
+                                                <blockquote class="message">@commend.Description</blockquote>
+                                                <br />
+
+                                            </div>
+                                        </li>
+                                    }
+                                    <li>
+
+                                        <div class="message_wrapper">
+
+                                            <h4 class="heading">New comment</h4>
+
+
+                                            <input type="hidden" name="ticketID" value="@ticket.id" />
+                                            <blockquote style="width:100%" class="message"><textarea name="description" required style="width:100%;max-width:1000px !important"></textarea></blockquote>
+                                            <br />
+                                            <button type="submit" class="btn btn-success">Submit</button>
+
+
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                                <!-- end of user messages -->
+
+                            </div>
+
+                        </div>
+                        <!-- start project-detail sidebar -->
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <section class="panel">
+                                <div class="x_title">
+                                    <h2>More detail</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <h3 class="green"><i class="fa fa-paint-brush"></i> Ticket status</h3>
+                                    <div class="project_detail">
+                                        <p class="title">Created Date</p>
+                                        <p>@ticket.CreatedDay.ToShortDateString()</p>
+                                        <p class="title">Status</p>
+                                        <p>@ticket.TicketStatu.StatusName</p>
+                                    </div>
+                                    <br />
+                                    <h5>Ticket file</h5>
+                                    <ul class="list-unstyled project_files">
+                                        <li>
+                                            <a href=""><i class="fa fa-file-o"></i> Functional-requirements.docx</a>
+                                        </li>
+                                        @foreach (TicketFile file in ticket.TicketFiles.ToList())
+                                        {
+                                            <li>
+                                                <a href="@file.Url"><i class="fa fa-file-word-o"></i> @file.FileName</a>
+                                            </li>
+                                        }
+
+
+                                    </ul>
+                                    <br />
+                                    <div class="text-center mtop20">
+                                        <input name="file" class="btn btn-sm btn-primary" type="file" id="myFile" />
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- end project-detail sidebar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    </div>
+}
+

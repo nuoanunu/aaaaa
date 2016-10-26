@@ -1,0 +1,197 @@
+﻿@model SSM.Models.Deal
+@using SSM.Models;
+<style>
+    .input-append .btn.dropdown-toggle {
+        float: none;
+    }
+</style>
+<script src="~/Scripts/jquery.tagsinput.js"></script>
+<link href="~/Content/jquery.tagsinput.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script>
+
+
+    function getProductData() {
+        $.getJSON("/Order/getAllProduct", function (result) {
+            // Loop through each product
+            $.each(result, function (name, value) {
+                //loop through each attribute of product
+                var id = "";
+                var name = "";
+                $.each(value, function (key, val) {
+                    if (key == "name") { name = val; }
+                    if (key == "id") { id = val; }
+                });
+                $('#productSelector').append($("<option></option>")
+             .attr("value", id)
+             .text(name));
+            });
+
+        });
+    }
+    getProductData();
+
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Deal</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Stage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Stage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Stage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Probability, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Probability, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Probability, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Creator, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Creator, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Creator, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CompleteOn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CompleteOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CompleteOn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Client, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Client, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Client, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2"> Product <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#MyNewOption">Add product</button></label>
+            <div class="col-md-10">
+                <input type="text" name="options" id="optionsList" />
+                @Html.ValidationMessageFor(model => model.Client, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<div class="modal fade" id="MyNewOption" role="dialog">
+    <div class="modal-dialog" style="width:50%">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Customize your product</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-2" style="background-color:lavender;">Product Name</div>
+                    <div class="col-sm-4" style="background-color:lavenderblush;">
+                        <select id="productSelector"></select>
+                        <script>
+                            $('#productSelector').change(function () {
+
+                                var $tableContainer = $('#tableContainer');
+                                $('#tableContainer').load('/Order/getProductAttribute?productID=' + $('#productSelector').val());
+                                //url = $(this).data('/Order/getProductAttribute?productID=' + $('#productSelector').val());
+                                //alert(url);
+                                //$.get(url, function (data) {
+                                //    alert(data);
+                                //    $tableContainer.append(data);
+                                //});
+
+                            });
+                        </script>
+                    </div>
+
+                </div>
+                Options
+                <div id="tableContainer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="AddOptions()">Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            <script>
+                function AddOptions() {
+                    $("#optionsList").val($("#optionsList").val() + ",");
+                    var temp = $("#optionsList").val();
+                    var listtemp = temp.split(",");
+                    var temp3 = "";
+                    for (var i = 0 ; i < listtemp.length ; i++) {
+
+                        if (listtemp[i] != "") {
+                            temp3 = temp3 + ",";
+                            listtemp2 = listtemp[i].split(";");
+                            for (var j = 0 ; j < listtemp2.length ; j++) {
+                                if (listtemp2[j].indexOf($("#productIDToAdd").val() + "-") < 0 ) {
+                                    if (listtemp2[j] != "")
+                                    temp3 = temp3 + $("#productIDToAdd").val()+ "-"+ listtemp2[j] + ";";
+                                }
+                            }
+
+                        }
+
+                    }
+                    $("#optionsList").val(temp3);
+                    $(".selectOp").each(function () {
+
+                        $("#optionsList").val($("#optionsList").val() + $("#productIDToAdd").val() + "-" + $(this).val() + ";");
+                    });
+                  //  $('#optionsList').tagsInput();
+                }
+            </script>
+        </div>
+
+    </div>
+</div>

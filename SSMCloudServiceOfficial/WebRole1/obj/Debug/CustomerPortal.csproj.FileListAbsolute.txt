@@ -1,0 +1,610 @@
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\csc.exe
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\System.Collections.Immutable.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\vbc.exe
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe.config
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\WebRole1.dll.config
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\WebRole1.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\WebRole1.pdb
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Antlr3.Runtime.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\EntityFramework.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Web.Infrastructure.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Newtonsoft.Json.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Owin.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Spatial.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Helpers.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Mvc.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Optimization.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Razor.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\WebGrease.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\MonAgentListener.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.pdb
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Newtonsoft.Json.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Spatial.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Helpers.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Mvc.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Optimization.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.Razor.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Antlr3.Runtime.pdb
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\EntityFramework.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\de\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\es\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\it\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\de\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\es\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\fr\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\it\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ja\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ko\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\ru\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hans\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\bin\zh-Hant\System.Spatial.resources.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\obj\Debug\CustomerPortal.csprojResolveAssemblyReference.cache
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\obj\Debug\WebRole1.dll
+c:\users\nguyen nhat\documents\visual studio 2015\Projects\SSMCloudService\WebRole1\obj\Debug\WebRole1.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\csc.exe
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\vbc.exe
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\WebRole1.dll.config
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\WebRole1.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\WebRole1.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Antlr3.Runtime.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\EntityFramework.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Newtonsoft.Json.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Owin.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Spatial.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Helpers.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Mvc.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Optimization.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Razor.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\WebGrease.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\MonAgentListener.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Newtonsoft.Json.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Spatial.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Helpers.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Mvc.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Optimization.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.Razor.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Antlr3.Runtime.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\EntityFramework.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\de\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\es\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\fr\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\it\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ja\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ko\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\ru\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\obj\Debug\CustomerPortal.csprojResolveAssemblyReference.cache
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\obj\Debug\WebRole1.dll
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\obj\Debug\WebRole1.pdb
+C:\Users\NhatVHN\Desktop\Capstone doc\SSMCloudService\WebRole1\bin\DocX.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\csc.exe
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\vbc.exe
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\WebRole1.dll.config
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\WebRole1.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\WebRole1.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Antlr3.Runtime.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\DocX.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\EntityFramework.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Newtonsoft.Json.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Owin.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Spatial.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Helpers.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Mvc.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Optimization.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Razor.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\WebGrease.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\MonAgentListener.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Newtonsoft.Json.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Spatial.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Helpers.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Mvc.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Optimization.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.Razor.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Antlr3.Runtime.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\EntityFramework.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\de\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\es\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\it\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\de\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\es\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\fr\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\it\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ja\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ko\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\ru\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hans\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\obj\Debug\CustomerPortal.csprojResolveAssemblyReference.cache
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\obj\Debug\WebRole1.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\obj\Debug\WebRole1.pdb
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\itextsharp.dll
+C:\Users\Nguyen Nhat\Desktop\SSMCloudService\WebRole1\bin\itextsharp.xml
+D:\SSMCloudService\WebRole1\bin\roslyn\csc.exe
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SSMCloudService\WebRole1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SSMCloudService\WebRole1\bin\roslyn\System.Collections.Immutable.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\System.Reflection.Metadata.dll
+D:\SSMCloudService\WebRole1\bin\roslyn\vbc.exe
+D:\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe
+D:\SSMCloudService\WebRole1\bin\roslyn\VBCSCompiler.exe.config
+D:\SSMCloudService\WebRole1\bin\WebRole1.dll.config
+D:\SSMCloudService\WebRole1\bin\WebRole1.dll
+D:\SSMCloudService\WebRole1\bin\WebRole1.pdb
+D:\SSMCloudService\WebRole1\bin\Antlr3.Runtime.dll
+D:\SSMCloudService\WebRole1\bin\DocX.dll
+D:\SSMCloudService\WebRole1\bin\EntityFramework.dll
+D:\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.dll
+D:\SSMCloudService\WebRole1\bin\itextsharp.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.Web.Infrastructure.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+D:\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.dll
+D:\SSMCloudService\WebRole1\bin\Newtonsoft.Json.dll
+D:\SSMCloudService\WebRole1\bin\Owin.dll
+D:\SSMCloudService\WebRole1\bin\System.Spatial.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.Helpers.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.Mvc.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.Optimization.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.Razor.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.dll
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.dll
+D:\SSMCloudService\WebRole1\bin\WebGrease.dll
+D:\SSMCloudService\WebRole1\bin\MonAgentListener.dll
+D:\SSMCloudService\WebRole1\bin\itextsharp.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Azure.KeyVault.Core.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.Edm.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.OData.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Data.Services.Client.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.pdb
+D:\SSMCloudService\WebRole1\bin\Microsoft.WindowsAzure.Storage.xml
+D:\SSMCloudService\WebRole1\bin\Newtonsoft.Json.xml
+D:\SSMCloudService\WebRole1\bin\System.Spatial.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.Helpers.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.Mvc.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.Optimization.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.Razor.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.Deployment.xml
+D:\SSMCloudService\WebRole1\bin\System.Web.WebPages.Razor.xml
+D:\SSMCloudService\WebRole1\bin\Antlr3.Runtime.pdb
+D:\SSMCloudService\WebRole1\bin\EntityFramework.xml
+D:\SSMCloudService\WebRole1\bin\EntityFramework.SqlServer.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Google.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SSMCloudService\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudService\WebRole1\bin\de\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\es\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\it\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\SSMCloudService\WebRole1\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudService\WebRole1\bin\de\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\es\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\fr\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\it\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\ja\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\ko\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\ru\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hans\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\bin\zh-Hant\System.Spatial.resources.dll
+D:\SSMCloudService\WebRole1\obj\Debug\CustomerPortal.csprojResolveAssemblyReference.cache
+D:\SSMCloudService\WebRole1\obj\Debug\WebRole1.dll
+D:\SSMCloudService\WebRole1\obj\Debug\WebRole1.pdb
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\csc.exe
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\System.Collections.Immutable.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\System.Reflection.Metadata.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\vbc.exe
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\VBCSCompiler.exe
+D:\SSMCloudServiceOfficial\WebRole1\bin\roslyn\VBCSCompiler.exe.config
+D:\SSMCloudServiceOfficial\WebRole1\bin\WebRole1.dll.config
+D:\SSMCloudServiceOfficial\WebRole1\bin\WebRole1.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\WebRole1.pdb
+D:\SSMCloudServiceOfficial\WebRole1\bin\Antlr3.Runtime.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\DocX.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\EntityFramework.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\EntityFramework.SqlServer.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\itextsharp.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Azure.KeyVault.Core.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.Edm.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.OData.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.Services.Client.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Google.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Web.Infrastructure.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.WindowsAzure.Diagnostics.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.WindowsAzure.Storage.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Newtonsoft.Json.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\Owin.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Spatial.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Helpers.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Mvc.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Optimization.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Razor.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.Deployment.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.Razor.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\WebGrease.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\MonAgentListener.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\itextsharp.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Azure.KeyVault.Core.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.Edm.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.OData.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Data.Services.Client.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.WindowsAzure.Storage.pdb
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.WindowsAzure.Storage.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Newtonsoft.Json.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Spatial.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Helpers.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Mvc.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Optimization.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.Razor.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.Deployment.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\System.Web.WebPages.Razor.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Antlr3.Runtime.pdb
+D:\SSMCloudServiceOfficial\WebRole1\bin\EntityFramework.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\EntityFramework.SqlServer.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Google.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SSMCloudServiceOfficial\WebRole1\bin\de\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\es\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\it\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\de\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\es\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\fr\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\it\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ja\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ko\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ru\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\de\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\es\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\fr\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\it\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ja\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ko\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ru\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\de\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\es\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\fr\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\it\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ja\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ko\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\ru\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hans\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\bin\zh-Hant\System.Spatial.resources.dll
+D:\SSMCloudServiceOfficial\WebRole1\obj\Debug\CustomerPortal.csprojResolveAssemblyReference.cache
+D:\SSMCloudServiceOfficial\WebRole1\obj\Debug\WebRole1.dll
+D:\SSMCloudServiceOfficial\WebRole1\obj\Debug\WebRole1.pdb

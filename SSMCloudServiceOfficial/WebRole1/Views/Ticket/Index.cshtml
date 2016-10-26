@@ -1,0 +1,256 @@
+﻿@using WebRole1.Models
+<div class="" style="height:1000px">
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>
+                Helpdesk
+                <small>
+                    Customer support page
+                </small>
+            </h3>
+        </div>
+
+            <div class="title_right" style="text-align: right;">
+
+                <button style="margin-left:auto; margin-right:0;" class="btn btn-success btn-lg" type="button" data-toggle="modal" data-target="#myModal">Create new ticket</button>
+
+            </div>
+       
+
+
+        
+    </div>
+    <div class="clearfix"></div>
+
+
+    <div class="row">
+
+        <div class="col-md-8 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Active tickets</h2>
+                    
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>CreatedDay</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Ticket ticket in (List<Ticket>)ViewData["myticket"])
+                            {
+                                if (ticket.TicketStatus != 3)
+                                {
+                                    <tr>
+                                        <td>@ticket.CreatedDay.ToShortDateString()</td>
+                                        <td>@ticket.TicketName</td>
+                                        <td>@ticket.TicketStatu.StatusName</td>
+                                        @if (ticket.AsignedTo != null)
+                                        {
+                                            <td>@ticket.AspNetUser1.SaleRepProfiles.FirstOrDefault().FullName</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Not yet</td>
+                                        }
+
+                                        <td>
+                                            <a href="/Ticket/Detail?id=@(ticket.id)" class="btn btn-primary">Detail</a>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+                         
+             
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>FQA</h2>
+                   
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Descrition</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Ticket ticket in (List<Ticket>)ViewData["mostviewedticket"])
+                            {
+                                <tr>
+                                    <td>@ticket.TicketName</td>
+                                    <td>@ticket.Description</td>
+                                    <td><button type="button" class="btn btn-round btn-info">Detail</button></td>
+                                    
+                                </tr>
+                            }
+                          
+                           
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Ticket history </h2>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                        <thead>
+                            <tr class="headings">
+                              
+                                <th>CreatedDay</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Detail</th>
+                                
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (Ticket ticket in (List<Ticket>)ViewData["myticket"])
+                            {
+                                if (ticket.TicketStatus == 3)
+                                {
+                                    <tr>
+                                        <td>@ticket.CreatedDay.ToShortDateString()</td>
+                                        <td>@ticket.TicketName</td>
+                                        <td>@ticket.Description</td>
+                                        <td>@ticket.TicketStatu.StatusName</td>
+                                        @if (ticket.AsignedTo != null)
+                                        {
+                                            <td>@ticket.AspNetUser1.SaleRepProfiles.FirstOrDefault().FullName</td>
+                                        }
+                                        else
+                                        {
+                                            <td>Not yet</td>
+                                        }
+
+                                        <td>
+                                            <a href="/Ticket/Detail?id=@(ticket.id)" class="btn btn-primary">Detail</a>
+
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg" style="width:600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New ticket</h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Tell us what you need</h2>
+                      
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br>
+                        <form class="form-horizontal form-label-left" action="/Ticket/Newticket" method="post">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Title</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text" class="form-control" name="title" placeholder="Title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Serverity</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select name="serverity" class="form-control">
+                                       
+                                        <option value="1">Normal</option>
+                                        <option value="2">Urgent</option>
+                                        <option value="3">Critical</option>
+                                      
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select name="category" class="form-control">
+                                    @foreach (TicketCategory cate in (List<TicketCategory>)ViewData["catelist"])
+                                    {
+                                        <option value="@cate.id">@cate.CategoryName</option>
+                                    }
+                                   
+                                    </select> 
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                                    Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <textarea name="description" class="form-control" rows="3" ></textarea>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

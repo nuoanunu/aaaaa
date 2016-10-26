@@ -1,0 +1,121 @@
+﻿@using SSM.Models;
+<style>
+     th {text-align: center;        
+    }
+    @@font-face {
+        font-family: 'Roboto-Light';
+        src: url("../../fonts/Roboto-Light.ttf") format('truetype');
+    }
+
+    @@font-face {
+        font-family: 'Roboto-Black';
+        src: url("../../fonts/Roboto-Black.ttf") format('truetype');
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.12.3.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+@*<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>*@
+<script>
+        $(document).ready(function () {
+            $("#myData").DataTable();
+        });
+        //function editpage(id) {
+        //    window.location = "/Product/Detail?id="+id;
+    //};
+
+    </script>
+
+@*<textarea>Easy! You should check out MoxieManager!</textarea>*@
+<h1> <font style="font-family:Roboto-Light"> Contact List</font> </h1>
+
+<p>
+    @Html.ActionLink("New Contact", "NewContact", "Contact", null, new { @class = "btn btn-primary" })
+</p>
+<div>
+    <table id="myData" class="table table-striped table-bordered" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    First Name
+                </th>                
+                <th>
+                    Photo
+                </th>               
+                <th>
+                    Email
+                </th>
+                <th>
+                    Phone
+                </th>
+                <th>
+                    Site
+                </th>
+                <th>
+                    Company
+                </th>
+                <th>
+                    Street
+                </th>                
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewData["contactList"] != null)
+            {
+                foreach (contact sp in (List<contact>)ViewData["contactList"])
+                {
+                    <tr>
+                        <td align="center" style="height:100px">
+                            @sp.id
+                        </td>
+                        <td align="center">
+                            @sp.LastName
+                        </td>
+                        <td align="center">
+                            @sp.FirstName
+                        </td>                        
+                        <td align="center">
+                            @*<img src="@sp.Photo" />*@
+                            <text>avatar</text>
+                        </td>                       
+                        <td align="center">
+                            @sp.emails
+                        </td>
+                        <td align="center">
+                            @sp.Phone
+                        </td>
+                        <td align="center">
+                            @sp.Sites
+                        </td>
+                        <td align="center">
+                            @sp.CompanyID
+                        </td>
+                        <td align="center">
+                            @sp.Street
+                        </td>                       
+                        <td>
+                            @Html.ActionLink("Edit", "EditContact", "Contact", new { id = @sp.id }, null)
+                        </td>
+                        @*<td>
+        <button onclick="editpage(@sp.id)">Detail</button>
+        <button onclick="editpage(@sp.id)">Edit</button>
+    </td>*@
+                        
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+    @*<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myNewProductModal">+New Product</button>*@
+</div>

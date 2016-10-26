@@ -1,0 +1,294 @@
+﻿@using SSM.Models;
+<link href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/dealtable.css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-1.12.3.js"> </script>
+<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link href="~/Content/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
+<script src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+<script>
+  $(document).ready( function() {
+      $("#idStartDate").datetimepicker();
+      $("#idCompletedDate").datetimepicker();
+  } );
+</script>
+<style type="text/css">
+    @@font-face {
+        font-family: 'Roboto-Light';
+        src: url("../../fonts/Roboto-Light.ttf") format('truetype');
+    }
+
+    @@font-face {
+        font-family: 'Roboto-Black';
+        src: url("../../fonts/Roboto-Black.ttf") format('truetype');
+    }
+
+    .indent-small {
+        margin-left: 5px;
+    }
+
+    .form-group.internal {
+        margin-bottom: 0;
+    }
+
+    .dialog-panel {
+        margin: 10px;
+    }
+
+    .datepicker-dropdown {
+        z-index: 200 !important;
+    }
+
+    .panel-body {
+        background: #e5e5e5; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e5e5e5), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover, #e5e5e5 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover, #e5e5e5 0%,#ffffff 100%); /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover, #e5e5e5 0%,#ffffff 100%); /* IE10+ */
+        background: radial-gradient(ellipse at center, #e5e5e5 0%,#ffffff 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        font: 600 15px "Open Sans",Arial,sans-serif;
+    }
+
+    label.control-label {
+        font-weight: 600;
+        color: #777;
+    }
+</style>
+<script>
+    function redirectToNewDeal(){
+        window.location = "/Order/NewDeal"
+    }
+</script>
+
+<h1> <font style="font-family:Roboto-Light"> Deal Management</font> </h1>
+<button type="button" class="btn btn-info btn-lg" onclick="redirectToNewDeal()" >+Create Deal</button>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">All deals</a></li>
+    <li><a data-toggle="tab" href="#menu1">Processing deals</a></li>
+    <li><a data-toggle="tab" href="#menu2">Payment pending deals</a></li>
+    <li><a data-toggle="tab" href="#menu3">Completed deals</a></li>
+</ul>
+
+<div class="tab-content">
+
+    <div id="home" class="tab-pane fade in active">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a data-toggle="tab" href="#menu1a">Deals</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#menu1b">Statistic </a>
+            </li>
+        </ul>
+
+        <div class="container">
+
+            <div class="tab-content">
+                <div id="menu1a" class="tab-pane fade in active">
+                    @if (ViewData["ActiveDeal"] != null)
+                    {      <div id="pricing-table" class="clear">
+                        @foreach (Deal deal in (List<Deal>)ViewData["ActiveDeal"])
+                        {
+
+                            <div class="plan">
+                                <h3>@deal.Name<span> <img width="100px" src="@deal.contact.Photo" /> </span></h3>
+                                <a class="signup" href=""> @(deal.contact.FirstName + " " + deal.contact.MiddleName + " "+ deal.contact.LastName) </a>
+                                <ul>
+                                    <li><b>Values</b> @(" $" + deal.Value)</li>
+                                    <li><b>Startdate</b> @deal.StartDate</li>
+                                    <li><b>Last Update</b> @deal.LastUpdateStage </li>
+                                    <li> <button>Detail</button></li>
+                                </ul>
+                            </div>
+                        }
+
+
+                    </div>
+                    }
+                   
+
+
+
+
+
+
+                </div>
+                <div id="menu1b" class="tab-pane fade">
+                    <h3>Statistic</h3>
+                    <table width="100%">
+                        <tr>
+                            <td class="bx-filter-main-table-cell">
+                                cho này de filter
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" height="50px" style="background-color: #50C5D3" colspan="2">
+                                <p style="background-color:rgba(0, 0, 0, 0.2);">
+                                    <font style="font-family:'Roboto-Black';color:white">Unanswered Deall</font>
+                                </p>
+                                <p> <font style="color:white;" size="50">20</font></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50%" rowspan="2" align="center">
+                                <img src="https://www.mostaccess.com/img/chart.png" />
+                            </td>
+                            <td align="center" height="150px" style="background-color:#F7D622">
+                                <div style="background-color:rgba(0, 0, 0, 0.2);margin-top:0px"> <font style="font-family:'Roboto-Black';color:white">Deal in process</font> </div>
+                                <div> <font style="color:white;" size="50">25</font></div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td height="150px" align="center" style="background-color:#05D215">
+                                <p style="background-color:rgba(0, 0, 0, 0.2);"> <font style="font-family:'Roboto-Black';color:white">Completed deal </font> </p>
+                                <p> <font style="color:white;" size="50">$500,000</font></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="menu1" class="tab-pane fade">
+                    <h3>Menu 1</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+
+                <div id="menu2" class="tab-pane fade">
+                    <h3>Menu 2</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+
+                <div id="menu3" class="tab-pane fade">
+                    <h3>Menu 3</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
+
+            
+        </div>
+
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#datatableExaple').DataTable();
+    });
+</script>
+<div class="modal fade" id="myDealModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Deal</h4>
+            </div>
+            <div class="modal-body">
+                <div class='panel-body'>
+                    @model SSM.Models.Deal
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <h4>Deal</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Responsibles Sale Rep</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="responsible" value="" class="form-control text-box single-line" />
+                                </div>
+                            </div>
+                     
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Stage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Stage, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Stage, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Probability, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Probability, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Probability, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Creator, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Creator, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Creator, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CompleteOn, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.CompleteOn, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CompleteOn, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Client, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Client, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Client, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿@model SSM.Models.TempModel.ContactEntity
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/css/bootstrap-formhelpers.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-formhelpers/2.3.0/js/bootstrap-formhelpers.js"> </script>
+
+
+
+@{
+    ViewBag.Title = "Add new contact";
+}
+
+
+</br>
+<h2>Customer Details</h2>
+</hr>
+
+@using (Html.BeginForm("AddNewContact", "Contact"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors  .")
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName, new { @class = "required" })
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName, new { @class = "required" })
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.MiddleName, new { @class = "required" })
+        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MiddleName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Photo, new { @class = "required" })
+        @Html.TextBoxFor(m => m.Photo, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Photo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth, new { @class = "required" })
+        @Html.TextBoxFor(m => m.DateOfBirth, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.DateOfBirth)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.emails, new { @class = "required" })
+        @Html.TextBoxFor(m => m.emails, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.emails)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "required" })
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Sites)
+        @Html.TextBoxFor(m => m.Sites, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Sites)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CompanyID)
+        @Html.TextBoxFor(m => m.CompanyID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CompanyID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Street)
+        @Html.TextBoxFor(m => m.Street, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Street)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Region)
+        @Html.TextBoxFor(m => m.Region, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Region)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.State)
+        @Html.TextBoxFor(m => m.State, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.State)
+    </div>  
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.HiddenFor(m => m.Country)
+        <select class="form-control bfh-countries" data-country="US"></select>
+    </div>  
+    <div class="form-group">
+        @Html.LabelFor(m => m.Zip)
+        @Html.TextBoxFor(m => m.Zip, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Zip)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Comment)
+        @Html.TextBoxFor(m => m.Comment, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Comment)
+    </div>
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Add</button>
+}
+
+<script>
+
+    $(document).ready(function () {
+        $('.bfh-countries').val($('#Country').val());
+
+        $(".bfh-countries").change(function () {
+            //$('#Country').val(value);
+            $('#Country').val($(this).find('option:selected').text());
+        });
+    });
+</script>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
