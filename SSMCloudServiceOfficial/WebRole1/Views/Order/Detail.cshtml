@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Invoice Design <small>Sample user invoice design</small></h2>
+                    <h2>Invoice </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -136,15 +136,17 @@
                                         <tbody>
                                             <tr>
                                                 <th style="width:50%">Subtotal:</th>
-                                                <td>@Html.DisplayFor(model => model.subtotal)</td>
+                          
+                                                <td>@String.Format("{0:c}", Model.subtotal)</td>
                                             </tr>
                                             <tr>
-                                                <th>Tax (</th>
-                                                <td>@Html.DisplayFor(model => model.VAT)</td>
+                                                <th>Tax</th>
+                                                <td>@String.Format("{0:c}", Model.VAT)</td>
                                             </tr>
                                             <tr>
                                                 <th>Total:</th>
-                                                <td>@Html.DisplayFor(model => model.total)</td>
+                              
+                                                <td>@String.Format("{0:c}", Model.total)</td>
                                             </tr>
                                         </tbody>
                                     </table>

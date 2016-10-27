@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailWorker", "WorkerRole1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteBanHang", "SiteBanHang\SiteBanHang.csproj", "{08FE82AB-E610-454D-A4BE-C4EB297463EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSM", "SSM\TEMP\SSM.csproj", "{92BF591B-F32F-4308-876D-8475D42491CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSM", "SSM2\TEMP\SSM.csproj", "{92BF591B-F32F-4308-876D-8475D42491CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

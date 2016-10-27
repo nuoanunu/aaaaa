@@ -36,6 +36,7 @@ namespace SiteBanHang.Models
         public virtual DbSet<contact_resposible> contact_resposible { get; set; }
         public virtual DbSet<contact> contacts { get; set; }
         public virtual DbSet<Customer_Request> Customer_Request { get; set; }
+        public virtual DbSet<customer_salerep_responsible> customer_salerep_responsible { get; set; }
         public virtual DbSet<customer> customers { get; set; }
         public virtual DbSet<Deal> Deals { get; set; }
         public virtual DbSet<Deal_Item> Deal_Item { get; set; }
@@ -45,10 +46,8 @@ namespace SiteBanHang.Models
         public virtual DbSet<EMAIL_Category> EMAIL_Category { get; set; }
         public virtual DbSet<Email_Template> Email_Template { get; set; }
         public virtual DbSet<License> Licenses { get; set; }
-        public virtual DbSet<ManagerNotification> ManagerNotifications { get; set; }
-        public virtual DbSet<MarketPlanPurchased> MarketPlanPurchaseds { get; set; }
-        public virtual DbSet<MasterCalendar> MasterCalendars { get; set; }
-        public virtual DbSet<oder_item> oder_item { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<payment_status> payment_status { get; set; }
@@ -58,15 +57,15 @@ namespace SiteBanHang.Models
         public virtual DbSet<Product_responsible> Product_responsible { get; set; }
         public virtual DbSet<productAttribute> productAttributes { get; set; }
         public virtual DbSet<productMarketPlan> productMarketPlans { get; set; }
+        public virtual DbSet<SaleRepCommision> SaleRepCommisions { get; set; }
         public virtual DbSet<SaleRepProfile> SaleRepProfiles { get; set; }
         public virtual DbSet<softwareProduct> softwareProducts { get; set; }
-        public virtual DbSet<task_customer> task_customer { get; set; }
-        public virtual DbSet<task_user> task_user { get; set; }
         public virtual DbSet<TaskStatu> TaskStatus { get; set; }
         public virtual DbSet<TaskType> TaskTypes { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
         public virtual DbSet<TicketCategory> TicketCategories { get; set; }
         public virtual DbSet<TicketComment> TicketComments { get; set; }
+        public virtual DbSet<TicketFile> TicketFiles { get; set; }
         public virtual DbSet<TicketServerity> TicketServerities { get; set; }
         public virtual DbSet<TicketStatu> TicketStatus { get; set; }
         public virtual DbSet<TrialAccount> TrialAccounts { get; set; }

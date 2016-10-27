@@ -147,6 +147,14 @@
     <Property Name="DealID" Type="int" />
     <Property Name="CreatedDate" Type="date" />
   </EntityType>
+  <EntityType Name="customer_salerep_responsible">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="salerepID" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="customerID" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
   <EntityType Name="customers">
     <Key>
       <PropertyRef Name="id" />
@@ -257,8 +265,11 @@
     <Property Name="customerID" Type="int" />
     <Property Name="nextTransactionDate" Type="date" />
     <Property Name="startDate" Type="date" />
+    <Property Name="PlanID" Type="int" Nullable="false" />
+    <Property Name="SaleRepResponsible" Type="nvarchar" MaxLength="128" />
+    <Property Name="LicenseKey" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="ManagerNotification">
+  <EntityType Name="Notification">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -266,8 +277,9 @@
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
     <Property Name="NotiContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="viewed" Type="bit" Nullable="false" />
-    <Property Name="dealID" Type="int" />
-    <Property Name="requestID" Type="int" />
+    <Property Name="hreflink" Type="nvarchar(max)" />
+    <Property Name="NotiName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="userID" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="OrderItems">
     <Key>
@@ -277,7 +289,6 @@
     <Property Name="orderID" Type="int" Nullable="false" />
     <Property Name="planID" Type="int" Nullable="false" />
     <Property Name="SoldPrice" Type="float" Nullable="false" />
-    <Property Name="SaleRepBenefit" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="LicenseID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="orders">
@@ -295,6 +306,7 @@
     <Property Name="status" Type="int" Nullable="false" />
     <Property Name="completedDate" Type="date" />
     <Property Name="Contract" Type="nvarchar(max)" />
+    <Property Name="fromDeal" Type="int" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
@@ -452,11 +464,11 @@
     <Property Name="Country" Type="nvarchar" MaxLength="50" />
     <Property Name="dateOfBirth" Type="date" />
     <Property Name="VolumeOfSales" Type="float" />
-    <Property Name="newContactmade" Type="int" />
-    <Property Name="winrate" Type="float" />
-    <Property Name="SaleCycle" Type="float" />
-    <Property Name="avarageActivitiesPerdeal" Type="float" />
-    <Property Name="AvarageKPI" Type="float" />
+    <Property Name="newContactmade" Type="int" Nullable="false" />
+    <Property Name="winrate" Type="float" Nullable="false" />
+    <Property Name="SaleCycle" Type="float" Nullable="false" />
+    <Property Name="avarageActivitiesPerdeal" Type="float" Nullable="false" />
+    <Property Name="AvarageKPI" Type="float" Nullable="false" />
   </EntityType>
   <EntityType Name="softwareProduct">
     <Key>
@@ -692,6 +704,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="customer_salerep_responsible" Type="Self.customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="salerepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers1">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="customer_salerep_responsible" Type="Self.customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_customers_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
     <End Role="customers" Type="Self.customers" Multiplicity="*" />
@@ -868,6 +904,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Licenses_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Licenses">
+        <PropertyRef Name="SaleRepResponsible" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Licenses_customers">
     <End Role="customers" Type="Self.customers" Multiplicity="0..1" />
     <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
@@ -880,27 +928,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ManagerNotification_Customer_Request">
-    <End Role="Customer_Request" Type="Self.Customer_Request" Multiplicity="0..1" />
-    <End Role="ManagerNotification" Type="Self.ManagerNotification" Multiplicity="*" />
+  <Association Name="FK_Licenses_productMarketPlan">
+    <End Role="productMarketPlan" Type="Self.productMarketPlan" Multiplicity="1" />
+    <End Role="Licenses" Type="Self.Licenses" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Customer_Request">
+      <Principal Role="productMarketPlan">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="requestID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ManagerNotification_Deal">
-    <End Role="Deal" Type="Self.Deal" Multiplicity="0..1" />
-    <End Role="ManagerNotification" Type="Self.ManagerNotification" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Deal">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="dealID" />
+      <Dependent Role="Licenses">
+        <PropertyRef Name="PlanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -940,15 +976,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OrderItems_AspNetUsers">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-    <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+  <Association Name="FK_Notification_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="OrderItems">
-        <PropertyRef Name="SaleRepBenefit" />
+      <Dependent Role="Notification">
+        <PropertyRef Name="userID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -985,6 +1021,18 @@
       </Principal>
       <Dependent Role="orders">
         <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_Deal">
+    <End Role="Deal" Type="Self.Deal" Multiplicity="0..1" />
+    <End Role="orders" Type="Self.orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="orders">
+        <PropertyRef Name="fromDeal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1325,6 +1373,7 @@
     <EntitySet Name="contact_resposible" EntityType="Self.contact_resposible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer_Request" EntityType="Self.Customer_Request" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer_salerep_responsible" EntityType="Self.customer_salerep_responsible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="customers" EntityType="Self.customers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Deal" EntityType="Self.Deal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Deal_Item" EntityType="Self.Deal_Item" Schema="dbo" store:Type="Tables" />
@@ -1334,7 +1383,7 @@
     <EntitySet Name="EMAIL_Category" EntityType="Self.EMAIL_Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Email_Template" EntityType="Self.Email_Template" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Licenses" EntityType="Self.Licenses" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ManagerNotification" EntityType="Self.ManagerNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
@@ -1401,6 +1450,14 @@
       <End Role="softwareProduct" EntitySet="softwareProduct" />
       <End Role="Customer_Request" EntitySet="Customer_Request" />
     </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers" Association="Self.FK_customer_salerep_responsible_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers1" Association="Self.FK_customer_salerep_responsible_AspNetUsers1">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
     <AssociationSet Name="FK_customers_AspNetUsers" Association="Self.FK_customers_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="customers" EntitySet="customers" />
@@ -1457,17 +1514,17 @@
       <End Role="EMAIL_Category" EntitySet="EMAIL_Category" />
       <End Role="Email_Template" EntitySet="Email_Template" />
     </AssociationSet>
+    <AssociationSet Name="FK_Licenses_AspNetUsers" Association="Self.FK_Licenses_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Licenses" EntitySet="Licenses" />
+    </AssociationSet>
     <AssociationSet Name="FK_Licenses_customers" Association="Self.FK_Licenses_customers">
       <End Role="customers" EntitySet="customers" />
       <End Role="Licenses" EntitySet="Licenses" />
     </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Customer_Request" Association="Self.FK_ManagerNotification_Customer_Request">
-      <End Role="Customer_Request" EntitySet="Customer_Request" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotification" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Deal" Association="Self.FK_ManagerNotification_Deal">
-      <End Role="Deal" EntitySet="Deal" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotification" />
+    <AssociationSet Name="FK_Licenses_productMarketPlan" Association="Self.FK_Licenses_productMarketPlan">
+      <End Role="productMarketPlan" EntitySet="productMarketPlan" />
+      <End Role="Licenses" EntitySet="Licenses" />
     </AssociationSet>
     <AssociationSet Name="FK_MarketPlanPurchased_orders" Association="Self.FK_MarketPlanPurchased_orders">
       <End Role="orders" EntitySet="orders" />
@@ -1481,9 +1538,9 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Calendar" EntitySet="Calendar" />
     </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_AspNetUsers" Association="Self.FK_OrderItems_AspNetUsers">
+    <AssociationSet Name="FK_Notification_AspNetUsers" Association="Self.FK_Notification_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="OrderItems" EntitySet="OrderItems" />
+      <End Role="Notification" EntitySet="Notification" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderItems_Licenses" Association="Self.FK_OrderItems_Licenses">
       <End Role="Licenses" EntitySet="Licenses" />
@@ -1495,6 +1552,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_orders_customers" Association="Self.FK_orders_customers">
       <End Role="customers" EntitySet="customers" />
+      <End Role="orders" EntitySet="orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_Deal" Association="Self.FK_orders_Deal">
+      <End Role="Deal" EntitySet="Deal" />
       <End Role="orders" EntitySet="orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Payment_customers" Association="Self.FK_Payment_customers">

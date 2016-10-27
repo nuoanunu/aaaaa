@@ -17,6 +17,7 @@ namespace SiteBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PrePurchase_FollowUp_Plan()
         {
+            this.Deals = new HashSet<Deal>();
             this.Plan_Step = new HashSet<Plan_Step>();
         }
     
@@ -30,6 +31,8 @@ namespace SiteBanHang.Models
         public string Description { get; set; }
         public bool isOperation { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Deal> Deals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Plan_Step> Plan_Step { get; set; }
         public virtual softwareProduct softwareProduct { get; set; }

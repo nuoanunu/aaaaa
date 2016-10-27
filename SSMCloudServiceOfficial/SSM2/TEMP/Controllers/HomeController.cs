@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using Microsoft.Owin;
+using Microsoft.AspNet.Identity;
+using System.Web.Script.Serialization;
 
 namespace SSM.Controllers
 {
@@ -13,7 +17,37 @@ namespace SSM.Controllers
         {
             return View();
         }
+        public class mynoti{
+            public String title { get; set; }
+            public String link { get; set; }
+            public String des { get; set; }
 
+            public String created { get; set; }
+        }
+        public String getNewNotification()
+        {
+            SSMEntities se = new SSMEntities();
+            AspNetUser user = se.AspNetUsers.Find(User.Identity.GetUserId());
+
+            if (user != null) {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+
+
+                List<Notification> notilist = user.Notifications.Where(u => !u.viewed).ToList();
+                List<mynoti> resultlist = new List<mynoti>();
+                foreach (Notification noti in notilist)
+                {
+                    mynoti no = new mynoti();
+                    no.title = noti.NotiName.Trim();
+                    no.created = noti.CreateDate.ToShortTimeString().Trim();
+                    no.link = noti.hreflink.Trim();
+                    no.des = noti.NotiContent.Trim();
+                    resultlist.Add(no);
+                }
+                return js.Serialize(resultlist);
+            }
+            return null;
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

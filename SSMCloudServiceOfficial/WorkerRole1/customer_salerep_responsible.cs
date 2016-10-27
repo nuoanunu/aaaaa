@@ -7,15 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SiteBanHang.Models
+namespace WorkerRole1
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class task_customer
+    public partial class customer_salerep_responsible
     {
         public int id { get; set; }
-        public int taskID { get; set; }
-        public int customerID { get; set; }
+        public string salerepID { get; set; }
+        public string customerID { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser1 { get; set; }
     }
 }

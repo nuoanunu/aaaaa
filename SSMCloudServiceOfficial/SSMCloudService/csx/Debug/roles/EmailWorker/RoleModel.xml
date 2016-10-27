@@ -22,7 +22,7 @@
     <Property name="Configuration" value="Debug" />
     <Property name="Platform" value="AnyCPU" />
     <Property name="RoleTargetFramework" value="v4.5.2" />
-    <Property name="OutputDir" value="D:\SSMCloudServiceOfficial\SSMCloudService\obj\Debug\EmailWorker\" />
+    <Property name="OutputDir" value="D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\obj\Debug\EmailWorker\" />
     <Property name="EntryPoint" value="WorkerRole1.dll" />
     <Property name="SourceDir" value="" />
     <Property name="SitePhysicalPath" value="" />

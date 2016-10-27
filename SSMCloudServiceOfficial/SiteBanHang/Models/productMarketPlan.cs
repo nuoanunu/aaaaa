@@ -19,7 +19,8 @@ namespace SiteBanHang.Models
         {
             this.Customer_Request = new HashSet<Customer_Request>();
             this.Deal_Item = new HashSet<Deal_Item>();
-            this.MarketPlanPurchaseds = new HashSet<MarketPlanPurchased>();
+            this.Licenses = new HashSet<License>();
+            this.OrderItems = new HashSet<OrderItem>();
             this.PlanOptions = new HashSet<PlanOption>();
             this.TrialAccounts = new HashSet<TrialAccount>();
         }
@@ -41,7 +42,9 @@ namespace SiteBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal_Item> Deal_Item { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MarketPlanPurchased> MarketPlanPurchaseds { get; set; }
+        public virtual ICollection<License> Licenses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PlanOption> PlanOptions { get; set; }
         public virtual softwareProduct softwareProduct { get; set; }

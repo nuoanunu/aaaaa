@@ -18,10 +18,8 @@ namespace WorkerRole1
         public int orderID { get; set; }
         public int planID { get; set; }
         public double SoldPrice { get; set; }
-        public string SaleRepBenefit { get; set; }
         public int LicenseID { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
         public virtual License License { get; set; }
         public virtual order order { get; set; }
         public virtual productMarketPlan productMarketPlan { get; set; }

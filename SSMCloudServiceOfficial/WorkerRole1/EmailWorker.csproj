@@ -135,6 +135,9 @@
     <Compile Include="Customer_Request.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="customer_salerep_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Deal.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -160,7 +163,7 @@
     <Compile Include="License.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ManagerNotification.cs">
+    <Compile Include="Notification.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="order.cs">

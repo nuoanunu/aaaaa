@@ -32,8 +32,28 @@ namespace SSM.Controllers
             return RedirectToAction("Detail", new { id = id });
 
         }
-     
-    
+        [ValidateInput(false)]
+        public ActionResult NewEmail(String mailcontent, int dealID)
+        {
+            SSMEntities se = new SSMEntities();
+            Deal deal = se.Deals.Find(dealID);
+            if (deal != null)
+            {
+                DealTask task = new Models.DealTask();
+                task.type = 8;
+                task.TaskName = deal.DealTasks.Where(u => u.type == 8).First().TaskName;
+                task.status = 1;
+                task.Deadline = DateTime.Now;
+                task.CreateDate = DateTime.Now;
+                task.TaskDescription = mailcontent;
+                task.dealID = dealID;
+                se.DealTasks.Add(task);
+                se.SaveChanges();
+            }
+            return RedirectToAction("Detail", new { id = dealID });
+
+        }
+
         public int createAndGetDealID(Deal deal, int productID)
         {
             SSMEntities se = new SSMEntities();
@@ -118,11 +138,13 @@ namespace SSM.Controllers
         }
         public ActionResult Detail(int id)
         {
+            SSMEntities se = new SSMEntities();
+            Deal thisDeal = se.Deals.Find(id);
             try
             {
-                SSMEntities se = new SSMEntities();
-                Deal thisDeal = se.Deals.Find(id);
+
                 ViewData["DealDetail"] = thisDeal;
+
                 List<SelectListItem> productPlan = new List<SelectListItem>();
                 foreach (productMarketPlan plan in thisDeal.softwareProduct.productMarketPlans.ToList())
                 {
@@ -154,7 +176,11 @@ namespace SSM.Controllers
 
             }
             catch (Exception e) { }
+            if (thisDeal.orders.Count() > 0)
+            {
 
+                return View("Detail", thisDeal.orders.FirstOrDefault());
+            }
             return View("Detail");
         }
         public ActionResult CreateNewTask(int dealID, String title, String description, int type, String deadline)
@@ -242,8 +268,6 @@ namespace SSM.Controllers
             Deal deal = dealrepo.getByID(id);
             if (deal != null)
             {
-
-
                 customer cus = new customer();
                 if (se.AspNetUsers.Where(us => us.UserName.Equals(deal.contact.emails)).FirstOrDefault() == null)
                 {
@@ -274,53 +298,70 @@ namespace SSM.Controllers
                 order.status = 1;
                 order.total = (double)order.subtotal * 1.1;
                 order.VAT = (double)order.subtotal * 0.1;
+                order.fromDeal = deal.id;
+                order.createDate = DateTime.Now;
                 Storage storeage = new Storage();
                 se.orders.Add(order);
                 se.SaveChanges();
                 order.Contract = storeage.uploadfile(cus.userID, "order" + order.id);
                 se.SaveChanges();
+                deal.Status = 3;
+                se.SaveChanges();
+                bool validLicense = true;
                 foreach (Deal_Item dealitem in deal.Deal_Item)
                 {
 
-                    for (int i = 0; i < dealitem.Quantity; i++)
+
+                    int lcount = se.Licenses.Where(u => u.PlanID == dealitem.planID && u.status == null && u.SaleRepResponsible == null).Count();
+                    if (lcount < dealitem.Quantity) validLicense = false;
+
+
+                }
+                if (validLicense)
+                {
+                    foreach (Deal_Item dealitem in deal.Deal_Item)
                     {
-                        License licene = new License();
-                        licene.customerID = cus.id;
-                        productMarketPlan pmp = dealitem.productMarketPlan;
-                        attributeOption PaymentPeriodOption = pmp.PlanOptions.Where(u => u.attributeOption.productAttribute.name.Equals("CYCLE")).First().attributeOption;
-                        if (PaymentPeriodOption != null)
+
+                        for (int i = 0; i < dealitem.Quantity; i++)
                         {
-                            licene.licenseDuration = int.Parse(PaymentPeriodOption.name);
-                            if (licene.licenseDuration != null)
+                            License license = se.Licenses.Where(u => u.PlanID == dealitem.planID && u.status == null && u.SaleRepResponsible == null).FirstOrDefault();
+                            if (license != null)
                             {
-                                licene.nextTransactionDate = DateTime.Now.AddDays(int.Parse(PaymentPeriodOption.name));
-                                licene.licenseType = 2;
+
+                                license.customerID = cus.id;
+                                license.SaleRepResponsible = deal.Deal_SaleRep_Respon.LastOrDefault().userID;
+                                license.status = 1;
+                                OrderItem orderItem = new OrderItem();
+                                orderItem.orderID = order.id;
+                                orderItem.planID = dealitem.planID;
+                                orderItem.SoldPrice = (double)dealitem.price;
+                                orderItem.LicenseID = license.id;
+                                se.OrderItems.Add(orderItem);
+
+                            }
+                            else
+                            {
+                                return Json(new { result = "Fail" }, JsonRequestBehavior.AllowGet);
                             }
                         }
-                        else
-                        {
-                            licene.nextTransactionDate = null;
-                            licene.licenseType = 1;
-                        }
-                        licene.customerID = cus.id;
-                        licene.status = 1;
-                        se.Licenses.Add(licene);
-                        se.SaveChanges();
-                        OrderItem orderItem = new OrderItem();
-                        orderItem.orderID = order.id;
-                        orderItem.planID = dealitem.planID;
-                        orderItem.SoldPrice = (double)dealitem.price;
-                        orderItem.SaleRepBenefit = deal.Deal_SaleRep_Respon.LastOrDefault().userID;
-                        orderItem.LicenseID = licene.id;
-                        se.OrderItems.Add(orderItem);
-                        se.SaveChanges();
-
-                       
-
                     }
-                }
 
-                deal.Status = 5; se.SaveChanges();
+                    se.SaveChanges();
+                }
+                else {
+                    return Json(new { result = "No mor elicense" }, JsonRequestBehavior.AllowGet);
+                }
+                Notification noti = new Notification();
+                noti.NotiName = "Contract successfully created";
+                noti.NotiContent = "Deal No." + deal.id + ": has finished with a contract and order";
+                noti.userID = deal.Deal_SaleRep_Respon.LastOrDefault().userID;
+                noti.CreateDate = DateTime.Now;
+                noti.viewed = false;
+                noti.hreflink = "/Deal/Detail?id=" + deal.id;
+                se.Notifications.Add(noti);
+                se.SaveChanges();
+                deal.Status = 5;
+                se.SaveChanges();
                 //}
                 //catch (Exception e) {
                 //    return Json(new { result = "sad" }, JsonRequestBehavior.AllowGet);

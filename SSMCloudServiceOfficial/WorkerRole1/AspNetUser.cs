@@ -22,10 +22,13 @@ namespace WorkerRole1
             this.attributeOptions = new HashSet<attributeOption>();
             this.company_responsible = new HashSet<company_responsible>();
             this.contact_resposible = new HashSet<contact_resposible>();
+            this.customer_salerep_responsible = new HashSet<customer_salerep_responsible>();
+            this.customer_salerep_responsible1 = new HashSet<customer_salerep_responsible>();
             this.customers = new HashSet<customer>();
             this.Deal_SaleRep_Respon = new HashSet<Deal_SaleRep_Respon>();
+            this.Licenses = new HashSet<License>();
             this.Calendars = new HashSet<Calendar>();
-            this.OrderItems = new HashSet<OrderItem>();
+            this.Notifications = new HashSet<Notification>();
             this.Product_responsible = new HashSet<Product_responsible>();
             this.SaleRepCommisions = new HashSet<SaleRepCommision>();
             this.SaleRepProfiles = new HashSet<SaleRepProfile>();
@@ -59,13 +62,19 @@ namespace WorkerRole1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<contact_resposible> contact_resposible { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<customer_salerep_responsible> customer_salerep_responsible { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<customer_salerep_responsible> customer_salerep_responsible1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<customer> customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal_SaleRep_Respon> Deal_SaleRep_Respon { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<License> Licenses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Calendar> Calendars { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product_responsible> Product_responsible { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

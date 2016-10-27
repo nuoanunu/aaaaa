@@ -10,7 +10,7 @@ using System.Net;
 using System.Threading.Tasks;
 using SSM.Models.Services;
 using SSM.Models.TempModel;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace SSM.Controllers
 {
     public class ProductController : Controller
@@ -64,6 +64,7 @@ namespace SSM.Controllers
                 ViewData["total"] = total;
                 ViewData["topssaler"] = topssaler;
                 ViewData["Plan"] = plan;
+                ViewData["License"] = se.Licenses.Where(u => u.PlanID == id && u.customerID == null).ToList();
                 return View("MarketPlanDetail", se.productMarketPlans.Find(id));
             }
 
@@ -82,7 +83,19 @@ namespace SSM.Controllers
             se.SaveChanges();
             return RedirectToAction("MarketPlanDetail", new { id = planID });
         }
-       public ActionResult NewPlan(int productID)
+        [HttpPost]
+        public ActionResult NewLicense(String key, int duration, int planID)
+        {
+            SSMEntities se = new SSMEntities();
+            License lic = new License();
+            lic.PlanID = planID;
+            lic.licenseDuration = duration;
+            lic.LicenseKey = key;
+            se.Licenses.Add(lic);
+            se.SaveChanges();
+            return RedirectToAction("MarketPlanDetail", new { id = planID });
+        }
+        public ActionResult NewPlan(int productID)
         {
             SSMEntities se = new SSMEntities();
 
@@ -344,6 +357,106 @@ namespace SSM.Controllers
 
             }
             return Json(new { result = "fail" }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult PlanTrialImport(HttpPostedFileBase excelfile,int planID)
+        {
+            SSMEntities se = new SSMEntities();
+            if (excelfile == null || excelfile.ContentLength == 0)
+            {
+                ViewBag.Error = "Please select an Excel file<br>";
+                return View("Index");
+            }
+            else
+            {
+                if (excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
+                {
+                    string path = Server.MapPath("~/Content/" + excelfile.FileName);
+                    System.Diagnostics.Debug.WriteLine("noa ne: "+path);
+                    if (System.IO.File.Exists(path))
+                        System.IO.File.Delete(path);
+                    excelfile.SaveAs(path);
+                    // Read data from excel file
+                    Excel.Application application = new Excel.Application();
+                    Excel.Workbook workbook = application.Workbooks.Open(path);
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Range range = worksheet.UsedRange;
+                    List<TrialAccount> listAccounts = new List<TrialAccount>();
+                    // row = 3 is the row data begin with - 1
+                    for (int row = 3; row <= range.Rows.Count; row++)
+                    {
+                        TrialAccount account = new TrialAccount();
+                        account.UserName = ((Excel.Range)range.Cells[row, 1]).Text;
+                        account.Password = ((Excel.Range)range.Cells[row, 2]).Text;
+                        account.PlanID = planID;
+                        account.Status = 1;
+                       
+                        //account.PlanID = int.Parse(((Excel.Range)range.Cells[row, 3]).Text);
+                        //DateTime createdDate = Convert.ToDateTime(((Excel.Range)range.Cells[row, 4]).Text);
+                        //account.createdDate = createdDate;
+                        se.TrialAccounts.Add(account);
+                    }
+                    application.Workbooks.Close();
+                    se.SaveChanges();
+                    
+                    return RedirectToAction("MarketPlanDetail", new { id = planID });
+                }
+                else
+                {
+                    return RedirectToAction("MarketPlanDetail", new { id = planID});
+                }
+
+            }
+
+        }
+        public ActionResult LicenseImport(HttpPostedFileBase excelfile, int planID)
+        {
+            SSMEntities se = new SSMEntities();
+            if (excelfile == null || excelfile.ContentLength == 0)
+            {
+                ViewBag.Error = "Please select an Excel file<br>";
+                return View("Index");
+            }
+            else
+            {
+                if (excelfile.FileName.EndsWith("xls") || excelfile.FileName.EndsWith("xlsx"))
+                {
+                    string path = Server.MapPath("~/Content/" + excelfile.FileName);
+                    System.Diagnostics.Debug.WriteLine("noa ne: " + path);
+                    if (System.IO.File.Exists(path))
+                        System.IO.File.Delete(path);
+                    excelfile.SaveAs(path);
+                    // Read data from excel file
+                    Excel.Application application = new Excel.Application();
+                    Excel.Workbook workbook = application.Workbooks.Open(path);
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Range range = worksheet.UsedRange;
+                    List<TrialAccount> listAccounts = new List<TrialAccount>();
+                    // row = 3 is the row data begin with - 1
+                    for (int row = 3; row <= range.Rows.Count; row++)
+                    {
+                        License lic = new License();
+                        lic.LicenseKey = ((Excel.Range)range.Cells[row, 1]).Text;
+                        lic.PlanID = planID;
+                        lic.licenseDuration = ((Excel.Range)range.Cells[row, 2]).Text;
+         
+
+                        //account.PlanID = int.Parse(((Excel.Range)range.Cells[row, 3]).Text);
+                        //DateTime createdDate = Convert.ToDateTime(((Excel.Range)range.Cells[row, 4]).Text);
+                        //account.createdDate = createdDate;
+                        se.Licenses.Add(lic);
+                    }
+                    application.Workbooks.Close();
+                    se.SaveChanges();
+
+                    return RedirectToAction("MarketPlanDetail", new { id = planID });
+                }
+                else
+                {
+                    return RedirectToAction("MarketPlanDetail", new { id = planID });
+                }
+
+            }
+
         }
         [HttpPost]
         [ValidateInput(false)]

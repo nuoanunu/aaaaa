@@ -107,6 +107,10 @@
       <HintPath>..\..\..\..\Desktop\SSMCloudService\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
@@ -306,6 +310,9 @@
     <Compile Include="Models\Customer_Request.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\customer_salerep_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Deal.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -331,10 +338,10 @@
     <Compile Include="Models\License.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManagerNotification.cs">
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\order.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -956,6 +963,7 @@
     <Content Include="Views\Profile\PersonalComission.cshtml" />
     <Content Include="Views\Profile\ComissionList.cshtml" />
     <Content Include="Views\Product\AttributeFragment.cshtml" />
+    <Content Include="Views\Contact\ContactDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

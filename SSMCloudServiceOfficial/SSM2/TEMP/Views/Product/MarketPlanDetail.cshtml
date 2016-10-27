@@ -486,7 +486,7 @@
    
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6"  >
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Available trail account</h2>
@@ -500,7 +500,7 @@
                 </div>
                 <div class="x_content">
 
-                    <table id="AvailableTable" class="table table-striped" style="max-height:400px">
+                    <table id="AvailableTable"  class="table table-striped" style="max-height:400px;padding-right:5px">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -574,6 +574,51 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Available License</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <button type="button" data-toggle="modal" data-target="#NewLicenseModal" class="btn btn-success">Create New</button>
+                        </li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <table id="LicenseTable" class="table table-striped" style="max-height:400px">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Key</th>
+                                <th>Type</th>
+                                <th>Payment Cycle (days)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (License license in (List<License>)ViewData["License"])
+                            {
+                                
+                                    <tr>
+                                        <th scope="row">@license.id</th>
+                                        <td>@license.LicenseKey</td>
+                                        <td>@license.licenseType </td>
+                                        <td>@license.licenseDuration </td>
+                                    </tr>
+                            
+
+                            }
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="modal fade" id="NewAccountModal" role="dialog">
@@ -621,6 +666,68 @@
                         </div>
 
                     </form>
+                    <h2>Or import from excel</h2>
+                    @using (Html.BeginForm("PlanTrialImport", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.Raw(ViewBag.Error)
+                        <span>Excel File</span><input type="file" name="excelFile" />
+                        <br />
+                        <input type="hidden" value="@( ((productMarketPlan)ViewData["Plan"]).id)" name="planID"/>
+                        <input type="submit" class="btn btn-success" value="Import" />
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="NewLicenseModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">  New account  </h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_content">
+                    <br>
+                    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" action="/Product/NewLicense" method="post">
+                        <input type="hidden" name="planID" value="@(((productMarketPlan)ViewData["Plan"]).id)" />
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Key <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="first-name" name="key" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Duration <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="duration" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button type="button" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <h2>Or import from excel</h2>
+                    @using (Html.BeginForm("LicenseImport", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.Raw(ViewBag.Error)
+                        <span>Excel File</span><input type="file" name="excelFile" />
+                        <br />
+                        <input type="hidden" value="@( ((productMarketPlan)ViewData["Plan"]).id)" name="planID" />
+                        <input type="submit" class="btn btn-success" value="Import" />
+                    }
                 </div>
             </div>
             <div class="modal-footer">

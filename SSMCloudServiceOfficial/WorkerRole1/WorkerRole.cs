@@ -25,6 +25,7 @@ namespace WorkerRole1
         SSMEntities se3;
         SSMEntities se4;
         SSMEntities se5;
+        SSMEntities se6; SSMEntities se7;
         List<string> seenUids;
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
@@ -45,17 +46,24 @@ namespace WorkerRole1
 
             ThreadStart threadStart5 = new ThreadStart(UpdateLicense);
             Thread th5 = new Thread(threadStart5);
-            
+            ThreadStart threadStart6 = new ThreadStart(createOrderForIncomplete);
+            Thread th6 = new Thread(threadStart6);
+            ThreadStart threadStart7 = new ThreadStart(checkLiceneAndAccount);
+            Thread th7 = new Thread(threadStart7);
             th1.Start();
             th2.Start();
             th3.Start();
             th5.Start();
             th4.Start();
+            th6.Start();
+            th7.Start();
             th1.Join();
             th2.Join();
             th5.Join();
             th3.Join();
             th4.Join();
+            th6.Join();
+            th7.Join();
             // TaskSendEmailFollowup();
             //SaleRepRating();
 
@@ -116,6 +124,9 @@ namespace WorkerRole1
             se3 = new SSMEntities();
             se4 = new SSMEntities();
             se5 = new SSMEntities();
+            se6 = new SSMEntities();
+
+            se7 = new SSMEntities();
             seenUids = new List<string>();
             Trace.TraceInformation("WorkerRole1 has been started");
 
@@ -160,6 +171,7 @@ namespace WorkerRole1
 
                     EmailHandler.SendMail(task);
                     task.status = 2;
+                    task.Deal.Stage = task.Deal.Stage + 1;
                     se1.SaveChanges();
                 }
                 Thread.Sleep(6000);
@@ -228,6 +240,15 @@ namespace WorkerRole1
                         deal.CurrentPlanID = request.productMarketPlan.softwareProduct.PrePurchase_FollowUp_Plan.Where(u => u.isOperation).FirstOrDefault().id;
 
                         se2.Deals.Add(deal);
+                        se2.SaveChanges();
+                        Notification noti = new Notification();
+                        noti.NotiName = "New Deal";
+                        noti.NotiContent = contact.FirstName + " " + "has new request for " + deal.softwareProduct.name;
+                        noti.userID = pr.saleRepID;
+                        noti.CreateDate = DateTime.Now;
+                        noti.viewed = false;
+                        noti.hreflink = "/Deal/Detail?id=" + deal.id;
+                        se2.Notifications.Add(noti);
                         se2.SaveChanges();
                         Deal_SaleRep_Respon respone = new Deal_SaleRep_Respon();
                         respone.dealID = deal.id;
@@ -301,33 +322,35 @@ namespace WorkerRole1
                     String salerepID = "";
                     foreach (License lic in group)
                     {
+                        
+
                         OrderItem orderItem = new OrderItem();
                         orderItem.orderID = order.id;
-                        orderItem.planID = lic.OrderItems.First().planID;
+                        orderItem.planID = lic.PlanID;
                         orderItem.SoldPrice = lic.OrderItems.First().SoldPrice;
-                        orderItem.SaleRepBenefit = lic.OrderItems.First().SaleRepBenefit;
-                        salerepID = orderItem.SaleRepBenefit;
+   
                         orderItem.LicenseID = lic.id;
                         lic.nextTransactionDate = ((DateTime)lic.nextTransactionDate).AddDays((double)lic.licenseDuration);
 
                         se5.OrderItems.Add(orderItem);
                         se5.SaveChanges();
                         subtotal = subtotal + orderItem.SoldPrice;
-                      
+                        salerepID = lic.SaleRepResponsible;
+                        SaleRepCommision commision = new SaleRepCommision();
+                        commision.SaleRepID = salerepID;
+                        commision.Total = orderItem.SoldPrice * 0.1;
+                        commision.MoneyFromSubcription = orderItem.SoldPrice * 0.1;
+                        commision.SaleRepID = salerepID;
+                        commision.Paid = 0;
+                        commision.DateIssue = DateTime.Today;
+                        se5.SaleRepCommisions.Add(commision);
+                        se5.SaveChanges();
                     }
                     order.subtotal = subtotal;
                     order.total = (double)order.subtotal * 1.1;
                     order.VAT = (double)order.subtotal * 0.1;
                     se5.SaveChanges();
-                    SaleRepCommision commision = new SaleRepCommision();
-                    commision.SaleRepID = salerepID;
-                    commision.Total = subtotal * 0.1;
-                    commision.MoneyFromSubcription = subtotal * 0.1;
-                    commision.SaleRepID = salerepID;
-                    commision.Paid = 0;
-                    commision.DateIssue = DateTime.Today;
-                    se5.SaleRepCommisions.Add(commision);
-                    se5.SaveChanges();
+                    
                 }
                 Thread.Sleep(60000);
             }
@@ -353,7 +376,7 @@ namespace WorkerRole1
                     foreach (Calendar cal in salerep.Calendars)
                     {
                        
-                        if (cal.startTime.DayOfWeek == tuple.Item1.DayOfWeek) {
+                        if ( (int)cal.startTime.DayOfWeek == (int)tuple.Item1.DayOfWeek) {
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
                             System.Diagnostics.Debug.WriteLine("cal.endTime.TimeOfDay  " + cal.startTime.TimeOfDay);
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
@@ -566,7 +589,121 @@ namespace WorkerRole1
                 return newMessages;
             }
         }
+        public void checkLiceneAndAccount() {
+            while (true)
+            {
+                foreach (productMarketPlan plan in se6.productMarketPlans.ToList())
+                {
+                    if (plan.Licenses.Count() < 50 && plan.Licenses.Count() > 10)
+                    {
+                        Notification noti = new Notification();
+                        noti.NotiName = "Shortage licenses:50 left";
+                        noti.NotiContent = "You need to create more licenses for plan: " + plan.Name + " of product " + plan.softwareProduct.name;
+                        noti.userID = "3d23016d-074f-474e-a6b7-225de90b0cae";
+                        noti.CreateDate = DateTime.Now;
+                        noti.viewed = false;
+                        noti.hreflink = "/Product/DetMarketPlanDetailail?id=" + plan.id;
+                        if (se6.Notifications.Where(u => u.NotiContent.Equals(noti.NotiContent) && u.NotiName.Equals(noti.NotiName) && !u.viewed).FirstOrDefault() != null)
+                        {
+                            se6.Notifications.Add(noti);
+                        }
+                    }
+                    else if (plan.Licenses.Count() <= 10)
+                    {
+                        Notification noti = new Notification();
+                        noti.NotiName = "Shortage licenses:10 left";
+                        noti.NotiContent = "You need to create more licenses for plan: " + plan.Name + " of product " + plan.softwareProduct.name;
+                        noti.userID = "3d23016d-074f-474e-a6b7-225de90b0cae";
+                        noti.CreateDate = DateTime.Now;
+                        noti.viewed = false;
+                        noti.hreflink = "/Product/DetMarketPlanDetailail?id=" + plan.id;
+                        try {
+                            if (se6.Notifications.Where(u => u.NotiContent.Equals(noti.NotiContent) && u.NotiName.Equals(noti.NotiName) && !u.viewed).FirstOrDefault() != null)
+                            {
+                                se6.Notifications.Add(noti);
+                            }
 
+                        }
+                        catch (Exception e) { }
+                       
+                    }
+                    if (plan.TrialAccounts.Count() < 50 && plan.TrialAccounts.Count() > 10)
+                    {
+                        Notification noti = new Notification();
+                        noti.NotiName = "Shortage Trial Accounts:50 left";
+                        noti.NotiContent = "You need to create more Trial Accounts for plan: " + plan.Name + " of product " + plan.softwareProduct.name;
+                        noti.userID = "3d23016d-074f-474e-a6b7-225de90b0cae";
+                        noti.CreateDate = DateTime.Now;
+                        noti.viewed = false;
+                        noti.hreflink = "/Product/DetMarketPlanDetailail?id=" + plan.id;
+                        if (se6.Notifications.Where(u => u.NotiContent.Equals(noti.NotiContent) && u.NotiName.Equals(noti.NotiName) && !u.viewed).FirstOrDefault() != null)
+                        {
+                            se6.Notifications.Add(noti);
+                        }
+                    }
+                    else if (plan.Licenses.Count() <= 10)
+                    {
+                        Notification noti = new Notification();
+                        noti.NotiName = "Shortage Trial Accounts :10 left";
+                        noti.NotiContent = "You need to create more Trial Accounts for plan: " + plan.Name + " of product " + plan.softwareProduct.name;
+                        noti.userID = "3d23016d-074f-474e-a6b7-225de90b0cae";
+                        noti.CreateDate = DateTime.Now;
+                        noti.viewed = false;
+                        noti.hreflink = "/Product/DetMarketPlanDetailail?id=" + plan.id;
+                        if (se6.Notifications.Where(u => u.NotiContent.Equals(noti.NotiContent) && u.NotiName.Equals(noti.NotiName) && !u.viewed).FirstOrDefault() != null)
+                        {
+                            se6.Notifications.Add(noti);
+                        }
+                    }
+                }
+                se6.SaveChanges();
+                Thread.Sleep(10000);
+            }
+        }
+        public void createOrderForIncomplete() {
+            while (true) {
+                foreach (Deal deal in se7.Deals.Where(u => u.Status == 3).ToList())
+                {
+                    bool validLicense = true;
+                    foreach (Deal_Item dealitem in deal.Deal_Item)
+                    {
+                        int lcount = se7.Licenses.Where(u => u.PlanID == dealitem.planID && u.status == null && u.SaleRepResponsible == null).Count();
+                        if (lcount < dealitem.Quantity) validLicense = false;
+
+
+                    }
+                    if (validLicense)
+                    {
+                        foreach (Deal_Item dealitem in deal.Deal_Item)
+                        {
+
+                            for (int i = 0; i < dealitem.Quantity; i++)
+                            {
+                                License license = se7.Licenses.Where(u => u.PlanID == dealitem.planID && u.status == null && u.SaleRepResponsible == null).FirstOrDefault();
+                                if (license != null)
+                                {
+
+                                    license.customerID = deal.orders.First().customerID;
+                                    license.SaleRepResponsible = deal.Deal_SaleRep_Respon.LastOrDefault().userID;
+                                    license.status = 1;
+                                    OrderItem orderItem = new OrderItem();
+                                    orderItem.orderID = deal.orders.First().id;
+                                    orderItem.planID = dealitem.planID;
+                                    orderItem.SoldPrice = (double)dealitem.price;
+                                    orderItem.LicenseID = license.id;
+                                    se7.OrderItems.Add(orderItem);
+
+                                }
+                            }
+                        }
+
+                        se7.SaveChanges();
+                    }
+                }
+                Thread.Sleep(10000);
+            }
+            
+        }
     }
 
 }

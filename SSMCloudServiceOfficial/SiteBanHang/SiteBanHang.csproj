@@ -243,6 +243,9 @@
     <Compile Include="Models\Customer_Request.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\customer_salerep_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Deal.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -268,20 +271,14 @@
     <Compile Include="Models\License.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManagerNotification.cs">
-      <DependentUpon>SSMModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MarketPlanPurchased.cs">
-      <DependentUpon>SSMModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MasterCalendar.cs">
-      <DependentUpon>SSMModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\oder_item.cs">
+    <Compile Include="Models\Notification.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\order.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderItem.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Payment.cs">
@@ -306,6 +303,9 @@
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaleRepCommision.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SaleRepProfile.cs">
@@ -336,12 +336,6 @@
     <Compile Include="Models\TaskType.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\task_customer.cs">
-      <DependentUpon>SSMModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\task_user.cs">
-      <DependentUpon>SSMModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Ticket.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -349,6 +343,9 @@
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TicketComment.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TicketFile.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TicketServerity.cs">

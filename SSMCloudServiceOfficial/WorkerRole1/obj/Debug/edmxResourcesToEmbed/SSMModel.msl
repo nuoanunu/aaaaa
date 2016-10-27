@@ -149,6 +149,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="customer_salerep_responsible">
+      <EntityTypeMapping TypeName="SSMModel.customer_salerep_responsible">
+        <MappingFragment StoreEntitySet="customer_salerep_responsible">
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="salerepID" ColumnName="salerepID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="customers">
       <EntityTypeMapping TypeName="SSMModel.customer">
         <MappingFragment StoreEntitySet="customers">
@@ -259,6 +268,9 @@
     <EntitySetMapping Name="Licenses">
       <EntityTypeMapping TypeName="SSMModel.License">
         <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
+          <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="nextTransactionDate" ColumnName="nextTransactionDate" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
@@ -269,11 +281,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ManagerNotifications">
-      <EntityTypeMapping TypeName="SSMModel.ManagerNotification">
-        <MappingFragment StoreEntitySet="ManagerNotification">
-          <ScalarProperty Name="requestID" ColumnName="requestID" />
-          <ScalarProperty Name="dealID" ColumnName="dealID" />
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="SSMModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="NotiName" ColumnName="NotiName" />
+          <ScalarProperty Name="hreflink" ColumnName="hreflink" />
           <ScalarProperty Name="viewed" ColumnName="viewed" />
           <ScalarProperty Name="NotiContent" ColumnName="NotiContent" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -285,7 +298,6 @@
       <EntityTypeMapping TypeName="SSMModel.OrderItem">
         <MappingFragment StoreEntitySet="OrderItems">
           <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-          <ScalarProperty Name="SaleRepBenefit" ColumnName="SaleRepBenefit" />
           <ScalarProperty Name="SoldPrice" ColumnName="SoldPrice" />
           <ScalarProperty Name="planID" ColumnName="planID" />
           <ScalarProperty Name="orderID" ColumnName="orderID" />
@@ -296,6 +308,7 @@
     <EntitySetMapping Name="orders">
       <EntityTypeMapping TypeName="SSMModel.order">
         <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="fromDeal" ColumnName="fromDeal" />
           <ScalarProperty Name="Contract" ColumnName="Contract" />
           <ScalarProperty Name="completedDate" ColumnName="completedDate" />
           <ScalarProperty Name="status" ColumnName="status" />

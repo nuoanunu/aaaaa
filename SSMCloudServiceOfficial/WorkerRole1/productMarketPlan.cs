@@ -19,6 +19,7 @@ namespace WorkerRole1
         {
             this.Customer_Request = new HashSet<Customer_Request>();
             this.Deal_Item = new HashSet<Deal_Item>();
+            this.Licenses = new HashSet<License>();
             this.OrderItems = new HashSet<OrderItem>();
             this.PlanOptions = new HashSet<PlanOption>();
             this.TrialAccounts = new HashSet<TrialAccount>();
@@ -40,6 +41,8 @@ namespace WorkerRole1
         public virtual ICollection<Customer_Request> Customer_Request { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal_Item> Deal_Item { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<License> Licenses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

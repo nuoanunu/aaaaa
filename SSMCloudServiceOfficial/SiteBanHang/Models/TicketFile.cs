@@ -12,10 +12,13 @@ namespace SiteBanHang.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MasterCalendar
+    public partial class TicketFile
     {
-        public System.DateTime id { get; set; }
-        public string fromto { get; set; }
-        public int dayofweek { get; set; }
+        public int id { get; set; }
+        public string FileName { get; set; }
+        public string Url { get; set; }
+        public int TicketID { get; set; }
+    
+        public virtual Ticket Ticket { get; set; }
     }
 }

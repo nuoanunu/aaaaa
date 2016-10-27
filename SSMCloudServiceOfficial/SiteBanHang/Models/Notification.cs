@@ -7,21 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SSM.Models
+namespace SiteBanHang.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ManagerNotification
+    public partial class Notification
     {
         public int id { get; set; }
         public System.DateTime CreateDate { get; set; }
         public string NotiContent { get; set; }
         public bool viewed { get; set; }
-        public Nullable<int> dealID { get; set; }
-        public Nullable<int> requestID { get; set; }
+        public string hreflink { get; set; }
+        public string NotiName { get; set; }
+        public string userID { get; set; }
     
-        public virtual Customer_Request Customer_Request { get; set; }
-        public virtual Deal Deal { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

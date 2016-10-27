@@ -1,0 +1,37 @@
+﻿@using SSM.Models;
+<div class="row">
+
+    <div class="x_content">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Product/Services</th>
+                    <th>Package</th>
+                    <th>Purchase Date</th>
+                    <th>Sale Representative</th>
+                    <th>Next payment date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewData["Licenses"] != null)
+                {
+                    foreach (License license in (List<License>)ViewData["licenses"])
+                    {
+                        <tr>
+                            <td scope="row"> @license.OrderItems.FirstOrDefault().productMarketPlan.softwareProduct.name</td>
+                            <td>@license.productMarketPlan.Name</td>
+                            <td>@license.startDate</td>
+                            <td>@license.AspNetUser.SaleRepProfiles.First().FullName</td>
+                            <td>@license.nextTransactionDate</td>
+                        </tr>
+                    }
+                }
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

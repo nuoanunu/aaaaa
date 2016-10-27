@@ -7,22 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SiteBanHang.Models
+namespace SSM.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MarketPlanPurchased
+    public partial class customer_salerep_responsible
     {
         public int id { get; set; }
-        public int orderID { get; set; }
-        public int planID { get; set; }
-        public double SoldPrice { get; set; }
-        public int productID { get; set; }
-        public Nullable<int> quantity { get; set; }
+        public string salerepID { get; set; }
+        public string customerID { get; set; }
     
-        public virtual order order { get; set; }
-        public virtual productMarketPlan productMarketPlan { get; set; }
-        public virtual softwareProduct softwareProduct { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser1 { get; set; }
     }
 }

@@ -603,10 +603,11 @@
     <script>
         var globalEvent = [];
         var choosenDate = [];
+        var chosenevent;
     </script>
     <script>
         function submitFormRequest() {
-            var myJsonString = JSON.stringify(choosenDate);
+            var myJsonString = JSON.stringify(chosenevent);
             $("#dates").val(myJsonString);
             myrequestform.submit();
         }
@@ -626,6 +627,7 @@
             anothereven.allDay = false;
             anothereven.title = "clientchoose";
             anothereven.id = "myEvent";
+            chosenevent = anothereven;
             choosenDate = [];
             choosenDate.push(anothereven);
             alert(JSON.stringify(choosenDate));

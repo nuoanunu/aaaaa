@@ -12,16 +12,16 @@ namespace SiteBanHang.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ManagerNotification
+    public partial class OrderItem
     {
         public int id { get; set; }
-        public System.DateTime CreateDate { get; set; }
-        public string NotiContent { get; set; }
-        public bool viewed { get; set; }
-        public Nullable<int> dealID { get; set; }
-        public Nullable<int> requestID { get; set; }
+        public int orderID { get; set; }
+        public int planID { get; set; }
+        public double SoldPrice { get; set; }
+        public int LicenseID { get; set; }
     
-        public virtual Customer_Request Customer_Request { get; set; }
-        public virtual Deal Deal { get; set; }
+        public virtual License License { get; set; }
+        public virtual order order { get; set; }
+        public virtual productMarketPlan productMarketPlan { get; set; }
     }
 }

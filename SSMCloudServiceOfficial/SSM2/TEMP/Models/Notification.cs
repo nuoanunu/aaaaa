@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SiteBanHang.Models
+namespace SSM.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class oder_item
+    public partial class Notification
     {
         public int id { get; set; }
-        public Nullable<int> orderID { get; set; }
-        public Nullable<int> licenseID { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public string NotiContent { get; set; }
+        public bool viewed { get; set; }
+        public string hreflink { get; set; }
+        public string NotiName { get; set; }
+        public string userID { get; set; }
     
-        public virtual License License { get; set; }
-        public virtual order order { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

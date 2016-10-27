@@ -129,6 +129,15 @@ namespace SiteBanHang.Controllers
             request.RequestDemoDay = dates;
             se.Customer_Request.Add(request);
             se.SaveChanges();
+            Notification noti = new Notification();
+            noti.NotiName = "New Request";
+            noti.NotiContent = con.FirstName + " " + "has new request for " + plan.softwareProduct.name;
+            noti.userID = "3d23016d-074f-474e-a6b7-225de90b0cae";
+            noti.CreateDate = DateTime.Now;
+            noti.viewed = false;
+            noti.hreflink = "/Request/";
+            se.Notifications.Add(noti);
+            se.SaveChanges();
             return View();
         }
 

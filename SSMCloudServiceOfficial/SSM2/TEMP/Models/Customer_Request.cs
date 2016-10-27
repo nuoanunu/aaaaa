@@ -14,12 +14,6 @@ namespace SSM.Models
     
     public partial class Customer_Request
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer_Request()
-        {
-            this.ManagerNotifications = new HashSet<ManagerNotification>();
-        }
-    
         public int id { get; set; }
         public string RequestNo { get; set; }
         public int ProductID { get; set; }
@@ -33,7 +27,5 @@ namespace SSM.Models
         public virtual Deal Deal { get; set; }
         public virtual productMarketPlan productMarketPlan { get; set; }
         public virtual softwareProduct softwareProduct { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ManagerNotification> ManagerNotifications { get; set; }
     }
 }

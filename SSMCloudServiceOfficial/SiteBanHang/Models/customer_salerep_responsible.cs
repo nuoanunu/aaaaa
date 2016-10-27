@@ -12,10 +12,13 @@ namespace SiteBanHang.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class task_user
+    public partial class customer_salerep_responsible
     {
         public int id { get; set; }
-        public string userID { get; set; }
-        public int taskID { get; set; }
+        public string salerepID { get; set; }
+        public string customerID { get; set; }
+    
+        public virtual AspNetUser AspNetUser { get; set; }
+        public virtual AspNetUser AspNetUser1 { get; set; }
     }
 }

@@ -95,5 +95,12 @@ namespace SSM.Controllers
             pr.EditContact(contact);
             return RedirectToAction("Index", "Contact");
         }
+        public ActionResult LicenseUsing(int id) {
+            SSMEntities se = new SSMEntities();
+            contact con = se.contacts.Find(id);
+            ViewData["Licenses"] = se.Licenses.Where(u => u.customer.cusEmail.Equals(con.emails)).ToList();
+            ViewData["thiscontact"] = con;
+            return View("ContactDetail");
+        }
     }
 }

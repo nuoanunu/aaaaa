@@ -45,7 +45,7 @@
       <RoleName>SiteBanHang</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
-    <ProjectReference Include="..\SSM\TEMP\SSM.csproj">
+    <ProjectReference Include="..\SSM2\TEMP\SSM.csproj">
       <Name>SSM</Name>
       <Project>{92bf591b-f32f-4308-876d-8475d42491cb}</Project>
       <Private>True</Private>

@@ -17,8 +17,7 @@ namespace SiteBanHang.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public order()
         {
-            this.MarketPlanPurchaseds = new HashSet<MarketPlanPurchased>();
-            this.oder_item = new HashSet<oder_item>();
+            this.OrderItems = new HashSet<OrderItem>();
             this.Payments = new HashSet<Payment>();
         }
     
@@ -36,9 +35,7 @@ namespace SiteBanHang.Models
     
         public virtual customer customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MarketPlanPurchased> MarketPlanPurchaseds { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<oder_item> oder_item { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payments { get; set; }
     }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SSM.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -179,10 +180,10 @@
                                         <a><i class="fa fa-users"></i> Potential Customer <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li>
-                                                <a href="/Home/Contact">View all </a>
+                                                <a href="/Contact">View all </a>
                                             </li>
                                             <li>
-                                                <a href="/Home/Contact/Create">Create new</a>
+                                                <a href="/Contact/Create">Create new</a>
                                             </li>
 
                                         </ul>
@@ -298,8 +299,12 @@
 
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-bell-o" style="color:#515356"></i>
-                                    <span class="badge bg-green">6</span>
+                                    <span id="noticount" class="badge bg-green">0</span>
                                 </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                                    
+
+                                </ul>
 
                             </li>
                         </ul>
@@ -318,11 +323,52 @@
 
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @if (!User.IsInRole("manager") && !User.IsInRole("SalesRep")) {
+    @if (!User.IsInRole("manager") && !User.IsInRole("SalesRep"))
+    {
         <script>
-            window.location= "/Account/Login"
+            window.location = "/Account/Login"
         </script>
     }
+
+    <script>
+       
+        function checkNoti() {
+            var count = 0;
+            $.getJSON("/Home/getNewNotification", function (array) {
+               
+               
+                var innerHTML = document.getElementById("menu1").innerHTML;
+                $.each(array, function (namee, noti) {
+                    var newString = '<li><a href="[link]"><span><span>[Name]</span><span class="time">[Time]</span></span><span class="message">[Message]</span></a></li>'
+                    count = count + 1;
+                    $.each(noti, function (name, value) {
+                        if (name == "title") {
+                            newString = newString.replace('[Name]', value);
+                        }
+
+                        if (name == "des") {
+                            newString = newString.replace('[Message]', value);
+                        }
+                        if (name == "link") {
+                            newString = newString.replace('[link]', value);
+                        }
+                        if (name == "created") {
+                            newString = newString.replace('[Time]', value);
+                        }
+                    });
+                  
+                    if (innerHTML.indexOf(newString) <0) {
+                        innerHTML = newString + innerHTML;
+                    }
+                });
+                
+                document.getElementById("menu1").innerHTML = innerHTML;
+
+                $("#noticount").text(count);
+            });
+        }
+        setInterval(checkNoti, 5000);
+    </script>
 </body>
 
 </html>
