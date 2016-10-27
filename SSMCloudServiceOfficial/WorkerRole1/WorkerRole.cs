@@ -171,6 +171,7 @@ namespace WorkerRole1
 
                     EmailHandler.SendMail(task);
                     task.status = 2;
+                    if(!task.TaskContent.Equals("ReplyEmail"))
                     task.Deal.Stage = task.Deal.Stage + 1;
                     se1.SaveChanges();
                 }
@@ -285,8 +286,8 @@ namespace WorkerRole1
                                 if (tep.RequireMoreDetail) task.status = 7;
                                 task.Deadline = DateTime.Now.AddDays(day);
                                 task.CreateDate = DateTime.Today;
-                                task.TaskContent = tep.subject;
-                                task.TaskName = "[" + deal.softwareProduct.name + " #request:" + deal.id + "]";
+                                task.TaskContent = tep.stepNo +"";
+                                task.TaskName = tep.subject+ " [#:" + deal.id + "]";
                                 task.type = 8;
                                 se2.DealTasks.Add(task);
                                 se2.SaveChanges();
@@ -509,7 +510,7 @@ namespace WorkerRole1
                     {
                         DealTask deal = new DealTask();
 
-                        if (mess.Headers.Subject.Contains("request"))
+                        if (mess.Headers.Subject.Contains("[#:"))
                         {
                            String subject = mess.Headers.Subject;
                             if (subject.IndexOf("Re:") > -1) subject = subject.Replace("Re:", "").Trim();

@@ -47,6 +47,7 @@ namespace SSM.Controllers
                 task.CreateDate = DateTime.Now;
                 task.TaskDescription = mailcontent;
                 task.dealID = dealID;
+                task.TaskContent = "ReplyEmail";
                 se.DealTasks.Add(task);
                 se.SaveChanges();
             }
@@ -92,8 +93,8 @@ namespace SSM.Controllers
                     if (tep.RequireMoreDetail) task.status = 7;
                     task.Deadline = DateTime.Now.AddDays(day);
                     task.CreateDate = DateTime.Now;
-                    task.TaskContent = tep.subject;
-                    task.TaskName = "[Android Studio #request:" + deal.id + "]";
+                    task.TaskContent = tep.stepNo + "";
+                    task.TaskName = tep.subject + " [#:" + deal.id + "]";
                     task.type = 8;
                     se.DealTasks.Add(task);
                     se.SaveChanges();
@@ -103,6 +104,44 @@ namespace SSM.Controllers
 
             return deal.id;
 
+        }
+        public JsonResult removeEmail(int mailid) {
+            SSMEntities se = new SSMEntities();
+            DealTask task = se.DealTasks.Find(mailid);
+            if (task != null)
+            {
+                try {
+                    
+             
+                    foreach (DealTask alltask in task.Deal.DealTasks.Where(u => u.type == 8 && u.Deadline > task.Deadline).ToList()) {
+                        alltask.TaskContent = (int.Parse(alltask.TaskContent) - 1) +"";
+                    }
+                    se.DealTasks.Remove(task);
+                    se.SaveChanges();
+                    return Json(new { sentresult = "succeed" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception e) {
+
+                }
+            }
+            
+            return Json(new { sentresult = "fail" }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult SendEarlyMail(int mailid) {
+            SSMEntities se = new SSMEntities();
+            DealTask task = se.DealTasks.Find(mailid);
+            if (task != null) {
+                if (task.Deal.Stage +1< (int.Parse(task.TaskContent)))
+                {
+                    return Json(new { sentresult = "fail" }, JsonRequestBehavior.AllowGet);
+                }
+                else {
+                    task.Deadline = DateTime.Now;
+                    se.SaveChanges();
+                    return Json(new { sentresult = "suceed" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            return Json(new { sentresult = "fail" }, JsonRequestBehavior.AllowGet);
         }
         public ActionResult AddItemToDeal(int planID, float suggestprice, int quantity, int dealID)
         {
