@@ -276,9 +276,9 @@ namespace WorkerRole1
                         {
                             foreach (Plan_Step tep in plan.Plan_Step)
                             {
-
-                                if (tep.TimeFromLastStep == null) tep.TimeFromLastStep = 0;
-                                day = day + (int)tep.TimeFromLastStep;
+                                int temp = 0;
+                                if (tep.TimeFromLastStep != null) temp = (int)tep.TimeFromLastStep;
+                                day = day + temp;
                                 DealTask task = new DealTask();
                                 task.dealID = deal.id;
                                 task.TaskDescription = tep.StepEmailContent;
@@ -289,8 +289,22 @@ namespace WorkerRole1
                                 task.TaskContent = tep.stepNo +"";
                                 task.TaskName = tep.subject+ " [#:" + deal.id + "]";
                                 task.type = 8;
-                                se2.DealTasks.Add(task);
-                                se2.SaveChanges();
+                                try {
+
+                                    se2.DealTasks.Add(task);
+                                    se2.SaveChanges();
+                                }
+                                catch (DbEntityValidationException dbEx)
+                                {
+                                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                                    {
+                                        foreach (var validationError in validationErrors.ValidationErrors)
+                                        {
+                                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                        }
+                                    }
+                                }
+                             
                             }
                         }
                     }
@@ -365,13 +379,12 @@ namespace WorkerRole1
                 Tuple<DateTime, DateTime> tuple = requestDemoDate.First();
                 DateTime start = tuple.Item1;
                 DateTime end = tuple.Item2;
-                start = tuple.Item1.AddHours(7);
-                end = tuple.Item2.AddHours(7);
+                start = start.AddHours(7);
+                end = end.AddHours(7);
                 System.Diagnostics.Debug.WriteLine("da tru  " + start + "  end" + end);
                 System.Diagnostics.Debug.WriteLine("tuple  " + tuple.Item1 + "  end" + tuple.Item2);
                 foreach (Product_responsible pr in salereplst)
                 {
-                    bool choosed = false;
                     AspNetUser salerep = pr.AspNetUser;
                     bool take = true;
                     foreach (Calendar cal in salerep.Calendars)

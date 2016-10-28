@@ -21,8 +21,14 @@ namespace SSM.Controllers
         // GET: Deal
         public ActionResult Index()
         {
-            ViewData["ActiveDeal"] = (new SSMEntities()).Deals.ToList();
-            ViewData["NewRequest"] = (new SSMEntities()).Customer_Request.ToList();
+            SSMEntities se = new SSMEntities();
+            AspNetUser thisUSer = se.AspNetUsers.Find(User.Identity.GetUserId());
+            if (thisUSer != null) {
+              
+                ViewData["ActiveDeal"] = thisUSer.Deal_SaleRep_Respon.Select(u=>u.Deal).ToList();
+             
+            }
+
             return View("");
         }
         public ActionResult CreateDeal(Deal deal, int productID)

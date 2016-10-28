@@ -138,7 +138,7 @@ namespace SiteBanHang.Controllers
             noti.hreflink = "/Request/";
             se.Notifications.Add(noti);
             se.SaveChanges();
-            return View();
+            return View("Success");
         }
 
     }
