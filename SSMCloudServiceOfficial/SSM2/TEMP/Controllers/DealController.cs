@@ -26,12 +26,12 @@ namespace SSM.Controllers
             AspNetUser thisUSer = se.AspNetUsers.Find(User.Identity.GetUserId());
             if (thisUSer != null) {
                 if (User.IsInRole("manager")) {
-                    ViewData["ActiveDeal"] = se.Deals.ToList().OrderByDescending(u=>u.StartDate);
+                    ViewData["ActiveDeal"] = se.Deals.OrderBy(u => u.Status).ToList();
 
                 }
                 else
                 {
-                    ViewData["ActiveDeal"] = thisUSer.Deal_SaleRep_Respon.Select(u => u.Deal).ToList().OrderByDescending(u => u.StartDate);
+                    ViewData["ActiveDeal"] = thisUSer.Deal_SaleRep_Respon.Select(u => u.Deal).OrderBy(u => u.Status).ToList();
                 }
             }
 

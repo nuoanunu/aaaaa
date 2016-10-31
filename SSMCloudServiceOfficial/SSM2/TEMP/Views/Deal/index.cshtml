@@ -15,7 +15,9 @@
 
 <script>
     $(document).ready(function () {
-        $("#dealtable").DataTable();
+        $("#dealtable").DataTable({
+            "order": [[4, "desc"]]
+        });
     })
 </script>
     <div class="page-title">
@@ -46,7 +48,7 @@
                             <tr>
                      
                                 <th style="width: 20%">Deal name</th>
-                                <th>Contact</th>
+                                <th>Created</th>
                                 <th>Deal Progress</th>
                                 <th>Status</th>
                                 <th style="width: 20%">Action</th>
@@ -61,9 +63,9 @@
                                     <td>
                                         <a>@deal.Name</a>
                                         <br />
-                                        <small>Created @deal.StartDate.ToShortDateString()</small>
+                                        <small>@deal.contact.FirstName @deal.contact.MiddleName @deal.contact.LastName </small>
                                     </td>
-                                    <td>@deal.contact.FirstName @deal.contact.MiddleName @deal.contact.LastName</td>
+                                    <td>@deal.StartDate.ToShortDateString()</td>
                                     <td class="project_progress">
                                         <div class="progress progress_sm">
                                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="@(deal.Stage * 100 / (deal.softwareProduct.PrePurchase_FollowUp_Plan.Where(u => u.isOperation).First().Plan_Step.ToList().Count()))" style="width: @(deal.Stage * 100 / (deal.softwareProduct.PrePurchase_FollowUp_Plan.Where(u => u.isOperation).First().Plan_Step.ToList().Count()))%;"></div>
