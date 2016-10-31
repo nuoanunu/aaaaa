@@ -25,9 +25,14 @@ namespace SSM.Controllers
             SSMEntities se = new SSMEntities();
             AspNetUser thisUSer = se.AspNetUsers.Find(User.Identity.GetUserId());
             if (thisUSer != null) {
-              
-                ViewData["ActiveDeal"] = thisUSer.Deal_SaleRep_Respon.Select(u=>u.Deal).ToList();
-             
+                if (User.IsInRole("manager")) {
+                    ViewData["ActiveDeal"] = se.Deals.ToList().OrderByDescending(u=>u.StartDate);
+
+                }
+                else
+                {
+                    ViewData["ActiveDeal"] = thisUSer.Deal_SaleRep_Respon.Select(u => u.Deal).ToList().OrderByDescending(u => u.StartDate);
+                }
             }
 
             return View("");

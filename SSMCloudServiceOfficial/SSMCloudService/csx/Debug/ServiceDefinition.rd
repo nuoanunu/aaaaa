@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SSMCloudService" generation="1" functional="0" release="0" Id="e22d5d00-3592-4d39-ab73-0118937af5ba" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SSMCloudService" generation="1" functional="0" release="0" Id="24cedac6-0875-4f08-9e27-ea54eb869212" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="SSMCloudServiceGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -216,19 +216,19 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="ad815bf9-16ff-41b2-b42e-565abfe2caca" ref="Microsoft.RedDog.Contract\ServiceContract\SSMCloudServiceContract@ServiceDefinition">
+    <implementation Id="67ed8f24-cb4e-40d1-8673-7a2dcbbb984c" ref="Microsoft.RedDog.Contract\ServiceContract\SSMCloudServiceContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="39f49c87-9b18-4074-ba49-274afdd0ff64" ref="Microsoft.RedDog.Contract\Interface\CustomerPortal:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="acf99e08-1096-4caf-aca9-61549b99efac" ref="Microsoft.RedDog.Contract\Interface\CustomerPortal:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/CustomerPortal:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="987a7e9d-a3a5-4107-ad53-b3eeef34563d" ref="Microsoft.RedDog.Contract\Interface\SiteBanHang:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="1cefcdaa-984c-46bb-8030-c2741a7d801c" ref="Microsoft.RedDog.Contract\Interface\SiteBanHang:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/SiteBanHang:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="b7c64264-0ffe-4b31-8a8a-9473dcd4572e" ref="Microsoft.RedDog.Contract\Interface\SSM:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="64fc2aad-8688-4246-8979-d1f5eb4e970f" ref="Microsoft.RedDog.Contract\Interface\SSM:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/SSM:Endpoint1" />
           </inPort>
