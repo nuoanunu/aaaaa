@@ -9,6 +9,7 @@
     <EntitySet Name="Calendars" EntityType="SSMModel.Calendar" />
     <EntitySet Name="companies" EntityType="SSMModel.company" />
     <EntitySet Name="company_responsible" EntityType="SSMModel.company_responsible" />
+    <EntitySet Name="ConfigureSys" EntityType="SSMModel.ConfigureSy" />
     <EntitySet Name="contact_resposible" EntityType="SSMModel.contact_resposible" />
     <EntitySet Name="contacts" EntityType="SSMModel.contact" />
     <EntitySet Name="Customer_Request" EntityType="SSMModel.Customer_Request" />
@@ -425,6 +426,14 @@
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_company_responsible_AspNetUsers" FromRole="company_responsible" ToRole="AspNetUser" />
     <NavigationProperty Name="company" Relationship="SSMModel.FK_company_responsible_companies" FromRole="company_responsible" ToRole="company" />
   </EntityType>
+  <EntityType Name="ConfigureSy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="value" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="contact_resposible">
     <Key>
       <PropertyRef Name="id" />
@@ -575,7 +584,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="TaskDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Deadline" Type="DateTime" Precision="3" />
@@ -991,6 +1000,8 @@
     <Property Name="PlanID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="contactID" Type="Int32" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="contact" Relationship="SSMModel.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contact" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
   </EntityType>

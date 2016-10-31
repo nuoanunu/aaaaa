@@ -49,6 +49,37 @@ namespace SSM.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
+        public ActionResult SaleRepList() {
+            SSMEntities se = new SSMEntities();
+            ViewData["ProfileList"] = se.SaleRepProfiles.ToList();
+            return View("SaleRepList");
+        }
+        public ActionResult Detail(int id)
+        {
+            SSMEntities se = new SSMEntities();
+            SaleRepProfile profile = se.SaleRepProfiles.Find(id);
+            AspNetUser user = profile.AspNetUser;
+            List<GrapDataSets> lst = new List<GrapDataSets>();
+            List<String> color = new List<String> { "#0072BB", "#FF4C3B", "#FFD034", "#C6C8CA", "#0072BB", "#93228D" };
+            foreach (Product_responsible pr in user.Product_responsible.ToList())
+            {
+                GrapDataSets gds = new GrapDataSets();
+
+
+                gds.backgroundColor = color[0];
+                gds.data = new Random().Next(0, 100);
+                gds.label = pr.softwareProduct.name;
+                lst.Add(gds);
+                color.RemoveAt(0);
+
+            }
+            var jsonSerialiser = new JavaScriptSerializer();
+            var json = jsonSerialiser.Serialize(lst);
+            ViewData["SaleRepRevenue"] = json;
+            ViewData["SalerepDetail"] = se.SaleRepProfiles.SqlQuery("SELECT * FROM SaleRepProfile where userID='" + user.Id + "'").FirstOrDefault();
+
+            return View();
+        }
         public JsonResult paid(float money, int commisionID) {
             SSMEntities se = new SSMEntities();
             SaleRepCommision com = se.SaleRepCommisions.Find(commisionID);

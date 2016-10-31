@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SSM.Models;
+using System.Configuration;
 
 namespace SSM.Controllers
 {
@@ -25,7 +26,67 @@ namespace SSM.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+        public ActionResult SystemConfig() {
+            SSMEntities se = new SSMEntities();
+            ViewData["email"] = se.ConfigureSys.Find(1).value;
+            ViewData["sc"] = se.ConfigureSys.Find(15).value;
+            ViewData["act"] = se.ConfigureSys.Find(16).value;
+            ViewData["ncm"] = se.ConfigureSys.Find(17).value;
+            ViewData["wr"] = se.ConfigureSys.Find(19).value;
+            ViewData["asv"] = se.ConfigureSys.Find(20).value;
+            ViewData["fn"] = se.ConfigureSys.Find(3).value;
+            ViewData["pn"] = se.ConfigureSys.Find(4).value;
+            ViewData["mdd"] = se.ConfigureSys.Find(5).value;
+            ViewData["mt"] = se.ConfigureSys.Find(7).value;
+            ViewData["lk"] = se.ConfigureSys.Find(8).value;
+            ViewData["news"] = se.ConfigureSys.Find(9).value;
+            ViewData["pf"] = se.ConfigureSys.Find(10).value;
+            ViewData["cc"] = se.ConfigureSys.Find(11).value;
+            ViewData["links"] = se.ConfigureSys.Find(12).value;
+            ViewData["username"] = se.ConfigureSys.Find(13).value;
+            ViewData["password"] = se.ConfigureSys.Find(14).value;
+   
+            return View("SystemConfig");
+        }
+        public ActionResult UdpateMetric(int sc, int act, int ncm, int wr, int asv)
+        {
 
+            SSMEntities se = new SSMEntities();
+            se.ConfigureSys.Where(u => u.id == 15).First().value = sc+ "";
+            se.ConfigureSys.Where(u => u.id == 16).First().value = act + "";
+            se.ConfigureSys.Where(u => u.id == 17).First().value = ncm + "";
+            se.ConfigureSys.Where(u => u.id == 19).First().value = wr + "";
+            se.ConfigureSys.Where(u => u.id == 20).First().value = asv + "";
+            se.SaveChanges();
+            return RedirectToAction("SystemConfig");
+        }
+        public ActionResult UpdateKeyword(String fn, string pn, string mdd, string mt, string lk,string news, string pf, string cc, string links, string username, string password)
+        {
+            SSMEntities se = new SSMEntities();
+            se.ConfigureSys.Where(u => u.id == 3).First().value = fn + "";
+            se.ConfigureSys.Where(u => u.id == 4).First().value = pn + "";
+            se.ConfigureSys.Where(u => u.id == 5).First().value = mdd + "";
+            se.ConfigureSys.Where(u => u.id == 7).First().value = mt + "";
+            se.ConfigureSys.Where(u => u.id == 8).First().value = lk + "";
+            se.ConfigureSys.Where(u => u.id == 9).First().value = news + "";
+            se.ConfigureSys.Where(u => u.id == 10).First().value = pf + "";
+            se.ConfigureSys.Where(u => u.id == 11).First().value = cc + "";
+            se.ConfigureSys.Where(u => u.id == 12).First().value = links + "";
+            se.ConfigureSys.Where(u => u.id ==13).First().value = username + "";
+            se.ConfigureSys.Where(u => u.id == 14).First().value = password + "";
+
+            se.SaveChanges();
+
+            return RedirectToAction("SystemConfig");
+        }
+        public ActionResult UpdateMail(string username,string password)
+        {
+            SSMEntities se = new SSMEntities();
+            se.ConfigureSys.Where(u => u.id == 1).First().value = username + "";
+            se.ConfigureSys.Where(u => u.id == 2).First().value = password + "";
+            se.SaveChanges();
+            return RedirectToAction("SystemConfig");
+        }
         public ApplicationSignInManager SignInManager
         {
             get

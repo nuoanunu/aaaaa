@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class DealController : Controller
     {
         // GET: Deal

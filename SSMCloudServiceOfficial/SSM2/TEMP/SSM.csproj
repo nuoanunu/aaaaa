@@ -296,6 +296,9 @@
     <Compile Include="Models\company_responsible.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfigureSy.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Constant.cs" />
     <Compile Include="Models\contact.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
@@ -964,6 +967,10 @@
     <Content Include="Views\Profile\ComissionList.cshtml" />
     <Content Include="Views\Product\AttributeFragment.cshtml" />
     <Content Include="Views\Contact\ContactDetail.cshtml" />
+    <Content Include="Views\Product\Licenses.cshtml" />
+    <Content Include="Views\Product\TrialAccount.cshtml" />
+    <Content Include="Views\Profile\SaleRepList.cshtml" />
+    <Content Include="Views\Manage\SystemConfig.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -28,18 +28,18 @@
 
 
 <link href="~/Content/Profile.css" rel="stylesheet" />
-@using (Html.BeginForm("CreateNewProfile", "Profile", FormMethod.Post,
-                                         new { enctype = "multipart/form-data" }))
-{
 
 
 
-    <div class="row" style="margin-bottom:0; margin-top:5px;">
+    @using (Html.BeginForm("CreateNewProfile", "Profile", FormMethod.Post,
+                                                                         new { enctype = "multipart/form-data", @style = "padding:0px" }))
+    {
         <div class="col-sm-3">
             <div class="panel widget light-widget panel-bd-top" style="max-width:1000px  !important">
                 <div class="panel-heading no-title"> </div>
+
                 <div class="panel-body">
-                    <div class="text-center vd_info-parent" style="height:300px;width:400px;border:1px">@Html.TextBoxFor(m => m.avatar, new { @class = "form-control", type = "file", style = "padding-top:145px;height:300px;max-width:4000px !important" }) </div>
+                    <div class="text-center vd_info-parent" style="height:300px;width:100%;border:1px">@Html.TextBoxFor(m => m.avatar, new { @class = "form-control", type = "file", style = "padding-top:145px;height:300px;max-width:4000px !important;width:100%" }) </div>
 
                     <h4>Sale Representative</h4>
                     <div class="mgtp-20">
@@ -66,7 +66,7 @@
         </div>
         <div class="col-sm-9">
             <div class="tabs widget" style="margin:0  !important;max-width:5000px !important">
-                <ul class="nav nav-tabs widget"style="max-width:5000px !important">
+                <ul class="nav nav-tabs widget" style="max-width:5000px !important">
                     <li class="active"> <a data-toggle="tab" href="#profile-tab"> Profile <span class="menu-active"><i class="fa fa-caret-up"></i></span> </a></li>
                 </ul>
                 <div class="tab-content" style="width:100%">
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <br/>
+                            <br />
                             <br />
                             <div class="row">
                                 <div class="col-sm-6">
@@ -132,7 +132,7 @@
                                 <div class="col-sm-6">
                                     <div class="row mgbt-xs-0">
                                         <label class="col-xs-5 control-label">Birthday:</label>
-                                        <div class="col-xs-7 controls">@Html.TextBoxFor(m => m.birthday, new { @class = "form-control" })</div>
+                                        <div class="col-xs-7 controls">@Html.TextBoxFor(m => m.birthday, new { @class = "form-control" , @value=""})</div>
                                         <!-- col-sm-10 -->
                                     </div>
                                 </div>
@@ -162,7 +162,7 @@
                                                 @Html.HiddenFor(m => m.responsibleList[i].softwareid)
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">@Html.DisplayFor(m => m.responsibleList[i].productName)</label>
                                                 <div class="col-md-3 col-sm-9 col-xs-12">
-                                                    <input type="checkbox"  class="form-control">
+                                                    <input type="checkbox" class="form-control">
                                                 </div>
                                                 <div class="col-md-3 col-sm-9 col-xs-12">
                                                     @Html.TextBoxFor(m => m.responsibleList[i].minshare, new { @class = "form-control", placeholder = "Min Share" })%
@@ -171,13 +171,13 @@
                                                     @Html.TextBoxFor(m => m.responsibleList[i].maxshare, new { @class = "form-control", placeholder = "Max Share" })%
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                     }
 
 
 
 
-                                        </div>
+                                </div>
                                 <!-- col-sm-7 -->
                             </div>
                             <!-- row -->
@@ -191,12 +191,12 @@
             </div>
             <!-- tabs-widget -->
         </div>
-    </div>
-
-}
+    }
 
 
-    <br />
-   
-    
-    
+
+
+<br />
+
+
+

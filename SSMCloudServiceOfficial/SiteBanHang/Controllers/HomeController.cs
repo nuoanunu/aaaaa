@@ -51,9 +51,11 @@ namespace SiteBanHang.Controllers
             SSMEntities se = new SSMEntities();
             productMarketPlan plan = se.productMarketPlans.Find(planid);
             int salerepresponse = plan.softwareProduct.Product_responsible.Count();
+
             List<Calendar> blockeddate = se.Calendars.Where(u => u.repeat).ToList();
             if (blockeddate.Count() > 0)
             {
+                System.Diagnostics.Debug.WriteLine("cc");
                 Calendar core = blockeddate.First();
                 List<Calendar> coreDate = blockeddate.Where(u => u.userID.Equals(core.userID)).ToList();
                 List<Calendar> BlockedDate = new List<Calendar>();
@@ -75,7 +77,8 @@ namespace SiteBanHang.Controllers
                             }
                         }
                     }
-                    if (meet == salerepresponse - 1)
+                    System.Diagnostics.Debug.WriteLine("mett " + meet + " res " + salerepresponse);
+                    if (meet == salerepresponse -1)
                     {
                         BlockedDate.Add(corecal);
                     }

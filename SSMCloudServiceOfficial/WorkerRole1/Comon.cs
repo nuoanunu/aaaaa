@@ -9,18 +9,32 @@ namespace WorkerRole1
 {
     public class Constant
     {
-        public static string STRING_FIRSTNAME = "[First Name]";
-        public static string STRING_PRODUCTNAME = "[PRODUCT NAME]";
-        public static string STRING_DATE = "[DATE],[DAY],[TIME]";
-        public static string STRING_DAY = "[DAY]";
-        public static string STRING_TIME = "[TIME]";
-        public static string STRING_CODE = "[CODE]";
-        public static string STRING_POST = "[POST]";
-        public static string STRING_FEATURE = "[FEATURE]";
-        public static string STRING_COMPANY = "[COMPANY NAME]";
-        public static string STRING_LINK = "[LINK";
-        public static string USER_NAME = "[User name]";
-        public static string PASSWORD = "[Password]";
+        public static string STRING_FIRSTNAME = "";
+        public static string STRING_PRODUCTNAME = "";
+        public static string STRING_DATE = "";
+        public static string STRING_DAY = "";
+        public static string STRING_TIME = "";
+        public static string STRING_CODE = "";
+        public static string STRING_POST = "";
+        public static string STRING_FEATURE = "";
+        public static string STRING_COMPANY = "";
+        public static string STRING_LINK = "";
+        public static string USER_NAME = "";
+        public static string PASSWORD = "";
+        public Constant() {
+            SSMEntities se = new SSMEntities();
+            STRING_FIRSTNAME = se.ConfigureSys.Find(3).value;
+            STRING_PRODUCTNAME = se.ConfigureSys.Find(4).value;
+            STRING_DATE = se.ConfigureSys.Find(5).value;
+            STRING_DAY = se.ConfigureSys.Find(7).value;
+            STRING_TIME = se.ConfigureSys.Find(8).value;
+            STRING_CODE = se.ConfigureSys.Find(9).value;
+            STRING_FEATURE = se.ConfigureSys.Find(10).value;
+            STRING_COMPANY = se.ConfigureSys.Find(11).value;
+            STRING_LINK = se.ConfigureSys.Find(12).value;
+            USER_NAME = se.ConfigureSys.Find(13).value;
+            PASSWORD = se.ConfigureSys.Find(14).value;
+        }
         public static List<string> AllConstant = new List<string> { STRING_FIRSTNAME, STRING_PRODUCTNAME };
         public static string replaceMailContent(DealTask task)
         {

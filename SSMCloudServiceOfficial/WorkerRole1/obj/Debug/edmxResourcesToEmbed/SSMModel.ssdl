@@ -101,6 +101,14 @@
     <Property Name="companyID" Type="int" Nullable="false" />
     <Property Name="userID" Type="nvarchar" MaxLength="128" Nullable="false" />
   </EntityType>
+  <EntityType Name="ConfigureSys">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="value" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
   <EntityType Name="contact_resposible">
     <Key>
       <PropertyRef Name="id" />
@@ -220,7 +228,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TaskName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TaskName" Type="nvarchar" MaxLength="128" Nullable="false" />
     <Property Name="TaskDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
     <Property Name="Deadline" Type="datetime" />
@@ -571,6 +579,8 @@
     <Property Name="PlanID" Type="int" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="contactID" Type="int" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="enddate" Type="date" />
   </EntityType>
   <Association Name="FK_attributeOption_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
@@ -1370,6 +1380,7 @@
     <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="company_responsible" EntityType="Self.company_responsible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfigureSys" EntityType="Self.ConfigureSys" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contact_resposible" EntityType="Self.contact_resposible" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer_Request" EntityType="Self.Customer_Request" Schema="dbo" store:Type="Tables" />

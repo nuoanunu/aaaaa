@@ -123,6 +123,9 @@
     <Compile Include="company_responsible.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ConfigureSy.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="contact.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>

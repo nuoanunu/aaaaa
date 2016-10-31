@@ -9,6 +9,7 @@
     <EntitySet Name="Calendars" EntityType="SSMModel.Calendar" />
     <EntitySet Name="companies" EntityType="SSMModel.company" />
     <EntitySet Name="company_responsible" EntityType="SSMModel.company_responsible" />
+    <EntitySet Name="ConfigureSys" EntityType="SSMModel.ConfigureSy" />
     <EntitySet Name="contact_resposible" EntityType="SSMModel.contact_resposible" />
     <EntitySet Name="contacts" EntityType="SSMModel.contact" />
     <EntitySet Name="Customer_Request" EntityType="SSMModel.Customer_Request" />
@@ -192,6 +193,10 @@
     <AssociationSet Name="FK_Deal_softwareProduct" Association="SSMModel.FK_Deal_softwareProduct">
       <End Role="softwareProduct" EntitySet="softwareProducts" />
       <End Role="Deal" EntitySet="Deals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_Deal" Association="SSMModel.FK_orders_Deal">
+      <End Role="Deal" EntitySet="Deals" />
+      <End Role="order" EntitySet="orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Tasks_Deal" Association="SSMModel.FK_Tasks_Deal">
       <End Role="Deal" EntitySet="Deals" />
@@ -421,6 +426,14 @@
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_company_responsible_AspNetUsers" FromRole="company_responsible" ToRole="AspNetUser" />
     <NavigationProperty Name="company" Relationship="SSMModel.FK_company_responsible_companies" FromRole="company_responsible" ToRole="company" />
   </EntityType>
+  <EntityType Name="ConfigureSy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="value" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="contact_resposible">
     <Key>
       <PropertyRef Name="id" />
@@ -529,6 +542,7 @@
     <NavigationProperty Name="PrePurchase_FollowUp_Plan" Relationship="SSMModel.FK_Deal_PrePurchase_FollowUp_Plan" FromRole="Deal" ToRole="PrePurchase_FollowUp_Plan" />
     <NavigationProperty Name="Deal_SaleRep_Respon" Relationship="SSMModel.FK_Deal_SaleRep_Respon_Deal" FromRole="Deal" ToRole="Deal_SaleRep_Respon" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_Deal_softwareProduct" FromRole="Deal" ToRole="softwareProduct" />
+    <NavigationProperty Name="orders" Relationship="SSMModel.FK_orders_Deal" FromRole="Deal" ToRole="order" />
     <NavigationProperty Name="DealTasks" Relationship="SSMModel.FK_Tasks_Deal" FromRole="Deal" ToRole="DealTask" />
   </EntityType>
   <EntityType Name="Deal_Item">
@@ -570,7 +584,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="TaskDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Deadline" Type="DateTime" Precision="3" />
@@ -669,7 +683,9 @@
     <Property Name="status" Type="Int32" Nullable="false" />
     <Property Name="completedDate" Type="DateTime" Precision="0" />
     <Property Name="Contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fromDeal" Type="Int32" />
     <NavigationProperty Name="customer" Relationship="SSMModel.FK_orders_customers" FromRole="order" ToRole="customer" />
+    <NavigationProperty Name="Deal" Relationship="SSMModel.FK_orders_Deal" FromRole="order" ToRole="Deal" />
     <NavigationProperty Name="OrderItems" Relationship="SSMModel.FK_MarketPlanPurchased_orders" FromRole="order" ToRole="OrderItem" />
     <NavigationProperty Name="Payments" Relationship="SSMModel.FK_Payment_orders" FromRole="order" ToRole="Payment" />
   </EntityType>
@@ -984,6 +1000,8 @@
     <Property Name="PlanID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="contactID" Type="Int32" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="contact" Relationship="SSMModel.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contact" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
   </EntityType>
@@ -1432,6 +1450,18 @@
       </Principal>
       <Dependent Role="Deal">
         <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_Deal">
+    <End Type="SSMModel.Deal" Role="Deal" Multiplicity="0..1" />
+    <End Type="SSMModel.order" Role="order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="fromDeal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

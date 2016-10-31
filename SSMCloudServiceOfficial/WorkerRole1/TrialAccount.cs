@@ -20,6 +20,8 @@ namespace WorkerRole1
         public int PlanID { get; set; }
         public int Status { get; set; }
         public Nullable<int> contactID { get; set; }
+        public Nullable<System.DateTime> startDate { get; set; }
+        public Nullable<System.DateTime> enddate { get; set; }
     
         public virtual contact contact { get; set; }
         public virtual productMarketPlan productMarketPlan { get; set; }

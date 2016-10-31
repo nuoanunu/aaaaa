@@ -33,6 +33,7 @@ namespace SiteBanHang.Models
         public virtual DbSet<Calendar> Calendars { get; set; }
         public virtual DbSet<company> companies { get; set; }
         public virtual DbSet<company_responsible> company_responsible { get; set; }
+        public virtual DbSet<ConfigureSy> ConfigureSys { get; set; }
         public virtual DbSet<contact_resposible> contact_resposible { get; set; }
         public virtual DbSet<contact> contacts { get; set; }
         public virtual DbSet<Customer_Request> Customer_Request { get; set; }

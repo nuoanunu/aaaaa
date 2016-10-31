@@ -19,10 +19,21 @@ namespace SSM.Controllers
         }
         public class mynoti{
             public String title { get; set; }
-            public String link { get; set; }
+            public String id { get; set; }
             public String des { get; set; }
 
             public String created { get; set; }
+        }
+        public JsonResult viewedNotification(int id)
+        {
+            SSMEntities se = new SSMEntities();
+            Notification noti = se.Notifications.Find(id);
+            if (noti != null) {
+                noti.viewed = true;
+                se.SaveChanges();
+                return Json(new { succeed = noti.hreflink }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { ffail = "fail"}, JsonRequestBehavior.AllowGet);
         }
         public String getNewNotification()
         {
@@ -40,7 +51,7 @@ namespace SSM.Controllers
                     mynoti no = new mynoti();
                     no.title = noti.NotiName.Trim();
                     no.created = noti.CreateDate.ToShortTimeString().Trim();
-                    no.link = noti.hreflink.Trim();
+                    no.id = noti.id + "";
                     no.des = noti.NotiContent.Trim();
                     resultlist.Add(no);
                 }

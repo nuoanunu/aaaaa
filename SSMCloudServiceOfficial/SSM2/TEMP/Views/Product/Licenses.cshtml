@@ -1,0 +1,281 @@
+﻿@using SSM.Models
+<script>
+    $(document).ready(function () {
+        $("#lowlicense").dataTable();
+        $("#nearexpire").dataTable();
+    })
+</script>
+<div class="row tile_count">
+    <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-user"></i> Total Licenses</span>
+            <div class="count">2500</div>
+        </div>
+    </div>
+    <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Available</span>
+            <div class="count">123.50</div>
+        </div>
+    </div>
+    <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-user"></i> Actived License</span>
+            <div class="count green">2,500</div>
+        </div>
+    </div>
+    <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
+        <div class="left"></div>
+        <div class="right">
+            <span class="count_top"><i class="fa fa-user"></i> Low licenses plan</span>
+            <div class="count">4,567</div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="x_panel">
+    <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="x_title">
+            <h2><i class="fa fa-align-left"></i> Low licenses Plan</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <table class="table table-bordered" id="lowlicense">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Plan Name</th>
+                        <th>Last Update</th>
+                        <th>Available Licenses</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["LowList"])
+                    {
+                        <tr>
+                            <td>
+                                @plan.id
+                            </td>
+                            <td>
+                                @plan.Name
+                            </td>
+                            <td>
+                                @plan.lastUpdate
+                            </td>
+                            <td>
+                                @plan.Licenses.Where(u => u.customerID == null).Count()
+                            </td>
+                            <td>
+                                <a class="btn btn-warning" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+  
+                <div class="x_title">
+                    <h2>License usage</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <h4>Licenses Usage across plan</h4>
+                    @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["TopPlan"])
+                    {
+                        <div class="widget_summary" style="padding-top:25px">
+                            <div class="w_left w_25">
+                                <span>@plan.Name</span>
+                            </div>
+                            <div class="w_center w_55">
+                                <div class="progress">
+                                    @if (plan.Licenses.Count() != 0)
+                                    {
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @(100*plan.Licenses.Where(u=>u.customerID!= null).Count()/plan.Licenses.Count())%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="sr-only">0</span>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="w_right w_20">
+                                <span>@plan.Licenses.Where(u => u.customerID != null).Count()</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <br/>
+                    }
+                </div>
+        
+        </div>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2><i class="fa fa-align-left"></i> License count <small> Per Market Plan</small></h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <!-- start accordion -->
+                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                    @foreach (softwareProduct software in (List<softwareProduct>)ViewData["SoftwareList"])
+                    {
+                        <div class="panel">
+                            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapse@(software.id)" aria-expanded="true" aria-controls="collapse@(software.id)">
+                                <h4 class="panel-title">@software.name</h4>
+                            </a>
+                            <div id="collapse@(software.id)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Plan Name</th>
+                                                <th>Last Update</th>
+                                                <th>Available Licenses</th>
+                                                <th>Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (productMarketPlan plan in software.productMarketPlans)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @plan.id
+                                                    </td>
+                                                    <td>
+                                                        @plan.Name
+                                                    </td>
+                                                    <td>
+                                                        @plan.lastUpdate
+                                                    </td>
+                                                    <td>
+                                                        @plan.Licenses.Where(u => u.customerID == null).Count()
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-success" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <!-- end of accordion -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2><i class="fa fa-align-left"></i> Near Expire licenses</h2>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form action="/Product/FiltersLicense" method="post">
+                    <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel">
+                            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseproducts" aria-expanded="true" aria-controls="collapseproducts">
+                                <h4 class="panel-title">Filter by products  </h4>
+                            </a>
+                            <div id="collapseproducts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        @foreach (softwareProduct soft in (List<softwareProduct>)ViewData["SoftwareList"])
+                                        {
+                                            <div class="col-md-2"><label>@soft.name <input type="checkbox" value="@soft.id" name="productIDs[]" /></label></div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseplan" aria-expanded="false" aria-controls="collapseplan">
+                                <h4 class="panel-title">Filter by plan</h4>
+                            </a>
+                            <div id="collapseplan" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        @foreach (productMarketPlan soft in (List<productMarketPlan>)ViewData["PlanList"])
+                                        {
+                                            <div class="col-md-2"><label>@soft.Name <input type="checkbox" value="@soft.id" name="planIDs[]" /></label></div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Filter</button>
+                    </div>
+                </form>
+                
+                <table class="table table-bordered" id="nearexpire">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Key</th>
+                            <th>Customer</th>
+                            <th>Plan</th>
+                            <th>Product</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (License lic in (List<License>)ViewData["NearExpire"])
+                        {
+                            <tr>
+                                <td>
+                                    @lic.id
+                                </td>
+                                <td>
+                                    @lic.LicenseKey
+                                </td>
+                                <td>
+                                    @lic.customer.cusName
+                                </td>
+                                <td>
+                                    @lic.productMarketPlan.Name
+                                </td>
+                                <td>
+                                    @lic.productMarketPlan.softwareProduct.name
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -106,6 +106,14 @@
           <Property Name="companyID" Type="int" Nullable="false" />
           <Property Name="userID" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
+        <EntityType Name="ConfigureSys">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
         <EntityType Name="contact_resposible">
           <Key>
             <PropertyRef Name="id" />
@@ -225,7 +233,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TaskName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskName" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="TaskDescription" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
           <Property Name="Deadline" Type="datetime" />
@@ -576,6 +584,8 @@
           <Property Name="PlanID" Type="int" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="contactID" Type="int" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="enddate" Type="date" />
         </EntityType>
         <Association Name="FK_attributeOption_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
@@ -1375,6 +1385,7 @@
           <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="company_responsible" EntityType="Self.company_responsible" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConfigureSys" EntityType="Self.ConfigureSys" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contact_resposible" EntityType="Self.contact_resposible" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer_Request" EntityType="Self.Customer_Request" Schema="dbo" store:Type="Tables" />
@@ -1685,6 +1696,7 @@
           <EntitySet Name="Calendars" EntityType="SSMModel.Calendar" />
           <EntitySet Name="companies" EntityType="SSMModel.company" />
           <EntitySet Name="company_responsible" EntityType="SSMModel.company_responsible" />
+          <EntitySet Name="ConfigureSys" EntityType="SSMModel.ConfigureSy" />
           <EntitySet Name="contact_resposible" EntityType="SSMModel.contact_resposible" />
           <EntitySet Name="contacts" EntityType="SSMModel.contact" />
           <EntitySet Name="Customer_Request" EntityType="SSMModel.Customer_Request" />
@@ -2101,6 +2113,14 @@
           <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_company_responsible_AspNetUsers" FromRole="company_responsible" ToRole="AspNetUser" />
           <NavigationProperty Name="company" Relationship="SSMModel.FK_company_responsible_companies" FromRole="company_responsible" ToRole="company" />
         </EntityType>
+        <EntityType Name="ConfigureSy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="value" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="contact_resposible">
           <Key>
             <PropertyRef Name="id" />
@@ -2251,7 +2271,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TaskName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="TaskDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Deadline" Type="DateTime" Precision="3" />
@@ -2667,6 +2687,8 @@
           <Property Name="PlanID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="contactID" Type="Int32" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="contact" Relationship="SSMModel.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contact" />
           <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
         </EntityType>
@@ -3539,6 +3561,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ConfigureSys">
+            <EntityTypeMapping TypeName="SSMModel.ConfigureSy">
+              <MappingFragment StoreEntitySet="ConfigureSys">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="contact_resposible">
             <EntityTypeMapping TypeName="SSMModel.contact_resposible">
               <MappingFragment StoreEntitySet="contact_resposible">
@@ -4037,6 +4068,8 @@
           <EntitySetMapping Name="TrialAccounts">
             <EntityTypeMapping TypeName="SSMModel.TrialAccount">
               <MappingFragment StoreEntitySet="TrialAccount">
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
                 <ScalarProperty Name="contactID" ColumnName="contactID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="PlanID" ColumnName="PlanID" />

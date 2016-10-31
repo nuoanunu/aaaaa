@@ -35,7 +35,11 @@
     <script src="~/Scripts/wizard/jquery.smartWizard.js"></script>
     <script src="~/Scripts/pace/pace.min.js"></script>
 
+    <script src="~/Scripts/datatables/jquery.dataTables.min.js"></script>
     <style>
+        body {
+        font-size:150%;
+        }
         #notification_count {
             padding: 0px 7px 30px 7px;
             background: #cc0000;
@@ -227,10 +231,10 @@
                                         <a><i class="fa fa-users"></i> Potential Customer <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li>
-                                                <a href="/Home/Contact">View all </a>
+                                                <a href="/Contact">View all </a>
                                             </li>
                                             <li>
-                                                <a href="/Home/Contact/Create">Create new</a>
+                                                <a href="/Contact/Create">Create new</a>
                                             </li>
 
                                         </ul>
@@ -239,19 +243,33 @@
                                         <a><i class="fa fa-suitcase"></i> Sale Representatives <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li>
-                                                <a href="/Profile/ProfileList">View all </a>
+                                                <a href="/Profile/SaleRepList">View all </a>
                                             </li>
                                             <li>
-                                                <a href="/Profile/Create">Create new</a>
+                                                <a href="/Profile/NewProfile">Create new</a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="/Product/"><i class="fa fa-bar-chart-o"></i>Product</a>
+                                        <a ><i class="fa fa-bar-chart-o"></i>Product <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li>
+                                                <a href="/Product/">List of Product </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Product/Licenses">Licenses</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Product/TrialAccounts">Trial accounts</a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="/Profile/ViewAllCommision"><i class="fa fa-envelope-o"></i>Commision</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Manage/SystemConfig"><i class="fa fa-envelope-o"></i>Configure</a>
                                     </li>
                                 </ul>
                             </div>
@@ -261,7 +279,7 @@
 
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
+                    <div class="sidebar-footer small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
@@ -331,7 +349,16 @@
     }
 
     <script>
-       
+        function ViewedAndGo(notiid) {
+            $.getJSON("/Home/viewedNotification?id=" + notiid, function (result) {
+                $.each(result, function (name, value) {
+                    if (name == "succeed") {
+                        window.location.href = value;
+                    }
+                })
+            })
+            
+        };
         function checkNoti() {
             var count = 0;
             $.getJSON("/Home/getNewNotification", function (array) {
@@ -339,7 +366,7 @@
                
                 var innerHTML = document.getElementById("menu1").innerHTML;
                 $.each(array, function (namee, noti) {
-                    var newString = '<li><a href="[link]"><span><span>[Name]</span><span class="time">[Time]</span></span><span class="message">[Message]</span></a></li>'
+                    var newString = '<li><a onclick="ViewedAndGo([id])"><span><span>[Name]</span><span class="time">[Time]</span></span><span class="message">[Message]</span></a></li>'
                     count = count + 1;
                     $.each(noti, function (name, value) {
                         if (name == "title") {
@@ -349,8 +376,8 @@
                         if (name == "des") {
                             newString = newString.replace('[Message]', value);
                         }
-                        if (name == "link") {
-                            newString = newString.replace('[link]', value);
+                        if (name == "id") {
+                            newString = newString.replace('[id]', value);
                         }
                         if (name == "created") {
                             newString = newString.replace('[Time]', value);
@@ -368,6 +395,9 @@
             });
         }
         setInterval(checkNoti, 5000);
+        $(document).ready(function () {
+            checkNoti();
+        })
     </script>
 </body>
 

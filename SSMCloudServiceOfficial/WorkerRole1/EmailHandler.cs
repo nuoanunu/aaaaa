@@ -13,10 +13,11 @@ namespace WorkerRole1
         public static async Task SendMail(DealTask task)
 
         {
+            SSMEntities se = new SSMEntities();
             var body = "{0}";
             var message = new MailMessage();
             message.To.Add(new MailAddress(task.Deal.contact.emails));   
-            message.From = new MailAddress("nhathn99@gmail.com");  
+            message.From = new MailAddress(se.ConfigureSys.Find(1).value);  
             message.Subject = task.TaskName ;
 
             message.Body = string.Format(body, Constant.replaceMailContent( task));
@@ -27,8 +28,8 @@ namespace WorkerRole1
                 {
                     var credential = new NetworkCredential
                     {
-                        UserName = "nhathn99@gmail.com",  // replace with valid value
-                        Password = "320395qwe"  // replace with valid value
+                        UserName = se.ConfigureSys.Find(1).value,  // replace with valid value
+                        Password = se.ConfigureSys.Find(2).value // replace with valid value
                     };
                     smtp.Credentials = credential;
                     smtp.Host = "smtp.gmail.com";

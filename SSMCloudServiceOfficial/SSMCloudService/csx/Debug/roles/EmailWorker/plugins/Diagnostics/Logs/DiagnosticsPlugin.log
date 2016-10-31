@@ -1,6 +1,6 @@
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
-DiagnosticsPlugin.exe Error: 0 : [10/27/2016 2:27:23 PM] Failed to save IIS Directory state
-DiagnosticsPlugin.exe Error: 0 : [10/27/2016 2:27:23 PM] System.UnauthorizedAccessException: Filename: redirection.config
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Starting DiagnosticPlugin.exe DiagnosticPlugin-ShutdownEvent DiagnosticPlugin-TotalShutdownEvent -wadVer1v5
+DiagnosticsPlugin.exe Error: 0 : [10/31/2016 9:34:04 AM] Failed to save IIS Directory state
+DiagnosticsPlugin.exe Error: 0 : [10/31/2016 9:34:04 AM] System.UnauthorizedAccessException: Filename: redirection.config
 Error: Cannot read configuration file due to insufficient permissions
 
 
@@ -11,18 +11,18 @@ Error: Cannot read configuration file due to insufficient permissions
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.DiagnosticsPluginManager.SaveIISDirectoryState()
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Starting DiagnosticsPlugin
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] DiagnosticsStoreRootPath set to: C:\Users\NhatVHN\AppData\Local\dftmp\Resources\8dca9763-d8f3-42c2-965c-8f844824aaf2
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Loading config file: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Config file to read: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Checking VM Type
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Extension set to Emulator Mode
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Reading XML configuration file
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Bypassing private config decryption
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Starting DiagnosticsPlugin
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] DiagnosticsStoreRootPath set to: C:\Users\NhatVHN\AppData\Local\dftmp\Resources\53d157d4-c67c-4dd5-b051-185f172308a2
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Loading config file: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Config file to read: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Checking VM Type
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker\approot\diagnostics.wadcfgx
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Extension set to Emulator Mode
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Reading XML configuration file
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Bypassing private config decryption
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] WadCfg is provided in initial configuration. Using that to initialize Diagnostics.
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
   <WadCfg>
     <DiagnosticMonitorConfiguration overallQuotaInMB="4096">
       <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
@@ -54,13 +54,13 @@ DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] <PublicConfig xml
   </WadCfg>
   <StorageAccount>devstoreaccount1</StorageAccount>
 </PublicConfig>
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Private setting is loaded
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Is config json/xml loaded
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Checking if configuration needs to be fetched from the storage account and doing so if needed.
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Successfully created checkpoint file C:\Users\NhatVHN\AppData\Local\dftmp\Resources\8dca9763-d8f3-42c2-965c-8f844824aaf2\WAD0105\Configuration\Checkpoint.txt
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Will use local resource directory C:\Users\NhatVHN\AppData\Local\dftmp\Resources\8dca9763-d8f3-42c2-965c-8f844824aaf2\WAD0105
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Will use endpoint https://core.windows.net for storage.
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Exception in creating the ServerManager; is IIS installed?
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Private setting is loaded
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Is config json/xml loaded
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Checking if configuration needs to be fetched from the storage account and doing so if needed.
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Successfully created checkpoint file C:\Users\NhatVHN\AppData\Local\dftmp\Resources\53d157d4-c67c-4dd5-b051-185f172308a2\WAD0105\Configuration\Checkpoint.txt
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Will use local resource directory C:\Users\NhatVHN\AppData\Local\dftmp\Resources\53d157d4-c67c-4dd5-b051-185f172308a2\WAD0105
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:04 AM] Will use endpoint https://core.windows.net for storage.
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:05 AM] Exception in creating the ServerManager; is IIS installed?
  Error:System.UnauthorizedAccessException: Filename: redirection.config
 Error: Cannot read configuration file due to insufficient permissions
 
@@ -72,10 +72,10 @@ Error: Cannot read configuration file due to insufficient permissions
    at Microsoft.Web.Administration.ServerManager.SitesCollectionCreator()
    at Microsoft.Web.Administration.Lazy.Initialize[T](T& target, CreateInstanceDelegate`1 valueFactory)
    at Microsoft.Azure.Plugins.Plugin.WadConfigProcessor.AddDirectories(EventsType mdsEvents, Directories wadDirectories)
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Running in emulator mode, crash dumps not enabled
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] Checking to see if Application Insights extension needs to be configured.
-DiagnosticsPlugin.exe Information: 0 : [10/27/2016 2:27:23 PM] In emulator mode and using devstore updating XStoreAccount info, command line args: -LocalPath "C:\Users\NhatVHN\AppData\Local\dftmp\Resources\8dca9763-d8f3-42c2-965c-8f844824aaf2\WAD0105"  -ConfigFile "C:\Users\NhatVHN\AppData\Local\dftmp\Resources\8dca9763-d8f3-42c2-965c-8f844824aaf2\WAD0105\Configuration\MaConfig.xml" -ShutDownEvent WADDM-ShutDown-bc07cb9e75df44499a10098fce0370f1  -TotalShutDownEvent WADDM-TotalShutDown-bc07cb9e75df44499a10098fce0370f1 -InitializedEvent WADM-StartUp-bc07cb9e75df44499a10098fce0370f1 -parent 14560 -events -wadVer1v5 -UseProxyServer -XStoreAccounts WadAccount#true#devstoreaccount1#Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==#http://127.0.0.1:10002#http://127.0.0.1:10001#http://127.0.0.1:10000
-DiagnosticsPlugin.exe Error: 0 : [10/27/2016 2:27:54 PM] Microsoft.Cis.Monitoring.Query.QueryException: ErrorFail
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:05 AM] Running in emulator mode, crash dumps not enabled
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:05 AM] Checking to see if Application Insights extension needs to be configured.
+DiagnosticsPlugin.exe Information: 0 : [10/31/2016 9:34:05 AM] In emulator mode and using devstore updating XStoreAccount info, command line args: -LocalPath "C:\Users\NhatVHN\AppData\Local\dftmp\Resources\53d157d4-c67c-4dd5-b051-185f172308a2\WAD0105"  -ConfigFile "C:\Users\NhatVHN\AppData\Local\dftmp\Resources\53d157d4-c67c-4dd5-b051-185f172308a2\WAD0105\Configuration\MaConfig.xml" -ShutDownEvent WADDM-ShutDown-e47b7906e1454958a98158cdfcdd244e  -TotalShutDownEvent WADDM-TotalShutDown-e47b7906e1454958a98158cdfcdd244e -InitializedEvent WADM-StartUp-e47b7906e1454958a98158cdfcdd244e -parent 16840 -events -wadVer1v5 -UseProxyServer -XStoreAccounts WadAccount#true#devstoreaccount1#Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==#http://127.0.0.1:10002#http://127.0.0.1:10001#http://127.0.0.1:10000
+DiagnosticsPlugin.exe Error: 0 : [10/31/2016 9:34:35 AM] Microsoft.Cis.Monitoring.Query.QueryException: ErrorFail
    at Microsoft.Cis.Monitoring.Query.QueryLocalTable..ctor(String TableName, String TablePath)
    at ApplicationInsightsExtension.MATableReader.ReadTableRecords(String tableName, String tablePath, DateTime startTime, DateTime endTime)
    at Microsoft.Azure.Plugins.Diagnostics.dll.MAStatusWriter.UpdateStatusReport(Object sender, ElapsedEventArgs e)

@@ -493,7 +493,7 @@ namespace WorkerRole1
                     if (profileTopCycle.avarageActivitiesPerdeal == 0) profile.avarageActivitiesPerdeal = 1;
                     else
                     profile.avarageActivitiesPerdeal = profile.avarageActivitiesPerdeal / profileTopAct.avarageActivitiesPerdeal;
-                    profile.AvarageKPI = 1- profile.SaleCycle + profile.avarageActivitiesPerdeal + profile.winrate + profile.newContactmade;
+                    profile.AvarageKPI = 1- profile.SaleCycle* ( int.Parse(se3.ConfigureSys.Find(15).value))/20 + profile.avarageActivitiesPerdeal * (int.Parse(se3.ConfigureSys.Find(16).value)) / 20 + profile.winrate * (int.Parse(se3.ConfigureSys.Find(17).value)) / 20 + profile.newContactmade * (int.Parse(se3.ConfigureSys.Find(19).value)) / 20;
                     se3.SaveChanges();
                 }
 
@@ -501,9 +501,9 @@ namespace WorkerRole1
                 {
                     foreach (Product_responsible pr in profile.AspNetUser.Product_responsible.ToList()) {
                         Product_responsible toppr = se3.Product_responsible.OrderByDescending(u => u.AvarageDealSize).First();
-                        if (toppr.AvarageDealSize == 0) pr.KPIforthisProduct = profile.AvarageKPI + 1;
+                        if (toppr.AvarageDealSize == 0) pr.KPIforthisProduct = profile.AvarageKPI + 1 * (int.Parse(se3.ConfigureSys.Find(20).value)) / 20;
                         else
-                        pr.KPIforthisProduct = profile.AvarageKPI +  (double)pr.AvarageDealSize / toppr.AvarageDealSize;
+                        pr.KPIforthisProduct = profile.AvarageKPI +  (double)pr.AvarageDealSize * (int.Parse(se3.ConfigureSys.Find(20).value)) /(100* toppr.AvarageDealSize);
                         se3.SaveChanges();
                     }
                  

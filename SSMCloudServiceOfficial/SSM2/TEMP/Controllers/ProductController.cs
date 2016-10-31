@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using SSM.Models.Services;
 using SSM.Models.TempModel;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Data.Entity;
+
 namespace SSM.Controllers
 {
     public class ProductController : Controller
@@ -30,6 +32,60 @@ namespace SSM.Controllers
             SSMEntities se = new SSMEntities();
             ViewData["attr"] = se.productAttributes.Find(id);
             return View("AttributeFragment");
+        }
+        public ActionResult FiltersLicense(int[] planIDs, int[] productIDs) {
+            if (planIDs == null) planIDs = new int[0];
+            if (productIDs == null) productIDs = new int[0];
+            SSMEntities se = new SSMEntities();
+            ViewData["TopPlan"] = (from plan in se.productMarketPlans
+                                   orderby plan.Licenses.Where(u => u.customerID != null).Count() descending
+                                   select plan
+                                   ).Take(10).ToList();
+            ViewData["NearExpire"] = se.Licenses.Where(u => u.nextTransactionDate != null && u.customerID != null && DbFunctions.DiffDays(u.nextTransactionDate, DateTime.Now) < 7 && (productIDs.Contains(u.productMarketPlan.softwareProduct.id)|| planIDs.Contains(u.PlanID))).ToList();
+            ViewData["SoftwareList"] = se.softwareProducts.ToList();
+            ViewData["PlanList"] = se.productMarketPlans.ToList();
+            ViewData["LowList"] = se.productMarketPlans.Where(u => u.Licenses.Where(i => i.customerID == null).Count() < 10).ToList();
+            return View("Licenses");
+        }
+        public ActionResult FiltersTrial(int[] planIDs, int[] productIDs)
+        {
+            if (planIDs == null) planIDs = new int[0];
+            if (productIDs == null) productIDs = new int[0];
+            SSMEntities se = new SSMEntities();
+            ViewData["TopPlan"] = (from plan in se.productMarketPlans
+                                   orderby plan.TrialAccounts.Where(u => u.contactID != null).Count() descending
+                                   select plan
+                                   ).Take(10).ToList();
+            ViewData["NearExpire"] = se.TrialAccounts.Where(u => u.contactID != null && DbFunctions.DiffDays(u.enddate, DateTime.Now) < 7).ToList();
+            ViewData["SoftwareList"] = se.softwareProducts.ToList();
+            ViewData["PlanList"] = se.productMarketPlans.ToList();
+            ViewData["LowList"] = se.productMarketPlans.Where(u => u.TrialAccounts.Where(i => i.contactID == null).Count() < 10).ToList();
+            return View("TrialAccount");
+        }
+        public ActionResult Licenses() {
+            SSMEntities se = new SSMEntities();
+            ViewData["TopPlan"] = (from plan in se.productMarketPlans
+                                    orderby   plan.Licenses.Where(u=> u.customerID!=null).Count() descending
+                                   select plan
+                                   ).Take(10).ToList();
+            ViewData["NearExpire"] = se.Licenses.Where(u => u.nextTransactionDate != null && u.customerID!=null && DbFunctions.DiffDays(u.nextTransactionDate, DateTime.Now)<7).ToList();
+            ViewData["SoftwareList"] = se.softwareProducts.ToList();
+            ViewData["PlanList"] = se.productMarketPlans.ToList();
+            ViewData["LowList"] = se.productMarketPlans.Where(u => u.Licenses.Where(i => i.customerID == null).Count() < 10).ToList();
+            return View("Licenses");
+        }
+        public ActionResult TrialAccounts() {
+            SSMEntities se = new SSMEntities();
+            ViewData["TopPlan"] = (from plan in se.productMarketPlans
+                                   orderby plan.TrialAccounts.Where(u => u.contactID != null).Count() descending
+                                   select plan
+                                   ).Take(10).ToList();
+            ViewData["NearExpire"] = se.TrialAccounts.Where(u =>  u.contactID != null && DbFunctions.DiffDays(u.enddate, DateTime.Now) < 7).ToList();
+            ViewData["SoftwareList"] = se.softwareProducts.ToList();
+            ViewData["PlanList"] = se.productMarketPlans.ToList();
+            ViewData["LowList"] = se.productMarketPlans.Where(u => u.TrialAccounts.Where(i => i.contactID == null).Count() < 10).ToList();
+
+            return View("TrialAccount");
         }
         public ActionResult MarketPlanDetail(int id) {
             SSMEntities se = new SSMEntities();

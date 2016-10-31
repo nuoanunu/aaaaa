@@ -100,6 +100,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConfigureSys">
+      <EntityTypeMapping TypeName="SSMModel.ConfigureSy">
+        <MappingFragment StoreEntitySet="ConfigureSys">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="contact_resposible">
       <EntityTypeMapping TypeName="SSMModel.contact_resposible">
         <MappingFragment StoreEntitySet="contact_resposible">
@@ -308,6 +317,7 @@
     <EntitySetMapping Name="orders">
       <EntityTypeMapping TypeName="SSMModel.order">
         <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="fromDeal" ColumnName="fromDeal" />
           <ScalarProperty Name="Contract" ColumnName="Contract" />
           <ScalarProperty Name="completedDate" ColumnName="completedDate" />
           <ScalarProperty Name="status" ColumnName="status" />
@@ -597,6 +607,8 @@
     <EntitySetMapping Name="TrialAccounts">
       <EntityTypeMapping TypeName="SSMModel.TrialAccount">
         <MappingFragment StoreEntitySet="TrialAccount">
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="contactID" ColumnName="contactID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="PlanID" ColumnName="PlanID" />
