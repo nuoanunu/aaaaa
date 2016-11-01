@@ -37,9 +37,9 @@ namespace SSM.Controllers
 
             return View("");
         }
-        public ActionResult CreateDeal(Deal deal, int productID)
+        public ActionResult CreateDeal(Deal deal, int productID, int chooseplan)
         {
-            int id = createAndGetDealID(deal, productID);
+            int id = createAndGetDealID(deal, productID, chooseplan);
 
             return RedirectToAction("Detail", new { id = id });
 
@@ -67,7 +67,7 @@ namespace SSM.Controllers
 
         }
 
-        public int createAndGetDealID(Deal deal, int productID)
+        public int createAndGetDealID(Deal deal, int productID,int plann)
         {
             SSMEntities se = new SSMEntities();
             softwareProduct product = se.softwareProducts.Find(productID);
@@ -82,6 +82,15 @@ namespace SSM.Controllers
             deal.CurrentPlanID = product.PrePurchase_FollowUp_Plan.Where(u => u.isOperation).FirstOrDefault().id;
 
             se.Deals.Add(deal);
+            se.SaveChanges();
+            Deal_Item ite = new Deal_Item();
+            productMarketPlan pla = se.productMarketPlans.Find(plann);
+            ite.planID = plann;
+            ite.price = pla.ceilPrice;
+            ite.Quantity = 1;
+            ite.dealID = deal.id;
+            se.Deal_Item.Add(ite);
+            deal.Value = ite.price;
             se.SaveChanges();
             Deal_SaleRep_Respon dealrespont = new Deal_SaleRep_Respon();
             dealrespont.dealID = deal.id;
@@ -109,6 +118,20 @@ namespace SSM.Controllers
                     task.TaskName = tep.subject + " [#:" + deal.id + "]";
                     task.type = 8;
                     se.DealTasks.Add(task);
+                    se.SaveChanges();
+                    if (task.TaskDescription.Contains(se.ConfigureSys.Find(13).value))
+                    {
+                        String replaceall = "";
+                        foreach (Deal_Item item in task.Deal.Deal_Item)
+                        {
+                            TrialAccount trial = item.productMarketPlan.TrialAccounts.Where(u => u.contactID == null).FirstOrDefault();
+                            replaceall = replaceall + '\n' + "User Name for " + item.productMarketPlan.Name + ": " + trial.UserName + " Password: " + trial.Password;
+                            TrialAccount trialupdate = se.TrialAccounts.Find(trial.AccountID);
+                            trialupdate.contactID = task.Deal.contact.id;
+                            se.SaveChanges();
+                        }
+                        task.TaskDescription = task.TaskDescription.Replace(se.ConfigureSys.Find(13).value, replaceall);
+                    }
                     se.SaveChanges();
                 }
             }
@@ -262,6 +285,7 @@ namespace SSM.Controllers
         {
             List<SelectListItem> client = new List<SelectListItem>();
             List<SelectListItem> product = new List<SelectListItem>();
+
             //new SelectListItem() {Text="Alabama", Value="AL"}
             SSMEntities se = new SSMEntities();
             String userID = User.Identity.GetUserId();
@@ -272,11 +296,12 @@ namespace SSM.Controllers
             }
             foreach (Product_responsible plan in thissalerep.Product_responsible)
             {
-                product.Add(new SelectListItem() { Text = plan.softwareProduct.name, Value = plan.softwareProduct.id + "" });
+                product.Add(new SelectListItem() { Text = plan.softwareProduct.name, Value = plan.softwareProduct.id + "" });             
             }
 
             ViewData["ProductResponsibleFor"] = product;
             ViewData["ClientResponsibleFor"] = client;
+            ViewData["ProductPlan"] = se.productMarketPlans.ToList();
             return View("Create");
         }
         [HttpPost]
@@ -312,7 +337,7 @@ namespace SSM.Controllers
             }
         }
 
-        public JsonResult DealWon(int id)
+        public ActionResult DealWon(int id)
         {
             SSMEntities se = new SSMEntities();
             DealRepository dealrepo = new DealRepository(se);
@@ -392,7 +417,7 @@ namespace SSM.Controllers
                             }
                             else
                             {
-                                return Json(new { result = "Fail" }, JsonRequestBehavior.AllowGet);
+                                return RedirectToAction("Detail", new {id=deal.id } );
                             }
                         }
                     }
@@ -400,7 +425,7 @@ namespace SSM.Controllers
                     se.SaveChanges();
                 }
                 else {
-                    return Json(new { result = "No mor elicense" }, JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("Detail", new { id = deal.id });
                 }
                 Notification noti = new Notification();
                 noti.NotiName = "Contract successfully created";
@@ -422,8 +447,7 @@ namespace SSM.Controllers
 
 
             }
-            return Json(new { result = "Succeed" }, JsonRequestBehavior.AllowGet);
-
+            return RedirectToAction("Detail", new { id = deal.id });
         }
 
 

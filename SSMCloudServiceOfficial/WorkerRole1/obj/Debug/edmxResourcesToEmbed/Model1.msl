@@ -1,8 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="SSMModelStoreContainer" CdmEntityContainer="SSMEntities">
+  <EntityContainerMapping StorageEntityContainer="SSMModel1StoreContainer" CdmEntityContainer="SSMEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="SSMModel1.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
-      <EntityTypeMapping TypeName="SSMModel.AspNetRole">
+      <EntityTypeMapping TypeName="SSMModel1.AspNetRole">
         <MappingFragment StoreEntitySet="AspNetRoles">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -10,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserClaims">
-      <EntityTypeMapping TypeName="SSMModel.AspNetUserClaim">
+      <EntityTypeMapping TypeName="SSMModel1.AspNetUserClaim">
         <MappingFragment StoreEntitySet="AspNetUserClaims">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -20,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUserLogins">
-      <EntityTypeMapping TypeName="SSMModel.AspNetUserLogin">
+      <EntityTypeMapping TypeName="SSMModel1.AspNetUserLogin">
         <MappingFragment StoreEntitySet="AspNetUserLogins">
           <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
           <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
@@ -29,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AspNetUsers">
-      <EntityTypeMapping TypeName="SSMModel.AspNetUser">
+      <EntityTypeMapping TypeName="SSMModel1.AspNetUser">
         <MappingFragment StoreEntitySet="AspNetUsers">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -47,7 +57,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="attributeOptions">
-      <EntityTypeMapping TypeName="SSMModel.attributeOption">
+      <EntityTypeMapping TypeName="SSMModel1.attributeOption">
         <MappingFragment StoreEntitySet="attributeOption">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -59,8 +69,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Calendars">
+      <EntityTypeMapping TypeName="SSMModel1.Calendar">
+        <MappingFragment StoreEntitySet="Calendar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="repeat" ColumnName="repeat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="companies">
-      <EntityTypeMapping TypeName="SSMModel.company">
+      <EntityTypeMapping TypeName="SSMModel1.company">
         <MappingFragment StoreEntitySet="companies">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="companyName" ColumnName="companyName" />
@@ -81,7 +102,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="company_responsible">
-      <EntityTypeMapping TypeName="SSMModel.company_responsible">
+      <EntityTypeMapping TypeName="SSMModel1.company_responsible">
         <MappingFragment StoreEntitySet="company_responsible">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="companyID" ColumnName="companyID" />
@@ -89,17 +110,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConfigureSys">
+      <EntityTypeMapping TypeName="SSMModel1.ConfigureSy">
+        <MappingFragment StoreEntitySet="ConfigureSys">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="contact_resposible">
-      <EntityTypeMapping TypeName="SSMModel.contact_resposible">
+      <EntityTypeMapping TypeName="SSMModel1.contact_resposible">
         <MappingFragment StoreEntitySet="contact_resposible">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="contactID" ColumnName="contactID" />
           <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="contacts">
-      <EntityTypeMapping TypeName="SSMModel.contact">
+      <EntityTypeMapping TypeName="SSMModel1.contact">
         <MappingFragment StoreEntitySet="contacts">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -124,7 +155,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customer_Request">
-      <EntityTypeMapping TypeName="SSMModel.Customer_Request">
+      <EntityTypeMapping TypeName="SSMModel1.Customer_Request">
         <MappingFragment StoreEntitySet="Customer_Request">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="RequestNo" ColumnName="RequestNo" />
@@ -137,8 +168,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="customer_salerep_responsible">
+      <EntityTypeMapping TypeName="SSMModel1.customer_salerep_responsible">
+        <MappingFragment StoreEntitySet="customer_salerep_responsible">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="salerepID" ColumnName="salerepID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="customers">
-      <EntityTypeMapping TypeName="SSMModel.customer">
+      <EntityTypeMapping TypeName="SSMModel1.customer">
         <MappingFragment StoreEntitySet="customers">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="cusCompany" ColumnName="cusCompany" />
@@ -152,7 +192,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Deals">
-      <EntityTypeMapping TypeName="SSMModel.Deal">
+      <EntityTypeMapping TypeName="SSMModel1.Deal">
         <MappingFragment StoreEntitySet="Deal">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -165,14 +205,24 @@
           <ScalarProperty Name="Client" ColumnName="Client" />
           <ScalarProperty Name="LastUpdateStage" ColumnName="LastUpdateStage" />
           <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="CurrentPlanID" ColumnName="CurrentPlanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deal_Item">
+      <EntityTypeMapping TypeName="SSMModel1.Deal_Item">
+        <MappingFragment StoreEntitySet="Deal_Item">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dealID" ColumnName="dealID" />
           <ScalarProperty Name="planID" ColumnName="planID" />
-          <ScalarProperty Name="marketPlanID" ColumnName="marketPlanID" />
+          <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Deal_SaleRep_Respon">
-      <EntityTypeMapping TypeName="SSMModel.Deal_SaleRep_Respon">
+      <EntityTypeMapping TypeName="SSMModel1.Deal_SaleRep_Respon">
         <MappingFragment StoreEntitySet="Deal_SaleRep_Respon">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="userID" ColumnName="userID" />
@@ -184,7 +234,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DealStatus">
-      <EntityTypeMapping TypeName="SSMModel.DealStatu">
+      <EntityTypeMapping TypeName="SSMModel1.DealStatu">
         <MappingFragment StoreEntitySet="DealStatus">
           <ScalarProperty Name="statusID" ColumnName="statusID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -193,7 +243,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DealTasks">
-      <EntityTypeMapping TypeName="SSMModel.DealTask">
+      <EntityTypeMapping TypeName="SSMModel1.DealTask">
         <MappingFragment StoreEntitySet="DealTasks">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="TaskName" ColumnName="TaskName" />
@@ -208,7 +258,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EMAIL_Category">
-      <EntityTypeMapping TypeName="SSMModel.EMAIL_Category">
+      <EntityTypeMapping TypeName="SSMModel1.EMAIL_Category">
         <MappingFragment StoreEntitySet="EMAIL_Category">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -221,7 +271,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Email_Template">
-      <EntityTypeMapping TypeName="SSMModel.Email_Template">
+      <EntityTypeMapping TypeName="SSMModel1.Email_Template">
         <MappingFragment StoreEntitySet="Email_Template">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -235,74 +285,47 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Licenses">
-      <EntityTypeMapping TypeName="SSMModel.License">
+      <EntityTypeMapping TypeName="SSMModel1.License">
         <MappingFragment StoreEntitySet="Licenses">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="licenseType" ColumnName="licenseType" />
-          <ScalarProperty Name="licenseKey" ColumnName="licenseKey" />
           <ScalarProperty Name="licenseDuration" ColumnName="licenseDuration" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
-          <ScalarProperty Name="productID" ColumnName="productID" />
           <ScalarProperty Name="nextTransactionDate" ColumnName="nextTransactionDate" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
+          <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
+          <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ManagerNotifications">
-      <EntityTypeMapping TypeName="SSMModel.ManagerNotification">
-        <MappingFragment StoreEntitySet="ManagerNotification">
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="SSMModel1.Notification">
+        <MappingFragment StoreEntitySet="Notification">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="NotiContent" ColumnName="NotiContent" />
           <ScalarProperty Name="viewed" ColumnName="viewed" />
-          <ScalarProperty Name="dealID" ColumnName="dealID" />
-          <ScalarProperty Name="requestID" ColumnName="requestID" />
+          <ScalarProperty Name="hreflink" ColumnName="hreflink" />
+          <ScalarProperty Name="NotiName" ColumnName="NotiName" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MarketPlanPurchaseds">
-      <EntityTypeMapping TypeName="SSMModel.MarketPlanPurchased">
-        <MappingFragment StoreEntitySet="MarketPlanPurchased">
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="SSMModel1.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItems">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="orderID" ColumnName="orderID" />
           <ScalarProperty Name="planID" ColumnName="planID" />
           <ScalarProperty Name="SoldPrice" ColumnName="SoldPrice" />
-          <ScalarProperty Name="productID" ColumnName="productID" />
-          <ScalarProperty Name="quantity" ColumnName="quantity" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MasterCalendars">
-      <EntityTypeMapping TypeName="SSMModel.MasterCalendar">
-        <MappingFragment StoreEntitySet="MasterCalendar">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="fromto" ColumnName="fromto" />
-          <ScalarProperty Name="dayofweek" ColumnName="dayofweek" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MasterSchedule_User">
-      <EntityTypeMapping TypeName="SSMModel.MasterSchedule_User">
-        <MappingFragment StoreEntitySet="MasterSchedule_User">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="scheduleID" ColumnName="scheduleID" />
-          <ScalarProperty Name="quater" ColumnName="quater" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="oder_item">
-      <EntityTypeMapping TypeName="SSMModel.oder_item">
-        <MappingFragment StoreEntitySet="oder_item">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="orderID" ColumnName="orderID" />
-          <ScalarProperty Name="licenseID" ColumnName="licenseID" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="orders">
-      <EntityTypeMapping TypeName="SSMModel.order">
+      <EntityTypeMapping TypeName="SSMModel1.order">
         <MappingFragment StoreEntitySet="orders">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
@@ -315,11 +338,12 @@
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="completedDate" ColumnName="completedDate" />
           <ScalarProperty Name="Contract" ColumnName="Contract" />
+          <ScalarProperty Name="fromDeal" ColumnName="fromDeal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Payments">
-      <EntityTypeMapping TypeName="SSMModel.Payment">
+      <EntityTypeMapping TypeName="SSMModel1.Payment">
         <MappingFragment StoreEntitySet="Payment">
           <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
           <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
@@ -332,7 +356,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="payment_status">
-      <EntityTypeMapping TypeName="SSMModel.payment_status">
+      <EntityTypeMapping TypeName="SSMModel1.payment_status">
         <MappingFragment StoreEntitySet="payment_status">
           <ScalarProperty Name="StatusID" ColumnName="StatusID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -341,7 +365,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Plan_Step">
-      <EntityTypeMapping TypeName="SSMModel.Plan_Step">
+      <EntityTypeMapping TypeName="SSMModel1.Plan_Step">
         <MappingFragment StoreEntitySet="Plan_Step">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="planID" ColumnName="planID" />
@@ -357,7 +381,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PlanOptions">
-      <EntityTypeMapping TypeName="SSMModel.PlanOption">
+      <EntityTypeMapping TypeName="SSMModel1.PlanOption">
         <MappingFragment StoreEntitySet="PlanOptions">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="orderItemID" ColumnName="orderItemID" />
@@ -366,7 +390,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PrePurchase_FollowUp_Plan">
-      <EntityTypeMapping TypeName="SSMModel.PrePurchase_FollowUp_Plan">
+      <EntityTypeMapping TypeName="SSMModel1.PrePurchase_FollowUp_Plan">
         <MappingFragment StoreEntitySet="PrePurchase_FollowUp_Plan">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="productID" ColumnName="productID" />
@@ -381,7 +405,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Product_responsible">
-      <EntityTypeMapping TypeName="SSMModel.Product_responsible">
+      <EntityTypeMapping TypeName="SSMModel1.Product_responsible">
         <MappingFragment StoreEntitySet="Product_responsible">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="productID" ColumnName="productID" />
@@ -391,11 +415,14 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="TotalRevenue" ColumnName="TotalRevenue" />
+          <ScalarProperty Name="monthlyCommision" ColumnName="monthlyCommision" />
+          <ScalarProperty Name="AvarageDealSize" ColumnName="AvarageDealSize" />
+          <ScalarProperty Name="KPIforthisProduct" ColumnName="KPIforthisProduct" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="productAttributes">
-      <EntityTypeMapping TypeName="SSMModel.productAttribute">
+      <EntityTypeMapping TypeName="SSMModel1.productAttribute">
         <MappingFragment StoreEntitySet="productAttributes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="code" ColumnName="code" />
@@ -408,7 +435,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="productMarketPlans">
-      <EntityTypeMapping TypeName="SSMModel.productMarketPlan">
+      <EntityTypeMapping TypeName="SSMModel1.productMarketPlan">
         <MappingFragment StoreEntitySet="productMarketPlan">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="productID" ColumnName="productID" />
@@ -424,15 +451,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SaleRepCommisions">
+      <EntityTypeMapping TypeName="SSMModel1.SaleRepCommision">
+        <MappingFragment StoreEntitySet="SaleRepCommision">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SaleRepID" ColumnName="SaleRepID" />
+          <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="MoneyFromSubcription" ColumnName="MoneyFromSubcription" />
+          <ScalarProperty Name="MoneyFromNewContract" ColumnName="MoneyFromNewContract" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SaleRepProfiles">
-      <EntityTypeMapping TypeName="SSMModel.SaleRepProfile">
+      <EntityTypeMapping TypeName="SSMModel1.SaleRepProfile">
         <MappingFragment StoreEntitySet="SaleRepProfile">
-          <ScalarProperty Name="avarageActivitiesPerdeal" ColumnName="avarageActivitiesPerdeal" />
-          <ScalarProperty Name="SaleCycle" ColumnName="SaleCycle" />
-          <ScalarProperty Name="avarageDealsize" ColumnName="avarageDealsize" />
-          <ScalarProperty Name="winrate" ColumnName="winrate" />
-          <ScalarProperty Name="newContactmade" ColumnName="newContactmade" />
-          <ScalarProperty Name="VolumeOfSales" ColumnName="VolumeOfSales" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -470,11 +505,17 @@
           <ScalarProperty Name="City" ColumnName="City" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="VolumeOfSales" ColumnName="VolumeOfSales" />
+          <ScalarProperty Name="newContactmade" ColumnName="newContactmade" />
+          <ScalarProperty Name="winrate" ColumnName="winrate" />
+          <ScalarProperty Name="SaleCycle" ColumnName="SaleCycle" />
+          <ScalarProperty Name="avarageActivitiesPerdeal" ColumnName="avarageActivitiesPerdeal" />
+          <ScalarProperty Name="AvarageKPI" ColumnName="AvarageKPI" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="softwareProducts">
-      <EntityTypeMapping TypeName="SSMModel.softwareProduct">
+      <EntityTypeMapping TypeName="SSMModel1.softwareProduct">
         <MappingFragment StoreEntitySet="softwareProduct">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="SKU" ColumnName="SKU" />
@@ -491,26 +532,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="task_customer">
-      <EntityTypeMapping TypeName="SSMModel.task_customer">
-        <MappingFragment StoreEntitySet="task_customer">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="taskID" ColumnName="taskID" />
-          <ScalarProperty Name="customerID" ColumnName="customerID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="task_user">
-      <EntityTypeMapping TypeName="SSMModel.task_user">
-        <MappingFragment StoreEntitySet="task_user">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="userID" ColumnName="userID" />
-          <ScalarProperty Name="taskID" ColumnName="taskID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TaskStatus">
-      <EntityTypeMapping TypeName="SSMModel.TaskStatu">
+      <EntityTypeMapping TypeName="SSMModel1.TaskStatu">
         <MappingFragment StoreEntitySet="TaskStatus">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -519,7 +542,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaskTypes">
-      <EntityTypeMapping TypeName="SSMModel.TaskType">
+      <EntityTypeMapping TypeName="SSMModel1.TaskType">
         <MappingFragment StoreEntitySet="TaskType">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="typeName" ColumnName="typeName" />
@@ -528,7 +551,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tickets">
-      <EntityTypeMapping TypeName="SSMModel.Ticket">
+      <EntityTypeMapping TypeName="SSMModel1.Ticket">
         <MappingFragment StoreEntitySet="Ticket">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="TicketName" ColumnName="TicketName" />
@@ -545,7 +568,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TicketCategories">
-      <EntityTypeMapping TypeName="SSMModel.TicketCategory">
+      <EntityTypeMapping TypeName="SSMModel1.TicketCategory">
         <MappingFragment StoreEntitySet="TicketCategory">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -553,7 +576,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TicketComments">
-      <EntityTypeMapping TypeName="SSMModel.TicketComment">
+      <EntityTypeMapping TypeName="SSMModel1.TicketComment">
         <MappingFragment StoreEntitySet="TicketComment">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Creator" ColumnName="Creator" />
@@ -565,8 +588,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="TicketFiles">
+      <EntityTypeMapping TypeName="SSMModel1.TicketFile">
+        <MappingFragment StoreEntitySet="TicketFile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="TicketServerities">
-      <EntityTypeMapping TypeName="SSMModel.TicketServerity">
+      <EntityTypeMapping TypeName="SSMModel1.TicketServerity">
         <MappingFragment StoreEntitySet="TicketServerity">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="serverity" ColumnName="serverity" />
@@ -574,7 +607,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TicketStatus">
-      <EntityTypeMapping TypeName="SSMModel.TicketStatu">
+      <EntityTypeMapping TypeName="SSMModel1.TicketStatu">
         <MappingFragment StoreEntitySet="TicketStatus">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="StatusName" ColumnName="StatusName" />
@@ -582,7 +615,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TrialAccounts">
-      <EntityTypeMapping TypeName="SSMModel.TrialAccount">
+      <EntityTypeMapping TypeName="SSMModel1.TrialAccount">
         <MappingFragment StoreEntitySet="TrialAccount">
           <ScalarProperty Name="AccountID" ColumnName="AccountID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -590,10 +623,12 @@
           <ScalarProperty Name="PlanID" ColumnName="PlanID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="contactID" ColumnName="contactID" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="AspNetUserRoles" TypeName="SSMModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="SSMModel1.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
       <EndProperty Name="AspNetRoles">
         <ScalarProperty Name="Id" ColumnName="RoleId" />
       </EndProperty>

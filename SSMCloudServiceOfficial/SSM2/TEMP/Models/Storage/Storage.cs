@@ -25,7 +25,7 @@ namespace SSM.Models.Storage
             CloudBlockBlob blockBlob = container.GetBlockBlobReference(contractname);
 
             // Create or overwrite the "myblob" blob with contents from a local file.
-            using (var fileStream = System.IO.File.OpenRead(@"C:\Users\NhatVHN\Downloads\Documents\draftsla_us.pdf"))
+            using (var fileStream = System.IO.File.OpenRead(@"C:\Users\Nguyen Nhat\Downloads\Documents\draftsla_us.pdf"))
             {
                 blockBlob.UploadFromStream(fileStream);
             }

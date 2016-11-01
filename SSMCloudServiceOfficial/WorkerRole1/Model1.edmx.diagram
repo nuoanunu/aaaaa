@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ced25b0d440d4abaa1458bfcfa330490" Name="Diagram1">
+        <EntityTypeShape EntityType="SSMModel1.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.AspNetRole" Width="1.5" PointX="0.75" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.AspNetUser" Width="1.5" PointX="3" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.attributeOption" Width="1.5" PointX="5.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Calendar" Width="1.5" PointX="5.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.company" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.company_responsible" Width="1.5" PointX="8.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.ConfigureSy" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.contact_resposible" Width="1.5" PointX="8.25" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.contact" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Customer_Request" Width="1.5" PointX="12.25" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.customer_salerep_responsible" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.customer" Width="1.5" PointX="5.25" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Deal" Width="1.5" PointX="8" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Deal_Item" Width="1.5" PointX="12.25" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Deal_SaleRep_Respon" Width="1.5" PointX="10.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.DealStatu" Width="1.5" PointX="5.75" PointY="67.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.DealTask" Width="1.5" PointX="10.25" PointY="69" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.EMAIL_Category" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Email_Template" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.License" Width="1.5" PointX="7.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Notification" Width="1.5" PointX="5.25" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.OrderItem" Width="1.5" PointX="9.75" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.order" Width="1.5" PointX="7.5" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Payment" Width="1.5" PointX="9.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.payment_status" Width="1.5" PointX="7.5" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Plan_Step" Width="1.5" PointX="8" PointY="75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.PlanOption" Width="1.5" PointX="7.5" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.PrePurchase_FollowUp_Plan" Width="1.5" PointX="5.75" PointY="70.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Product_responsible" Width="1.5" PointX="11.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.productAttribute" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.productMarketPlan" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.SaleRepCommision" Width="1.5" PointX="5.25" PointY="53.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.SaleRepProfile" Width="1.5" PointX="5.25" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.softwareProduct" Width="1.5" PointX="0.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TaskStatu" Width="1.5" PointX="8" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TaskType" Width="1.5" PointX="8" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.Ticket" Width="1.5" PointX="11.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TicketCategory" Width="1.5" PointX="9" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TicketComment" Width="1.5" PointX="13.5" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TicketFile" Width="1.5" PointX="13.5" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TicketServerity" Width="1.5" PointX="9" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TicketStatu" Width="1.5" PointX="9" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SSMModel1.TrialAccount" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="SSMModel1.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_attributeOption_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_company_responsible_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_contact_resposible_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_customer_salerep_responsible_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_customer_salerep_responsible_AspNetUsers1" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_customers_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_SaleRep_Respon_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Licenses_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_MasterSchedule_User_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Notification_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Product_responsible_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_SaleRepCommision_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_SaleRepProfile_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Ticket_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Ticket_AspNetUsers1" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_TicketComment_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_attributeOption_productAttributes" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_PlanOptions_attributeOption" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_company_responsible_companies" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_contacts_companies" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_contact_resposible_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Customer_Request_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_TrialAccount_contacts" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Customer_Request_Deal" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Customer_Request_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Customer_Request_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Licenses_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_orders_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Payment_customers" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_DealStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_Item_Deal" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_PrePurchase_FollowUp_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_SaleRep_Respon_Deal" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_orders_Deal" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Tasks_Deal" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Deal_Item_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Tasks_TaskStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Tasks_TaskType" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Email_Template_EMAIL_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Licenses_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_OrderItems_Licenses" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_MarketPlanPurchased_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_MarketPlanPurchased_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Payment_orders" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Payment_payment_status" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Plan_Step_Plan_Step" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Plan_Step_Plan_Step1" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Plan_Step_PrePurchase_FollowUp_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_PlanOptions_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_PrePurchase_FollowUp_Plan_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Product_responsible_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_productAttributes_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_orderItems_softwareProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_TrialAccount_productMarketPlan" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Ticket_TicketCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Ticket_TicketServerity" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_Ticket_TicketStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_TicketComment_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.FK_TicketFile_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="SSMModel1.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

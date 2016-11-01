@@ -171,8 +171,8 @@ namespace WorkerRole1
 
                     EmailHandler.SendMail(task);
                     task.status = 2;
-                    if(!task.TaskContent.Equals("ReplyEmail"))
-                    task.Deal.Stage = task.Deal.Stage + 1;
+                    if (!task.TaskContent.Equals("ReplyEmail"))
+                        task.Deal.Stage = task.Deal.Stage + 1;
                     se1.SaveChanges();
                 }
                 Thread.Sleep(6000);
@@ -198,37 +198,38 @@ namespace WorkerRole1
                 {
 
                     JObject o = JObject.Parse(request.RequestDemoDay);
-              
-                        bool found = false;
-                        DateTime startDate = new DateTime();
-                        DateTime endDate = new DateTime();
-                        foreach (JProperty p in o.Properties())
-                        {
-                            string name = p.Name;
-                            string value = (string)p.Value;
-                            if (p.Name.Equals("start"))
-                            {
-                                startDate = DateTime.Parse(value);
-                                found = true;
-                            }
-                            if (p.Name.Equals("end"))
-                            {
-                                endDate = DateTime.Parse(value);
-                            }
 
-                        }
-                        if (found)
+                    bool found = false;
+                    DateTime startDate = new DateTime();
+                    DateTime endDate = new DateTime();
+                    foreach (JProperty p in o.Properties())
+                    {
+                        string name = p.Name;
+                        string value = (string)p.Value;
+                        if (p.Name.Equals("start"))
                         {
-                            requestDemoDate.Add(new Tuple<DateTime, DateTime>(startDate, endDate));
-                            totaltime = totaltime + (float)(endDate - startDate).TotalHours;
+                            startDate = DateTime.Parse(value);
+                            found = true;
+                        }
+                        if (p.Name.Equals("end"))
+                        {
+                            endDate = DateTime.Parse(value);
                         }
 
-                    
+                    }
+                    if (found)
+                    {
+                        requestDemoDate.Add(new Tuple<DateTime, DateTime>(startDate, endDate));
+                        totaltime = totaltime + (float)(endDate - startDate).TotalHours;
+                    }
+
+
                     contact contact = request.contact;
                     softwareProduct software = request.productMarketPlan.softwareProduct;
                     List<Product_responsible> salereplst = software.Product_responsible.ToList();
                     Product_responsible pr = findSuitableSaleRep(salereplst, requestDemoDate, totaltime);
-                    if (pr != null) {
+                    if (pr != null)
+                    {
                         Deal deal = new Deal();
                         deal.Creator = pr.saleRepID;
                         deal.Client = request.CusID;
@@ -236,11 +237,20 @@ namespace WorkerRole1
                         deal.Stage = 1;
                         deal.StartDate = DateTime.Today;
                         deal.ProductID = request.productMarketPlan.softwareProduct.id;
+
                         deal.Name = "Request No." + request.id;
                         deal.Value = 0;
                         deal.CurrentPlanID = request.productMarketPlan.softwareProduct.PrePurchase_FollowUp_Plan.Where(u => u.isOperation).FirstOrDefault().id;
 
                         se2.Deals.Add(deal);
+                        se2.SaveChanges();
+                        Deal_Item ite = new Deal_Item();
+                        ite.planID = (int)request.PlanID;
+                        ite.price = request.productMarketPlan.ceilPrice;
+                        ite.Quantity = 1;
+                        ite.dealID = deal.id;
+                        se2.Deal_Item.Add(ite);
+                        deal.Value = ite.price;
                         se2.SaveChanges();
                         Notification noti = new Notification();
                         noti.NotiName = "New Deal";
@@ -282,38 +292,41 @@ namespace WorkerRole1
                                 DealTask task = new DealTask();
                                 task.dealID = deal.id;
                                 task.TaskDescription = tep.StepEmailContent;
+
                                 task.status = 1;
                                 if (tep.RequireMoreDetail) task.status = 7;
                                 task.Deadline = DateTime.Now.AddDays(day);
                                 task.CreateDate = DateTime.Today;
-                                task.TaskContent = tep.stepNo +"";
-                                task.TaskName = tep.subject+ " [#:" + deal.id + "]";
+                                task.TaskContent = tep.stepNo + "";
+                                task.TaskName = tep.subject + " [#:" + deal.id + "]";
                                 task.type = 8;
-                                try {
-
-                                    se2.DealTasks.Add(task);
-                                    se2.SaveChanges();
-                                }
-                                catch (DbEntityValidationException dbEx)
+                                se2.DealTasks.Add(task);
+                                se2.SaveChanges();
+                                if (task.TaskDescription.Contains(se2.ConfigureSys.Find(13).value))
                                 {
-                                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                                    String replaceall = "";
+                                    foreach (Deal_Item item in task.Deal.Deal_Item)
                                     {
-                                        foreach (var validationError in validationErrors.ValidationErrors)
-                                        {
-                                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                                        }
+                                        TrialAccount trial = item.productMarketPlan.TrialAccounts.Where(u => u.contactID == null).FirstOrDefault();
+                                        replaceall = replaceall + '\n' + "User Name for " + item.productMarketPlan.Name + ": " + trial.UserName + " Password: " + trial.Password;
+                                        TrialAccount trialupdate = se2.TrialAccounts.Find(trial.AccountID);
+                                        trialupdate.contactID = task.Deal.contact.id;
+                                        se2.SaveChanges();
                                     }
+                                    task.TaskDescription = task.TaskDescription.Replace(se2.ConfigureSys.Find(13).value, replaceall);
                                 }
-                             
+                                se2.SaveChanges();
+
                             }
                         }
                     }
-                    
+
                 }
                 Thread.Sleep(1000);
             }
         }
-        public void UpdateLicense() {
+        public void UpdateLicense()
+        {
             while (true)
             {
                 var groupedLicense = se5.Licenses.Where(u => u.nextTransactionDate == DateTime.Today).ToList().GroupBy(u => u.customerID);
@@ -337,13 +350,13 @@ namespace WorkerRole1
                     String salerepID = "";
                     foreach (License lic in group)
                     {
-                        
+
 
                         OrderItem orderItem = new OrderItem();
                         orderItem.orderID = order.id;
                         orderItem.planID = lic.PlanID;
                         orderItem.SoldPrice = lic.OrderItems.First().SoldPrice;
-   
+
                         orderItem.LicenseID = lic.id;
                         lic.nextTransactionDate = ((DateTime)lic.nextTransactionDate).AddDays((double)lic.licenseDuration);
 
@@ -365,7 +378,7 @@ namespace WorkerRole1
                     order.total = (double)order.subtotal * 1.1;
                     order.VAT = (double)order.subtotal * 0.1;
                     se5.SaveChanges();
-                    
+
                 }
                 Thread.Sleep(60000);
             }
@@ -389,8 +402,9 @@ namespace WorkerRole1
                     bool take = true;
                     foreach (Calendar cal in salerep.Calendars)
                     {
-                       
-                        if ( (int)cal.startTime.DayOfWeek == (int)tuple.Item1.DayOfWeek) {
+
+                        if ((int)cal.startTime.DayOfWeek == (int)tuple.Item1.DayOfWeek)
+                        {
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
                             System.Diagnostics.Debug.WriteLine("cal.endTime.TimeOfDay  " + cal.startTime.TimeOfDay);
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
@@ -398,11 +412,11 @@ namespace WorkerRole1
                             {
                                 take = false;
                             }
-                           
-                        } 
+
+                        }
                     }
-        
-                     if(take) return pr;
+
+                    if (take) return pr;
                 }
             }
             return null;
@@ -428,57 +442,62 @@ namespace WorkerRole1
                 {
                     foreach (Product_responsible pr in profile.AspNetUser.Product_responsible.ToList())
                     {
-                    
-                            List<Deal> listdeal = se3.Deals.Where(u => u.ProductID == pr.productID && u.CompleteOn != null && ((DateTime)u.CompleteOn).Month == DateTime.Now.Month && ((DateTime)u.CompleteOn).Year == DateTime.Now.Year).ToList();
-                            double t = 0;
-                            foreach (Deal d in listdeal) { if(d.Value!=null) t = t + (double)d.Value; }
-                            
-                            if (t ==0 && listdeal.Count() == 0) pr.AvarageDealSize = 0;
-                            else if(listdeal.Count() != 0) pr.AvarageDealSize = t / listdeal.Count();
-                            se3.SaveChanges();
-                            
-                        
-                       
-             
+
+                        List<Deal> listdeal = se3.Deals.Where(u => u.ProductID == pr.productID && u.CompleteOn != null && ((DateTime)u.CompleteOn).Month == DateTime.Now.Month && ((DateTime)u.CompleteOn).Year == DateTime.Now.Year).ToList();
+                        double t = 0;
+                        foreach (Deal d in listdeal) { if (d.Value != null) t = t + (double)d.Value; }
+
+                        if (t == 0 && listdeal.Count() == 0) pr.AvarageDealSize = 0;
+                        else if (listdeal.Count() != 0) pr.AvarageDealSize = t / listdeal.Count();
+                        se3.SaveChanges();
+
+
+
+
                     }
                 }
-                    foreach (SaleRepProfile profile in lst)
+                foreach (SaleRepProfile profile in lst)
                 {
-                    profile.newContactmade = profile.AspNetUser.contact_resposible.ToList().Where(u=> ((DateTime)u.createdDate).Month== DateTime.Now.Month && ((DateTime)u.createdDate).Year == DateTime.Now.Year).Count() / se3.contact_resposible.Where(u => ((DateTime)u.createdDate).Month == DateTime.Now.Month && ((DateTime)u.createdDate).Year == DateTime.Now.Year).Count();
-                    List<Deal_SaleRep_Respon> lst2 = profile.AspNetUser.Deal_SaleRep_Respon.ToList();
-                    float total = 0;
-                    int allDeal = 0;
-                    int winDeal = 0;
-                    int numberofactivities = 0;
-                    int salecycle = 0;
-                    foreach (Deal_SaleRep_Respon dsr in lst2)
+                    try
                     {
-                  
-                        if (dsr.Active)
+                        if (se3.contact_resposible.Where(u => ((DateTime)u.createdDate).Month == DateTime.Now.Month && ((DateTime)u.createdDate).Year == DateTime.Now.Year).Count() != 0)
+                            profile.newContactmade = profile.AspNetUser.contact_resposible.ToList().Where(u => ((DateTime)u.createdDate).Month == DateTime.Now.Month && ((DateTime)u.createdDate).Year == DateTime.Now.Year).Count() / se3.contact_resposible.Where(u => ((DateTime)u.createdDate).Month == DateTime.Now.Month && ((DateTime)u.createdDate).Year == DateTime.Now.Year).Count();
+                        List<Deal_SaleRep_Respon> lst2 = profile.AspNetUser.Deal_SaleRep_Respon.ToList();
+                        float total = 0;
+                        int allDeal = 0;
+                        int winDeal = 0;
+                        int numberofactivities = 0;
+                        int salecycle = 0;
+                        foreach (Deal_SaleRep_Respon dsr in lst2)
                         {
 
-                            allDeal = allDeal + 1;
-
-                            if (dsr.Deal.Status == 3 || dsr.Deal.Status == 5)
+                            if (dsr.Active)
                             {
-                                total = total + (float)dsr.Deal.Value; winDeal = winDeal + 1;
-                                numberofactivities = numberofactivities + dsr.Deal.DealTasks.ToList().Count();
-                                salecycle = salecycle + ((((DateTime)dsr.Deal.CompleteOn - dsr.Deal.StartDate  ).Days));
+
+                                allDeal = allDeal + 1;
+
+                                if (dsr.Deal.Status == 3 || dsr.Deal.Status == 5)
+                                {
+                                    total = total + (float)dsr.Deal.Value; winDeal = winDeal + 1;
+                                    numberofactivities = numberofactivities + dsr.Deal.DealTasks.ToList().Count();
+                                    salecycle = salecycle + ((((DateTime)dsr.Deal.CompleteOn - dsr.Deal.StartDate).Days));
+                                }
                             }
+
                         }
+                        if (allDeal != 0)
+                        {
 
+
+
+                            profile.SaleCycle = salecycle / allDeal;
+                            profile.VolumeOfSales = total;
+                            profile.winrate = winDeal / allDeal;
+                            profile.avarageActivitiesPerdeal = numberofactivities / allDeal;
+                            se3.SaveChanges();
+                        }
                     }
-                   if (allDeal != 0)
-                    {
-      
-
-
-                        profile.SaleCycle = salecycle / allDeal;
-                        profile.VolumeOfSales = total;
-                        profile.winrate = winDeal / allDeal;
-                        profile.avarageActivitiesPerdeal = numberofactivities / allDeal;
-                        se3.SaveChanges();
-                    }
+                    catch (Exception e) { }
 
                 }
                 SaleRepProfile profileTopAct;
@@ -487,26 +506,27 @@ namespace WorkerRole1
                 profileTopCycle = se3.SaleRepProfiles.OrderByDescending(u => u.SaleCycle).First();
                 foreach (SaleRepProfile profile in lst)
                 {
-                    if(profileTopCycle.SaleCycle ==0) profile.SaleCycle = 1;
+                    if (profileTopCycle.SaleCycle == 0) profile.SaleCycle = 1;
                     else
-                    profile.SaleCycle =  (double)profile.SaleCycle / profileTopCycle.SaleCycle;
+                        profile.SaleCycle = (double)profile.SaleCycle / profileTopCycle.SaleCycle;
                     if (profileTopCycle.avarageActivitiesPerdeal == 0) profile.avarageActivitiesPerdeal = 1;
                     else
-                    profile.avarageActivitiesPerdeal = profile.avarageActivitiesPerdeal / profileTopAct.avarageActivitiesPerdeal;
-                    profile.AvarageKPI = 1- profile.SaleCycle* ( int.Parse(se3.ConfigureSys.Find(15).value))/20 + profile.avarageActivitiesPerdeal * (int.Parse(se3.ConfigureSys.Find(16).value)) / 20 + profile.winrate * (int.Parse(se3.ConfigureSys.Find(17).value)) / 20 + profile.newContactmade * (int.Parse(se3.ConfigureSys.Find(19).value)) / 20;
+                        profile.avarageActivitiesPerdeal = profile.avarageActivitiesPerdeal / profileTopAct.avarageActivitiesPerdeal;
+                    profile.AvarageKPI = 1 - profile.SaleCycle * (int.Parse(se3.ConfigureSys.Find(15).value)) / 20 + profile.avarageActivitiesPerdeal * (int.Parse(se3.ConfigureSys.Find(16).value)) / 20 + profile.winrate * (int.Parse(se3.ConfigureSys.Find(17).value)) / 20 + profile.newContactmade * (int.Parse(se3.ConfigureSys.Find(19).value)) / 20;
                     se3.SaveChanges();
                 }
 
                 foreach (SaleRepProfile profile in lst)
                 {
-                    foreach (Product_responsible pr in profile.AspNetUser.Product_responsible.ToList()) {
+                    foreach (Product_responsible pr in profile.AspNetUser.Product_responsible.ToList())
+                    {
                         Product_responsible toppr = se3.Product_responsible.OrderByDescending(u => u.AvarageDealSize).First();
                         if (toppr.AvarageDealSize == 0) pr.KPIforthisProduct = profile.AvarageKPI + 1 * (int.Parse(se3.ConfigureSys.Find(20).value)) / 20;
                         else
-                        pr.KPIforthisProduct = profile.AvarageKPI +  (double)pr.AvarageDealSize * (int.Parse(se3.ConfigureSys.Find(20).value)) /(100* toppr.AvarageDealSize);
+                            pr.KPIforthisProduct = profile.AvarageKPI + (double)pr.AvarageDealSize * (int.Parse(se3.ConfigureSys.Find(20).value)) / (100 * toppr.AvarageDealSize);
                         se3.SaveChanges();
                     }
-                 
+
                 }
                 Thread.Sleep(1000);
             }
@@ -518,20 +538,20 @@ namespace WorkerRole1
                 try
                 {
                     List<Message> newmessages = FetchUnseenMessages("pop.gmail.com", 995, true, "nhathn99@gmail.com", "320395qwe", seenUids);
-        
+
                     foreach (Message mess in newmessages)
                     {
                         DealTask deal = new DealTask();
 
                         if (mess.Headers.Subject.Contains("[#:"))
                         {
-                           String subject = mess.Headers.Subject;
+                            String subject = mess.Headers.Subject;
                             if (subject.IndexOf("Re:") > -1) subject = subject.Replace("Re:", "").Trim();
                             String getdeal = subject.Substring(subject.IndexOf(":") + 1, subject.IndexOf("]") - subject.IndexOf(":") - 1);
                             int dealid = int.Parse(getdeal);
                             try
                             {
-                              DealTask dt = new DealTask();
+                                DealTask dt = new DealTask();
                                 dt.CreateDate = DateTime.Now;
                                 dt.Deadline = DateTime.Now;
                                 dt.type = 7;
@@ -541,7 +561,7 @@ namespace WorkerRole1
                                 dt.dealID = dealid;
                                 dt.TaskContent = "a";
                                 se4.DealTasks.Add(dt);
-                                  se4.SaveChangesAsync();
+                                se4.SaveChangesAsync();
                             }
                             catch (DbEntityValidationException e)
                             {
@@ -603,7 +623,8 @@ namespace WorkerRole1
                 return newMessages;
             }
         }
-        public void checkLiceneAndAccount() {
+        public void checkLiceneAndAccount()
+        {
             while (true)
             {
                 foreach (productMarketPlan plan in se6.productMarketPlans.ToList())
@@ -631,7 +652,8 @@ namespace WorkerRole1
                         noti.CreateDate = DateTime.Now;
                         noti.viewed = false;
                         noti.hreflink = "/Product/DetMarketPlanDetailail?id=" + plan.id;
-                        try {
+                        try
+                        {
                             if (se6.Notifications.Where(u => u.NotiContent.Equals(noti.NotiContent) && u.NotiName.Equals(noti.NotiName) && !u.viewed).FirstOrDefault() != null)
                             {
                                 se6.Notifications.Add(noti);
@@ -639,7 +661,7 @@ namespace WorkerRole1
 
                         }
                         catch (Exception e) { }
-                       
+
                     }
                     if (plan.TrialAccounts.Count() < 50 && plan.TrialAccounts.Count() > 10)
                     {
@@ -674,8 +696,10 @@ namespace WorkerRole1
                 Thread.Sleep(10000);
             }
         }
-        public void createOrderForIncomplete() {
-            while (true) {
+        public void createOrderForIncomplete()
+        {
+            while (true)
+            {
                 foreach (Deal deal in se7.Deals.Where(u => u.Status == 3).ToList())
                 {
                     bool validLicense = true;
@@ -716,7 +740,7 @@ namespace WorkerRole1
                 }
                 Thread.Sleep(10000);
             }
-            
+
         }
     }
 

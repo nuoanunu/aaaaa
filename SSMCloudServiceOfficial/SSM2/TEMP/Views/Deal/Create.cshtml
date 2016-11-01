@@ -1,289 +1,20 @@
 ﻿@model SSM.Models.Deal
+@using SSM.Models
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
 
-    <!-- Bootstrap core CSS -->
-
-    <link href="~/Content/fonts/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/animate.min.css" rel="stylesheet" />
-    <link href="~/Content/custom.css" rel="stylesheet" />
-    <link href="~/Content/icheck/flat/green.css" rel="stylesheet" />
-
-    <!-- editor -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet"/>
-    <link href="~/Content/editor/external/google-code-prettify/prettify.css" rel="stylesheet"/>
-    <link href="~/Content/editor/index.css" rel="stylesheet"/>
-    <!-- select2 -->
-    <link href="~/Content/select/select2.min.css" rel="stylesheet"/>
-    <!-- switchery -->
-    <link rel="stylesheet" href="~/Content/switchery/switchery.min.css" />
-    <script src="~/Scripts/bootstrap.min.js"></script>
 
 
-    <!-- bootstrap progress js -->
-    <script src="~/Scripts/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="~/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
-    <!-- icheck -->
-    <script src="~/Scripts/icheck/icheck.min.js"></script>
-    <script src="~/Scripts/custom.js"></script>
-    <!-- form wizard -->
-    <script src="~/Scripts/wizard/jquery.smartWizard.js"></script>
-    <!-- pace -->
-    <script src="~/Scripts/pace/pace.min.js"></script>
-    <script src="~/Scripts/progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="~/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
-    <!-- icheck -->
-    <script src="~/Scripts/icheck/icheck.min.js"></script>
-    <!-- tags -->
-    <script src="~/Scripts/tags/jquery.tagsinput.min.js"></script>
-    <!-- switchery -->
-    <script src="~/Scripts/switchery/switchery.min.js"></script>
-    <!-- daterangepicker -->
-    <script type="text/javascript" src="~/Scripts/moment/moment.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/datepicker/daterangepicker.js"></script>
-    <!-- richtext editor -->
-    <script src="~/Scripts/editor/bootstrap-wysiwyg.js"></script>
-    <script src="~/Scripts/editor/external/jquery.hotkeys.js"></script>
-    <script src="~/Scripts/editor/external/google-code-prettify/prettify.js"></script>
-    <!-- select2 -->
-    <script src="~/Scripts/select/select2.full.js"></script>
-    <!-- form validation -->
-    <script type="text/javascript" src="~/Scripts/parsley/parsley.min.js"></script>
-    <!-- textarea resize -->
-    <script src="~/Scripts/textarea/autosize.min.js"></script>
-    <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-
-            $(ev.target).css('background-color', '#d3d3d3');
-        }
-        function drag(ev) {
-
-            ev.dataTransfer.setData("DroperID", ev.target.id);
-
-        }
-        function removeStyle(ev) {
-            $(ev.target).css('background-color', '#ffffff');
-        }
-        function drop(ev) {
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("DroperID");
-            var content = $("#" + data).find("h2").text();
-            ev.target.innerHTML = content;
-            var targetid = ev.target.id;
-            tinymce.init({
-                selector: 'textarea#' + targetid,
-
-                height: 200,
-                plugins: [
-                  'advlist autolink lists link image charmap print preview anchor',
-                  'searchreplace visualblocks code fullscreen',
-                  'insertdatetime media table contextmenu paste code'
-                ],
-                toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                content_css: '//www.tinymce.com/css/codepen.min.css'
-
-
-            });
-            alert($("#" + targetid).val());
-        }
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Smart Wizard
-            $('#wizard').smartWizard();
-
-            function onFinishCallback() {
-                $('#wizard').smartWizard('showMessage', 'Finish Clicked');
-                //alert('Finish Clicked');
-            }
-        });
-
-        $(document).ready(function () {
-            // Smart Wizard
-            $('#wizard_verticle').smartWizard({
-                transitionEffect: 'slide'
-            });
-
-        });
-    </script>
-    <script>
-    $(document).ready(function() {
-      $('.xcxc').click(function() {
-        $('#descr').val($('#editor').html());
-      });
-    });
-
-    $(function() {
-      function initToolbarBootstrapBindings() {
-        var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
-            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-            'Times New Roman', 'Verdana'
-          ],
-          fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-        $.each(fonts, function(idx, fontName) {
-          fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
-        });
-        $('a[title]').tooltip({
-          container: 'body'
-        });
-        $('.dropdown-menu input').click(function() {
-            return false;
-          })
-          .change(function() {
-            $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
-          })
-          .keydown('esc', function() {
-            this.value = '';
-            $(this).change();
-          });
-
-        $('[data-role=magic-overlay]').each(function() {
-          var overlay = $(this),
-            target = $(overlay.data('target'));
-          overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-        });
-        if ("onwebkitspeechchange" in document.createElement("input")) {
-          var editorOffset = $('#editor').offset();
-          $('#voiceBtn').css('position', 'absolute').offset({
-            top: editorOffset.top,
-            left: editorOffset.left + $('#editor').innerWidth() - 35
-          });
-        } else {
-          $('#voiceBtn').hide();
-        }
-      };
-
-      function showErrorAlert(reason, detail) {
-        var msg = '';
-        if (reason === 'unsupported-file-type') {
-          msg = "Unsupported format " + detail;
-        } else {
-          console.log("error uploading file", reason, detail);
-        }
-        $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
-          '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
-      };
-      initToolbarBootstrapBindings();
-      $('#editor').wysiwyg({
-        fileUploadError: showErrorAlert
-      });
-      window.prettyPrint && prettyPrint();
-    });
-    </script>
-    <script type="text/javascript">
-    $(function() {
-      'use strict';
-      var countriesArray = $.map(countries, function(value, key) {
-        return {
-          value: value,
-          data: key
-        };
-      });
-      // Initialize autocomplete with custom appendTo:
-      $('#autocomplete-custom-append').autocomplete({
-        lookup: countriesArray,
-        appendTo: '#autocomplete-container'
-      });
-    });
-    </script>
-    <script src="~/Scripts/custom.js"></script>
-
-    <!-- select2 -->
-    <script>
-    $(document).ready(function() {
-      $(".select2_single").select2({
-        placeholder: "Select a state",
-        allowClear: true
-      });
-      $(".select2_group").select2({});
-      $(".select2_multiple").select2({
-        maximumSelectionLength: 4,
-        placeholder: "With Max Selection limit 4",
-        allowClear: true
-      });
-    });
-    </script>
-    <!-- /select2 -->
-    <!-- input tags -->
-    <script>
-    function onAddTag(tag) {
-      alert("Added a tag: " + tag);
-    }
-
-    function onRemoveTag(tag) {
-      alert("Removed a tag: " + tag);
-    }
-
-    function onChangeTag(input, tag) {
-      alert("Changed a tag: " + tag);
-    }
-
-    $(function() {
-      $('#tags_1').tagsInput({
-        width: 'auto'
-      });
-    });
-    </script>
-    <!-- /input tags -->
-    <!-- form validation -->
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $.listen('parsley:field:validate', function() {
-        validateFront();
-      });
-      $('#demo-form .btn').on('click', function() {
-        $('#demo-form').parsley().validate();
-        validateFront();
-      });
-      var validateFront = function() {
-        if (true === $('#demo-form').parsley().isValid()) {
-          $('.bs-callout-info').removeClass('hidden');
-          $('.bs-callout-warning').addClass('hidden');
-        } else {
-          $('.bs-callout-info').addClass('hidden');
-          $('.bs-callout-warning').removeClass('hidden');
-        }
-      };
-    });
-
-    $(document).ready(function() {
-      $.listen('parsley:field:validate', function() {
-        validateFront();
-      });
-      $('#demo-form2 .btn').on('click', function() {
-        $('#demo-form2').parsley().validate();
-        validateFront();
-      });
-      var validateFront = function() {
-        if (true === $('#demo-form2').parsley().isValid()) {
-          $('.bs-callout-info').removeClass('hidden');
-          $('.bs-callout-warning').addClass('hidden');
-        } else {
-          $('.bs-callout-info').addClass('hidden');
-          $('.bs-callout-warning').removeClass('hidden');
-        }
-      };
-    });
-    try {
-      hljs.initHighlightingOnLoad();
-    } catch (err) {}
-    </script>
-    <style>
-        body {
-            background: white;
-        }
-    </style>
 
 </head>
 
 
-@using (Html.BeginForm("CreateDeal" , "Deal" , FormMethod.Post)) 
+@using (Html.BeginForm("CreateDeal", "Deal", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Deal</h4>
         <hr />
@@ -317,11 +48,16 @@
             <label class="control-label col-md-2">Prroduct</label>
             <div class="col-md-10">
                 @Html.DropDownList("productID", (List<SelectListItem>)ViewData["ProductResponsibleFor"], htmlAttributes: new { @class = "form-control" })
-   
+
             </div>
         </div>
-
-
+       <input type="hidden" value="" name="chooseplan" id="chooseplan"/>
+        <div class="form-group">
+            <label class="control-label col-md-2">Plan</label>
+            <div class="col-md-10">
+                @Html.DropDownList("PlanToChoose", new List<SelectListItem>(), htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
 
 
         <div class="form-group">
@@ -330,6 +66,36 @@
             </div>
         </div>
     </div>
+
+    foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["ProductPlan"])
+    {
+        <script>
+            $("#PlanToChoose").append('<option class="productplan product@(plan.softwareProduct.id)" value="@(plan.id)">@(plan.Name)</option>');
+        </script>
+    }
+    <script>
+      
+        var pid = "";
+        function displayplan() {
+            if (pid != $("#productID").val()) {
+                pid = $("#productID").val();
+                $(".productplan").each(function () {
+                    $(this).css("display", "none");
+                })
+                $(".product" + pid).each(function () {
+                    $(this).css("display", "");
+                })
+                
+            }
+        }
+        alert($("#PlanToChoose").val());
+        function updateval() {
+            $("#chooseplan").val($("#PlanToChoose").val());
+        }
+        setInterval(displayplan, 100);
+        setInterval(updateval, 100);
+    </script>
+
 }
 
 <div>

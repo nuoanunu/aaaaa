@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SSMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="SSMModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetRole">
     <Key>
       <PropertyRef Name="Id" />
@@ -50,10 +60,15 @@
     <NavigationProperty Name="attributeOptions" Relationship="Self.FK_attributeOption_AspNetUsers" FromRole="AspNetUsers" ToRole="attributeOption" />
     <NavigationProperty Name="company_responsible" Relationship="Self.FK_company_responsible_AspNetUsers" FromRole="AspNetUsers" ToRole="company_responsible" />
     <NavigationProperty Name="contact_resposible" Relationship="Self.FK_contact_resposible_AspNetUsers" FromRole="AspNetUsers" ToRole="contact_resposible" />
+    <NavigationProperty Name="customer_salerep_responsible" Relationship="Self.FK_customer_salerep_responsible_AspNetUsers" FromRole="AspNetUsers" ToRole="customer_salerep_responsible" />
+    <NavigationProperty Name="customer_salerep_responsible1" Relationship="Self.FK_customer_salerep_responsible_AspNetUsers1" FromRole="AspNetUsers" ToRole="customer_salerep_responsible" />
     <NavigationProperty Name="customers" Relationship="Self.FK_customers_AspNetUsers" FromRole="AspNetUsers" ToRole="customers" />
     <NavigationProperty Name="Deal_SaleRep_Respon" Relationship="Self.FK_Deal_SaleRep_Respon_AspNetUsers" FromRole="AspNetUsers" ToRole="Deal_SaleRep_Respon" />
-    <NavigationProperty Name="MasterSchedule_User" Relationship="Self.FK_MasterSchedule_User_AspNetUsers" FromRole="AspNetUsers" ToRole="MasterSchedule_User" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_AspNetUsers" FromRole="AspNetUsers" ToRole="Licenses" />
+    <NavigationProperty Name="Calendars" Relationship="Self.FK_MasterSchedule_User_AspNetUsers" FromRole="AspNetUsers" ToRole="Calendar" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_AspNetUsers" FromRole="AspNetUsers" ToRole="Notification" />
     <NavigationProperty Name="Product_responsible" Relationship="Self.FK_Product_responsible_AspNetUsers" FromRole="AspNetUsers" ToRole="Product_responsible" />
+    <NavigationProperty Name="SaleRepCommisions" Relationship="Self.FK_SaleRepCommision_AspNetUsers" FromRole="AspNetUsers" ToRole="SaleRepCommision" />
     <NavigationProperty Name="SaleRepProfiles" Relationship="Self.FK_SaleRepProfile_AspNetUsers" FromRole="AspNetUsers" ToRole="SaleRepProfile" />
     <NavigationProperty Name="Tickets" Relationship="Self.FK_Ticket_AspNetUsers" FromRole="AspNetUsers" ToRole="Ticket" />
     <NavigationProperty Name="Tickets1" Relationship="Self.FK_Ticket_AspNetUsers1" FromRole="AspNetUsers" ToRole="Ticket" />
@@ -74,6 +89,17 @@
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_attributeOption_AspNetUsers" FromRole="attributeOption" ToRole="AspNetUsers" />
     <NavigationProperty Name="productAttribute" Relationship="Self.FK_attributeOption_productAttributes" FromRole="attributeOption" ToRole="productAttributes" />
     <NavigationProperty Name="PlanOptions" Relationship="Self.FK_PlanOptions_attributeOption" FromRole="attributeOption" ToRole="PlanOptions" />
+  </EntityType>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="startTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="endTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="repeat" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MasterSchedule_User_AspNetUsers" FromRole="Calendar" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="company">
     <Key>
@@ -107,6 +133,14 @@
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_company_responsible_AspNetUsers" FromRole="company_responsible" ToRole="AspNetUsers" />
     <NavigationProperty Name="company" Relationship="Self.FK_company_responsible_companies" FromRole="company_responsible" ToRole="companies" />
   </EntityType>
+  <EntityType Name="ConfigureSy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="value" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
   <EntityType Name="contact_resposible">
     <Key>
       <PropertyRef Name="id" />
@@ -114,6 +148,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="contactID" Type="Int32" Nullable="false" />
     <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="createdDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_contact_resposible_AspNetUsers" FromRole="contact_resposible" ToRole="AspNetUsers" />
     <NavigationProperty Name="contact" Relationship="Self.FK_contact_resposible_contacts" FromRole="contact_resposible" ToRole="contacts" />
   </EntityType>
@@ -159,12 +194,19 @@
     <Property Name="DealID" Type="Int32" />
     <Property Name="CreatedDate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="contact" Relationship="Self.FK_Customer_Request_contacts" FromRole="Customer_Request" ToRole="contacts" />
-    <NavigationProperty Name="Customer_Request1" Relationship="Self.FK_Customer_Request_Customer_Request" FromRole="Customer_Request" ToRole="Customer_Request1" />
-    <NavigationProperty Name="Customer_Request2" Relationship="Self.FK_Customer_Request_Customer_Request" FromRole="Customer_Request1" ToRole="Customer_Request" />
     <NavigationProperty Name="Deal" Relationship="Self.FK_Customer_Request_Deal" FromRole="Customer_Request" ToRole="Deal" />
     <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_Customer_Request_productMarketPlan" FromRole="Customer_Request" ToRole="productMarketPlan" />
     <NavigationProperty Name="softwareProduct" Relationship="Self.FK_Customer_Request_softwareProduct" FromRole="Customer_Request" ToRole="softwareProduct" />
-    <NavigationProperty Name="ManagerNotifications" Relationship="Self.FK_ManagerNotification_Customer_Request" FromRole="Customer_Request" ToRole="ManagerNotification" />
+  </EntityType>
+  <EntityType Name="customer_salerep_responsible">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="salerepID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="customerID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_customer_salerep_responsible_AspNetUsers" FromRole="customer_salerep_responsible" ToRole="AspNetUsers" />
+    <NavigationProperty Name="AspNetUser1" Relationship="Self.FK_customer_salerep_responsible_AspNetUsers1" FromRole="customer_salerep_responsible" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="customer">
     <Key>
@@ -198,17 +240,29 @@
     <Property Name="Client" Type="Int32" Nullable="false" />
     <Property Name="LastUpdateStage" Type="DateTime" Precision="0" />
     <Property Name="Status" Type="Int32" />
-    <Property Name="planID" Type="Int32" />
-    <Property Name="marketPlanID" Type="Int32" />
-    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="CurrentPlanID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="contact" Relationship="Self.FK_Deal_contacts" FromRole="Deal" ToRole="contacts" />
     <NavigationProperty Name="Customer_Request" Relationship="Self.FK_Customer_Request_Deal" FromRole="Deal" ToRole="Customer_Request" />
     <NavigationProperty Name="DealStatu" Relationship="Self.FK_Deal_DealStatus" FromRole="Deal" ToRole="DealStatus" />
+    <NavigationProperty Name="Deal_Item" Relationship="Self.FK_Deal_Item_Deal" FromRole="Deal" ToRole="Deal_Item" />
     <NavigationProperty Name="PrePurchase_FollowUp_Plan" Relationship="Self.FK_Deal_PrePurchase_FollowUp_Plan" FromRole="Deal" ToRole="PrePurchase_FollowUp_Plan" />
-    <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_Deal_productMarketPlan" FromRole="Deal" ToRole="productMarketPlan" />
     <NavigationProperty Name="Deal_SaleRep_Respon" Relationship="Self.FK_Deal_SaleRep_Respon_Deal" FromRole="Deal" ToRole="Deal_SaleRep_Respon" />
-    <NavigationProperty Name="ManagerNotifications" Relationship="Self.FK_ManagerNotification_Deal" FromRole="Deal" ToRole="ManagerNotification" />
+    <NavigationProperty Name="softwareProduct" Relationship="Self.FK_Deal_softwareProduct" FromRole="Deal" ToRole="softwareProduct" />
+    <NavigationProperty Name="orders" Relationship="Self.FK_orders_Deal" FromRole="Deal" ToRole="orders" />
     <NavigationProperty Name="DealTasks" Relationship="Self.FK_Tasks_Deal" FromRole="Deal" ToRole="DealTasks" />
+  </EntityType>
+  <EntityType Name="Deal_Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dealID" Type="Int32" Nullable="false" />
+    <Property Name="planID" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="Double" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Deal" Relationship="Self.FK_Deal_Item_Deal" FromRole="Deal_Item" ToRole="Deal" />
+    <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_Deal_Item_productMarketPlan" FromRole="Deal_Item" ToRole="productMarketPlan" />
   </EntityType>
   <EntityType Name="Deal_SaleRep_Respon">
     <Key>
@@ -237,7 +291,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TaskName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TaskName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="TaskDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Deadline" Type="DateTime" Precision="3" />
@@ -282,18 +336,20 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="licenseType" Type="Int32" />
-    <Property Name="licenseKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="licenseDuration" Type="Int32" />
     <Property Name="status" Type="Int32" />
     <Property Name="customerID" Type="Int32" />
-    <Property Name="productID" Type="Int32" />
     <Property Name="nextTransactionDate" Type="DateTime" Precision="0" />
     <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="PlanID" Type="Int32" Nullable="false" />
+    <Property Name="SaleRepResponsible" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LicenseKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Licenses_AspNetUsers" FromRole="Licenses" ToRole="AspNetUsers" />
     <NavigationProperty Name="customer" Relationship="Self.FK_Licenses_customers" FromRole="Licenses" ToRole="customers" />
-    <NavigationProperty Name="softwareProduct" Relationship="Self.FK_Licenses_softwareProduct" FromRole="Licenses" ToRole="softwareProduct" />
-    <NavigationProperty Name="oder_item" Relationship="Self.FK_oder_item_Licenses" FromRole="Licenses" ToRole="oder_item" />
+    <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_Licenses_productMarketPlan" FromRole="Licenses" ToRole="productMarketPlan" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItems_Licenses" FromRole="Licenses" ToRole="OrderItems" />
   </EntityType>
-  <EntityType Name="ManagerNotification">
+  <EntityType Name="Notification">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -301,12 +357,12 @@
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="NotiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="viewed" Type="Boolean" Nullable="false" />
-    <Property Name="dealID" Type="Int32" />
-    <Property Name="requestID" Type="Int32" />
-    <NavigationProperty Name="Customer_Request" Relationship="Self.FK_ManagerNotification_Customer_Request" FromRole="ManagerNotification" ToRole="Customer_Request" />
-    <NavigationProperty Name="Deal" Relationship="Self.FK_ManagerNotification_Deal" FromRole="ManagerNotification" ToRole="Deal" />
+    <Property Name="hreflink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotiName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Notification_AspNetUsers" FromRole="Notification" ToRole="AspNetUsers" />
   </EntityType>
-  <EntityType Name="MarketPlanPurchased">
+  <EntityType Name="OrderItem">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -314,41 +370,10 @@
     <Property Name="orderID" Type="Int32" Nullable="false" />
     <Property Name="planID" Type="Int32" Nullable="false" />
     <Property Name="SoldPrice" Type="Double" Nullable="false" />
-    <Property Name="productID" Type="Int32" Nullable="false" />
-    <Property Name="quantity" Type="Int32" />
-    <NavigationProperty Name="order" Relationship="Self.FK_MarketPlanPurchased_orders" FromRole="MarketPlanPurchased" ToRole="orders" />
-    <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_MarketPlanPurchased_productMarketPlan" FromRole="MarketPlanPurchased" ToRole="productMarketPlan" />
-    <NavigationProperty Name="softwareProduct" Relationship="Self.FK_MarketPlanPurchased_softwareProduct" FromRole="MarketPlanPurchased" ToRole="softwareProduct" />
-  </EntityType>
-  <EntityType Name="MasterCalendar">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="fromto" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="dayofweek" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="MasterSchedule_User" Relationship="Self.FK_MasterSchedule_User_MasterCalendar" FromRole="MasterCalendar" ToRole="MasterSchedule_User" />
-  </EntityType>
-  <EntityType Name="MasterSchedule_User">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="scheduleID" Type="Int32" Nullable="false" />
-    <Property Name="quater" Type="Int32" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_MasterSchedule_User_AspNetUsers" FromRole="MasterSchedule_User" ToRole="AspNetUsers" />
-    <NavigationProperty Name="MasterCalendar" Relationship="Self.FK_MasterSchedule_User_MasterCalendar" FromRole="MasterSchedule_User" ToRole="MasterCalendar" />
-  </EntityType>
-  <EntityType Name="oder_item">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="orderID" Type="Int32" />
-    <Property Name="licenseID" Type="Int32" />
-    <NavigationProperty Name="License" Relationship="Self.FK_oder_item_Licenses" FromRole="oder_item" ToRole="Licenses" />
-    <NavigationProperty Name="order" Relationship="Self.FK_oder_item_orders" FromRole="oder_item" ToRole="orders" />
+    <Property Name="LicenseID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="License" Relationship="Self.FK_OrderItems_Licenses" FromRole="OrderItems" ToRole="Licenses" />
+    <NavigationProperty Name="order" Relationship="Self.FK_MarketPlanPurchased_orders" FromRole="OrderItems" ToRole="orders" />
+    <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_MarketPlanPurchased_productMarketPlan" FromRole="OrderItems" ToRole="productMarketPlan" />
   </EntityType>
   <EntityType Name="order">
     <Key>
@@ -365,9 +390,10 @@
     <Property Name="status" Type="Int32" Nullable="false" />
     <Property Name="completedDate" Type="DateTime" Precision="0" />
     <Property Name="Contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fromDeal" Type="Int32" />
     <NavigationProperty Name="customer" Relationship="Self.FK_orders_customers" FromRole="orders" ToRole="customers" />
-    <NavigationProperty Name="MarketPlanPurchaseds" Relationship="Self.FK_MarketPlanPurchased_orders" FromRole="orders" ToRole="MarketPlanPurchased" />
-    <NavigationProperty Name="oder_item" Relationship="Self.FK_oder_item_orders" FromRole="orders" ToRole="oder_item" />
+    <NavigationProperty Name="Deal" Relationship="Self.FK_orders_Deal" FromRole="orders" ToRole="Deal" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_MarketPlanPurchased_orders" FromRole="orders" ToRole="OrderItems" />
     <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_orders" FromRole="orders" ToRole="Payment" />
   </EntityType>
   <EntityType Name="Payment">
@@ -453,6 +479,9 @@
     <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
     <Property Name="TotalRevenue" Type="Double" />
+    <Property Name="monthlyCommision" Type="Double" />
+    <Property Name="AvarageDealSize" Type="Double" />
+    <Property Name="KPIforthisProduct" Type="Double" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Product_responsible_AspNetUsers" FromRole="Product_responsible" ToRole="AspNetUsers" />
     <NavigationProperty Name="softwareProduct" Relationship="Self.FK_Product_responsible_softwareProduct" FromRole="Product_responsible" ToRole="softwareProduct" />
   </EntityType>
@@ -486,11 +515,26 @@
     <Property Name="isActive" Type="Boolean" Nullable="false" />
     <Property Name="operating" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Customer_Request" Relationship="Self.FK_Customer_Request_productMarketPlan" FromRole="productMarketPlan" ToRole="Customer_Request" />
-    <NavigationProperty Name="Deals" Relationship="Self.FK_Deal_productMarketPlan" FromRole="productMarketPlan" ToRole="Deal" />
-    <NavigationProperty Name="MarketPlanPurchaseds" Relationship="Self.FK_MarketPlanPurchased_productMarketPlan" FromRole="productMarketPlan" ToRole="MarketPlanPurchased" />
+    <NavigationProperty Name="Deal_Item" Relationship="Self.FK_Deal_Item_productMarketPlan" FromRole="productMarketPlan" ToRole="Deal_Item" />
+    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_productMarketPlan" FromRole="productMarketPlan" ToRole="Licenses" />
+    <NavigationProperty Name="OrderItems" Relationship="Self.FK_MarketPlanPurchased_productMarketPlan" FromRole="productMarketPlan" ToRole="OrderItems" />
     <NavigationProperty Name="PlanOptions" Relationship="Self.FK_PlanOptions_productMarketPlan" FromRole="productMarketPlan" ToRole="PlanOptions" />
     <NavigationProperty Name="softwareProduct" Relationship="Self.FK_orderItems_softwareProduct" FromRole="productMarketPlan" ToRole="softwareProduct" />
     <NavigationProperty Name="TrialAccounts" Relationship="Self.FK_TrialAccount_productMarketPlan" FromRole="productMarketPlan" ToRole="TrialAccount" />
+  </EntityType>
+  <EntityType Name="SaleRepCommision">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleRepID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Paid" Type="Double" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoneyFromSubcription" Type="Double" />
+    <Property Name="MoneyFromNewContract" Type="Double" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_SaleRepCommision_AspNetUsers" FromRole="SaleRepCommision" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="SaleRepProfile">
     <Key>
@@ -533,13 +577,13 @@
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
-    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_SaleRepProfile_AspNetUsers" FromRole="SaleRepProfile" ToRole="AspNetUsers" />
     <Property Name="VolumeOfSales" Type="Double" />
-    <Property Name="newContactmade" Type="Int32" />
-    <Property Name="winrate" Type="Double" />
-    <Property Name="avarageDealsize" Type="Double" />
-    <Property Name="SaleCycle" Type="Double" />
-    <Property Name="avarageActivitiesPerdeal" Type="Double" />
+    <Property Name="newContactmade" Type="Int32" Nullable="false" />
+    <Property Name="winrate" Type="Double" Nullable="false" />
+    <Property Name="SaleCycle" Type="Double" Nullable="false" />
+    <Property Name="avarageActivitiesPerdeal" Type="Double" Nullable="false" />
+    <Property Name="AvarageKPI" Type="Double" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_SaleRepProfile_AspNetUsers" FromRole="SaleRepProfile" ToRole="AspNetUsers" />
   </EntityType>
   <EntityType Name="softwareProduct">
     <Key>
@@ -558,28 +602,11 @@
     <Property Name="screenShots" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Customer_Request" Relationship="Self.FK_Customer_Request_softwareProduct" FromRole="softwareProduct" ToRole="Customer_Request" />
-    <NavigationProperty Name="Licenses" Relationship="Self.FK_Licenses_softwareProduct" FromRole="softwareProduct" ToRole="Licenses" />
-    <NavigationProperty Name="MarketPlanPurchaseds" Relationship="Self.FK_MarketPlanPurchased_softwareProduct" FromRole="softwareProduct" ToRole="MarketPlanPurchased" />
+    <NavigationProperty Name="Deals" Relationship="Self.FK_Deal_softwareProduct" FromRole="softwareProduct" ToRole="Deal" />
     <NavigationProperty Name="PrePurchase_FollowUp_Plan" Relationship="Self.FK_PrePurchase_FollowUp_Plan_softwareProduct" FromRole="softwareProduct" ToRole="PrePurchase_FollowUp_Plan" />
     <NavigationProperty Name="Product_responsible" Relationship="Self.FK_Product_responsible_softwareProduct" FromRole="softwareProduct" ToRole="Product_responsible" />
     <NavigationProperty Name="productAttributes" Relationship="Self.FK_productAttributes_softwareProduct" FromRole="softwareProduct" ToRole="productAttributes" />
     <NavigationProperty Name="productMarketPlans" Relationship="Self.FK_orderItems_softwareProduct" FromRole="softwareProduct" ToRole="productMarketPlan" />
-  </EntityType>
-  <EntityType Name="task_customer">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="taskID" Type="Int32" Nullable="false" />
-    <Property Name="customerID" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="task_user">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="taskID" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="TaskStatu">
     <Key>
@@ -620,6 +647,7 @@
     <NavigationProperty Name="TicketServerity1" Relationship="Self.FK_Ticket_TicketServerity" FromRole="Ticket" ToRole="TicketServerity" />
     <NavigationProperty Name="TicketStatu" Relationship="Self.FK_Ticket_TicketStatus" FromRole="Ticket" ToRole="TicketStatus" />
     <NavigationProperty Name="TicketComments" Relationship="Self.FK_TicketComment_Ticket" FromRole="Ticket" ToRole="TicketComment" />
+    <NavigationProperty Name="TicketFiles" Relationship="Self.FK_TicketFile_Ticket" FromRole="Ticket" ToRole="TicketFile" />
   </EntityType>
   <EntityType Name="TicketCategory">
     <Key>
@@ -642,6 +670,16 @@
     <Property Name="createddate" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="AspNetUser" Relationship="Self.FK_TicketComment_AspNetUsers" FromRole="TicketComment" ToRole="AspNetUsers" />
     <NavigationProperty Name="Ticket" Relationship="Self.FK_TicketComment_Ticket" FromRole="TicketComment" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="TicketFile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Url" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TicketID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ticket" Relationship="Self.FK_TicketFile_Ticket" FromRole="TicketFile" ToRole="Ticket" />
   </EntityType>
   <EntityType Name="TicketServerity">
     <Key>
@@ -669,6 +707,8 @@
     <Property Name="PlanID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="contactID" Type="Int32" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="contact" Relationship="Self.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contacts" />
     <NavigationProperty Name="productMarketPlan" Relationship="Self.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
   </EntityType>
@@ -736,6 +776,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="customer_salerep_responsible" Type="Self.customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="salerepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers1">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="customer_salerep_responsible" Type="Self.customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_customers_AspNetUsers">
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
     <End Role="customers" Type="Self.customer" Multiplicity="*" />
@@ -760,14 +824,38 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_MasterSchedule_User_AspNetUsers">
-    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-    <End Role="MasterSchedule_User" Type="Self.MasterSchedule_User" Multiplicity="*" />
+  <Association Name="FK_Licenses_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Licenses" Type="Self.License" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUsers">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="MasterSchedule_User">
+      <Dependent Role="Licenses">
+        <PropertyRef Name="SaleRepResponsible" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MasterSchedule_User_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="Calendar" Type="Self.Calendar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Calendar">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
         <PropertyRef Name="userID" />
       </Dependent>
     </ReferentialConstraint>
@@ -781,6 +869,18 @@
       </Principal>
       <Dependent Role="Product_responsible">
         <PropertyRef Name="saleRepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaleRepCommision_AspNetUsers">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+    <End Role="SaleRepCommision" Type="Self.SaleRepCommision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SaleRepCommision">
+        <PropertyRef Name="SaleRepID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -928,18 +1028,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Customer_Request_Customer_Request">
-    <End Role="Customer_Request" Type="Self.Customer_Request" Multiplicity="0..1" />
-    <End Role="Customer_Request1" Type="Self.Customer_Request" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer_Request">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Customer_Request1">
-        <PropertyRef Name="DealID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Customer_Request_Deal">
     <End Role="Deal" Type="Self.Deal" Multiplicity="0..1" />
     <End Role="Customer_Request" Type="Self.Customer_Request" Multiplicity="*" />
@@ -973,18 +1061,6 @@
       </Principal>
       <Dependent Role="Customer_Request">
         <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ManagerNotification_Customer_Request">
-    <End Role="Customer_Request" Type="Self.Customer_Request" Multiplicity="0..1" />
-    <End Role="ManagerNotification" Type="Self.ManagerNotification" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer_Request">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="requestID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1036,27 +1112,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Deal_Item_Deal">
+    <End Role="Deal" Type="Self.Deal" Multiplicity="1" />
+    <End Role="Deal_Item" Type="Self.Deal_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deal">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deal_Item">
+        <PropertyRef Name="dealID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Deal_PrePurchase_FollowUp_Plan">
-    <End Role="PrePurchase_FollowUp_Plan" Type="Self.PrePurchase_FollowUp_Plan" Multiplicity="0..1" />
+    <End Role="PrePurchase_FollowUp_Plan" Type="Self.PrePurchase_FollowUp_Plan" Multiplicity="1" />
     <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PrePurchase_FollowUp_Plan">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Deal">
-        <PropertyRef Name="planID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Deal_productMarketPlan">
-    <End Role="productMarketPlan" Type="Self.productMarketPlan" Multiplicity="0..1" />
-    <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="productMarketPlan">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Deal">
-        <PropertyRef Name="marketPlanID" />
+        <PropertyRef Name="CurrentPlanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1072,15 +1148,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ManagerNotification_Deal">
+  <Association Name="FK_Deal_softwareProduct">
+    <End Role="softwareProduct" Type="Self.softwareProduct" Multiplicity="1" />
+    <End Role="Deal" Type="Self.Deal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="softwareProduct">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deal">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orders_Deal">
     <End Role="Deal" Type="Self.Deal" Multiplicity="0..1" />
-    <End Role="ManagerNotification" Type="Self.ManagerNotification" Multiplicity="*" />
+    <End Role="orders" Type="Self.order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Deal">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="dealID" />
+      <Dependent Role="orders">
+        <PropertyRef Name="fromDeal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1093,6 +1181,18 @@
       </Principal>
       <Dependent Role="DealTasks">
         <PropertyRef Name="dealID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deal_Item_productMarketPlan">
+    <End Role="productMarketPlan" Type="Self.productMarketPlan" Multiplicity="1" />
+    <End Role="Deal_Item" Type="Self.Deal_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productMarketPlan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deal_Item">
+        <PropertyRef Name="planID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1132,87 +1232,51 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Licenses_softwareProduct">
-    <End Role="softwareProduct" Type="Self.softwareProduct" Multiplicity="0..1" />
+  <Association Name="FK_Licenses_productMarketPlan">
+    <End Role="productMarketPlan" Type="Self.productMarketPlan" Multiplicity="1" />
     <End Role="Licenses" Type="Self.License" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="softwareProduct">
+      <Principal Role="productMarketPlan">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Licenses">
-        <PropertyRef Name="productID" />
+        <PropertyRef Name="PlanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_oder_item_Licenses">
-    <End Role="Licenses" Type="Self.License" Multiplicity="0..1" />
-    <End Role="oder_item" Type="Self.oder_item" Multiplicity="*" />
+  <Association Name="FK_OrderItems_Licenses">
+    <End Role="Licenses" Type="Self.License" Multiplicity="1" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Licenses">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="oder_item">
-        <PropertyRef Name="licenseID" />
+      <Dependent Role="OrderItems">
+        <PropertyRef Name="LicenseID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MarketPlanPurchased_orders">
     <End Role="orders" Type="Self.order" Multiplicity="1" />
-    <End Role="MarketPlanPurchased" Type="Self.MarketPlanPurchased" Multiplicity="*" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="orders">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="MarketPlanPurchased">
+      <Dependent Role="OrderItems">
         <PropertyRef Name="orderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_MarketPlanPurchased_productMarketPlan">
     <End Role="productMarketPlan" Type="Self.productMarketPlan" Multiplicity="1" />
-    <End Role="MarketPlanPurchased" Type="Self.MarketPlanPurchased" Multiplicity="*" />
+    <End Role="OrderItems" Type="Self.OrderItem" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="productMarketPlan">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="MarketPlanPurchased">
+      <Dependent Role="OrderItems">
         <PropertyRef Name="planID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MarketPlanPurchased_softwareProduct">
-    <End Role="softwareProduct" Type="Self.softwareProduct" Multiplicity="1" />
-    <End Role="MarketPlanPurchased" Type="Self.MarketPlanPurchased" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="softwareProduct">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="MarketPlanPurchased">
-        <PropertyRef Name="productID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MasterSchedule_User_MasterCalendar">
-    <End Role="MasterCalendar" Type="Self.MasterCalendar" Multiplicity="1" />
-    <End Role="MasterSchedule_User" Type="Self.MasterSchedule_User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MasterCalendar">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="MasterSchedule_User">
-        <PropertyRef Name="scheduleID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_oder_item_orders">
-    <End Role="orders" Type="Self.order" Multiplicity="0..1" />
-    <End Role="oder_item" Type="Self.oder_item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="orders">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="oder_item">
-        <PropertyRef Name="orderID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1396,34 +1460,48 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TicketFile_Ticket">
+    <End Role="Ticket" Type="Self.Ticket" Multiplicity="1" />
+    <End Role="TicketFile" Type="Self.TicketFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TicketFile">
+        <PropertyRef Name="TicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="AspNetUserRoles">
     <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
     <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="SSMEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="SSMEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
     <EntitySet Name="attributeOptions" EntityType="Self.attributeOption" />
+    <EntitySet Name="Calendars" EntityType="Self.Calendar" />
     <EntitySet Name="companies" EntityType="Self.company" />
     <EntitySet Name="company_responsible" EntityType="Self.company_responsible" />
+    <EntitySet Name="ConfigureSys" EntityType="Self.ConfigureSy" />
     <EntitySet Name="contact_resposible" EntityType="Self.contact_resposible" />
     <EntitySet Name="contacts" EntityType="Self.contact" />
     <EntitySet Name="Customer_Request" EntityType="Self.Customer_Request" />
+    <EntitySet Name="customer_salerep_responsible" EntityType="Self.customer_salerep_responsible" />
     <EntitySet Name="customers" EntityType="Self.customer" />
     <EntitySet Name="Deals" EntityType="Self.Deal" />
+    <EntitySet Name="Deal_Item" EntityType="Self.Deal_Item" />
     <EntitySet Name="Deal_SaleRep_Respon" EntityType="Self.Deal_SaleRep_Respon" />
     <EntitySet Name="DealStatus" EntityType="Self.DealStatu" />
     <EntitySet Name="DealTasks" EntityType="Self.DealTask" />
     <EntitySet Name="EMAIL_Category" EntityType="Self.EMAIL_Category" />
     <EntitySet Name="Email_Template" EntityType="Self.Email_Template" />
     <EntitySet Name="Licenses" EntityType="Self.License" />
-    <EntitySet Name="ManagerNotifications" EntityType="Self.ManagerNotification" />
-    <EntitySet Name="MarketPlanPurchaseds" EntityType="Self.MarketPlanPurchased" />
-    <EntitySet Name="MasterCalendars" EntityType="Self.MasterCalendar" />
-    <EntitySet Name="MasterSchedule_User" EntityType="Self.MasterSchedule_User" />
-    <EntitySet Name="oder_item" EntityType="Self.oder_item" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
     <EntitySet Name="orders" EntityType="Self.order" />
     <EntitySet Name="Payments" EntityType="Self.Payment" />
     <EntitySet Name="payment_status" EntityType="Self.payment_status" />
@@ -1433,15 +1511,15 @@
     <EntitySet Name="Product_responsible" EntityType="Self.Product_responsible" />
     <EntitySet Name="productAttributes" EntityType="Self.productAttribute" />
     <EntitySet Name="productMarketPlans" EntityType="Self.productMarketPlan" />
+    <EntitySet Name="SaleRepCommisions" EntityType="Self.SaleRepCommision" />
     <EntitySet Name="SaleRepProfiles" EntityType="Self.SaleRepProfile" />
     <EntitySet Name="softwareProducts" EntityType="Self.softwareProduct" />
-    <EntitySet Name="task_customer" EntityType="Self.task_customer" />
-    <EntitySet Name="task_user" EntityType="Self.task_user" />
     <EntitySet Name="TaskStatus" EntityType="Self.TaskStatu" />
     <EntitySet Name="TaskTypes" EntityType="Self.TaskType" />
     <EntitySet Name="Tickets" EntityType="Self.Ticket" />
     <EntitySet Name="TicketCategories" EntityType="Self.TicketCategory" />
     <EntitySet Name="TicketComments" EntityType="Self.TicketComment" />
+    <EntitySet Name="TicketFiles" EntityType="Self.TicketFile" />
     <EntitySet Name="TicketServerities" EntityType="Self.TicketServerity" />
     <EntitySet Name="TicketStatus" EntityType="Self.TicketStatu" />
     <EntitySet Name="TrialAccounts" EntityType="Self.TrialAccount" />
@@ -1465,6 +1543,14 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="contact_resposible" EntitySet="contact_resposible" />
     </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers" Association="Self.FK_customer_salerep_responsible_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers1" Association="Self.FK_customer_salerep_responsible_AspNetUsers1">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
     <AssociationSet Name="FK_customers_AspNetUsers" Association="Self.FK_customers_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="customers" EntitySet="customers" />
@@ -1473,13 +1559,25 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Deal_SaleRep_Respon" EntitySet="Deal_SaleRep_Respon" />
     </AssociationSet>
+    <AssociationSet Name="FK_Licenses_AspNetUsers" Association="Self.FK_Licenses_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Licenses" EntitySet="Licenses" />
+    </AssociationSet>
     <AssociationSet Name="FK_MasterSchedule_User_AspNetUsers" Association="Self.FK_MasterSchedule_User_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="MasterSchedule_User" EntitySet="MasterSchedule_User" />
+      <End Role="Calendar" EntitySet="Calendars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_AspNetUsers" Association="Self.FK_Notification_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Notification" EntitySet="Notifications" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_responsible_AspNetUsers" Association="Self.FK_Product_responsible_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
       <End Role="Product_responsible" EntitySet="Product_responsible" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaleRepCommision_AspNetUsers" Association="Self.FK_SaleRepCommision_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="SaleRepCommision" EntitySet="SaleRepCommisions" />
     </AssociationSet>
     <AssociationSet Name="FK_SaleRepProfile_AspNetUsers" Association="Self.FK_SaleRepProfile_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1529,10 +1627,6 @@
       <End Role="contacts" EntitySet="contacts" />
       <End Role="TrialAccount" EntitySet="TrialAccounts" />
     </AssociationSet>
-    <AssociationSet Name="FK_Customer_Request_Customer_Request" Association="Self.FK_Customer_Request_Customer_Request">
-      <End Role="Customer_Request" EntitySet="Customer_Request" />
-      <End Role="Customer_Request1" EntitySet="Customer_Request" />
-    </AssociationSet>
     <AssociationSet Name="FK_Customer_Request_Deal" Association="Self.FK_Customer_Request_Deal">
       <End Role="Deal" EntitySet="Deals" />
       <End Role="Customer_Request" EntitySet="Customer_Request" />
@@ -1544,10 +1638,6 @@
     <AssociationSet Name="FK_Customer_Request_softwareProduct" Association="Self.FK_Customer_Request_softwareProduct">
       <End Role="softwareProduct" EntitySet="softwareProducts" />
       <End Role="Customer_Request" EntitySet="Customer_Request" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Customer_Request" Association="Self.FK_ManagerNotification_Customer_Request">
-      <End Role="Customer_Request" EntitySet="Customer_Request" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotifications" />
     </AssociationSet>
     <AssociationSet Name="FK_Licenses_customers" Association="Self.FK_Licenses_customers">
       <End Role="customers" EntitySet="customers" />
@@ -1565,25 +1655,33 @@
       <End Role="DealStatus" EntitySet="DealStatus" />
       <End Role="Deal" EntitySet="Deals" />
     </AssociationSet>
+    <AssociationSet Name="FK_Deal_Item_Deal" Association="Self.FK_Deal_Item_Deal">
+      <End Role="Deal" EntitySet="Deals" />
+      <End Role="Deal_Item" EntitySet="Deal_Item" />
+    </AssociationSet>
     <AssociationSet Name="FK_Deal_PrePurchase_FollowUp_Plan" Association="Self.FK_Deal_PrePurchase_FollowUp_Plan">
       <End Role="PrePurchase_FollowUp_Plan" EntitySet="PrePurchase_FollowUp_Plan" />
-      <End Role="Deal" EntitySet="Deals" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Deal_productMarketPlan" Association="Self.FK_Deal_productMarketPlan">
-      <End Role="productMarketPlan" EntitySet="productMarketPlans" />
       <End Role="Deal" EntitySet="Deals" />
     </AssociationSet>
     <AssociationSet Name="FK_Deal_SaleRep_Respon_Deal" Association="Self.FK_Deal_SaleRep_Respon_Deal">
       <End Role="Deal" EntitySet="Deals" />
       <End Role="Deal_SaleRep_Respon" EntitySet="Deal_SaleRep_Respon" />
     </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Deal" Association="Self.FK_ManagerNotification_Deal">
+    <AssociationSet Name="FK_Deal_softwareProduct" Association="Self.FK_Deal_softwareProduct">
+      <End Role="softwareProduct" EntitySet="softwareProducts" />
       <End Role="Deal" EntitySet="Deals" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orders_Deal" Association="Self.FK_orders_Deal">
+      <End Role="Deal" EntitySet="Deals" />
+      <End Role="orders" EntitySet="orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Tasks_Deal" Association="Self.FK_Tasks_Deal">
       <End Role="Deal" EntitySet="Deals" />
       <End Role="DealTasks" EntitySet="DealTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deal_Item_productMarketPlan" Association="Self.FK_Deal_Item_productMarketPlan">
+      <End Role="productMarketPlan" EntitySet="productMarketPlans" />
+      <End Role="Deal_Item" EntitySet="Deal_Item" />
     </AssociationSet>
     <AssociationSet Name="FK_Tasks_TaskStatus" Association="Self.FK_Tasks_TaskStatus">
       <End Role="TaskStatus" EntitySet="TaskStatus" />
@@ -1597,33 +1695,21 @@
       <End Role="EMAIL_Category" EntitySet="EMAIL_Category" />
       <End Role="Email_Template" EntitySet="Email_Template" />
     </AssociationSet>
-    <AssociationSet Name="FK_Licenses_softwareProduct" Association="Self.FK_Licenses_softwareProduct">
-      <End Role="softwareProduct" EntitySet="softwareProducts" />
+    <AssociationSet Name="FK_Licenses_productMarketPlan" Association="Self.FK_Licenses_productMarketPlan">
+      <End Role="productMarketPlan" EntitySet="productMarketPlans" />
       <End Role="Licenses" EntitySet="Licenses" />
     </AssociationSet>
-    <AssociationSet Name="FK_oder_item_Licenses" Association="Self.FK_oder_item_Licenses">
+    <AssociationSet Name="FK_OrderItems_Licenses" Association="Self.FK_OrderItems_Licenses">
       <End Role="Licenses" EntitySet="Licenses" />
-      <End Role="oder_item" EntitySet="oder_item" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
     </AssociationSet>
     <AssociationSet Name="FK_MarketPlanPurchased_orders" Association="Self.FK_MarketPlanPurchased_orders">
       <End Role="orders" EntitySet="orders" />
-      <End Role="MarketPlanPurchased" EntitySet="MarketPlanPurchaseds" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
     </AssociationSet>
     <AssociationSet Name="FK_MarketPlanPurchased_productMarketPlan" Association="Self.FK_MarketPlanPurchased_productMarketPlan">
       <End Role="productMarketPlan" EntitySet="productMarketPlans" />
-      <End Role="MarketPlanPurchased" EntitySet="MarketPlanPurchaseds" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MarketPlanPurchased_softwareProduct" Association="Self.FK_MarketPlanPurchased_softwareProduct">
-      <End Role="softwareProduct" EntitySet="softwareProducts" />
-      <End Role="MarketPlanPurchased" EntitySet="MarketPlanPurchaseds" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MasterSchedule_User_MasterCalendar" Association="Self.FK_MasterSchedule_User_MasterCalendar">
-      <End Role="MasterCalendar" EntitySet="MasterCalendars" />
-      <End Role="MasterSchedule_User" EntitySet="MasterSchedule_User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_oder_item_orders" Association="Self.FK_oder_item_orders">
-      <End Role="orders" EntitySet="orders" />
-      <End Role="oder_item" EntitySet="oder_item" />
+      <End Role="OrderItems" EntitySet="OrderItems" />
     </AssociationSet>
     <AssociationSet Name="FK_Payment_orders" Association="Self.FK_Payment_orders">
       <End Role="orders" EntitySet="orders" />
@@ -1684,6 +1770,10 @@
     <AssociationSet Name="FK_TicketComment_Ticket" Association="Self.FK_TicketComment_Ticket">
       <End Role="Ticket" EntitySet="Tickets" />
       <End Role="TicketComment" EntitySet="TicketComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketFile_Ticket" Association="Self.FK_TicketFile_Ticket">
+      <End Role="Ticket" EntitySet="Tickets" />
+      <End Role="TicketFile" EntitySet="TicketFiles" />
     </AssociationSet>
     <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
