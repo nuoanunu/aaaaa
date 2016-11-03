@@ -100,9 +100,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConfigureSys">
+      <EntityTypeMapping TypeName="SSMModel.ConfigureSy">
+        <MappingFragment StoreEntitySet="ConfigureSys">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="contact_resposible">
       <EntityTypeMapping TypeName="SSMModel.contact_resposible">
         <MappingFragment StoreEntitySet="contact_resposible">
+          <ScalarProperty Name="createdDate" ColumnName="createdDate" />
           <ScalarProperty Name="userID" ColumnName="userID" />
           <ScalarProperty Name="contactID" ColumnName="contactID" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -144,6 +154,15 @@
           <ScalarProperty Name="CusID" ColumnName="CusID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="RequestNo" ColumnName="RequestNo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_salerep_responsible">
+      <EntityTypeMapping TypeName="SSMModel.customer_salerep_responsible">
+        <MappingFragment StoreEntitySet="customer_salerep_responsible">
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="salerepID" ColumnName="salerepID" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -258,6 +277,12 @@
     <EntitySetMapping Name="Licenses">
       <EntityTypeMapping TypeName="SSMModel.License">
         <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+          <ScalarProperty Name="LinkUse" ColumnName="LinkUse" />
+          <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
+          <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
+          <ScalarProperty Name="PlanID" ColumnName="PlanID" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="nextTransactionDate" ColumnName="nextTransactionDate" />
           <ScalarProperty Name="customerID" ColumnName="customerID" />
@@ -268,11 +293,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ManagerNotifications">
-      <EntityTypeMapping TypeName="SSMModel.ManagerNotification">
-        <MappingFragment StoreEntitySet="ManagerNotification">
-          <ScalarProperty Name="requestID" ColumnName="requestID" />
-          <ScalarProperty Name="dealID" ColumnName="dealID" />
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="SSMModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="NotiName" ColumnName="NotiName" />
+          <ScalarProperty Name="hreflink" ColumnName="hreflink" />
           <ScalarProperty Name="viewed" ColumnName="viewed" />
           <ScalarProperty Name="NotiContent" ColumnName="NotiContent" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -284,7 +310,6 @@
       <EntityTypeMapping TypeName="SSMModel.OrderItem">
         <MappingFragment StoreEntitySet="OrderItems">
           <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
-          <ScalarProperty Name="SaleRepBenefit" ColumnName="SaleRepBenefit" />
           <ScalarProperty Name="SoldPrice" ColumnName="SoldPrice" />
           <ScalarProperty Name="planID" ColumnName="planID" />
           <ScalarProperty Name="orderID" ColumnName="orderID" />
@@ -295,6 +320,7 @@
     <EntitySetMapping Name="orders">
       <EntityTypeMapping TypeName="SSMModel.order">
         <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="fromDeal" ColumnName="fromDeal" />
           <ScalarProperty Name="Contract" ColumnName="Contract" />
           <ScalarProperty Name="completedDate" ColumnName="completedDate" />
           <ScalarProperty Name="status" ColumnName="status" />
@@ -374,6 +400,9 @@
     <EntitySetMapping Name="Product_responsible">
       <EntityTypeMapping TypeName="SSMModel.Product_responsible">
         <MappingFragment StoreEntitySet="Product_responsible">
+          <ScalarProperty Name="KPIforthisProduct" ColumnName="KPIforthisProduct" />
+          <ScalarProperty Name="AvarageDealSize" ColumnName="AvarageDealSize" />
+          <ScalarProperty Name="monthlyCommision" ColumnName="monthlyCommision" />
           <ScalarProperty Name="TotalRevenue" ColumnName="TotalRevenue" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -415,12 +444,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SaleRepCommisions">
+      <EntityTypeMapping TypeName="SSMModel.SaleRepCommision">
+        <MappingFragment StoreEntitySet="SaleRepCommision">
+          <ScalarProperty Name="MoneyFromNewContract" ColumnName="MoneyFromNewContract" />
+          <ScalarProperty Name="MoneyFromSubcription" ColumnName="MoneyFromSubcription" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+          <ScalarProperty Name="SaleRepID" ColumnName="SaleRepID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="SaleRepProfiles">
       <EntityTypeMapping TypeName="SSMModel.SaleRepProfile">
         <MappingFragment StoreEntitySet="SaleRepProfile">
+          <ScalarProperty Name="AvarageKPI" ColumnName="AvarageKPI" />
           <ScalarProperty Name="avarageActivitiesPerdeal" ColumnName="avarageActivitiesPerdeal" />
           <ScalarProperty Name="SaleCycle" ColumnName="SaleCycle" />
-          <ScalarProperty Name="avarageDealsize" ColumnName="avarageDealsize" />
           <ScalarProperty Name="winrate" ColumnName="winrate" />
           <ScalarProperty Name="newContactmade" ColumnName="newContactmade" />
           <ScalarProperty Name="VolumeOfSales" ColumnName="VolumeOfSales" />
@@ -567,6 +610,8 @@
     <EntitySetMapping Name="TrialAccounts">
       <EntityTypeMapping TypeName="SSMModel.TrialAccount">
         <MappingFragment StoreEntitySet="TrialAccount">
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="contactID" ColumnName="contactID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="PlanID" ColumnName="PlanID" />

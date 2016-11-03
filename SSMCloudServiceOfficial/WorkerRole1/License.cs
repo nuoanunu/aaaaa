@@ -30,6 +30,9 @@ namespace WorkerRole1
         public int PlanID { get; set; }
         public string SaleRepResponsible { get; set; }
         public string LicenseKey { get; set; }
+        public string LinkUse { get; set; }
+        public string AdminAccount { get; set; }
+        public string AdminPassword { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual customer customer { get; set; }

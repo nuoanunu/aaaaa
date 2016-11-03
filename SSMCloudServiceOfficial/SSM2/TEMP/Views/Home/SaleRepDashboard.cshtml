@@ -1,0 +1,278 @@
+﻿@using SSM.Models
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="height:600px;">
+            <div class="x_title">
+                <h2>Dashboard</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="row">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-caret-square-o-right"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Active Deal</h3>
+                            <p>Deal in process</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-comments-o"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Near deadline</h3>
+                            <p>Tasks which is near deadline</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-sort-amount-desc"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>New request</h3>
+                            <p>Newly Assigned Request</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-check-square-o"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Near expire licenses</h3>
+                            <p>Licenses of your customers </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>New request</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Request No.</th>
+                                            <th>Customer Name</th>
+                                            <th>Product</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Deal plan in (List
+<Deal>
+)ViewData["nd"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.Name
+                                                </td>
+                                                <td>
+                                                    @plan.contact.FirstName @plan.contact.LastName 
+                                                </td>
+                                                <td>
+                                                    @plan.softwareProduct.name
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger" href="/Deal/Detail?id=@plan.id">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Near expire licenses</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>License Key</th>
+                                            <th>Customer</th>
+                                            <th>Product Name</th>
+                                            <th>Plan Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (License plan in (List
+<License>
+)ViewData["nel"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.LicenseKey
+                                                </td>
+                                                <td>
+                                                    @plan.customer.cusName
+                                                </td>
+                                                <td>
+                                                    @plan.productMarketPlan.softwareProduct.name
+                                                </td>
+                                                <td>
+                                                    @plan.productMarketPlan.Name
+                                                </td>
+                                               
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+            
+                    <div class="col-md-12 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Near deadline</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Task Name</th>
+                                            <th>Description</th>
+                                            <th>Deadline</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (DealTask plan in (List<DealTask>)ViewData["dt"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.TaskName
+                                                </td>
+                                                <td>
+                                                    @plan.TaskDescription
+                                                </td>
+                                                <td>
+                                                    @plan.Deadline
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="/Request/Detail?id=@plan.dealID">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

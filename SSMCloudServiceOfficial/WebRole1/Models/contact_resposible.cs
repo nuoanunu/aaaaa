@@ -17,6 +17,7 @@ namespace WebRole1.Models
         public int id { get; set; }
         public int contactID { get; set; }
         public string userID { get; set; }
+        public Nullable<System.DateTime> createdDate { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual contact contact { get; set; }

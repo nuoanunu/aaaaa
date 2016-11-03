@@ -637,6 +637,9 @@
     <Property Name="PlanID" Type="Int32" Nullable="false" />
     <Property Name="SaleRepResponsible" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="LicenseKey" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdminAccount" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_Licenses_AspNetUsers" FromRole="License" ToRole="AspNetUser" />
     <NavigationProperty Name="customer" Relationship="SSMModel.FK_Licenses_customers" FromRole="License" ToRole="customer" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_Licenses_productMarketPlan" FromRole="License" ToRole="productMarketPlan" />

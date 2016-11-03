@@ -14,7 +14,32 @@ namespace SSM.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        { String userID = User.Identity.GetUserId();
+            if (User.IsInRole("manager"))
+            {
+                SSMEntities se = new SSMEntities();
+                ViewData["cr"] = se.Customer_Request.Where(u => u.DealID == null).ToList();
+                ViewData["pd"] = se.Deals.Where(u => u.Status == 3).ToList();
+                ViewData["ll"] = se.productMarketPlans.Where(u => u.Licenses.Where(i => i.customerID == null).Count() < 10).ToList();
+                ViewData["lt"] = se.productMarketPlans.Where(u => u.TrialAccounts.Where(i => i.contactID == null).Count() < 10).ToList();
+                return View("ManagerDashboard");
+            }
+            else if (User.IsInRole("SalesRep")) {
+                SSMEntities se = new SSMEntities();
+                List<Deal_SaleRep_Respon> dll = se.Deal_SaleRep_Respon.Where(u => u.userID.Equals(userID)).ToList();
+                List<DealTask> dt = new List<DealTask>();
+                List<Deal> nd = new List<Deal>();
+                foreach (Deal_SaleRep_Respon dsr in dll) {
+                    dt.AddRange(dsr.Deal.DealTasks.Where(u => u.Deadline != null && u.type != 7 && u.type != 8).ToList());
+                    if (dsr.Deal.StartDate == DateTime.Today) {
+                        nd.Add(dsr.Deal);
+                    }
+                }
+                ViewData["dt"] = dt.Where(u => (((DateTime)u.Deadline) - DateTime.Now).TotalDays <= 1).ToList();
+                ViewData["nel"] = se.Licenses.Where(u => u.nextTransactionDate < DateTime.Now && u.SaleRepResponsible.Equals(userID)).ToList();
+                ViewData["nd"] = nd;
+                return View("SaleRepDashboard");
+            }
             return View();
         }
         public class mynoti{

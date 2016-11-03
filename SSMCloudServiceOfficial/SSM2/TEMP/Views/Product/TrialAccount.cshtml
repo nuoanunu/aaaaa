@@ -1,7 +1,7 @@
 ﻿@using SSM.Models
 <script>
     $(document).ready(function () {
-        $("#lowlicense").dataTable();
+        $("#lowTrialAccount").dataTable();
         $("#nearexpire").dataTable();
     })
 </script>
@@ -9,7 +9,7 @@
     <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
-            <span class="count_top"><i class="fa fa-user"></i> Total Trial Account</span>
+            <span class="count_top"><i class="fa fa-user"></i> Total Trial Accounts</span>
             <div class="count">2500</div>
         </div>
     </div>
@@ -30,135 +30,141 @@
     <div class="animated flipInY col-md-3 col-sm-4 col-xs-4 tile_stats_count">
         <div class="left"></div>
         <div class="right">
-            <span class="count_top"><i class="fa fa-user"></i> Low trial account plan</span>
+            <span class="count_top"><i class="fa fa-user"></i> Low TrialAccounts plan</span>
             <div class="count">4,567</div>
         </div>
     </div>
 
 </div>
 <div class="row">
-    <div class="x_panel">
-        <div class="col-md-7 col-sm-6 col-xs-12">
-            <div class="x_title">
-                <h2><i class="fa fa-align-left"></i> Low trial account Plan</h2>
-
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <table class="table table-bordered" id="lowlicense">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Plan Name</th>
-                            <th>Last Update</th>
-                            <th>Available trial account</th>
-                            <th>Detail</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["LowList"])
-                        {
-                            <tr>
-                                <td>
-                                    @plan.id
-                                </td>
-                                <td>
-                                    @plan.Name
-                                </td>
-                                <td>
-                                    @plan.lastUpdate
-                                </td>
-                                <td>
-                                    @plan.TrialAccounts.Where(u => u.contactID == null).Count()
-                                </td>
-                                <td>
-                                    <a class="btn btn-warning" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
-                                </td>
-                            </tr>
-                        }
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12">
-
-            <div class="x_title">
-                <h2>Trial in use</h2>
-
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <h4>Trial Accounts Usage across plan</h4>
-                @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["TopPlan"])
-                {
-                    <div class="widget_summary" style="padding-top:25px">
-                        <div class="w_left w_25">
-                            <span>@plan.Name</span>
-                        </div>
-                        <div class="w_center w_55">
-                            <div class="progress">
-                                @if (plan.TrialAccounts.Count() != 0)
-                                {
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @(100*plan.TrialAccounts.Where(u=>u.contactID!= null).Count()/plan.TrialAccounts.Count())%;">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                        <span class="sr-only">0</span>
-                                    </div>
-                                }
-
-                            </div>
-                        </div>
-                        <div class="w_right w_20">
-                            <span>@plan.TrialAccounts.Where(u => u.contactID != null).Count()</span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                        <br />
-                }
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="row">
     <div class="col-md-12 col-sm-6 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2><i class="fa fa-align-left"></i> Trial Account count <small> Per Market Plan</small></h2>
-
+                <h2>Trial Accounts manage</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
 
-                <!-- start accordion -->
-                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                    @foreach (softwareProduct software in (List<softwareProduct>)ViewData["SoftwareList"])
-                    {
-                        <div class="panel">
-                            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapse@(software.id)" aria-expanded="true" aria-controls="collapse@(software.id)">
-                                <h4 class="panel-title">@software.name</h4>
-                            </a>
-                            <div id="collapse@(software.id)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <table class="table table-bordered">
+
+                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tab_content" id="home1-tab" role="tab" data-toggle="tab" aria-expanded="true">All Trial Account</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Trial Accounts Usage</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Product Trial Accounts</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Near Expire</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2><i class="fa fa-align-left"></i> All TrialAccounts</h2>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <table width="100%" class="table table-bordered" id="nearexpire">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Status</th>
+                                                        <th>Account</th>
+                                                        <th>Customer</th>
+                                                        <th>Plan</th>
+                                                        <th>Product</th>
+                                       
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (TrialAccount lic in (List<TrialAccount>)ViewData["TriList"])
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @lic.AccountID
+                                                            </td>
+                                                            <td>
+                                                                @lic.trial_account_status.trialStatus
+                                                            </td>
+                                                            <td>
+                                                                @lic.UserName
+                                                            </td>
+
+                                                            @if (lic.contactID != null)
+                                                            {
+                                                                <td>
+                                                                    @lic.contact.FirstName @lic.contact.MiddleName  @lic.contact.LastName 
+                                                                </td>
+                                                            }
+                                                            @if (lic.contactID == null)
+                                                            {
+                                                                <td></td>
+                                                            }
+
+
+                                                            <td>
+                                                                @lic.productMarketPlan.Name
+                                                            </td>
+                                                            <td>
+                                                                @lic.productMarketPlan.softwareProduct.name
+                                                            </td>
+                                 
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content1" aria-labelledby="home-tab">
+                            <div class="col-md-7 col-sm-6 col-xs-12">
+                                <div class="x_title">
+                                    <h2><i class="fa fa-align-left"></i> Low Trial Accounts Plan</h2>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table width="100%" class="table table-bordered" id="lowTrialAccount">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Plan Name</th>
                                                 <th>Last Update</th>
-                                                <th>Available Trial Accounts</th>
+                                                <th>Available TrialAccounts</th>
                                                 <th>Detail</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach (productMarketPlan plan in software.productMarketPlans)
+                                            @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["LowList"])
                                             {
                                                 <tr>
                                                     <td>
@@ -174,7 +180,7 @@
                                                         @plan.TrialAccounts.Where(u => u.contactID == null).Count()
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-success" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
+                                                        <a class="btn btn-warning" href="/Product/MarketPlanDetail?id=@(plan.id)">Detail</a>
                                                     </td>
                                                 </tr>
                                             }
@@ -183,100 +189,466 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <div class="x_title">
+                                    <h2>TrialAccount usage</h2>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <h4>TrialAccounts Usage across plan</h4>
+                                    @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["TopPlan"])
+                                    {
+                                        <div class="widget_summary" style="padding-top:25px">
+                                            <div class="w_left w_25">
+                                                <span>@plan.Name</span>
+                                            </div>
+                                            <div class="w_center w_55">
+                                                <div class="progress">
+                                                    @if (plan.TrialAccounts.Count() != 0)
+                                                    {
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @(100*plan.TrialAccounts.Where(u=>u.contactID!= null).Count()/plan.TrialAccounts.Count())%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                                            <span class="sr-only">0</span>
+                                                        </div>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="w_right w_20">
+                                                <span>@plan.TrialAccounts.Where(u => u.contactID != null).Count()</span>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <br />
+                                    }
+                                </div>
+
+                            </div>
                         </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2><i class="fa fa-align-left"></i> TrialAccount count <small> Per Market Plan</small></h2>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+
+                                            <!-- start accordion -->
+                                            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                                @foreach (softwareProduct software in (List<softwareProduct>)ViewData["SoftwareList"])
+                                                {
+                                                    <div class="panel">
+                                                        <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapse@(software.id)" aria-expanded="true" aria-controls="collapse@(software.id)">
+                                                            <h4 class="panel-title">@software.name</h4>
+                                                        </a>
+                                                        <div id="collapse@(software.id)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>#</th>
+                                                                            <th>Plan Name</th>
+                                                                            <th>Last Update</th>
+                                                                            <th>Available TrialAccounts</th>
+                                                                            <th>Using</th>
+                                                                            <th>Total</th>
+                                                                            <th>Detail</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (productMarketPlan plan in software.productMarketPlans)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    @plan.id
+                                                                                </td>
+                                                                                <td>
+                                                                                    @plan.Name
+                                                                                </td>
+                                                                                <td>
+                                                                                    @plan.lastUpdate
+                                                                                </td>
+                                                                                <td>
+                                                                                    @plan.TrialAccounts.Where(u => u.contactID == null).Count()
+                                                                                </td>
+                                                                                <td>
+                                                                                    @plan.TrialAccounts.Where(u => u.contactID != null).Count()
+                                                                                </td>
+                                                                                <td>
+                                                                                    @plan.TrialAccounts.Count()
+                                                                                </td>
+                                                                                <td>
+                                                                                    <a class="btn btn-success" href="/Product/MarketPlanDetail?id=@(plan.id)">Detail</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+
+
+                                            </div>
+                                            <!-- end of accordion -->
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2><i class="fa fa-align-left"></i> Near Expire Trial Accounts</h2>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <form action="/Product/FiltersTrialAccount" method="post">
+                                                <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                                    <div class="panel">
+                                                        <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseproducts" aria-expanded="true" aria-controls="collapseproducts">
+                                                            <h4 class="panel-title">Filter by products  </h4>
+                                                        </a>
+                                                        <div id="collapseproducts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    @foreach (softwareProduct soft in (List<softwareProduct>)ViewData["SoftwareList"])
+                                                                    {
+                                                                        <div class="col-md-2"><label>@soft.name <input type="checkbox" value="@soft.id" name="productIDs[]" /></label></div>
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseplan" aria-expanded="false" aria-controls="collapseplan">
+                                                            <h4 class="panel-title">Filter by plan</h4>
+                                                        </a>
+                                                        <div id="collapseplan" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                            <div class="panel-body">
+                                                                <div class="row">
+                                                                    @foreach (productMarketPlan soft in (List<productMarketPlan>)ViewData["PlanList"])
+                                                                    {
+                                                                        <div class="col-md-2"><label>@soft.Name <input type="checkbox" value="@soft.id" name="planIDs[]" /></label></div>
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                                </div>
+                                            </form>
+
+                                            <table class="table table-bordered" id="nearexpire">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Status</th>
+                                                        <th>Customer</th>
+                                                        <th>Plan</th>
+                                                        <th>Product</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (TrialAccount lic in (List<TrialAccount>)ViewData["NearExpire"])
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                @lic.AccountID
+                                                            </td>
+                                                            <td>
+                                                                @lic.UserName
+                                                            </td>
+                                                            <td>
+                                                                @lic.contact.FirstName @lic.contact.MiddleName @lic.contact.LastName 
+                                                            </td>
+                                                            <td>
+                                                                @lic.productMarketPlan.Name
+                                                            </td>
+                                                            <td>
+                                                                @lic.productMarketPlan.softwareProduct.name
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*<div class="x_panel">
+            <div class="col-md-7 col-sm-6 col-xs-12">
+                <div class="x_title">
+                    <h2><i class="fa fa-align-left"></i> Low TrialAccounts Plan</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-bordered" id="lowTrialAccount">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Plan Name</th>
+                                <th>Last Update</th>
+                                <th>Available TrialAccounts</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["LowList"])
+                            {
+                                <tr>
+                                    <td>
+                                        @plan.id
+                                    </td>
+                                    <td>
+                                        @plan.Name
+                                    </td>
+                                    <td>
+                                        @plan.lastUpdate
+                                    </td>
+                                    <td>
+                                        @plan.TrialAccounts.Where(u => u.customerID == null).Count()
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-warning" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                <div class="x_title">
+                    <h2>TrialAccount usage</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <h4>TrialAccounts Usage across plan</h4>
+                    @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["TopPlan"])
+                    {
+                        <div class="widget_summary" style="padding-top:25px">
+                            <div class="w_left w_25">
+                                <span>@plan.Name</span>
+                            </div>
+                            <div class="w_center w_55">
+                                <div class="progress">
+                                    @if (plan.TrialAccounts.Count() != 0)
+                                    {
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @(100*plan.TrialAccounts.Where(u=>u.customerID!= null).Count()/plan.TrialAccounts.Count())%;">
+                                            <span class="sr-only">60% Complete</span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="sr-only">0</span>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="w_right w_20">
+                                <span>@plan.TrialAccounts.Where(u => u.customerID != null).Count()</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                            <br />
                     }
+                </div>
+
+            </div>
+        </div>*@
+
+</div>
+
+@*<div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-align-left"></i> TrialAccount count <small> Per Market Plan</small></h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <!-- start accordion -->
+                    <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                        @foreach (softwareProduct software in (List<softwareProduct>)ViewData["SoftwareList"])
+                        {
+                            <div class="panel">
+                                <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapse@(software.id)" aria-expanded="true" aria-controls="collapse@(software.id)">
+                                    <h4 class="panel-title">@software.name</h4>
+                                </a>
+                                <div id="collapse@(software.id)" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Plan Name</th>
+                                                    <th>Last Update</th>
+                                                    <th>Available TrialAccounts</th>
+                                                    <th>Using</th>
+                                                    <th>Total</th>
+                                                    <th>Detail</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (productMarketPlan plan in software.productMarketPlans)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @plan.id
+                                                        </td>
+                                                        <td>
+                                                            @plan.Name
+                                                        </td>
+                                                        <td>
+                                                            @plan.lastUpdate
+                                                        </td>
+                                                        <td>
+                                                            @plan.TrialAccounts.Where(u => u.customerID == null).Count()
+                                                        </td>
+                                                        <td>
+                                                            @plan.TrialAccounts.Where(u => u.customerID != null).Count()
+                                                        </td>
+                                                        <td>
+                                                            @plan.TrialAccounts.Count()
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-success" href="/Product/MarketPlanDetail?id@(plan.id)">Detail</a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                    <!-- end of accordion -->
 
 
                 </div>
-                <!-- end of accordion -->
-
-
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12 col-sm-6 col-xs-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2><i class="fa fa-align-left"></i> Near Expire Trial Account</h2>
+    </div>*@
+@*<div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-align-left"></i> Near Expire TrialAccounts</h2>
 
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <form action="/Product/FiltersTrial" method="post">
-                    <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel">
-                            <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseproducts" aria-expanded="true" aria-controls="collapseproducts">
-                                <h4 class="panel-title">Filter by products  </h4>
-                            </a>
-                            <div id="collapseproducts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        @foreach (softwareProduct soft in (List<softwareProduct>)ViewData["SoftwareList"])
-                                        {
-                                            <div class="col-md-2"><label>@soft.name <input type="checkbox" value="@soft.id" name="productIDs[]" /></label></div>
-                                        }
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form action="/Product/FiltersTrialAccount" method="post">
+                        <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel">
+                                <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseproducts" aria-expanded="true" aria-controls="collapseproducts">
+                                    <h4 class="panel-title">Filter by products  </h4>
+                                </a>
+                                <div id="collapseproducts" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            @foreach (softwareProduct soft in (List<softwareProduct>)ViewData["SoftwareList"])
+                                            {
+                                                <div class="col-md-2"><label>@soft.name <input type="checkbox" value="@soft.id" name="productIDs[]" /></label></div>
+                                            }
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="panel">
-                            <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseplan" aria-expanded="false" aria-controls="collapseplan">
-                                <h4 class="panel-title">Filter by plan</h4>
-                            </a>
-                            <div id="collapseplan" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        @foreach (productMarketPlan soft in (List<productMarketPlan>)ViewData["PlanList"])
-                                        {
-                                            <div class="col-md-2"><label>@soft.Name <input type="checkbox" value="@soft.id" name="planIDs[]" /></label></div>
-                                        }
+                            <div class="panel">
+                                <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseplan" aria-expanded="false" aria-controls="collapseplan">
+                                    <h4 class="panel-title">Filter by plan</h4>
+                                </a>
+                                <div id="collapseplan" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            @foreach (productMarketPlan soft in (List<productMarketPlan>)ViewData["PlanList"])
+                                            {
+                                                <div class="col-md-2"><label>@soft.Name <input type="checkbox" value="@soft.id" name="planIDs[]" /></label></div>
+                                            }
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary">Filter</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Filter</button>
-                    </div>
-                </form>
+                    </form>
 
-                <table class="table table-bordered" id="nearexpire">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Account</th>
-                            <th>Customer</th>
-                            <th>Plan</th>
-                            <th>Product</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (TrialAccount lic in (List<TrialAccount>)ViewData["NearExpire"])
-                        {
+                    <table class="table table-bordered" id="nearexpire">
+                        <thead>
                             <tr>
-                                <td>
-                                    @lic.AccountID
-                                </td>
-                                <td>
-                                    @lic.UserName
-                                </td>
-                                <td>
-                                    @lic.contact.FirstName @lic.contact.LastName
-                                </td>
-                                <td>
-                                    @lic.productMarketPlan.Name
-                                </td>
-                                <td>
-                                    @lic.productMarketPlan.softwareProduct.name
-                                </td>
+                                <th>#</th>
+                                <th>Key</th>
+                                <th>Customer</th>
+                                <th>Plan</th>
+                                <th>Product</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (TrialAccount lic in (List<TrialAccount>)ViewData["NearExpire"])
+                            {
+                                <tr>
+                                    <td>
+                                        @lic.id
+                                    </td>
+                                    <td>
+                                        @lic.TrialAccountKey
+                                    </td>
+                                    <td>
+                                        @lic.customer.cusName
+                                    </td>
+                                    <td>
+                                        @lic.productMarketPlan.Name
+                                    </td>
+                                    <td>
+                                        @lic.productMarketPlan.softwareProduct.name
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
+    </div>*@

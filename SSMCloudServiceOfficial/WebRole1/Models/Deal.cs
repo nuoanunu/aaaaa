@@ -20,7 +20,7 @@ namespace WebRole1.Models
             this.Customer_Request = new HashSet<Customer_Request>();
             this.Deal_Item = new HashSet<Deal_Item>();
             this.Deal_SaleRep_Respon = new HashSet<Deal_SaleRep_Respon>();
-            this.ManagerNotifications = new HashSet<ManagerNotification>();
+            this.orders = new HashSet<order>();
             this.DealTasks = new HashSet<DealTask>();
         }
     
@@ -44,11 +44,12 @@ namespace WebRole1.Models
         public virtual DealStatu DealStatu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal_Item> Deal_Item { get; set; }
+        public virtual PrePurchase_FollowUp_Plan PrePurchase_FollowUp_Plan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Deal_SaleRep_Respon> Deal_SaleRep_Respon { get; set; }
         public virtual softwareProduct softwareProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ManagerNotification> ManagerNotifications { get; set; }
+        public virtual ICollection<order> orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealTask> DealTasks { get; set; }
     }

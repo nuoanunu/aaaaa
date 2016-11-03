@@ -25,5 +25,6 @@ namespace SSM.Models
     
         public virtual contact contact { get; set; }
         public virtual productMarketPlan productMarketPlan { get; set; }
+        public virtual trial_account_status trial_account_status { get; set; }
     }
 }

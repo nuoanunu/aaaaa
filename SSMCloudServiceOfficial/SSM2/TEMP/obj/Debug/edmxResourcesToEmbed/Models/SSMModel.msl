@@ -277,6 +277,9 @@
     <EntitySetMapping Name="Licenses">
       <EntityTypeMapping TypeName="SSMModel.License">
         <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+          <ScalarProperty Name="LinkUse" ColumnName="LinkUse" />
           <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
           <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
           <ScalarProperty Name="PlanID" ColumnName="PlanID" />
@@ -600,6 +603,14 @@
       <EntityTypeMapping TypeName="SSMModel.TicketStatu">
         <MappingFragment StoreEntitySet="TicketStatus">
           <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trial_account_status">
+      <EntityTypeMapping TypeName="SSMModel.trial_account_status">
+        <MappingFragment StoreEntitySet="trial_account_status">
+          <ScalarProperty Name="trialStatus" ColumnName="trialStatus" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

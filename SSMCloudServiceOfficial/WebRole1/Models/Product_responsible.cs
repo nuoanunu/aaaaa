@@ -22,6 +22,9 @@ namespace WebRole1.Models
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<double> TotalRevenue { get; set; }
+        public Nullable<double> monthlyCommision { get; set; }
+        public Nullable<double> AvarageDealSize { get; set; }
+        public Nullable<double> KPIforthisProduct { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual softwareProduct softwareProduct { get; set; }

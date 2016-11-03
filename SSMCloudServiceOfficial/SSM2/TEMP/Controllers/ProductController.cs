@@ -70,6 +70,7 @@ namespace SSM.Controllers
                                    ).Take(10).ToList();
             ViewData["NearExpire"] = se.Licenses.Where(u => u.nextTransactionDate != null && u.customerID!=null && DbFunctions.DiffDays(u.nextTransactionDate, DateTime.Now)<7).ToList();
             ViewData["SoftwareList"] = se.softwareProducts.ToList();
+            ViewData["LicList"] = se.Licenses.ToList();
             ViewData["PlanList"] = se.productMarketPlans.ToList();
             ViewData["LowList"] = se.productMarketPlans.Where(u => u.Licenses.Where(i => i.customerID == null).Count() < 10).ToList();
             return View("Licenses");
@@ -84,7 +85,7 @@ namespace SSM.Controllers
             ViewData["SoftwareList"] = se.softwareProducts.ToList();
             ViewData["PlanList"] = se.productMarketPlans.ToList();
             ViewData["LowList"] = se.productMarketPlans.Where(u => u.TrialAccounts.Where(i => i.contactID == null).Count() < 10).ToList();
-
+            ViewData["TriList"] = se.TrialAccounts.ToList();
             return View("TrialAccount");
         }
         public ActionResult MarketPlanDetail(int id) {
@@ -140,13 +141,16 @@ namespace SSM.Controllers
             return RedirectToAction("MarketPlanDetail", new { id = planID });
         }
         [HttpPost]
-        public ActionResult NewLicense(String key, int duration, int planID)
+        public ActionResult NewLicense(String key, int duration, int planID, String url,String adminaccount, string adminpassword)
         {
             SSMEntities se = new SSMEntities();
             License lic = new License();
             lic.PlanID = planID;
             lic.licenseDuration = duration;
             lic.LicenseKey = key;
+            lic.LinkUse = url;
+            lic.AdminAccount = adminaccount;
+            lic.AdminPassword = adminpassword;
             se.Licenses.Add(lic);
             se.SaveChanges();
             return RedirectToAction("MarketPlanDetail", new { id = planID });
@@ -494,8 +498,9 @@ namespace SSM.Controllers
                         lic.LicenseKey = ((Excel.Range)range.Cells[row, 1]).Text;
                         lic.PlanID = planID;
                         lic.licenseDuration = ((Excel.Range)range.Cells[row, 2]).Text;
-         
-
+                        lic.LinkUse = ((Excel.Range)range.Cells[row, 3]).Text;
+                        lic.AdminAccount = ((Excel.Range)range.Cells[row, 4]).Text;
+                        lic.AdminPassword = ((Excel.Range)range.Cells[row, 5]).Text;
                         //account.PlanID = int.Parse(((Excel.Range)range.Cells[row, 3]).Text);
                         //DateTime createdDate = Convert.ToDateTime(((Excel.Range)range.Cells[row, 4]).Text);
                         //account.createdDate = createdDate;

@@ -27,8 +27,16 @@ namespace WebRole1.Models
         public Nullable<int> customerID { get; set; }
         public Nullable<System.DateTime> nextTransactionDate { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
+        public int PlanID { get; set; }
+        public string SaleRepResponsible { get; set; }
+        public string LicenseKey { get; set; }
+        public string LinkUse { get; set; }
+        public string AdminAccount { get; set; }
+        public string AdminPassword { get; set; }
     
+        public virtual AspNetUser AspNetUser { get; set; }
         public virtual customer customer { get; set; }
+        public virtual productMarketPlan productMarketPlan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }

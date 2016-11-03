@@ -52,11 +52,11 @@ namespace WebRole1.Models
         public string Country { get; set; }
         public Nullable<System.DateTime> dateOfBirth { get; set; }
         public Nullable<double> VolumeOfSales { get; set; }
-        public Nullable<int> newContactmade { get; set; }
-        public Nullable<double> winrate { get; set; }
-        public Nullable<double> avarageDealsize { get; set; }
-        public Nullable<double> SaleCycle { get; set; }
-        public Nullable<double> avarageActivitiesPerdeal { get; set; }
+        public int newContactmade { get; set; }
+        public double winrate { get; set; }
+        public double SaleCycle { get; set; }
+        public double avarageActivitiesPerdeal { get; set; }
+        public double AvarageKPI { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }

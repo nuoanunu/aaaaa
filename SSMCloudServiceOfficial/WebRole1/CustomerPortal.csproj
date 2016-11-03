@@ -241,6 +241,9 @@
     <Compile Include="Models\company_responsible.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConfigureSy.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\contact.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -252,6 +255,9 @@
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer_Request.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customer_salerep_responsible.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Deal.cs">
@@ -280,10 +286,10 @@
     <Compile Include="Models\License.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManagerNotification.cs">
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\order.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
@@ -312,6 +318,9 @@
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product_responsible.cs">
+      <DependentUpon>SSMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaleRepCommision.cs">
       <DependentUpon>SSMModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SaleRepProfile.cs">

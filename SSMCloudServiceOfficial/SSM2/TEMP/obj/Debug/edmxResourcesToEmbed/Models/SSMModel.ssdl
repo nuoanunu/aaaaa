@@ -276,6 +276,9 @@
     <Property Name="PlanID" Type="int" Nullable="false" />
     <Property Name="SaleRepResponsible" Type="nvarchar" MaxLength="128" />
     <Property Name="LicenseKey" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LinkUse" Type="nvarchar(max)" />
+    <Property Name="AdminAccount" Type="nvarchar" MaxLength="128" />
+    <Property Name="AdminPassword" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="Notification">
     <Key>
@@ -568,6 +571,13 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="trial_account_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="trialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="TrialAccount">
     <Key>
@@ -1370,6 +1380,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TrialAccount_trial_account_status">
+    <End Role="trial_account_status" Type="Self.trial_account_status" Multiplicity="1" />
+    <End Role="TrialAccount" Type="Self.TrialAccount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trial_account_status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TrialAccount">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="SSMModelStoreContainer">
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -1416,6 +1438,7 @@
     <EntitySet Name="TicketFile" EntityType="Self.TicketFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TicketServerity" EntityType="Self.TicketServerity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TicketStatus" EntityType="Self.TicketStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trial_account_status" EntityType="Self.trial_account_status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrialAccount" EntityType="Self.TrialAccount" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_attributeOption_AspNetUsers" Association="Self.FK_attributeOption_AspNetUsers">
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1675,6 +1698,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_TrialAccount_productMarketPlan" Association="Self.FK_TrialAccount_productMarketPlan">
       <End Role="productMarketPlan" EntitySet="productMarketPlan" />
+      <End Role="TrialAccount" EntitySet="TrialAccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrialAccount_trial_account_status" Association="Self.FK_TrialAccount_trial_account_status">
+      <End Role="trial_account_status" EntitySet="trial_account_status" />
       <End Role="TrialAccount" EntitySet="TrialAccount" />
     </AssociationSet>
   </EntityContainer>

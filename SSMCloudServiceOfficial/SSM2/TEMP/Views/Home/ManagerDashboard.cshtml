@@ -1,0 +1,344 @@
+﻿@using SSM.Models
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="height:600px;">
+            <div class="x_title">
+                <h2>Dashboard</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <div class="row">
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-caret-square-o-right"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Low licenses</h3>
+                            <p>Plans which run out of licenses</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-comments-o"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Low trial account</h3>
+                            <p>Plan which run out of trial account</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-sort-amount-desc"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Pending request</h3>
+                            <p>Un-assigned request</p>
+                        </div>
+                    </div>
+                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="tile-stats">
+                            <div class="icon">
+                                <i class="fa fa-check-square-o"></i>
+                            </div>
+                            <div class="count">179</div>
+
+                            <h3>Pending orders</h3>
+                            <p>Order waiting for licenses</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Low licenses Plans</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Plan Name</th>
+                                            <th>Product Name</th>
+                                            <th>Licenses Left</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (productMarketPlan plan in (List
+            <productMarketPlan>
+                )ViewData["ll"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.Name
+                                                </td>
+                                                <td>
+                                                    @plan.softwareProduct.name
+                                                </td>
+                                                <td>
+                                                    @plan.Licenses.Where(u => u.customerID == null).Count()
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger" href="/Product/MarketPlanDetail?id=@plan.id">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Low trial account plans</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Plan Name</th>
+                                            <th>Product Name</th>
+                                            <th>Licenses Left</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (productMarketPlan plan in (List
+            <productMarketPlan>
+                )ViewData["lt"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.Name
+                                                </td>
+                                                <td>
+                                                    @plan.softwareProduct.name
+                                                </td>
+                                                <td>
+                                                    @plan.Licenses.Where(u => u.customerID == null).Count()
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger" href="/Product/MarketPlanDetail?id=@plan.id">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Pending Deals</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Deal Name</th>
+                                            <th>Value</th>
+                                            <th>Customer</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Deal plan in (List<Deal>)ViewData["pd"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.Name
+                                                </td>
+                                                <td>
+                                                    @plan.Value
+                                                </td>
+                                                <td>
+                                                    @plan.contact.FirstName @plan.contact.MiddleName @plan.contact.LastName
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="/Deal/Detail?id=@plan.id">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Pending requests</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li>
+                                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="#">Settings 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Created Date</th>
+                                            <th>Customer Name</th>
+                                            <th>Product</th>
+                                            <th>Detail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (Customer_Request plan in (List<Customer_Request>)ViewData["cr"])
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @plan.id
+                                                </td>
+                                                <td>
+                                                    @plan.CreatedDate
+                                                </td>
+                                                <td>
+                                                    @plan.contact.FirstName @plan.contact.LastName
+                                                </td>
+                                                <td>
+                                                    @plan.softwareProduct.name
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="/Request/Detail?id=@plan.id">Detail</a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

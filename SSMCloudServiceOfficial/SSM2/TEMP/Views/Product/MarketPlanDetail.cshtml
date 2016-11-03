@@ -6,10 +6,6 @@
 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> </script>
 <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"> </script>
 
-<script src="~/Scripts/chartjs/chart.min.js"></script>
-<script src="~/Scripts/moris/raphael-min.js"></script>
-<script src="~/Scripts/moris/morris.min.js"></script>
-<script src="~/Scripts/pace/pace.min.js"></script>
 <script type="text/javascript" src="~/Scripts/flot/jquery.flot.js"></script>
 <script type="text/javascript" src="~/Scripts/flot/jquery.flot.pie.js"></script>
 <script type="text/javascript" src="~/Scripts/flot/jquery.flot.orderBars.js"></script>
@@ -20,22 +16,7 @@
 <script type="text/javascript" src="~/Scripts/flot/curvedLines.js"></script>
 <script type="text/javascript" src="~/Scripts/flot/jquery.flot.resize.js"></script>
 
-<script src="~/Scripts/nicescroll/jquery.nicescroll.min.js"></script>
-<!-- bootstrap progress js -->
-<script src="~/Scripts/progressbar/bootstrap-progressbar.min.js"></script>
-<!-- icheck -->
-<script src="~/Scripts/icheck/icheck.min.js"></script>
-<!-- daterangepicker -->
-<script type="text/javascript" src="~/Scripts/moment/moment.min.js"></script>
-<script type="text/javascript" src="~/Scripts/datepicker/daterangepicker.js"></script>
-<!-- chart js -->
-<script src="~/Scripts/chartjs/chart.min.js"></script>
-<!-- sparkline -->
-<script src="~/Scripts/sparkline/jquery.sparkline.min.js"></script>
-<script src="~/Scripts/custom.js"></script>
-<!-- pace -->
-<script src="~/Scripts/pace/pace.min.js"></script>
-<!-- flot -->
+
 
 <script>
     $(document).ready(function(){
@@ -49,99 +30,99 @@
     var chartColours = ['#96CA59', '#3F97EB', '#72c380', '#6f7a8a', '#f7cb38', '#5a8022', '#2c7282'];
 
     //generate random number for charts
-    randNum = function() {
-      return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+    randNum = function () {
+        return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
     }
 
-    $(function() {
-      var d1 = [];
-      //var d2 = [];
-      for (var i = 1; i < 13; i++) {
-        
-      
-          d1.push([i , randNum()]);
-        
-          // d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
-  
-      }
+    $(function () {
+        var d1 = [];
+        //var d2 = [];
+        for (var i = 1; i < 13; i++) {
 
-      var chartMinDate = d1[0][0]; //first day
-      var chartMaxDate = d1[11][0]; //last day
 
-      var tickSize = [1, "month"];
-      var tformat = "%m/%y";
+            d1.push([i, randNum()]);
 
-      //graph options
-      var options = {
-        grid: {
-          show: true,
-          aboveData: true,
-          color: "#3f3f3f",
-          labelMargin: 10,
-          axisMargin: 0,
-          borderWidth: 0,
-          borderColor: null,
-          minBorderMargin: 5,
-          clickable: true,
-          hoverable: true,
-          autoHighlight: true,
-          mouseActiveRadius: 100
-        },
-        series: {
-          lines: {
-            show: true,
-            fill: true,
-            lineWidth: 2,
-            steps: false
-          },
-          points: {
-            show: true,
-            radius: 4.5,
-            symbol: "circle",
-            lineWidth: 3.0
-          }
-        },
-        legend: {
-          position: "ne",
-          margin: [0, -25],
-          noColumns: 0,
-          labelBoxBorderColor: null,
-          labelFormatter: function(label, series) {
-            // just add some space to labes
-            return label + '&nbsp;&nbsp;';
-          },
-          width: 40,
-          height: 1
-        },
-        colors: chartColours,
-        shadowSize: 0,
-        tooltip: true, //activate tooltip
-        tooltipOpts: {
-          content: "%s: %y.0",
-          xDateFormat: "%d/%m",
-          shifts: {
-            x: -30,
-            y: -50
-          },
-          defaultTheme: false
-        },
-        yaxis: {
-          min: 0
-        },
-        xaxis: {
-       
+            // d2.push([new Date(Date.today().add(i).days()).getTime(), randNum()]);
+
         }
-      };
-      var plot = $.plot($("#placeholder33x"), [{
-        label: "Sales made",
-        data: d1,
-        lines: {
-          fillColor: "rgba(150, 202, 89, 0.12)"
-        }, //#96CA59 rgba(150, 202, 89, 0.42)
-        points: {
-          fillColor: "#fff"
-        }
-      }], options);
+
+        var chartMinDate = d1[0][0]; //first day
+        var chartMaxDate = d1[11][0]; //last day
+
+        var tickSize = [1, "month"];
+        var tformat = "%m/%y";
+
+        //graph options
+        var options = {
+            grid: {
+                show: true,
+                aboveData: true,
+                color: "#3f3f3f",
+                labelMargin: 10,
+                axisMargin: 0,
+                borderWidth: 0,
+                borderColor: null,
+                minBorderMargin: 5,
+                clickable: true,
+                hoverable: true,
+                autoHighlight: true,
+                mouseActiveRadius: 100
+            },
+            series: {
+                lines: {
+                    show: true,
+                    fill: true,
+                    lineWidth: 2,
+                    steps: false
+                },
+                points: {
+                    show: true,
+                    radius: 4.5,
+                    symbol: "circle",
+                    lineWidth: 3.0
+                }
+            },
+            legend: {
+                position: "ne",
+                margin: [0, -25],
+                noColumns: 0,
+                labelBoxBorderColor: null,
+                labelFormatter: function (label, series) {
+                    // just add some space to labes
+                    return label + '&nbsp;&nbsp;';
+                },
+                width: 40,
+                height: 1
+            },
+            colors: chartColours,
+            shadowSize: 0,
+            tooltip: true, //activate tooltip
+            tooltipOpts: {
+                content: "%s: %y.0",
+                xDateFormat: "%d/%m",
+                shifts: {
+                    x: -30,
+                    y: -50
+                },
+                defaultTheme: false
+            },
+            yaxis: {
+                min: 0
+            },
+            xaxis: {
+
+            }
+        };
+        var plot = $.plot($("#placeholder33x"), [{
+            label: "Sales made",
+            data: d1,
+            lines: {
+                fillColor: "rgba(150, 202, 89, 0.12)"
+            }, //#96CA59 rgba(150, 202, 89, 0.42)
+            points: {
+                fillColor: "#fff"
+            }
+        }], options);
     });
 </script>
 <!-- /flot -->
@@ -305,337 +286,767 @@
 <!-- -->
 <!-- datepicker -->
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
 
-      var cb = function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-      }
-
-      var optionSet1 = {
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment(),
-        minDate: '01/01/2012',
-        maxDate: '12/31/2015',
-        dateLimit: {
-          days: 60
-        },
-        showDropdowns: true,
-        showWeekNumbers: true,
-        timePicker: false,
-        timePickerIncrement: 1,
-        timePicker12Hour: true,
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        opens: 'left',
-        buttonClasses: ['btn btn-default'],
-        applyClass: 'btn-small btn-primary',
-        cancelClass: 'btn-small',
-        format: 'MM/DD/YYYY',
-        separator: ' to ',
-        locale: {
-          applyLabel: 'Submit',
-          cancelLabel: 'Clear',
-          fromLabel: 'From',
-          toLabel: 'To',
-          customRangeLabel: 'Custom',
-          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-          monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          firstDay: 1
+        var cb = function (start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
         }
-      };
-      $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-      $('#reportrange').daterangepicker(optionSet1, cb);
-      $('#reportrange').on('show.daterangepicker', function() {
-        console.log("show event fired");
-      });
-      $('#reportrange').on('hide.daterangepicker', function() {
-        console.log("hide event fired");
-      });
-      $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-        console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-      });
-      $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-        console.log("cancel event fired");
-      });
-      $('#options1').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-      });
-      $('#options2').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-      });
-      $('#destroy').click(function() {
-        $('#reportrange').data('daterangepicker').remove();
-      });
+
+        var optionSet1 = {
+            startDate: moment().subtract(29, 'days'),
+            endDate: moment(),
+            minDate: '01/01/2012',
+            maxDate: '12/31/2015',
+            dateLimit: {
+                days: 60
+            },
+            showDropdowns: true,
+            showWeekNumbers: true,
+            timePicker: false,
+            timePickerIncrement: 1,
+            timePicker12Hour: true,
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            },
+            opens: 'left',
+            buttonClasses: ['btn btn-default'],
+            applyClass: 'btn-small btn-primary',
+            cancelClass: 'btn-small',
+            format: 'MM/DD/YYYY',
+            separator: ' to ',
+            locale: {
+                applyLabel: 'Submit',
+                cancelLabel: 'Clear',
+                fromLabel: 'From',
+                toLabel: 'To',
+                customRangeLabel: 'Custom',
+                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                firstDay: 1
+            }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function () {
+            console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function () {
+            console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+            console.log("cancel event fired");
+        });
+        $('#options1').click(function () {
+            $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function () {
+            $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function () {
+            $('#reportrange').data('daterangepicker').remove();
+        });
     });
 </script>
 <!-- /datepicker -->
 <style>
     body {
-    
-    background-color:#EDEDED;
+        background-color: #EDEDED;
     }
 </style>
-<div class="" style="margin-top:10px">
-    <div class="row top_tiles">
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon">
-                    <i class="fa fa-caret-square-o-right"></i>
-                </div>
-                <div class="count">@ViewData["totaluser"]</div>
-                <h3>Total User</h3>
-                <p>Number of total user</p>
-            </div>
+<div class="col-md-12 col-sm-6 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2><i class="fa fa-bars"></i> Market Plan detail </h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
         </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon">
-                    <i class="fa fa-comments-o"></i>
-                </div>
-                <div class="count">@ViewData["trailInuse"] </div>
-                <h3>Trail in use</h3>
-                <p>LNumber of customer using the trail</p>
-            </div>
-        </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon">
-                    <i class="fa fa-sort-amount-desc"></i>
-                </div>
-                <div class="count">@ViewData["salers"]</div>
-                <h3>Salers</h3>
-                <p>Number of salers</p>
-            </div>
-        </div>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="tile-stats">
-                <div class="icon">
-                    <i class="fa fa-check-square-o"></i>
-                </div>
-                <div class="count">@( Math.Floor(  (double)ViewData["percentage"]))% </div>
-                <h3>Contributed</h3>
-                <p>The percentage this plan contributed to product revenue</p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Revenue  <small>This year</small></h2>
-                    
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div class="col-md-9 col-sm-12 col-xs-12">
-                        <div class="demo-container" style="height:280px">
-                            <div id="placeholder33x" class="demo-placeholder"></div>
-                        </div>
-                        <div class="tiles">
-                           
-                            <div class="col-md-4 tile">
-                                <span>Total Revenue</span>
-                                <h2>@(((double)ViewData["total"]).ToString("N"))</h2>
-                                <span class="sparkline22 graph" style="height: 160px;">
-                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                </span>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div>
-                            <div class="x_title">
-                                <h2>Top Seller</h2>
-                           
-                                <div class="clearfix"></div>
-                            </div>
-                            <ul class="list-unstyled top_profiles scroll-view">
-                               
-                                    @foreach (Product_responsible sale in (List<Product_responsible>)ViewData["topssaler"])
-                                    {
-                                        <li class="media event">
-                                            <a class="pull-left border-aero profile_thumb">
-                                                <i class="fa fa-user aero"></i>
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="title" href="#">@sale.AspNetUser.SaleRepProfiles.FirstOrDefault().FullName</a>
-                                                <p><strong>@( ((double)sale.TotalRevenue).ToString("N")) </strong> Agent Total Sale </p>
-                                            
+        <div class="x_content">
+
+
+            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Home</a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Trial Account</a>
+                    </li>
+                    <li role="presentation" class="">
+                        <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Licenses</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+             
+                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                        <div class="row top_tiles">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Plan detail </h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li>
+                                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="#">Settings 1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Settings 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="x_content">
+                                            <div class="panel widget light-widget panel-bd-top">
+                                                <div class="panel-body">
+
+                                                    <div class="mgtp-20">
+                                                        <table class="table table-striped table-hover">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="width:60%;"><font color="black"> Created Date</font></td>
+                                                                    <td><span>@(((productMarketPlan)ViewData["Plan"]).CreatedDay.ToShortDateString())</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black"> Basic Price</font></td>
+                                                                    <td>@(((productMarketPlan)ViewData["Plan"]).Price)</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black"> Ceil Price</font></td>
+                                                                    <td>@(((productMarketPlan)ViewData["Plan"]).ceilPrice)</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black"> Floor Price</font></td>
+                                                                    <td>@(((productMarketPlan)ViewData["Plan"]).floorprice)</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black">Name</font></td>
+                                                                    <td><font color="black">@(((productMarketPlan)ViewData["Plan"]).Name)</font></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black">Desctiption</font></td>
+                                                                    <td><font color="black">@(((productMarketPlan)ViewData["Plan"]).Description)</font> </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black"> Last Updated </font></td>
+                                                                    <td><font color="black">@(((productMarketPlan)ViewData["Plan"]).lastUpdate)</font> </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><font color="black">  Is Operating </font></td>
+                                                                    @if (((productMarketPlan)ViewData["Plan"]).operating)
+                                                                    {
+                                                                        <td><font class="label label-success" color="black">Active</font> </td>
+
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td><font class="label label-danger" color="black">Deactivated</font> </td>
+
+                                                                    }
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li>
-                                    }
-                           
-          
-                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Plan options </h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li>
+                                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="#">Settings 1</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Settings 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="x_content">
+                                            <table class="table table-striped responsive-utilities jambo_table bulk_action">
+                                                <thead>
+                                                    <tr class="headings">
+                                                        <th class="column-title">Attribute </th>
+                                                        <th class="column-title">Option name </th>
+                                                        <th class="column-title">Code </th>
+                                                        <th class="column-title">Descriptio </th>
+                                                        <th class="column-title">Price </th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                    @foreach (PlanOption opt in ((productMarketPlan)ViewData["Plan"]).PlanOptions.ToList())
+                                                    {
+                                                        <tr class="even pointer">
+                                                            <td>@opt.attributeOption.productAttribute.name</td>
+                                                            <td>@opt.attributeOption.name</td>
+                                                            <td>@opt.attributeOption.code</td>
+                                                            <td>@opt.attributeOption.description</td>
+                                                            <td>@opt.attributeOption.price.ToString("C")</td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+                                    <div class="icon">
+                                        <i class="fa fa-caret-square-o-right"></i>
+                                    </div>
+                                    <div class="count">@ViewData["totaluser"]</div>
+                                    <h3>Total User</h3>
+                                    <p>Number of total user</p>
+                                </div>
+                            </div>
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+                                    <div class="icon">
+                                        <i class="fa fa-comments-o"></i>
+                                    </div>
+                                    <div class="count">@ViewData["trailInuse"] </div>
+                                    <h3>Trail in use</h3>
+                                    <p>LNumber of customer using the trail</p>
+                                </div>
+                            </div>
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+                                    <div class="icon">
+                                        <i class="fa fa-sort-amount-desc"></i>
+                                    </div>
+                                    <div class="count">@ViewData["salers"]</div>
+                                    <h3>Salers</h3>
+                                    <p>Number of salers</p>
+                                </div>
+                            </div>
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <div class="tile-stats">
+                                    <div class="icon">
+                                        <i class="fa fa-check-square-o"></i>
+                                    </div>
+                                    <div class="count">@( Math.Floor((double)ViewData["percentage"]))% </div>
+                                    <h3>Contributed</h3>
+                                    <p>The percentage this plan contributed to product revenue</p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Revenue  <small>This year</small></h2>
+
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="col-md-9 col-sm-12 col-xs-12">
+                                            <div class="demo-container" style="height:280px">
+                                                <div id="placeholder33x" class="demo-placeholder"></div>
+                                            </div>
+                                            <div class="tiles">
+
+                                                <div class="col-md-4 tile">
+                                                    <span>Total Revenue</span>
+                                                    <h2>@(((double)ViewData["total"]).ToString("N"))</h2>
+                                                    <span class="sparkline22 graph" style="height: 160px;">
+                                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                            <div>
+                                                <div class="x_title">
+                                                    <h2>Top Seller</h2>
+
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <ul class="list-unstyled top_profiles scroll-view">
+
+                                                    @foreach (Product_responsible sale in (List<Product_responsible>)ViewData["topssaler"])
+                                                    {
+                                                        <li class="media event">
+                                                            <a class="pull-left border-aero profile_thumb">
+                                                                <i class="fa fa-user aero"></i>
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <a class="title" href="#">@sale.AspNetUser.SaleRepProfiles.FirstOrDefault().FullName</a>
+                                                                <p><strong>@( ((double)sale.TotalRevenue).ToString("N")) </strong> Agent Total Sale </p>
+
+                                                            </div>
+                                                        </li>
+                                                    }
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Available trail account</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <button type="button" data-toggle="modal" data-target="#NewAccountModal" class="btn btn-success">Create New</button>
+                                            </li>
+
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+
+                                        <table id="AvailableTable" class="table table-striped" style="max-height:400px;padding-right:5px">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Username</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
+                                                {
+
+                                                    if (account.Status == 1)
+                                                    {
+                                                        <tr>
+                                                            <th scope="row">@account.AccountID</th>
+                                                            <td>@account.UserName</td>
+
+                                                        </tr>
+                                                    }
+
+                                                }
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Trial account in use <small>Trail taken</small></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+
+                                        <table id="UsingTable" class="table table-striped" style="max-height:400px">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Account</th>
+                                                    <th>User</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
+                                                {
+                                                    if (account.Status == 2)
+                                                    {
+                                                        <tr>
+                                                            <th scope="row">@account.AccountID</th>
+                                                            <td>@account.UserName</td>
+                                                            <td>@account.contact.FirstName @account.contact.MiddleName @account.contact.LastName </td>
+
+                                                        </tr>
+                                                    }
+
+                                                }
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Available License</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <button type="button" data-toggle="modal" data-target="#NewLicenseModal" class="btn btn-success">Create New</button>
+                                        </li>
+
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <table id="LicenseTable" class="table table-striped" style="max-height:400px">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Key</th>
+                                                <th>Type</th>
+                                                <th>Payment Cycle (days)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (License license in (List<License>)ViewData["License"])
+                                            {
+
+                                                <tr>
+                                                    <th scope="row">@license.id</th>
+                                                    <td>@license.LicenseKey</td>
+                                                    <td>@license.licenseType </td>
+                                                    <td>@license.licenseDuration </td>
+                                                </tr>
+
+
+                                            }
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-   
-
-    <div class="row">
-        <div class="col-md-6"  >
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Available trail account</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <button type="button" data-toggle="modal" data-target="#NewAccountModal" class="btn btn-success">Create New</button>
-                        </li>
-                       
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                    <table id="AvailableTable"  class="table table-striped" style="max-height:400px;padding-right:5px">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Username</th>
-                             
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
-                            {
-
-                                if (account.Status == 1)
-                                {
-                                    <tr>
-                                        <th scope="row">@account.AccountID</th>
-                                        <td>@account.UserName</td>
-
-                                    </tr>
-                                }
-
-                            }
-                        
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Trial account in use <small>Trail taken</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                    <table id="UsingTable" class="table table-striped" style="max-height:400px">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Account</th>
-                                <th>User</th>
-                            
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
-                            {
-                                if (account.Status == 2)
-                                {
-                                    <tr>
-                                        <th scope="row">@account.AccountID</th>
-                                        <td>@account.UserName</td>
-                                        <td>@account.contact.FirstName @account.contact.MiddleName @account.contact.LastName </td>
-
-                                    </tr>
-                                }
-
-                            }
-                     
-                            
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Available License</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li>
-                            <button type="button" data-toggle="modal" data-target="#NewLicenseModal" class="btn btn-success">Create New</button>
-                        </li>
-
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-
-                    <table id="LicenseTable" class="table table-striped" style="max-height:400px">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Key</th>
-                                <th>Type</th>
-                                <th>Payment Cycle (days)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (License license in (List<License>)ViewData["License"])
-                            {
-                                
-                                    <tr>
-                                        <th scope="row">@license.id</th>
-                                        <td>@license.LicenseKey</td>
-                                        <td>@license.licenseType </td>
-                                        <td>@license.licenseDuration </td>
-                                    </tr>
-                            
-
-                            }
-
-
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
+@*<div class="" style="margin-top:10px">
+        <div class="row top_tiles">
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-caret-square-o-right"></i>
+                    </div>
+                    <div class="count">@ViewData["totaluser"]</div>
+                    <h3>Total User</h3>
+                    <p>Number of total user</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-comments-o"></i>
+                    </div>
+                    <div class="count">@ViewData["trailInuse"] </div>
+                    <h3>Trail in use</h3>
+                    <p>LNumber of customer using the trail</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-sort-amount-desc"></i>
+                    </div>
+                    <div class="count">@ViewData["salers"]</div>
+                    <h3>Salers</h3>
+                    <p>Number of salers</p>
+                </div>
+            </div>
+            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                    <div class="icon">
+                        <i class="fa fa-check-square-o"></i>
+                    </div>
+                    <div class="count">@( Math.Floor(  (double)ViewData["percentage"]))% </div>
+                    <h3>Contributed</h3>
+                    <p>The percentage this plan contributed to product revenue</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Revenue  <small>This year</small></h2>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-md-9 col-sm-12 col-xs-12">
+                            <div class="demo-container" style="height:280px">
+                                <div id="placeholder33x" class="demo-placeholder"></div>
+                            </div>
+                            <div class="tiles">
+
+                                <div class="col-md-4 tile">
+                                    <span>Total Revenue</span>
+                                    <h2>@(((double)ViewData["total"]).ToString("N"))</h2>
+                                    <span class="sparkline22 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div>
+                                <div class="x_title">
+                                    <h2>Top Seller</h2>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <ul class="list-unstyled top_profiles scroll-view">
+
+                                        @foreach (Product_responsible sale in (List<Product_responsible>)ViewData["topssaler"])
+                                        {
+                                            <li class="media event">
+                                                <a class="pull-left border-aero profile_thumb">
+                                                    <i class="fa fa-user aero"></i>
+                                                </a>
+                                                <div class="media-body">
+                                                    <a class="title" href="#">@sale.AspNetUser.SaleRepProfiles.FirstOrDefault().FullName</a>
+                                                    <p><strong>@( ((double)sale.TotalRevenue).ToString("N")) </strong> Agent Total Sale </p>
+
+                                                </div>
+                                            </li>
+                                        }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6"  >
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Available trail account</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <button type="button" data-toggle="modal" data-target="#NewAccountModal" class="btn btn-success">Create New</button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <table id="AvailableTable"  class="table table-striped" style="max-height:400px;padding-right:5px">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Username</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
+                                {
+
+                                    if (account.Status == 1)
+                                    {
+                                        <tr>
+                                            <th scope="row">@account.AccountID</th>
+                                            <td>@account.UserName</td>
+
+                                        </tr>
+                                    }
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Trial account in use <small>Trail taken</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <table id="UsingTable" class="table table-striped" style="max-height:400px">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Account</th>
+                                    <th>User</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (TrialAccount account in (List<TrialAccount>)ViewData["trialAccount"])
+                                {
+                                    if (account.Status == 2)
+                                    {
+                                        <tr>
+                                            <th scope="row">@account.AccountID</th>
+                                            <td>@account.UserName</td>
+                                            <td>@account.contact.FirstName @account.contact.MiddleName @account.contact.LastName </td>
+
+                                        </tr>
+                                    }
+
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Available License</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <button type="button" data-toggle="modal" data-target="#NewLicenseModal" class="btn btn-success">Create New</button>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <table id="LicenseTable" class="table table-striped" style="max-height:400px">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Key</th>
+                                    <th>Type</th>
+                                    <th>Payment Cycle (days)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (License license in (List<License>)ViewData["License"])
+                                {
+
+                                        <tr>
+                                            <th scope="row">@license.id</th>
+                                            <td>@license.LicenseKey</td>
+                                            <td>@license.licenseType </td>
+                                            <td>@license.licenseDuration </td>
+                                        </tr>
+
+
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
 <div class="modal fade" id="NewAccountModal" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">  New account  </h4>
+                <h4 class="modal-title"> New trial account for plan @(((productMarketPlan)ViewData["Plan"]).Name)  </h4>
             </div>
             <div class="modal-body">
                 <div class="x_content">
                     <br>
                     <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" action="/Product/NewTrialAccount" method="post">
-                        <input type="hidden" name="planID" value="@(((productMarketPlan)ViewData["Plan"]).id)"/>
+                        <input type="hidden" name="planID" value="@(((productMarketPlan)ViewData["Plan"]).id)" />
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                               Email <span class="required">*</span>
+                                Email <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" id="first-name" name="username" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
@@ -646,7 +1057,7 @@
                                 Password <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="password"  name="password" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                                <input type="password" name="password" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
                             </div>
                         </div>
 
@@ -672,7 +1083,7 @@
                         @Html.Raw(ViewBag.Error)
                         <span>Excel File</span><input type="file" name="excelFile" />
                         <br />
-                        <input type="hidden" value="@( ((productMarketPlan)ViewData["Plan"]).id)" name="planID"/>
+                        <input type="hidden" value="@( ((productMarketPlan)ViewData["Plan"]).id)" name="planID" />
                         <input type="submit" class="btn btn-success" value="Import" />
                     }
                 </div>
@@ -688,7 +1099,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">  New account  </h4>
+                <h4 class="modal-title">New licenses for plan: @(((productMarketPlan)ViewData["Plan"]).Name)</h4>
             </div>
             <div class="modal-body">
                 <div class="x_content">
@@ -709,6 +1120,38 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" name="duration" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Link
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="url" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Admin Accoun
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="adminaccount" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Admin passowrd
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="password" name="adminpassword" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+                                Confirm admin passowrd
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="password" name="" id="first-name" required="required" class="form-control col-md-7 col-xs-12" data-parsley-id="7326"><ul class="parsley-errors-list" id="parsley-id-7326"></ul>
                             </div>
                         </div>
                         <div class="form-group">

@@ -281,6 +281,9 @@
           <Property Name="PlanID" Type="int" Nullable="false" />
           <Property Name="SaleRepResponsible" Type="nvarchar" MaxLength="128" />
           <Property Name="LicenseKey" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LinkUse" Type="nvarchar(max)" />
+          <Property Name="AdminAccount" Type="nvarchar" MaxLength="128" />
+          <Property Name="AdminPassword" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <EntityType Name="Notification">
           <Key>
@@ -573,6 +576,13 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="trial_account_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="trialStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TrialAccount">
           <Key>
@@ -1375,6 +1385,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TrialAccount_trial_account_status">
+          <End Role="trial_account_status" Type="Self.trial_account_status" Multiplicity="1" />
+          <End Role="TrialAccount" Type="Self.TrialAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trial_account_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrialAccount">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SSMModelStoreContainer">
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
@@ -1421,6 +1443,7 @@
           <EntitySet Name="TicketFile" EntityType="Self.TicketFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TicketServerity" EntityType="Self.TicketServerity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TicketStatus" EntityType="Self.TicketStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trial_account_status" EntityType="Self.trial_account_status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrialAccount" EntityType="Self.TrialAccount" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_attributeOption_AspNetUsers" Association="Self.FK_attributeOption_AspNetUsers">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1682,6 +1705,10 @@
             <End Role="productMarketPlan" EntitySet="productMarketPlan" />
             <End Role="TrialAccount" EntitySet="TrialAccount" />
           </AssociationSet>
+          <AssociationSet Name="FK_TrialAccount_trial_account_status" Association="Self.FK_TrialAccount_trial_account_status">
+            <End Role="trial_account_status" EntitySet="trial_account_status" />
+            <End Role="TrialAccount" EntitySet="TrialAccount" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1732,6 +1759,7 @@
           <EntitySet Name="TicketFiles" EntityType="SSMModel.TicketFile" />
           <EntitySet Name="TicketServerities" EntityType="SSMModel.TicketServerity" />
           <EntitySet Name="TicketStatus" EntityType="SSMModel.TicketStatu" />
+          <EntitySet Name="trial_account_status" EntityType="SSMModel.trial_account_status" />
           <EntitySet Name="TrialAccounts" EntityType="SSMModel.TrialAccount" />
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="SSMModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -1984,6 +2012,10 @@
           <AssociationSet Name="FK_TicketFile_Ticket" Association="SSMModel.FK_TicketFile_Ticket">
             <End Role="Ticket" EntitySet="Tickets" />
             <End Role="TicketFile" EntitySet="TicketFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrialAccount_trial_account_status" Association="SSMModel.FK_TrialAccount_trial_account_status">
+            <End Role="trial_account_status" EntitySet="trial_account_status" />
+            <End Role="TrialAccount" EntitySet="TrialAccounts" />
           </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="SSMModel.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
@@ -2324,6 +2356,9 @@
           <Property Name="PlanID" Type="Int32" Nullable="false" />
           <Property Name="SaleRepResponsible" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="LicenseKey" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdminAccount" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AdminPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_Licenses_AspNetUsers" FromRole="License" ToRole="AspNetUser" />
           <NavigationProperty Name="customer" Relationship="SSMModel.FK_Licenses_customers" FromRole="License" ToRole="customer" />
           <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_Licenses_productMarketPlan" FromRole="License" ToRole="productMarketPlan" />
@@ -2677,6 +2712,14 @@
           <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tickets" Relationship="SSMModel.FK_Ticket_TicketStatus" FromRole="TicketStatu" ToRole="Ticket" />
         </EntityType>
+        <EntityType Name="trial_account_status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="trialStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TrialAccounts" Relationship="SSMModel.FK_TrialAccount_trial_account_status" FromRole="trial_account_status" ToRole="TrialAccount" />
+        </EntityType>
         <EntityType Name="TrialAccount">
           <Key>
             <PropertyRef Name="AccountID" />
@@ -2691,6 +2734,7 @@
           <Property Name="enddate" Type="DateTime" Precision="0" />
           <NavigationProperty Name="contact" Relationship="SSMModel.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contact" />
           <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
+          <NavigationProperty Name="trial_account_status" Relationship="SSMModel.FK_TrialAccount_trial_account_status" FromRole="TrialAccount" ToRole="trial_account_status" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -3452,6 +3496,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TrialAccount_trial_account_status">
+          <End Type="SSMModel.trial_account_status" Role="trial_account_status" Multiplicity="1" />
+          <End Type="SSMModel.TrialAccount" Role="TrialAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trial_account_status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrialAccount">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="AspNetUserRoles">
           <End Type="SSMModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
@@ -3738,6 +3794,9 @@
           <EntitySetMapping Name="Licenses">
             <EntityTypeMapping TypeName="SSMModel.License">
               <MappingFragment StoreEntitySet="Licenses">
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+                <ScalarProperty Name="LinkUse" ColumnName="LinkUse" />
                 <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
                 <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
                 <ScalarProperty Name="PlanID" ColumnName="PlanID" />
@@ -4061,6 +4120,14 @@
             <EntityTypeMapping TypeName="SSMModel.TicketStatu">
               <MappingFragment StoreEntitySet="TicketStatus">
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trial_account_status">
+            <EntityTypeMapping TypeName="SSMModel.trial_account_status">
+              <MappingFragment StoreEntitySet="trial_account_status">
+                <ScalarProperty Name="trialStatus" ColumnName="trialStatus" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

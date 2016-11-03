@@ -277,6 +277,9 @@
     <EntitySetMapping Name="Licenses">
       <EntityTypeMapping TypeName="SSMModel.License">
         <MappingFragment StoreEntitySet="Licenses">
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+          <ScalarProperty Name="LinkUse" ColumnName="LinkUse" />
           <ScalarProperty Name="LicenseKey" ColumnName="LicenseKey" />
           <ScalarProperty Name="SaleRepResponsible" ColumnName="SaleRepResponsible" />
           <ScalarProperty Name="PlanID" ColumnName="PlanID" />

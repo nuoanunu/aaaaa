@@ -69,6 +69,7 @@ namespace SSM.Models
         public virtual DbSet<TicketFile> TicketFiles { get; set; }
         public virtual DbSet<TicketServerity> TicketServerities { get; set; }
         public virtual DbSet<TicketStatu> TicketStatus { get; set; }
+        public virtual DbSet<trial_account_status> trial_account_status { get; set; }
         public virtual DbSet<TrialAccount> TrialAccounts { get; set; }
     }
 }

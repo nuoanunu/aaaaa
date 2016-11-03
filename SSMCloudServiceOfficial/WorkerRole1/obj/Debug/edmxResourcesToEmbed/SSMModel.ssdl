@@ -276,6 +276,9 @@
     <Property Name="PlanID" Type="int" Nullable="false" />
     <Property Name="SaleRepResponsible" Type="nvarchar" MaxLength="128" />
     <Property Name="LicenseKey" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LinkUse" Type="nvarchar(max)" />
+    <Property Name="AdminAccount" Type="nvarchar" MaxLength="128" />
+    <Property Name="AdminPassword" Type="nvarchar" MaxLength="128" />
   </EntityType>
   <EntityType Name="Notification">
     <Key>

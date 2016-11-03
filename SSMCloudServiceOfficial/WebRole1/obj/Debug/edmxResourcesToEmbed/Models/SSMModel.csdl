@@ -9,9 +9,11 @@
     <EntitySet Name="Calendars" EntityType="SSMModel.Calendar" />
     <EntitySet Name="companies" EntityType="SSMModel.company" />
     <EntitySet Name="company_responsible" EntityType="SSMModel.company_responsible" />
+    <EntitySet Name="ConfigureSys" EntityType="SSMModel.ConfigureSy" />
     <EntitySet Name="contact_resposible" EntityType="SSMModel.contact_resposible" />
     <EntitySet Name="contacts" EntityType="SSMModel.contact" />
     <EntitySet Name="Customer_Request" EntityType="SSMModel.Customer_Request" />
+    <EntitySet Name="customer_salerep_responsible" EntityType="SSMModel.customer_salerep_responsible" />
     <EntitySet Name="customers" EntityType="SSMModel.customer" />
     <EntitySet Name="Deals" EntityType="SSMModel.Deal" />
     <EntitySet Name="Deal_Item" EntityType="SSMModel.Deal_Item" />
@@ -21,7 +23,7 @@
     <EntitySet Name="EMAIL_Category" EntityType="SSMModel.EMAIL_Category" />
     <EntitySet Name="Email_Template" EntityType="SSMModel.Email_Template" />
     <EntitySet Name="Licenses" EntityType="SSMModel.License" />
-    <EntitySet Name="ManagerNotifications" EntityType="SSMModel.ManagerNotification" />
+    <EntitySet Name="Notifications" EntityType="SSMModel.Notification" />
     <EntitySet Name="OrderItems" EntityType="SSMModel.OrderItem" />
     <EntitySet Name="orders" EntityType="SSMModel.order" />
     <EntitySet Name="Payments" EntityType="SSMModel.Payment" />
@@ -32,6 +34,7 @@
     <EntitySet Name="Product_responsible" EntityType="SSMModel.Product_responsible" />
     <EntitySet Name="productAttributes" EntityType="SSMModel.productAttribute" />
     <EntitySet Name="productMarketPlans" EntityType="SSMModel.productMarketPlan" />
+    <EntitySet Name="SaleRepCommisions" EntityType="SSMModel.SaleRepCommision" />
     <EntitySet Name="SaleRepProfiles" EntityType="SSMModel.SaleRepProfile" />
     <EntitySet Name="softwareProducts" EntityType="SSMModel.softwareProduct" />
     <EntitySet Name="TaskStatus" EntityType="SSMModel.TaskStatu" />
@@ -63,6 +66,14 @@
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="contact_resposible" EntitySet="contact_resposible" />
     </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers" Association="SSMModel.FK_customer_salerep_responsible_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_salerep_responsible_AspNetUsers1" Association="SSMModel.FK_customer_salerep_responsible_AspNetUsers1">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="customer_salerep_responsible" EntitySet="customer_salerep_responsible" />
+    </AssociationSet>
     <AssociationSet Name="FK_customers_AspNetUsers" Association="SSMModel.FK_customers_AspNetUsers">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="customer" EntitySet="customers" />
@@ -71,17 +82,25 @@
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Deal_SaleRep_Respon" EntitySet="Deal_SaleRep_Respon" />
     </AssociationSet>
+    <AssociationSet Name="FK_Licenses_AspNetUsers" Association="SSMModel.FK_Licenses_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="License" EntitySet="Licenses" />
+    </AssociationSet>
     <AssociationSet Name="FK_MasterSchedule_User_AspNetUsers" Association="SSMModel.FK_MasterSchedule_User_AspNetUsers">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Calendar" EntitySet="Calendars" />
     </AssociationSet>
-    <AssociationSet Name="FK_OrderItems_AspNetUsers" Association="SSMModel.FK_OrderItems_AspNetUsers">
+    <AssociationSet Name="FK_Notification_AspNetUsers" Association="SSMModel.FK_Notification_AspNetUsers">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
-      <End Role="OrderItem" EntitySet="OrderItems" />
+      <End Role="Notification" EntitySet="Notifications" />
     </AssociationSet>
     <AssociationSet Name="FK_Product_responsible_AspNetUsers" Association="SSMModel.FK_Product_responsible_AspNetUsers">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
       <End Role="Product_responsible" EntitySet="Product_responsible" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SaleRepCommision_AspNetUsers" Association="SSMModel.FK_SaleRepCommision_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="SaleRepCommision" EntitySet="SaleRepCommisions" />
     </AssociationSet>
     <AssociationSet Name="FK_SaleRepProfile_AspNetUsers" Association="SSMModel.FK_SaleRepProfile_AspNetUsers">
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -143,10 +162,6 @@
       <End Role="softwareProduct" EntitySet="softwareProducts" />
       <End Role="Customer_Request" EntitySet="Customer_Request" />
     </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Customer_Request" Association="SSMModel.FK_ManagerNotification_Customer_Request">
-      <End Role="Customer_Request" EntitySet="Customer_Request" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotifications" />
-    </AssociationSet>
     <AssociationSet Name="FK_Licenses_customers" Association="SSMModel.FK_Licenses_customers">
       <End Role="customer" EntitySet="customers" />
       <End Role="License" EntitySet="Licenses" />
@@ -167,6 +182,10 @@
       <End Role="Deal" EntitySet="Deals" />
       <End Role="Deal_Item" EntitySet="Deal_Item" />
     </AssociationSet>
+    <AssociationSet Name="FK_Deal_PrePurchase_FollowUp_Plan" Association="SSMModel.FK_Deal_PrePurchase_FollowUp_Plan">
+      <End Role="PrePurchase_FollowUp_Plan" EntitySet="PrePurchase_FollowUp_Plan" />
+      <End Role="Deal" EntitySet="Deals" />
+    </AssociationSet>
     <AssociationSet Name="FK_Deal_SaleRep_Respon_Deal" Association="SSMModel.FK_Deal_SaleRep_Respon_Deal">
       <End Role="Deal" EntitySet="Deals" />
       <End Role="Deal_SaleRep_Respon" EntitySet="Deal_SaleRep_Respon" />
@@ -175,9 +194,9 @@
       <End Role="softwareProduct" EntitySet="softwareProducts" />
       <End Role="Deal" EntitySet="Deals" />
     </AssociationSet>
-    <AssociationSet Name="FK_ManagerNotification_Deal" Association="SSMModel.FK_ManagerNotification_Deal">
+    <AssociationSet Name="FK_orders_Deal" Association="SSMModel.FK_orders_Deal">
       <End Role="Deal" EntitySet="Deals" />
-      <End Role="ManagerNotification" EntitySet="ManagerNotifications" />
+      <End Role="order" EntitySet="orders" />
     </AssociationSet>
     <AssociationSet Name="FK_Tasks_Deal" Association="SSMModel.FK_Tasks_Deal">
       <End Role="Deal" EntitySet="Deals" />
@@ -198,6 +217,10 @@
     <AssociationSet Name="FK_Email_Template_EMAIL_Category" Association="SSMModel.FK_Email_Template_EMAIL_Category">
       <End Role="EMAIL_Category" EntitySet="EMAIL_Category" />
       <End Role="Email_Template" EntitySet="Email_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Licenses_productMarketPlan" Association="SSMModel.FK_Licenses_productMarketPlan">
+      <End Role="productMarketPlan" EntitySet="productMarketPlans" />
+      <End Role="License" EntitySet="Licenses" />
     </AssociationSet>
     <AssociationSet Name="FK_OrderItems_Licenses" Association="SSMModel.FK_OrderItems_Licenses">
       <End Role="License" EntitySet="Licenses" />
@@ -330,11 +353,15 @@
     <NavigationProperty Name="attributeOptions" Relationship="SSMModel.FK_attributeOption_AspNetUsers" FromRole="AspNetUser" ToRole="attributeOption" />
     <NavigationProperty Name="company_responsible" Relationship="SSMModel.FK_company_responsible_AspNetUsers" FromRole="AspNetUser" ToRole="company_responsible" />
     <NavigationProperty Name="contact_resposible" Relationship="SSMModel.FK_contact_resposible_AspNetUsers" FromRole="AspNetUser" ToRole="contact_resposible" />
+    <NavigationProperty Name="customer_salerep_responsible" Relationship="SSMModel.FK_customer_salerep_responsible_AspNetUsers" FromRole="AspNetUser" ToRole="customer_salerep_responsible" />
+    <NavigationProperty Name="customer_salerep_responsible1" Relationship="SSMModel.FK_customer_salerep_responsible_AspNetUsers1" FromRole="AspNetUser" ToRole="customer_salerep_responsible" />
     <NavigationProperty Name="customers" Relationship="SSMModel.FK_customers_AspNetUsers" FromRole="AspNetUser" ToRole="customer" />
     <NavigationProperty Name="Deal_SaleRep_Respon" Relationship="SSMModel.FK_Deal_SaleRep_Respon_AspNetUsers" FromRole="AspNetUser" ToRole="Deal_SaleRep_Respon" />
+    <NavigationProperty Name="Licenses" Relationship="SSMModel.FK_Licenses_AspNetUsers" FromRole="AspNetUser" ToRole="License" />
     <NavigationProperty Name="Calendars" Relationship="SSMModel.FK_MasterSchedule_User_AspNetUsers" FromRole="AspNetUser" ToRole="Calendar" />
-    <NavigationProperty Name="OrderItems" Relationship="SSMModel.FK_OrderItems_AspNetUsers" FromRole="AspNetUser" ToRole="OrderItem" />
+    <NavigationProperty Name="Notifications" Relationship="SSMModel.FK_Notification_AspNetUsers" FromRole="AspNetUser" ToRole="Notification" />
     <NavigationProperty Name="Product_responsible" Relationship="SSMModel.FK_Product_responsible_AspNetUsers" FromRole="AspNetUser" ToRole="Product_responsible" />
+    <NavigationProperty Name="SaleRepCommisions" Relationship="SSMModel.FK_SaleRepCommision_AspNetUsers" FromRole="AspNetUser" ToRole="SaleRepCommision" />
     <NavigationProperty Name="SaleRepProfiles" Relationship="SSMModel.FK_SaleRepProfile_AspNetUsers" FromRole="AspNetUser" ToRole="SaleRepProfile" />
     <NavigationProperty Name="Tickets" Relationship="SSMModel.FK_Ticket_AspNetUsers" FromRole="AspNetUser" ToRole="Ticket" />
     <NavigationProperty Name="Tickets1" Relationship="SSMModel.FK_Ticket_AspNetUsers1" FromRole="AspNetUser" ToRole="Ticket" />
@@ -399,6 +426,14 @@
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_company_responsible_AspNetUsers" FromRole="company_responsible" ToRole="AspNetUser" />
     <NavigationProperty Name="company" Relationship="SSMModel.FK_company_responsible_companies" FromRole="company_responsible" ToRole="company" />
   </EntityType>
+  <EntityType Name="ConfigureSy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="value" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="contact_resposible">
     <Key>
       <PropertyRef Name="id" />
@@ -406,6 +441,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="contactID" Type="Int32" Nullable="false" />
     <Property Name="userID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="createdDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_contact_resposible_AspNetUsers" FromRole="contact_resposible" ToRole="AspNetUser" />
     <NavigationProperty Name="contact" Relationship="SSMModel.FK_contact_resposible_contacts" FromRole="contact_resposible" ToRole="contact" />
   </EntityType>
@@ -454,7 +490,16 @@
     <NavigationProperty Name="Deal" Relationship="SSMModel.FK_Customer_Request_Deal" FromRole="Customer_Request" ToRole="Deal" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_Customer_Request_productMarketPlan" FromRole="Customer_Request" ToRole="productMarketPlan" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_Customer_Request_softwareProduct" FromRole="Customer_Request" ToRole="softwareProduct" />
-    <NavigationProperty Name="ManagerNotifications" Relationship="SSMModel.FK_ManagerNotification_Customer_Request" FromRole="Customer_Request" ToRole="ManagerNotification" />
+  </EntityType>
+  <EntityType Name="customer_salerep_responsible">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="salerepID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="customerID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_customer_salerep_responsible_AspNetUsers" FromRole="customer_salerep_responsible" ToRole="AspNetUser" />
+    <NavigationProperty Name="AspNetUser1" Relationship="SSMModel.FK_customer_salerep_responsible_AspNetUsers1" FromRole="customer_salerep_responsible" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="customer">
     <Key>
@@ -477,7 +522,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Stage" Type="Int32" Nullable="false" />
     <Property Name="Value" Type="Double" />
@@ -494,9 +539,10 @@
     <NavigationProperty Name="Customer_Request" Relationship="SSMModel.FK_Customer_Request_Deal" FromRole="Deal" ToRole="Customer_Request" />
     <NavigationProperty Name="DealStatu" Relationship="SSMModel.FK_Deal_DealStatus" FromRole="Deal" ToRole="DealStatu" />
     <NavigationProperty Name="Deal_Item" Relationship="SSMModel.FK_Deal_Item_Deal" FromRole="Deal" ToRole="Deal_Item" />
+    <NavigationProperty Name="PrePurchase_FollowUp_Plan" Relationship="SSMModel.FK_Deal_PrePurchase_FollowUp_Plan" FromRole="Deal" ToRole="PrePurchase_FollowUp_Plan" />
     <NavigationProperty Name="Deal_SaleRep_Respon" Relationship="SSMModel.FK_Deal_SaleRep_Respon_Deal" FromRole="Deal" ToRole="Deal_SaleRep_Respon" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_Deal_softwareProduct" FromRole="Deal" ToRole="softwareProduct" />
-    <NavigationProperty Name="ManagerNotifications" Relationship="SSMModel.FK_ManagerNotification_Deal" FromRole="Deal" ToRole="ManagerNotification" />
+    <NavigationProperty Name="orders" Relationship="SSMModel.FK_orders_Deal" FromRole="Deal" ToRole="order" />
     <NavigationProperty Name="DealTasks" Relationship="SSMModel.FK_Tasks_Deal" FromRole="Deal" ToRole="DealTask" />
   </EntityType>
   <EntityType Name="Deal_Item">
@@ -538,7 +584,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TaskName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="TaskDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Deadline" Type="DateTime" Precision="3" />
@@ -588,10 +634,18 @@
     <Property Name="customerID" Type="Int32" />
     <Property Name="nextTransactionDate" Type="DateTime" Precision="0" />
     <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="PlanID" Type="Int32" Nullable="false" />
+    <Property Name="SaleRepResponsible" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="LicenseKey" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdminAccount" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_Licenses_AspNetUsers" FromRole="License" ToRole="AspNetUser" />
     <NavigationProperty Name="customer" Relationship="SSMModel.FK_Licenses_customers" FromRole="License" ToRole="customer" />
+    <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_Licenses_productMarketPlan" FromRole="License" ToRole="productMarketPlan" />
     <NavigationProperty Name="OrderItems" Relationship="SSMModel.FK_OrderItems_Licenses" FromRole="License" ToRole="OrderItem" />
   </EntityType>
-  <EntityType Name="ManagerNotification">
+  <EntityType Name="Notification">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -599,10 +653,10 @@
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="NotiContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="viewed" Type="Boolean" Nullable="false" />
-    <Property Name="dealID" Type="Int32" />
-    <Property Name="requestID" Type="Int32" />
-    <NavigationProperty Name="Customer_Request" Relationship="SSMModel.FK_ManagerNotification_Customer_Request" FromRole="ManagerNotification" ToRole="Customer_Request" />
-    <NavigationProperty Name="Deal" Relationship="SSMModel.FK_ManagerNotification_Deal" FromRole="ManagerNotification" ToRole="Deal" />
+    <Property Name="hreflink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotiName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="userID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_Notification_AspNetUsers" FromRole="Notification" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="OrderItem">
     <Key>
@@ -612,9 +666,7 @@
     <Property Name="orderID" Type="Int32" Nullable="false" />
     <Property Name="planID" Type="Int32" Nullable="false" />
     <Property Name="SoldPrice" Type="Double" Nullable="false" />
-    <Property Name="SaleRepBenefit" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="LicenseID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_OrderItems_AspNetUsers" FromRole="OrderItem" ToRole="AspNetUser" />
     <NavigationProperty Name="License" Relationship="SSMModel.FK_OrderItems_Licenses" FromRole="OrderItem" ToRole="License" />
     <NavigationProperty Name="order" Relationship="SSMModel.FK_MarketPlanPurchased_orders" FromRole="OrderItem" ToRole="order" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_MarketPlanPurchased_productMarketPlan" FromRole="OrderItem" ToRole="productMarketPlan" />
@@ -634,7 +686,9 @@
     <Property Name="status" Type="Int32" Nullable="false" />
     <Property Name="completedDate" Type="DateTime" Precision="0" />
     <Property Name="Contract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fromDeal" Type="Int32" />
     <NavigationProperty Name="customer" Relationship="SSMModel.FK_orders_customers" FromRole="order" ToRole="customer" />
+    <NavigationProperty Name="Deal" Relationship="SSMModel.FK_orders_Deal" FromRole="order" ToRole="Deal" />
     <NavigationProperty Name="OrderItems" Relationship="SSMModel.FK_MarketPlanPurchased_orders" FromRole="order" ToRole="OrderItem" />
     <NavigationProperty Name="Payments" Relationship="SSMModel.FK_Payment_orders" FromRole="order" ToRole="Payment" />
   </EntityType>
@@ -705,6 +759,7 @@
     <Property Name="fullDuration" Type="Double" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="isOperation" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Deals" Relationship="SSMModel.FK_Deal_PrePurchase_FollowUp_Plan" FromRole="PrePurchase_FollowUp_Plan" ToRole="Deal" />
     <NavigationProperty Name="Plan_Step" Relationship="SSMModel.FK_Plan_Step_PrePurchase_FollowUp_Plan" FromRole="PrePurchase_FollowUp_Plan" ToRole="Plan_Step" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_PrePurchase_FollowUp_Plan_softwareProduct" FromRole="PrePurchase_FollowUp_Plan" ToRole="softwareProduct" />
   </EntityType>
@@ -720,6 +775,9 @@
     <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
     <Property Name="TotalRevenue" Type="Double" />
+    <Property Name="monthlyCommision" Type="Double" />
+    <Property Name="AvarageDealSize" Type="Double" />
+    <Property Name="KPIforthisProduct" Type="Double" />
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_Product_responsible_AspNetUsers" FromRole="Product_responsible" ToRole="AspNetUser" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_Product_responsible_softwareProduct" FromRole="Product_responsible" ToRole="softwareProduct" />
   </EntityType>
@@ -754,10 +812,25 @@
     <Property Name="operating" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Customer_Request" Relationship="SSMModel.FK_Customer_Request_productMarketPlan" FromRole="productMarketPlan" ToRole="Customer_Request" />
     <NavigationProperty Name="Deal_Item" Relationship="SSMModel.FK_Deal_Item_productMarketPlan" FromRole="productMarketPlan" ToRole="Deal_Item" />
+    <NavigationProperty Name="Licenses" Relationship="SSMModel.FK_Licenses_productMarketPlan" FromRole="productMarketPlan" ToRole="License" />
     <NavigationProperty Name="OrderItems" Relationship="SSMModel.FK_MarketPlanPurchased_productMarketPlan" FromRole="productMarketPlan" ToRole="OrderItem" />
     <NavigationProperty Name="PlanOptions" Relationship="SSMModel.FK_PlanOptions_productMarketPlan" FromRole="productMarketPlan" ToRole="PlanOption" />
     <NavigationProperty Name="softwareProduct" Relationship="SSMModel.FK_orderItems_softwareProduct" FromRole="productMarketPlan" ToRole="softwareProduct" />
     <NavigationProperty Name="TrialAccounts" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="productMarketPlan" ToRole="TrialAccount" />
+  </EntityType>
+  <EntityType Name="SaleRepCommision">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleRepID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Paid" Type="Double" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoneyFromSubcription" Type="Double" />
+    <Property Name="MoneyFromNewContract" Type="Double" />
+    <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_SaleRepCommision_AspNetUsers" FromRole="SaleRepCommision" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="SaleRepProfile">
     <Key>
@@ -801,11 +874,11 @@
     <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
     <Property Name="VolumeOfSales" Type="Double" />
-    <Property Name="newContactmade" Type="Int32" />
-    <Property Name="winrate" Type="Double" />
-    <Property Name="avarageDealsize" Type="Double" />
-    <Property Name="SaleCycle" Type="Double" />
-    <Property Name="avarageActivitiesPerdeal" Type="Double" />
+    <Property Name="newContactmade" Type="Int32" Nullable="false" />
+    <Property Name="winrate" Type="Double" Nullable="false" />
+    <Property Name="SaleCycle" Type="Double" Nullable="false" />
+    <Property Name="avarageActivitiesPerdeal" Type="Double" Nullable="false" />
+    <Property Name="AvarageKPI" Type="Double" Nullable="false" />
     <NavigationProperty Name="AspNetUser" Relationship="SSMModel.FK_SaleRepProfile_AspNetUsers" FromRole="SaleRepProfile" ToRole="AspNetUser" />
   </EntityType>
   <EntityType Name="softwareProduct">
@@ -930,6 +1003,8 @@
     <Property Name="PlanID" Type="Int32" Nullable="false" />
     <Property Name="Status" Type="Int32" Nullable="false" />
     <Property Name="contactID" Type="Int32" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="contact" Relationship="SSMModel.FK_TrialAccount_contacts" FromRole="TrialAccount" ToRole="contact" />
     <NavigationProperty Name="productMarketPlan" Relationship="SSMModel.FK_TrialAccount_productMarketPlan" FromRole="TrialAccount" ToRole="productMarketPlan" />
   </EntityType>
@@ -997,6 +1072,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers">
+    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="SSMModel.customer_salerep_responsible" Role="customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="salerepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_salerep_responsible_AspNetUsers1">
+    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="SSMModel.customer_salerep_responsible" Role="customer_salerep_responsible" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="customer_salerep_responsible">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_customers_AspNetUsers">
     <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
     <End Type="SSMModel.customer" Role="customer" Multiplicity="*" />
@@ -1021,6 +1120,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Licenses_AspNetUsers">
+    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="SSMModel.License" Role="License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="SaleRepResponsible" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MasterSchedule_User_AspNetUsers">
     <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
     <End Type="SSMModel.Calendar" Role="Calendar" Multiplicity="*" />
@@ -1033,15 +1144,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OrderItems_AspNetUsers">
-    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
-    <End Type="SSMModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+  <Association Name="FK_Notification_AspNetUsers">
+    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+    <End Type="SSMModel.Notification" Role="Notification" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AspNetUser">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="OrderItem">
-        <PropertyRef Name="SaleRepBenefit" />
+      <Dependent Role="Notification">
+        <PropertyRef Name="userID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1054,6 +1165,18 @@
       </Principal>
       <Dependent Role="Product_responsible">
         <PropertyRef Name="saleRepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SaleRepCommision_AspNetUsers">
+    <End Type="SSMModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="SSMModel.SaleRepCommision" Role="SaleRepCommision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SaleRepCommision">
+        <PropertyRef Name="SaleRepID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1237,18 +1360,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ManagerNotification_Customer_Request">
-    <End Type="SSMModel.Customer_Request" Role="Customer_Request" Multiplicity="0..1" />
-    <End Type="SSMModel.ManagerNotification" Role="ManagerNotification" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer_Request">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="requestID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Licenses_customers">
     <End Type="SSMModel.customer" Role="customer" Multiplicity="0..1" />
     <End Type="SSMModel.License" Role="License" Multiplicity="*" />
@@ -1309,6 +1420,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Deal_PrePurchase_FollowUp_Plan">
+    <End Type="SSMModel.PrePurchase_FollowUp_Plan" Role="PrePurchase_FollowUp_Plan" Multiplicity="1" />
+    <End Type="SSMModel.Deal" Role="Deal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrePurchase_FollowUp_Plan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Deal">
+        <PropertyRef Name="CurrentPlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Deal_SaleRep_Respon_Deal">
     <End Type="SSMModel.Deal" Role="Deal" Multiplicity="1" />
     <End Type="SSMModel.Deal_SaleRep_Respon" Role="Deal_SaleRep_Respon" Multiplicity="*" />
@@ -1333,15 +1456,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ManagerNotification_Deal">
+  <Association Name="FK_orders_Deal">
     <End Type="SSMModel.Deal" Role="Deal" Multiplicity="0..1" />
-    <End Type="SSMModel.ManagerNotification" Role="ManagerNotification" Multiplicity="*" />
+    <End Type="SSMModel.order" Role="order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Deal">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="ManagerNotification">
-        <PropertyRef Name="dealID" />
+      <Dependent Role="order">
+        <PropertyRef Name="fromDeal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1402,6 +1525,18 @@
       </Principal>
       <Dependent Role="Email_Template">
         <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Licenses_productMarketPlan">
+    <End Type="SSMModel.productMarketPlan" Role="productMarketPlan" Multiplicity="1" />
+    <End Type="SSMModel.License" Role="License" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productMarketPlan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="License">
+        <PropertyRef Name="PlanID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

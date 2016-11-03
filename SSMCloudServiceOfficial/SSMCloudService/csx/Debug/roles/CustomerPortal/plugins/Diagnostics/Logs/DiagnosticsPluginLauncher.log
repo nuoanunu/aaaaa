@@ -1,17 +1,17 @@
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Emulator config file set to C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] DiagnosticsStoreRootPath set to: C:\Users\Nguyen Nhat\AppData\Local\dftmp\Resources\4e2e34cb-d4a1-455f-9fa4-963049d9aa3e
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Loading config file: C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Config file to read: C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Checking VM Type
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Emulator config file set to C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Extension set to Emulator Mode
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Reading XML configuration file
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Bypassing private config decryption
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:53] Stopping the running plugin, if any
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:54] No DiagnosticsPlugin is running.
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:54] Killing any DiagnosticsPlugin that might remain.
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:54] Killing any MonAgentHost that might remain.
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:54] Diagnostics plugin stopped successfully
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:46:54] Resetting DiagnosticPlugin
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:48:04] DiagnosticsPlugin launched successfully with new configuration
-DiagnosticsPluginLauncher.exe Information: 0 : [11/01/2016 03:48:04] DiagnosticPlugin exited with code 0
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] At least one other instance of the launcher is running. Will wait until they all finish
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Service running in Emulator Mode, will not wait/kill other instances of the launcher
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] DiagnosticsStoreRootPath set to: C:\Users\NhatVHN\AppData\Local\dftmp\Resources\b3231101-d74b-4cd9-936e-62fe60bc2afe
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Loading config file: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Config file to read: D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Checking VM Type
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Emulator config file set to D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal\approot\diagnostics.wadcfgx
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Extension set to Emulator Mode
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Reading XML configuration file
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Bypassing private config decryption
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Stopping the running plugin, if any
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] No DiagnosticsPlugin is running.
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:35 PM] Killing any DiagnosticsPlugin that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:36 PM] Killing any MonAgentHost that might remain.
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:36 PM] Diagnostics plugin stopped successfully
+DiagnosticsPluginLauncher.exe Information: 0 : [11/2/2016 2:55:36 PM] Resetting DiagnosticPlugin
