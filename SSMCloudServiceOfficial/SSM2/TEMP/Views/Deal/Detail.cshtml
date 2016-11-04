@@ -877,7 +877,7 @@
                                 <ul class="list-unstyled timeline">
                                     @foreach (DealTask task in thisDeal.DealTasks.ToList().OrderByDescending(x => x.Deadline))
                                     {
-                                        if (task.Deadline < DateTime.Today && task.status != 1 && task.type != 7 && task.type != 8)
+                                        if (task.Deadline < DateTime.Now && task.type != 7 && task.type != 8)
                                         {
                                             <li>
                                                 <div class="block">

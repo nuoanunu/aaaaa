@@ -518,8 +518,8 @@
                                     </button>
 
                                     <br />
-                                    <input disabled type="text" id="fromdate" value="10/03/2016" />
-                                    <input disabled type="text" id="todate" value="10/08/2016" />
+                                    <input disabled type="text" id="fromdate" value="@DateTime.Now.AddDays( 1-(int)DateTime.Now.DayOfWeek).ToShortDateString()" />
+                                    <input disabled type="text" id="todate" value="@DateTime.Now.AddDays( 5-(int)DateTime.Now.DayOfWeek).ToShortDateString()" />
                                 </div>
 
                                 </br>
@@ -551,11 +551,13 @@
                                                             <button id="@(i * 6 + j)" onclick="savetheday(@hours, @minutes,@(i * 6 + j) , @j )" class="mybtn btn btn-primary" style="width:100px;margin:3px 3px 3px 3px">@hours:@minutes</button>
                                                         </td>
                                                     }
+
                                                     else
                                                     {
+                                                        bool avail = true;
                                                         foreach (Calendar cal in (List<Calendar>)ViewData["unavailabledate"])
                                                         {
-                                                            bool avail = true;
+
                                                             if ((int)cal.startTime.DayOfWeek == j)
                                                             {
                                                                 if (cal.startTime.TimeOfDay < meetingend && cal.endTime.TimeOfDay > meetingstart)
@@ -564,18 +566,19 @@
                                                                 }
 
                                                             }
-                                                            if (avail)
-                                                            {
+
+                                                        }
+                                                        if (avail)
+                                                        {
                                                             <td>
-                                                                <button id="@(i * 6 + j)" onclick="savetheday(@hours, @minutes,@(i * 6 + j) , @j )" class="mybtn btn btn-primary" style="width:100px;margin:3px 3px 3px 3px">@hours:@minutes</button>
+                                                            <button id = "@(i * 6 + j)" onclick = "savetheday(@hours, @minutes,@(i * 6 + j) , @j )" class="mybtn btn btn-primary" style="width:100px;margin:3px 3px 3px 3px">@hours:@minutes</button>
                                                             </td>
-                                                            }
-                                                            else
-                                                            {
+                                                        }
+                                                        else
+                                                        {
                                                             <td style="background-color:slategray" align="center">
                                                                 @hours:@minutes
                                                             </td>
-                                                            }
                                                         }
                                                     }
                                                 }

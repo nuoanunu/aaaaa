@@ -379,59 +379,63 @@
                         </div>
                     </div>
                 </section>
-
-                <section>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="heading">
-                                <h3>Available Plan</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-
-                    <div class="row packages">
-                        @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["PlanList"])
-                        {
-                            <div class="col-md-3">
-                                <div class="package ">
-                                    <div class="package-header">
-                                        <h5>@plan.Name</h5>
-                                    </div>
-                                    <div class="price">
-                                        <div class="price-container">
-                                            <h4><span class="currency">$</span>7</h4>
-                                            <span class="period">
-
-                                                / month
-
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        @foreach (PlanOption opt in plan.PlanOptions )
-                                        {
-
-                                           <li>
-                                            <i class="fa fa-check"></i>@opt.attributeOption.name
-                                           </li>
-                                        }
-
-
-                                    </ul>
-                                    <a href="/Home/newRequest?planid=@(plan.id)" class="btn btn-template-main">
-
-                                        Schedule Demo
-                                    </a>
+                @foreach (softwareProduct product in (List<softwareProduct>)ViewData["ProductList"])
+                {
+                    <section>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="heading">
+                                    <h3>@product.name </h3>
                                 </div>
                             </div>
-                        }
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row packages">
+                            @foreach (productMarketPlan plan in (List<productMarketPlan>)ViewData["PlanList"])
+                            {
+                                if (plan.productID == product.id)
+                                {
+                                    <div class="col-md-3">
+                                        <div class="package ">
+                                            <div class="package-header">
+                                                <h5>@plan.Name</h5>
+                                            </div>
+                                            <div class="price">
+                                                <div class="price-container">
+                                                    <h4><span class="currency">$</span>7</h4>
+                                                    <span class="period">
+
+                                                        / month
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <ul>
+                                                @foreach (PlanOption opt in plan.PlanOptions)
+                                                {
+
+                                                    <li>
+                                                        <i class="fa fa-check"></i>@opt.attributeOption.name
+                                                    </li>
+                                                }
 
 
-                    </div>
+                                            </ul>
+                                            <a href="/Home/newRequest?planid=@(plan.id)" class="btn btn-template-main">
 
-                </section>
+                                                Schedule Demo
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            }
 
+
+                        </div>
+
+                    </section>
+                }
 
 
             </div>

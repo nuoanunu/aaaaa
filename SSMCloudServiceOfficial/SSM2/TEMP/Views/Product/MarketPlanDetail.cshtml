@@ -723,8 +723,13 @@
                                                         <tr>
                                                             <th scope="row">@account.AccountID</th>
                                                             <td>@account.UserName</td>
+                                                            @if (account.contact != null)
+                                                            {
                                                             <td>@account.contact.FirstName @account.contact.MiddleName @account.contact.LastName </td>
-
+                                                            }
+                                                            else {
+                                                                <td></td>
+                                                            }
                                                         </tr>
                                                     }
 

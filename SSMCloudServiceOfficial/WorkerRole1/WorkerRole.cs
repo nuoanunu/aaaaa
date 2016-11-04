@@ -169,10 +169,10 @@ namespace WorkerRole1
                 foreach (DealTask task in lst)
                 {
 
-                    EmailHandler.SendMail(task);
+                    EmailHandler.SendMail(task, se1);
                     task.status = 2;
-                    if (!task.TaskContent.Equals("ReplyEmail"))
-                        task.Deal.Stage = task.Deal.Stage + 1;
+                    if (task.type==8)
+                        task.Deal.Stage = int.Parse(task.TaskContent);
                     se1.SaveChanges();
                 }
                 Thread.Sleep(6000);
@@ -388,7 +388,7 @@ namespace WorkerRole1
             if (salereplst.Count() > 0)
             {
 
-                salereplst = salereplst.OrderBy(o => o.KPIforthisProduct).ToList();
+                salereplst = salereplst.OrderByDescending(o => o.KPIforthisProduct).ToList();
                 Tuple<DateTime, DateTime> tuple = requestDemoDate.First();
                 DateTime start = tuple.Item1;
                 DateTime end = tuple.Item2;
@@ -398,6 +398,7 @@ namespace WorkerRole1
                 System.Diagnostics.Debug.WriteLine("tuple  " + tuple.Item1 + "  end" + tuple.Item2);
                 foreach (Product_responsible pr in salereplst)
                 {
+                    System.Diagnostics.Debug.WriteLine("xet thang nay " +pr.AspNetUser.Email);
                     AspNetUser salerep = pr.AspNetUser;
                     bool take = true;
                     foreach (Calendar cal in salerep.Calendars)
@@ -406,6 +407,7 @@ namespace WorkerRole1
                         if ((int)cal.startTime.DayOfWeek == (int)tuple.Item1.DayOfWeek)
                         {
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
+                            System.Diagnostics.Debug.WriteLine("day of week int " + (int)cal.startTime.DayOfWeek);
                             System.Diagnostics.Debug.WriteLine("cal.endTime.TimeOfDay  " + cal.startTime.TimeOfDay);
                             System.Diagnostics.Debug.WriteLine("day of week  " + cal.startTime.DayOfWeek);
                             if (cal.startTime.TimeOfDay < end.TimeOfDay && cal.endTime.TimeOfDay > start.TimeOfDay)

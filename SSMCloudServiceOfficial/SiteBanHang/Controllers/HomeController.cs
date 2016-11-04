@@ -31,6 +31,8 @@ namespace SiteBanHang.Controllers
             SSMEntities se = new SSMEntities();
 
             List<productMarketPlan> lst = se.productMarketPlans.SqlQuery("SELECT * FROM productMarketPlan WHERE operating =1").ToList();
+            List<softwareProduct> lst2 = se.softwareProducts.ToList();
+            ViewData["ProductList"] = lst2;
             ViewData["PlanList"] = lst;
             return View("MarketPlan");
         }

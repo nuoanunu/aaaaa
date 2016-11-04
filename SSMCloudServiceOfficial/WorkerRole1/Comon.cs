@@ -21,8 +21,8 @@ namespace WorkerRole1
         public static string STRING_LINK = "";
         public static string USER_NAME = "";
         public static string PASSWORD = "";
-        public Constant() {
-            SSMEntities se = new SSMEntities();
+        public Constant(SSMEntities se) {
+   
             STRING_FIRSTNAME = se.ConfigureSys.Find(3).value;
             STRING_PRODUCTNAME = se.ConfigureSys.Find(4).value;
             STRING_DATE = se.ConfigureSys.Find(5).value;
@@ -35,8 +35,8 @@ namespace WorkerRole1
             USER_NAME = se.ConfigureSys.Find(13).value;
             PASSWORD = se.ConfigureSys.Find(14).value;
         }
-        public static List<string> AllConstant = new List<string> { STRING_FIRSTNAME, STRING_PRODUCTNAME };
-        public static string replaceMailContent(DealTask task)
+        public  List<string> AllConstant = new List<string> { STRING_FIRSTNAME, STRING_PRODUCTNAME };
+        public  string replaceMailContent(DealTask task)
         {
             String result = task.TaskDescription;
             while (result.Contains(STRING_FIRSTNAME))
@@ -49,11 +49,11 @@ namespace WorkerRole1
             }
             while (result.Contains(STRING_DATE))
             {
-
+                System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAAAA ");
                 DealTask meeting = task.Deal.DealTasks.Where(u=> u.type == 4).FirstOrDefault();
-
+                System.Diagnostics.Debug.WriteLine("AAAAAAAAAAAAAAAAA "+ meeting.Deadline.ToString());
                 result = result.Replace(STRING_DATE, meeting.Deadline.ToString());
-
+                System.Diagnostics.Debug.WriteLine("BBBBBBBBBB " + result);
             }
 
             if (result.Contains(USER_NAME))
