@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class RequestController : Controller
     {
         // GET: Request

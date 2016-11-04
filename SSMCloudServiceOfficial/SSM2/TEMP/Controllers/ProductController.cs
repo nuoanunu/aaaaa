@@ -15,6 +15,7 @@ using System.Data.Entity;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         productRepository pr;

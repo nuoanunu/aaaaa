@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -75,7 +76,7 @@ namespace SSM.Controllers
                 {
                     mynoti no = new mynoti();
                     no.title = noti.NotiName.Trim();
-                    no.created = noti.CreateDate.ToShortTimeString().Trim();
+                    no.created = noti.CreateDate.Day +"/"+ noti.CreateDate.Month + " " +noti.CreateDate.ToShortTimeString().Trim();
                     no.id = noti.id + "";
                     no.des = noti.NotiContent.Trim();
                     resultlist.Add(no);

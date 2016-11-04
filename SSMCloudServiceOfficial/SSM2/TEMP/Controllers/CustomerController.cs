@@ -9,6 +9,7 @@ using SSM.Models.Repository;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class CustomerController : Controller
     {
         // GET: Customer

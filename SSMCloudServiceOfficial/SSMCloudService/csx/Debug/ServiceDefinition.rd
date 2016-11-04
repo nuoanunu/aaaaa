@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SSMCloudService" generation="1" functional="0" release="0" Id="b6d1464a-f4df-4a76-840e-f0994abc090f" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SSMCloudService" generation="1" functional="0" release="0" Id="023fabd7-fbd9-4682-b0ea-865a0c334033" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="SSMCloudServiceGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -122,7 +122,7 @@
       </maps>
       <components>
         <groupHascomponents>
-          <role name="CustomerPortal" generation="1" functional="0" release="0" software="C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
+          <role name="CustomerPortal" generation="1" functional="0" release="0" software="D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\CustomerPortal" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="80" />
             </componentports>
@@ -142,7 +142,7 @@
           </sCSPolicy>
         </groupHascomponents>
         <groupHascomponents>
-          <role name="EmailWorker" generation="1" functional="0" release="0" software="C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="-1" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
+          <role name="EmailWorker" generation="1" functional="0" release="0" software="D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\EmailWorker" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaWorkerHost.exe " memIndex="-1" hostingEnvironment="consoleroleadmin" hostingEnvironmentVersion="2">
             <settings>
               <aCS name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" defaultValue="" />
               <aCS name="__ModelData" defaultValue="&lt;m role=&quot;EmailWorker&quot; xmlns=&quot;urn:azure:m:v1&quot;&gt;&lt;r name=&quot;CustomerPortal&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;EmailWorker&quot; /&gt;&lt;r name=&quot;SiteBanHang&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;r name=&quot;SSM&quot;&gt;&lt;e name=&quot;Endpoint1&quot; /&gt;&lt;/r&gt;&lt;/m&gt;" />
@@ -159,7 +159,7 @@
           </sCSPolicy>
         </groupHascomponents>
         <groupHascomponents>
-          <role name="SiteBanHang" generation="1" functional="0" release="0" software="C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\SiteBanHang" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
+          <role name="SiteBanHang" generation="1" functional="0" release="0" software="D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\SiteBanHang" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="8081" />
             </componentports>
@@ -179,7 +179,7 @@
           </sCSPolicy>
         </groupHascomponents>
         <groupHascomponents>
-          <role name="SSM" generation="1" functional="0" release="0" software="C:\Users\Nguyen Nhat\Desktop\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\SSM" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
+          <role name="SSM" generation="1" functional="0" release="0" software="D:\aaaaa\SSMCloudServiceOfficial\SSMCloudService\csx\Debug\roles\SSM" entryPoint="base\x64\WaHostBootstrapper.exe" parameters="base\x64\WaIISHost.exe " memIndex="-1" hostingEnvironment="frontendadmin" hostingEnvironmentVersion="2">
             <componentports>
               <inPort name="Endpoint1" protocol="http" portRanges="8080" />
             </componentports>
@@ -216,19 +216,19 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="6ab0ff99-3f62-46a8-a2a8-ff2855ffac59" ref="Microsoft.RedDog.Contract\ServiceContract\SSMCloudServiceContract@ServiceDefinition">
+    <implementation Id="a7b369fd-f7c7-48e5-a288-de293ff040b2" ref="Microsoft.RedDog.Contract\ServiceContract\SSMCloudServiceContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="aa0868d3-9a46-4a2a-8e11-39478d08361c" ref="Microsoft.RedDog.Contract\Interface\CustomerPortal:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="a34ac78c-ca0d-4f8a-9f67-79a8d17aa5fc" ref="Microsoft.RedDog.Contract\Interface\CustomerPortal:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/CustomerPortal:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="555a56b7-56e7-4c9e-82f2-5453a6d0e45f" ref="Microsoft.RedDog.Contract\Interface\SiteBanHang:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="39af8cc7-0839-4500-b72c-21e1d6467aa3" ref="Microsoft.RedDog.Contract\Interface\SiteBanHang:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/SiteBanHang:Endpoint1" />
           </inPort>
         </interfaceReference>
-        <interfaceReference Id="b718f4ab-1f8a-4e09-9190-00a2f0e729bf" ref="Microsoft.RedDog.Contract\Interface\SSM:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="0edeb881-08f8-4ff4-95fb-343ee48949fd" ref="Microsoft.RedDog.Contract\Interface\SSM:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/SSMCloudService/SSMCloudServiceGroup/SSM:Endpoint1" />
           </inPort>

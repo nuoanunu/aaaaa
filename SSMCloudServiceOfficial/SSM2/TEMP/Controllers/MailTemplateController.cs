@@ -10,6 +10,7 @@ using SSM.ViewModels;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class MailTemplateController : Controller
     {
         EmailCategoryRepository cateRepo;

@@ -9,6 +9,7 @@ using SSM.Models.TempModel;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class ContactController : Controller
     {
         contactRepository pr;

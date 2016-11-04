@@ -16,6 +16,7 @@ using System.Web.Script.Serialization;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private ApplicationUserManager _userManager;
@@ -49,9 +50,28 @@ namespace SSM.Controllers
             }
             return RedirectToAction("Login", "Account");
         }
-        public ActionResult SaleRepList() {
+      
+        public ActionResult SaleRepList(char? ln)
+        {
+
             SSMEntities se = new SSMEntities();
-            ViewData["ProfileList"] = se.SaleRepProfiles.ToList();
+            if (ln != null)
+            {
+               List<SaleRepProfile> lst = se.SaleRepProfiles.OrderByDescending(u=>u.AvarageKPI).ToList();
+                List<SaleRepProfile> result = new List<SaleRepProfile>();
+                foreach (SaleRepProfile srp in lst) {
+                    if (srp.FullName.IndexOf((char)ln) == 0) {
+                        result.Add(srp);
+                    }
+                }
+                ViewData["ProfileList"] = result;
+
+            }
+            else
+            {
+                ViewData["ProfileList"] = se.SaleRepProfiles.OrderByDescending(u => u.AvarageKPI).ToList();
+
+            }
             return View("SaleRepList");
         }
         public ActionResult Detail(int id)

@@ -5,7 +5,8 @@
 <style>
     div#progressBar {
         width: 100%;
-        height: 100px;
+        height: 30px;
+        padding:0;
     }
 
     body {
@@ -205,14 +206,13 @@
         {
 
 
-            <div style="background:white;height:250px;" class="row">
+            <div style="background:white;height:150px;" class="row">
                 <div style="margin-top:20px" class="col-sm-8">
                     <h1 style="font-size:30px;color:#595959">@thisDeal.Name</h1>
                     <div>
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <span>@thisDeal.contact.FirstName</span>
-                        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                        <span class="sr-only"></span>
+                        <span>Customer: </span>
+                        <span>@thisDeal.contact.FirstName @thisDeal.contact.LastName </span>
+       
                     </div>
 
                 </div>
@@ -709,7 +709,7 @@
                                                         <div class="block">
                                                             <div class="tags">
                                                                 <a href="" class="tag">
-                                                                    <span>@task.TaskType.typeName</span>
+                                                                    <span>@task.TaskType.typeName No.@task.TaskContent</span>
                                                                 </a>
                                                             </div>
                                                             <div class="block_content">
@@ -1123,7 +1123,7 @@
                                                                             @item.Quantity
                                                                         </td>
                                                                         <td>
-                                                                            <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                                                          
                                                                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                                                                         </td>
                                                                     </tr>

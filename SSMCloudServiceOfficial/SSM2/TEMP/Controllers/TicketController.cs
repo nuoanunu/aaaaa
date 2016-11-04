@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SSM.Controllers
 {
+    [Authorize]
     public class TicketController : Controller
     {
         // GET: Ticket
